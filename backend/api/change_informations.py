@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request
 from core.connection import get_db
 from core.security import hash_password
+from core.security import verify_password
 import mysql.connector
 import re
 
@@ -51,6 +52,37 @@ async def edit_user(request: Request):
         connection.commit()
 
         return {"message": "Informações atualizadas com sucesso"}
+
+    except mysql.connector.Error as e:
+        raise HTTPException(status_code=500, detail=f"Erro no banco: {e}")
+    finally:
+        cursor.close()
+        connection.close()
+        
+@router.put("/delete_user")
+async def delete_user(request: Request):
+    data = await request.json()
+    
+    user_id = data.get("id")
+    password = data.get("password") 
+    
+    if not all([user_id, password]):
+        raise HTTPException(status_code=400, detail="ID e senha são obrigatórios.")
+    
+    connection = get_db()
+    cursor = connection.cursor(dictionary=True)
+
+    try:
+        cursor.execute("SELECT password_hash FROM users WHERE id = %s", (user_id,))
+        result = cursor.fetchone()
+        
+        if not result or not verify_password(password, result["password_hash"]):
+            raise HTTPException(status_code=400, detail="A Senha está incorreta, tente novamente")
+
+        cursor.execute("DELETE FROM users WHERE id = %s", (user_id,))
+        connection.commit()
+
+        return {"message": "Usuário deletado com sucesso."}
 
     except mysql.connector.Error as e:
         raise HTTPException(status_code=500, detail=f"Erro no banco: {e}")
