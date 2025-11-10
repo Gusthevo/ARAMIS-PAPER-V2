@@ -1,6 +1,20 @@
 import streamlit as st
 from utils.api_client import api_client
-from utils.session_state import login_user, check_backend_status
+from utils.session_state import login_user, check_backend_status, init_session_state, is_authenticated
+
+# Inicializa o session state
+init_session_state()
+
+# Se já estiver logado, redireciona para o app principal
+if is_authenticated():
+    st.switch_page("app.py")
+
+st.set_page_config(
+    page_title="ARAMIS - Login",
+    page_icon="images/logo-aramis-cropped.png",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 def show_login_page():
     """Exibe a tela de login"""
@@ -20,7 +34,7 @@ def show_login_page():
         username = st.text_input("👤 Usuário", placeholder="Digite seu username")
         password = st.text_input("🔒 Senha", type="password", placeholder="Digite sua senha")
         
-        col1, col2 = st.columns([1, 3])
+        col1, col2 = st.columns([4, 4])
         with col1:
             login_button = st.form_submit_button("🚀 Entrar", use_container_width=True)
         with col2:
@@ -35,26 +49,34 @@ def show_login_page():
                     
                     if response and response.status_code == 200:
                         data = response.json()
-                        login_user(data["user"]["username"], data["user"]["id"])
+                        
+                        # 🔥 CORREÇÃO: Pega o token da resposta
+                        auth_token = data.get("access_token") or data.get("token")
+                        
+                        # 🔥 CORREÇÃO: Chama login_user com token
+                        login_user(
+                            username=data["user"]["username"], 
+                            user_id=data["user"]["id"],
+                            auth_token=auth_token
+                        )
                         st.success(f"✅ Bem-vindo, {data['user']['username']}!")
-                        st.switch_page("app.py")  # ← Vai para app principal
-                        st.rerun() 
+                        st.switch_page("app.py")
                     else:
-                        error_msg = "Erro de conexão"
+                        error_msg = "Verifique suas credenciais e tente novamente"
                         if response:
-                            error_msg = response.json().get("detail", "Credenciais inválidas")
+                            try:
+                                error_data = response.json()
+                                error_msg = error_data.get("detail", "Credenciais inválidas")
+                            except:
+                                error_msg = "Erro de conexão com o servidor"
                         st.error(f"❌ {error_msg}")
         
         if register_button:
-            st.switch_page("pages/signup_page.py")  # ← Vai para cadastro
-            st.rerun()
+            st.switch_page("pages/signup_page.py")
     
     # Link para recuperação de senha (futuro)
     st.markdown("---")
     st.caption("Esqueceu sua senha? Entre em contato com o administrador.")
-    
-def main():
-    show_login_page()
 
 if __name__ == "__main__":
-    main()
+    show_login_page()

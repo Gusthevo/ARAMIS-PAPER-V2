@@ -1,8 +1,20 @@
-# CORREÇÃO: Remova esta linha - está causando conflito
-# from ast import main
 import streamlit as st
 from utils.api_client import api_client
-from utils.session_state import check_backend_status
+from utils.session_state import check_backend_status, init_session_state, is_authenticated
+
+# Inicializa o session state
+init_session_state()
+
+# Se já estiver logado, redireciona para o app principal
+if is_authenticated():
+    st.switch_page("app.py")
+
+st.set_page_config(
+    page_title="ARAMIS - Sign Up",
+    page_icon="images/logo-aramis-cropped.png",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 def show_register_page():
     """Exibe a tela de cadastro"""
@@ -27,14 +39,14 @@ def show_register_page():
         
         col1, col2 = st.columns(2)
         with col1:
-            password = st.text_input("🔒 Senha*", type="password", placeholder="Mínimo 6 caracteres, 1 número e 1 caractere especial")
+            password = st.text_input("🔒 Senha*", type="password", placeholder="Mínimo 6 caracteres")
         with col2:
             confirm_password = st.text_input("🔒 Confirmar Senha*", type="password", placeholder="Digite novamente")
         
         # Termos de uso
-        accept_terms = st.checkbox("Aceito os termos de uso e política de privacidade")
+        accept_terms = st.checkbox("Verifique se todas as informações foram inseridas corretamente.")
         
-        col1, col2 = st.columns([1, 3])
+        col1, col2 = st.columns([4, 4])
         with col1:
             register_button = st.form_submit_button("✅ Criar conta", use_container_width=True)
         with col2:
@@ -53,21 +65,22 @@ def show_register_page():
                 with st.spinner("Criando sua conta..."):
                     response = api_client.register(username, email, password)
                     
-                    if response and response.status_code == 200:
+                    # 🔥 CORREÇÃO: Verifica ambos os status codes comuns
+                    if response and response.status_code in [200, 201]:
                         st.success("✅ Conta criada com sucesso! Faça login.")
-                        st.switch_page("pages/login_page.py")  # ← Vai para login
+                        st.switch_page("pages/login_page.py")
                     else:
                         error_msg = "Erro de conexão, tente novamente"
                         if response:
-                            error_msg = response.json().get("detail", "Erro ao criar conta")
+                            try:
+                                error_data = response.json()
+                                error_msg = error_data.get("detail", "Erro ao criar conta")
+                            except:
+                                error_msg = f"Erro {response.status_code}"
                         st.error(f"❌ {error_msg}")
         
         if back_button:
-            st.switch_page("pages/login_page.py")  # ← Vai para login
-
-# ✅ CORREÇÃO: Fora da função show_register_page, sem indentação
-def main():
-    show_register_page()
+            st.switch_page("pages/login_page.py")
 
 if __name__ == "__main__":
-    main()
+    show_register_page()
