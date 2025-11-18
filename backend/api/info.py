@@ -43,9 +43,7 @@ async def about():
             "ai_components": ["LLMs", "NLP", "Marker PDF"]
         },
         "target_audience": [
-            "Estudantes de graduação e pós-graduação",
-            "Professores e orientadores", 
-            "Instituições de ensino",
+            "Estudantes de graduação",
             "Pesquisadores"
         ],
         "statistics": {

@@ -4,6 +4,8 @@ from core.security import hash_password, verify_password
 from core.sessions import create_session, delete_session 
 import mysql.connector
 import re
+from core.sessions import get_session
+
 
 router = APIRouter()
 
@@ -95,8 +97,9 @@ async def login_user(request: Request, response: Response):
             "user": {
                 "id": user['id'],
                 "username": user['username'],
-                "email": user['email']
-            }
+                "email": user['email'],
+            },
+            "session_token": session_token
         }
         
     except mysql.connector.Error as e:
@@ -138,3 +141,47 @@ async def logout_user(request: Request, response: Response):
     
     response.delete_cookie("session_token")
     return {"message": "Logout realizado"}
+
+@router.get("/me")
+async def get_logged_user(request: Request):
+    session_token = request.cookies.get("session_token")
+    if not session_token:
+        raise HTTPException(status_code=401, detail="Usuário não está logado")
+
+    session = get_session(session_token)
+    if not session:
+        raise HTTPException(status_code=401, detail="Sessão inválida ou expirada")
+
+    return {
+        "id": session["user_id"],
+        "username": session["username"]
+    }
+    
+@router.get("/validate-session")
+async def validate_session(request: Request):
+    # 🔥 PRIMEIRO TENTA PEGAR DO COOKIE (que é como você está usando)
+    session_token = request.cookies.get("session_token")
+    
+    # 🔥 SE NÃO ENCONTRAR NO COOKIE, TENTA NO HEADER
+    if not session_token:
+        auth_header = request.headers.get("Authorization")
+        if auth_header and auth_header.startswith("Bearer "):
+            session_token = auth_header.replace("Bearer ", "")
+    
+    if not session_token:
+        print("❌ NENHUM TOKEN ENCONTRADO nem no cookie nem no header!")
+        raise HTTPException(status_code=401, detail="Token não fornecido")
+    
+    print(f"✅ Token encontrado: {session_token}")
+    
+    # Use a função get_session que você já tem
+    session = get_session(session_token)
+    if not session:
+        raise HTTPException(status_code=401, detail="Sessão inválida ou expirada")
+    
+    return {
+        "valid": True, 
+        "user_id": session["user_id"], 
+        "username": session["username"],
+        "expires_at": session["expires_at"].isoformat()
+    }
