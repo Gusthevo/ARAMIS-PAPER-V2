@@ -42,6 +42,8 @@ CREATE TABLE IF NOT EXISTS agent_configs (
     config JSON
 );
 
+
+
 -- Inserir configurações padrão dos agentes
 INSERT IGNORE INTO agent_configs (agent_name, is_active) VALUES 
 ('grammar', TRUE),
