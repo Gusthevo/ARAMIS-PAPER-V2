@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from api import info, change_informations, auth, analysis
 
 app = FastAPI(
@@ -7,11 +8,25 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# 🔥 CONFIGURAÇÃO CORS COMPLETA PARA CONTAINERS DIFERENTES
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:8501",      # Frontend local
+        "http://127.0.0.1:8501",      # Frontend local alternativo  
+        "http://frontend:8501",       # Frontend no container Docker
+        "http://localhost:3000",      # Caso tenha outro frontend
+    ],
+    allow_credentials=True,           # 🔥 IMPORTANTE para cookies/sessões
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],              # Permite todos os headers
+)
+
 # Inclua as rotas
 app.include_router(auth.router, prefix="/api/auth")
 app.include_router(change_informations.router, prefix="/api/change")
-app.include_router(info.router, prefix= "/api/info")  
-app.include_router(analysis.router, prefix= "/api/analysis")
+app.include_router(info.router, prefix="/api/info")  
+app.include_router(analysis.router, prefix="/api/analysis")
 
 @app.get("/")
 async def root():
@@ -23,7 +38,7 @@ async def root():
             "about": "/about",
             "health": "/health",
             "auth": "/api/auth",
-            "change_informations": "/api/change_informations"
+            "change_informations": "/api/change"
         }
     }
 
@@ -33,6 +48,16 @@ async def health_check():
         "status": "healthy",
         "service": "ARAMIS Backend", 
         "timestamp": "2024-01-15T10:30:00Z"
+    }
+
+@app.get("/about")
+async def about():
+    return {
+        "platform": {
+            "name": "ARAMIS",
+            "description": "Sistema Inteligente de Correção de TCCs",
+            "version": "1.0.0"
+        }
     }
 
 if __name__ == "__main__":
