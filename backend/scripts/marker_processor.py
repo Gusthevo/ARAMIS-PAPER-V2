@@ -1,318 +1,339 @@
+#!/usr/bin/env python3
+# tcc_single_to_md_marker_newapi.py
+"""
+Processa um único PDF -> Markdown + JSON + imagens usando a API atualizada do Marker:
+PdfConverter, create_model_dict, text_from_rendered.
+"""
+
+import sys
 import os
 import json
-import pandas as pd
-from pathlib import Path
-from typing import List, Dict, Optional
-from marker import convert_single_pdf
-from marker.models import load_all_models
-from marker.schema import Page, Block, Line, Span
+import re
 import logging
-from dataclasses import dataclass
+import argparse
+from pathlib import Path
 from datetime import datetime
+from typing import List, Dict, Optional
+from time import perf_counter
+from token_counter_gpt import count_gpt_tokens
 
-@dataclass
-class TCCSegment:
-    section_type: str
-    content: str
-    page_start: int
-    page_end: int
-    confidence: float
-    metadata: Dict
-
-class MarkerTCCProcessor:
-    def __init__(self, model_cache_dir: str = "./model_cache"):
-        self.model_cache_dir = Path(model_cache_dir)
-        self.model_cache_dir.mkdir(exist_ok=True)
-        
-        # Carrega modelos do Marker
-        self.model = load_all_models(cache_dir=self.model_cache_dir)
-        self.logger = self._setup_logging()
-    
-    def _setup_logging(self):
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(message)s'
+# ---------- Tentativa de importar a API nova do marker ----------
+try:
+    from marker.converters import PdfConverter
+    from marker.models import create_model_dict
+    from marker.output import text_from_rendered
+    MARKER_API = "new"
+except Exception as e:
+    # fallback para APIs antigas (se por acaso estiver instalada)
+    try:
+        from marker.convert import convert_single_pdf  # type: ignore
+        from marker.models import load_all_models  # type: ignore
+        MARKER_API = "legacy"
+    except Exception:
+        raise ImportError(
+            "Não foi possível importar a API do Marker (nem a nova nem a legacy).\n"
+            f"Erro: {e}\n\n"
+            "Instale marker-pdf ou o repositório oficial:\n"
+            "  python -m pip install marker-pdf\n"
+            "ou\n"
+            "  python -m pip install git+https://github.com/datalab-to/marker.git\n"
         )
-        return logging.getLogger(__name__)
-    
-    def process_pdf(self, pdf_path: Path, **kwargs) -> Dict:
-        """
-        Processa um único PDF usando Marker
-        """
-        try:
-            self.logger.info(f"Processando: {pdf_path.name}")
-            
-            # Configurações do Marker
-            marker_config = {
-                "model": self.model,
-                "max_pages": kwargs.get('max_pages', None),
-                "start_page": kwargs.get('start_page', 1),
-                "langs": ['pt']  # Português como idioma principal
-            }
-            
-            # Converte o PDF
-            full_text, images, out_meta = convert_single_pdf(str(pdf_path), **marker_config)
-            
-            return {
-                "success": True,
-                "filename": pdf_path.name,
-                "full_text": full_text,
-                "images": len(images),
-                "metadata": out_meta,
-                "pages_processed": len(out_meta.get("pages", [])),
-                "processing_time": datetime.now().isoformat()
-            }
-            
-        except Exception as e:
-            self.logger.error(f"Erro ao processar {pdf_path}: {str(e)}")
-            return {
-                "success": False,
-                "filename": pdf_path.name,
-                "error": str(e)
-            }
-    
-    def extract_sections(self, full_text: str, metadata: Dict) -> List[TCCSegment]:
-        """
-        Extrai seções acadêmicas do texto usando heurísticas e regex
-        """
-        sections = []
-        
-        # Padrões para identificar seções (em português)
-        section_patterns = {
-            "capa": r"(?:UNIVERSIDADE|FACULDADE|INSTITUTO)[\s\S]{1,200}?(?=\n\n|\n[A-Z])",
-            "resumo": r"RESUMO[\s\S]*?(?=ABSTRACT|INTRODUÇÃO|\n\n[A-Z]{3,})",
-            "abstract": r"ABSTRACT[\s\S]*?(?=INTRODUÇÃO|\n\n[A-Z]{3,})",
-            "introducao":r"INTRODUÇÃO[\s\S]*?(?=\d\s|REVISÃO|METODOLOGIA|OBJETIVO GERAL|OBJETIVOS ESPECÍFICOS|JUSTIFICATIVA|DECLARAÇÃO DO PROBLEMA|PROBLEMA DE PESQUISA|QUESTÃO DE PESQUISA|\n\n\d)",
-            "revisao_literatura": r"(?:REVISÃO DA LITERATURA|REVISÃO BIBLIOGRÁFICA|REVISÃO)[\s\S]*?(?=2\s|3\s|METODOLOGIA)",
-            "metodologia": r"(?:METODOLOGIA|PROCEDIMENTO METODOLÓGICO|PROPOSTA)[\s\S]*?(?=3\s|4\s|RESULTADOS|ANÁLISE|DISCUSSÃO|CONCLUSÃO)",
-            "resultados": r"RESULTADOS[\s\S]*?(?=4\s|5\s|DISCUSSÃO|CONCLUSÃO)",
-            "discussao": r"DISCUSSÃO[\s\S]*?(?=5\s|CONCLUSÃO|CONSIDERAÇÕES)",
-            "conclusao": r"CONCLUSÃO[\s\S]*?(?=REFERÊNCIAS|BIBLIOGRAFIA|ANEXOS)",
-            "referencias": r"(?:REFERÊNCIAS|BIBLIOGRAFIA)[\s\S]*?(?=ANEXOS|APÊNDICES|$)"
-        }
-        
-        for section_type, pattern in section_patterns.items():
-            import re
-            match = re.search(pattern, full_text, re.IGNORECASE | re.MULTILINE)
-            if match:
-                content = match.group().strip()
-                # Estima páginas baseado na posição no texto
-                page_start = self._estimate_page(full_text, match.start())
-                page_end = self._estimate_page(full_text, match.end())
-                
-                sections.append(TCCSegment(
-                    section_type=section_type,
-                    content=content,
-                    page_start=page_start,
-                    page_end=page_end,
-                    confidence=0.9,  # Marker fornece confiança por bloco
-                    metadata={
-                        "char_range": (match.start(), match.end()),
-                        "word_count": len(content.split()),
-                        "pattern_used": pattern
-                    }
-                ))
-        
-        return sections
-    
-    def analyze_text_quality(self, text: str) -> Dict:
-        """
-        Analisa a qualidade do texto extraído
-        """
-        words = text.split()
-        sentences = text.split('.')
-        
-        metrics = {
-            "total_words": len(words),
-            "total_sentences": len(sentences),
-            "avg_sentence_length": len(words) / max(1, len(sentences)),
-            "avg_word_length": sum(len(word) for word in words) / max(1, len(words)),
-            "academic_word_ratio": self._calculate_academic_word_ratio(text),
-            "readability_score": self._estimate_readability(text)
-        }
-        
-        return metrics
-    
-    def _estimate_page(self, text: str, char_position: int, chars_per_page: int = 2500) -> int:
-        """Estima o número da página baseado na posição do caractere"""
-        return max(1, char_position // chars_per_page + 1)
-    
-    def _calculate_academic_word_ratio(self, text: str) -> float:
-        """Calcula a proporção de palavras acadêmicas"""
-        academic_words = {
-            'portanto', 'contudo', 'entretanto', 'todavia', 'ademais',
-            'consequentemente', 'posteriormente', 'anteriormente',
-            'metodologia', 'resultados', 'discussão', 'conclusão',
-            'hipótese', 'premissa', 'pressuposto', 'paradigma',
-            'análise', 'síntese', 'fundamentação', 'embasamento'
-        }
-        words = text.lower().split()
-        if not words:
-            return 0
-        
-        academic_count = sum(1 for word in words if word in academic_words)
-        return academic_count / len(words)
-    
-    def _estimate_readability(self, text: str) -> str:
-        """Estima a legibilidade do texto"""
-        words = text.split()
-        avg_sentence_len = len(words) / max(1, text.count('.') + text.count('!') + text.count('?'))
-        
-        if avg_sentence_len > 25:
-            return "complexo"
-        elif avg_sentence_len > 15:
-            return "moderado"
+
+# ---------- Logger ----------
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger("tcc_single_to_md_marker_newapi")
+
+# ---------- Helpers (mesmos do script anterior, adaptados) ----------
+def normalize_text_from_rendered(rendered):
+    """
+    Normaliza a saída de text_from_rendered(rendered) para dict com full_text, images, metadata.
+    text_from_rendered geralmente retorna (text, meta, images) ou similar.
+    """
+    try:
+        # text_from_rendered pode retornar (text, out_meta, images)
+        if isinstance(rendered, tuple) or isinstance(rendered, list):
+            if len(rendered) == 3:
+                text, meta, images = rendered
+            elif len(rendered) == 2:
+                text, second = rendered
+                # tentar distinguir dict/meta ou lista/images
+                if isinstance(second, dict):
+                    meta = second
+                    images = []
+                else:
+                    images = second
+                    meta = {}
+            else:
+                text = rendered[0] if rendered else ""
+                meta = {}
+                images = []
         else:
-            return "simples"
+            # se receberam apenas texto
+            text = str(rendered)
+            meta = {}
+            images = []
+    except Exception:
+        text = ""
+        meta = {}
+        images = []
+    return {"full_text": text or "", "metadata": meta or {}, "images": images or []}
 
-class BatchTCCProcessor:
-    """
-    Processador em lote para múltiplos TCCs
-    """
-    def __init__(self, input_dir: str, output_dir: str):
-        self.input_dir = Path(input_dir)
-        self.output_dir = Path(output_dir)
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.processor = MarkerTCCProcessor()
-        
-        # Diretórios de saída organizados
-        (self.output_dir / "raw_extractions").mkdir(exist_ok=True)
-        (self.output_dir / "segmented").mkdir(exist_ok=True)
-        (self.output_dir / "analysis").mkdir(exist_ok=True)
-    
-    def process_batch(self, max_files: int = None) -> pd.DataFrame:
-        """
-        Processa todos os PDFs no diretório de entrada
-        """
-        pdf_files = list(self.input_dir.glob("*.pdf"))
-        if max_files:
-            pdf_files = pdf_files[:max_files]
-        
-        self.processor.logger.info(f"Encontrados {len(pdf_files)} arquivos PDF")
-        
-        results = []
-        
-        for pdf_file in pdf_files:
+def save_images(images, out_dir: Path):
+    saved = []
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for i, img in enumerate(images):
+        # pode ser caminho, dict com bytes, PIL image ou bytes
+        if isinstance(img, str) and Path(img).exists():
+            dest = out_dir / Path(img).name
             try:
-                # Processa o PDF
-                extraction_result = self.processor.process_pdf(pdf_file)
-                
-                if not extraction_result["success"]:
-                    self.processor.logger.warning(f"Falha no processamento: {pdf_file.name}")
-                    continue
-                
-                # Extrai seções
-                sections = self.processor.extract_sections(
-                    extraction_result["full_text"],
-                    extraction_result["metadata"]
-                )
-                
-                # Analisa qualidade
-                quality_metrics = self.processor.analyze_text_quality(
-                    extraction_result["full_text"]
-                )
-                
-                # Compila resultados
-                tcc_result = {
-                    "filename": pdf_file.name,
-                    "processing_success": True,
-                    "total_pages": extraction_result["pages_processed"],
-                    "total_words": quality_metrics["total_words"],
-                    "sections_found": len(sections),
-                    "section_types": [s.section_type for s in sections],
-                    "academic_word_ratio": quality_metrics["academic_word_ratio"],
-                    "readability_level": quality_metrics["readability_score"],
-                    "processing_time": extraction_result["processing_time"],
-                    "sections": [
-                        {
-                            "type": s.section_type,
-                            "word_count": s.metadata["word_count"],
-                            "page_range": f"{s.page_start}-{s.page_end}",
-                            "content_preview": s.content[:200] + "..." if len(s.content) > 200 else s.content
-                        }
-                        for s in sections
-                    ]
-                }
-                
-                results.append(tcc_result)
-                
-                # Salva extração completa
-                self._save_individual_result(pdf_file, extraction_result, sections, quality_metrics)
-                
-                self.processor.logger.info(f"✅ Processado: {pdf_file.name}")
-                
-            except Exception as e:
-                self.processor.logger.error(f"Erro no processamento em lote para {pdf_file.name}: {str(e)}")
-                results.append({
-                    "filename": pdf_file.name,
-                    "processing_success": False,
-                    "error": str(e)
-                })
-        
-        # Salva resumo em CSV
-        self._save_summary_csv(results)
-        
-        return pd.DataFrame(results)
-    
-    def _save_individual_result(self, pdf_file: Path, extraction: Dict, sections: List[TCCSegment], quality: Dict):
-        """Salva resultado individual em JSON"""
-        result_data = {
-            "metadata": {
-                "filename": pdf_file.name,
-                "processed_at": datetime.now().isoformat(),
-                "marker_metadata": extraction.get("metadata", {})
-            },
-            "extraction_quality": quality,
-            "sections": [
-                {
-                    "section_type": s.section_type,
-                    "content": s.content,
-                    "page_range": [s.page_start, s.page_end],
-                    "confidence": s.confidence,
-                    "metadata": s.metadata
-                }
-                for s in sections
-            ],
-            "full_text": extraction["full_text"]
-        }
-        
-        output_file = self.output_dir / "raw_extractions" / f"{pdf_file.stem}_extraction.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(result_data, f, ensure_ascii=False, indent=2)
-    
-    def _save_summary_csv(self, results: List[Dict]):
-        """Salva resumo em CSV para análise"""
-        df = pd.DataFrame([
-            {
-                "filename": r["filename"],
-                "success": r["processing_success"],
-                "pages": r.get("total_pages", 0),
-                "words": r.get("total_words", 0),
-                "sections": r.get("sections_found", 0),
-                "academic_ratio": r.get("academic_word_ratio", 0),
-                "readability": r.get("readability_level", "unknown"),
-                "section_types": ", ".join(r.get("section_types", []))
-            }
-            for r in results
-        ])
-        
-        csv_path = self.output_dir / "analysis" / "tcc_processing_summary.csv"
-        df.to_csv(csv_path, index=False, encoding='utf-8')
-        
-        self.processor.logger.info(f"Resumo salvo em: {csv_path}")
+                Path(img).replace(dest)
+                saved.append(str(dest))
+                continue
+            except Exception:
+                pass
+        if isinstance(img, dict):
+            name = img.get("name") or f"image_{i}.png"
+            data = img.get("bytes") or img.get("image") or img.get("raw")
+            if isinstance(data, (bytes, bytearray)):
+                dest = out_dir / name
+                with open(dest, "wb") as f:
+                    f.write(data)
+                saved.append(str(dest))
+                continue
+        try:
+            if hasattr(img, "save"):
+                name = f"image_{i}.png"
+                dest = out_dir / name
+                img.save(dest)
+                saved.append(str(dest))
+                continue
+        except Exception:
+            pass
+        if isinstance(img, (bytes, bytearray)):
+            dest = out_dir / f"image_{i}.bin"
+            with open(dest, "wb") as f:
+                f.write(img)
+            saved.append(str(dest))
+            continue
+        # fallback
+        dest = out_dir / f"image_{i}.txt"
+        with open(dest, "w", encoding="utf-8") as f:
+            f.write(repr(img))
+        saved.append(str(dest))
+    return saved
 
-# Exemplo de uso
+# Padrões de seção (português) - mesmos do pipeline anterior
+SECTION_PATTERNS = {
+    "capa": r"(?i)(UNIVERSIDADE|FACULDADE|INSTITUTO|CENTRO UNIVERSITÁRIO)[\s\S]{1,400}?(?=\n\n|\n[A-Z]|RESUMO|ABSTRACT)",
+    "resumo": r"(?i)(^|\n)(RESUMO)\b[\s\S]{0,400}?(\n\n)([\s\S]*?)(?=\n\n(ABSTRACT|INTRODUÇÃO|1\.|\n[A-Z]{3,}))",
+    "abstract": r"(?i)(^|\n)(ABSTRACT)\b[\s\S]{0,400}?(\n\n)([\s\S]*?)(?=\n\n(INTRODUÇÃO|1\.|\n[A-Z]{3,}))",
+    "introducao": r"(?i)(INTRODUÇÃO|1\s*\.?\s*INTRODUÇÃO)[\s\S]*?(?=\n(2\.|3\.|REVISÃO|METODOLOGIA|MATERIAL|MÉTODOS)|$)",
+    "revisao_literatura": r"(?i)(REVISÃO\s+(DA\s+)?LITERATURA|REVISÃO\s+BIBLIOGRÁFICA|2\s*\.?\s*[A-Z])[\s\S]*?(?=\n(3\.|METODOLOGIA|MATERIAL|MÉTODOS)|$)",
+    "metodologia": r"(?i)(METODOLOGIA|MATERIAL\s+E\s+MÉTODOS|PROCEDIMENTOS|3\s*\.?\s*[A-Z])[\s\S]*?(?=\n(4\.|RESULTADOS|RESULTADOS\s+E\s+DISCUSSÃO)|$)",
+    "resultados": r"(?i)(RESULTADOS|4\s*\.?\s*[A-Z])[\s\S]*?(?=\n(5\.|DISCUSSÃO|CONCLUSÃO)|$)",
+    "discussao": r"(?i)(DISCUSSÃO|5\s*\.?\s*[A-Z])[\s\S]*?(?=\n(6\.|CONCLUSÃO|CONSIDERAÇÕES)|$)",
+    "conclusao": r"(?i)(CONCLUSÃO|CONSIDERAÇÕES\s+FINAIS|6\s*\.?\s*[A-Z])[\s\S]*?(?=\n(REFERÊNCIAS|BIBLIOGRAFIA|ANEXOS|$))",
+    "referencias": r"(?i)(REFERÊNCIAS|BIBLIOGRAFIA|REFERÊNCIAS\s+BIBLIOGRÁFICAS)[\s\S]*"
+}
+
+def extract_sections(full_text: str):
+    sections = []
+    for section_type, pattern in SECTION_PATTERNS.items():
+        try:
+            m = re.search(pattern, full_text, flags=re.IGNORECASE | re.MULTILINE | re.DOTALL)
+            if m:
+                content = m.group().strip()
+                page_start = max(1, m.start() // 2000 + 1)
+                page_end = max(1, m.end() // 2000 + 1)
+                sections.append({
+                    "section_type": section_type,
+                    "content": content,
+                    "page_start": page_start,
+                    "page_end": page_end,
+                    "chars": len(content)
+                })
+        except Exception as e:
+            logger.warning(f"Erro pattern {section_type}: {e}")
+    return sections
+
+def analyze_text_quality(text: str):
+    if not text or not text.strip():
+        return {"total_words": 0, "total_sentences": 0, "avg_sentence_length": 0, "avg_word_length": 0, "academic_word_ratio": 0.0, "readability": "desconhecido"}
+    words = re.findall(r"\w+['-]?\w*|\w+", text)
+    sentences = [s for s in re.split(r'[.!?]+', text) if s.strip()]
+    avg_sentence_len = len(words) / max(1, len(sentences))
+    avg_word_len = sum(len(w) for w in words) / max(1, len(words))
+    academic = _calculate_academic_word_ratio(text)
+    readability = "complexo" if avg_sentence_len > 25 else ("moderado" if avg_sentence_len > 15 else "simples")
+    return {"total_words": len(words), "total_sentences": len(sentences), "avg_sentence_length": avg_sentence_len, "avg_word_length": avg_word_len, "academic_word_ratio": academic, "readability": readability}
+
+def _calculate_academic_word_ratio(text: str) -> float:
+    academic_words = {'portanto','contudo','entretanto','todavia','ademais','metodologia','resultados','discussão','conclusão','análise','objetivo','amostra','variável','dados'}
+    words = re.findall(r"\w+['-]?\w*|\w+", text.lower())
+    if not words:
+        return 0.0
+    return sum(1 for w in words if w in academic_words) / len(words)
+
+def convert_to_markdown(filename: str, sections: List[Dict], full_text: str, metadata: Dict):
+    md_lines = []
+    md_lines.append(f"# {filename}\n")
+    md_lines.append(f"_Processado em: {datetime.now().isoformat()}_\n")
+    md_lines.append("## Metadados\n")
+    md_lines.append("```json")
+    md_lines.append(json.dumps(metadata, ensure_ascii=False, indent=2))
+    md_lines.append("```\n")
+    if sections:
+        md_lines.append("## Seções extraídas\n")
+        for s in sections:
+            title = s["section_type"].replace("_", " ").title()
+            md_lines.append(f"### {title} (pág. {s['page_start']}-{s['page_end']})\n")
+            md_lines.append(s["content"].strip() + "\n")
+    else:
+        md_lines.append("**Nenhuma seção estruturada detectada.**\n")
+    md_lines.append("\n---\n")
+    md_lines.append("## Texto completo extraído\n")
+    md_lines.append(full_text.strip())
+    return "\n".join(md_lines)
+
+# ---------- Função principal para processar um PDF usando a API nova ----------
+def process_single_pdf_newapi(pdf_path: Path, out_dir: Path, use_models: bool = True, langs: Optional[List[str]] = None, max_pages: Optional[int]=None, start_page: Optional[int]=None):
+    out_dir.mkdir(parents=True, exist_ok=True)
+    stem = pdf_path.stem
+    json_out = out_dir / f"{stem}_extraction.json"
+    md_out = out_dir / f"{stem}.md"
+    images_dir = out_dir / f"{stem}_images"
+
+    # preparar o "artifact / model dict"
+    model_dict = None
+    if use_models:
+        try:
+            # create_model_dict aceita parâmetros dependendo da versão; aqui usamos default/cache
+            model_dict = create_model_dict()
+            logger.info("create_model_dict() executado com sucesso.")
+        except TypeError:
+            # fallback: sem args
+            model_dict = create_model_dict
+        except Exception as e:
+            logger.warning(f"create_model_dict falhou: {e}. Prosseguindo sem models.")
+            model_dict = None
+
+    try:
+        # instanciar PdfConverter com o model/artifact dict quando disponível
+        if model_dict:
+            try:
+                converter = PdfConverter(artifact_dict=model_dict)
+            except TypeError:
+                # fallback, tentar sem named arg
+                converter = PdfConverter(model_dict)
+        else:
+            converter = PdfConverter()
+
+        # opções (muitas versões aceitam kwargs ao chamar)
+        call_kwargs = {}
+        if max_pages is not None:
+            call_kwargs["max_pages"] = max_pages
+        if start_page is not None:
+            call_kwargs["start_page"] = start_page
+        if langs:
+            call_kwargs["langs"] = langs
+
+        # rodar converter
+        rendered = converter(str(pdf_path), **call_kwargs)
+        # extrair texto/metadados/imagens
+        text_res = text_from_rendered(rendered)
+        # text_from_rendered pode retornar (text, meta, images) ou (text, _, images)
+        if isinstance(text_res, tuple) and len(text_res) >= 1:
+            # normalizar
+            norm = normalize_text_from_rendered(text_res)
+        else:
+            # também pode aceitar a própria 'rendered' como argumento
+            norm = normalize_text_from_rendered(text_res)
+
+        full_text = norm["full_text"]
+        metadata = norm["metadata"]
+        images = norm["images"]
+
+    except Exception as e:
+        logger.exception(f"Erro ao converter com PdfConverter/text_from_rendered: {e}")
+        return {"success": False, "error": str(e)}
+
+    # extrair seções e métricas
+    sections = extract_sections(full_text)
+    quality = analyze_text_quality(full_text)
+
+    # salvar json e md
+    result_data = {
+        "filename": pdf_path.name,
+        "processed_at": datetime.now().isoformat(),
+        "metadata": metadata,
+        "sections": sections,
+        "quality": quality,
+        "text_length": len(full_text)
+    }
+    with open(json_out, "w", encoding="utf-8") as jf:
+        json.dump(result_data, jf, ensure_ascii=False, indent=2)
+
+    saved_images = []
+    if images:
+        saved_images = save_images(images, images_dir)
+
+    md_text = convert_to_markdown(pdf_path.name, sections, full_text, metadata)
+    if saved_images:
+        md_text += "\n\n## Imagens extraídas\n"
+        for s in saved_images:
+            rel = os.path.relpath(s, out_dir)
+            md_text += f"![{Path(s).name}]({rel})\n"
+    with open(md_out, "w", encoding="utf-8") as mf:
+        mf.write(md_text)
+
+    logger.info(f"Salvo: {md_out}  (images: {len(saved_images)})")
+    return {"success": True, "md": str(md_out), "json": str(json_out), "images": saved_images}
+
+PDF_PATH = "../data/raw_tccs/2025_tcc_aexoliveira.pdf"        # <-- coloque o PDF aqui
+OUT_MD = "../data/processed_tccs/2025_tcc_aexoliveira.md"             # <-- markdown sai aqui
+
+def main():
+    start_total = perf_counter()
+    print("🔄 Carregando modelos...")
+
+    start_models = perf_counter()
+    converter = PdfConverter(
+        artifact_dict=create_model_dict()
+    )
+    end_models = perf_counter()
+
+    print("📄 Processando PDF...")
+    start_convert = perf_counter()
+    rendered = converter(PDF_PATH)
+    end_convert = perf_counter()
+
+    print("✏️ Convertendo para markdown...")
+    start_md = perf_counter()
+    text, _, images = text_from_rendered(rendered)
+    end_md = perf_counter()
+
+    print("💾 Salvando arquivo...")
+    start_save = perf_counter()
+    with open(OUT_MD, "w", encoding="utf-8") as f:
+        f.write(text)
+    end_save = perf_counter()
+
+    end_total = perf_counter()
+
+    print("======================================")
+    print("⏱️   RELATÓRIO DE TEMPO")
+    print("======================================")
+    print(f"🧠 Carregar modelos:      {end_models - start_models:.2f} s")
+    print(f"📄 Converter PDF:         {end_convert - start_convert:.2f} s")
+    print(f"✏️ Extrair markdown:      {end_md - start_md:.2f} s")
+    print(f"💾 Salvar arquivo:        {end_save - start_save:.2f} s")
+    print("--------------------------------------")
+    print(f"⏳ Tempo total:           {end_total - start_total:.2f} s")
+    print("======================================")
+
+    print("✅ Finalizado — markdown salvo em:", OUT_MD)
+    tokens = count_gpt_tokens(OUT_MD)
+    print(f"🔢 Quantidade de tokens do GPT-4 no markdown: {tokens:,}")
+
 if __name__ == "__main__":
-    # Configurações
-    INPUT_DIR = "data/raw_tccs"
-    OUTPUT_DIR = "data/processed"
-    MAX_FILES = 10  # None para processar todos
-    
-    # Processa em lote
-    batch_processor = BatchTCCProcessor(INPUT_DIR, OUTPUT_DIR)
-    results_df = batch_processor.process_batch(max_files=MAX_FILES)
-    
-    print(f"\n📊 Processamento concluído!")
-    print(f"✅ Sucessos: {len(results_df[results_df['processing_success'] == True])}")
-    print(f"❌ Falhas: {len(results_df[results_df['processing_success'] == False])}")
-    print(f"📁 Resultados salvos em: {OUTPUT_DIR}")
+    main()
