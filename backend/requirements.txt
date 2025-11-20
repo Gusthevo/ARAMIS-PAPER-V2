@@ -7,6 +7,4 @@ python-multipart
 python-dotenv
 requests
 mysql-connector-python
-matplotlib
-seaborn
 marker-pdf
