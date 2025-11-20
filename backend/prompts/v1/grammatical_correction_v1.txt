@@ -1,4 +1,4 @@
-#PROMPT VERSÃO: 1.0 
+#PROMPT VERSÃO: 1.0 antes de aplicar o few-shot
 
 ###CONTEXTO 
 
@@ -38,3 +38,4 @@ Considere as seguintes informações adicionais fornecidas pelo usuário: {{info
      "Comentário sobre as principais correções ou observações gramaticais."
   ]
 }
+
