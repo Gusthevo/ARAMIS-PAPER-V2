@@ -1,17 +1,11 @@
 import streamlit as st
 from utils.api_client import api_client
-from utils.session_state import check_backend_status, init_session_state, is_authenticated
-
-# Inicializa o session state
-init_session_state()
-
-# Se já estiver logado, redireciona para o app principal
-if is_authenticated():
-    st.switch_page("app.py")
+from utils.session_state import check_backend_status
 
 st.set_page_config(
+    #Colocar o emoji da aplicação no titulo
     page_title="ARAMIS - Sign Up",
-    page_icon="images/logo-aramis-cropped.png",
+    page_icon = "images/logo-aramis-cropped.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -25,7 +19,7 @@ def show_register_page():
     # Verifica status do backend
     if not check_backend_status():
         st.error("🚫 Backend offline - Verifique se o servidor está rodando")
-        st.info("Execute: `docker-compose up backend` no terminal")
+       # st.info("Execute: `docker-compose up backend` no terminal")
         return
     
     with st.form("register_form"):
@@ -39,7 +33,7 @@ def show_register_page():
         
         col1, col2 = st.columns(2)
         with col1:
-            password = st.text_input("🔒 Senha*", type="password", placeholder="Mínimo 6 caracteres")
+            password = st.text_input("🔒 Senha*", type="password", placeholder="Mínimo 6 caracteres, 1 número e 1 caractere especial")
         with col2:
             confirm_password = st.text_input("🔒 Confirmar Senha*", type="password", placeholder="Digite novamente")
         
@@ -65,22 +59,20 @@ def show_register_page():
                 with st.spinner("Criando sua conta..."):
                     response = api_client.register(username, email, password)
                     
-                    # 🔥 CORREÇÃO: Verifica ambos os status codes comuns
-                    if response and response.status_code in [200, 201]:
+                    if response and response.status_code == 200:
                         st.success("✅ Conta criada com sucesso! Faça login.")
-                        st.switch_page("pages/login_page.py")
+                        st.switch_page("pages/login_page.py")  # ← Vai para login
                     else:
                         error_msg = "Erro de conexão, tente novamente"
                         if response:
-                            try:
-                                error_data = response.json()
-                                error_msg = error_data.get("detail", "Erro ao criar conta")
-                            except:
-                                error_msg = f"Erro {response.status_code}"
+                            error_msg = response.json().get("detail", "Erro ao criar conta")
                         st.error(f"❌ {error_msg}")
         
         if back_button:
-            st.switch_page("pages/login_page.py")
+            st.switch_page("pages/login_page.py") 
+
+def main():
+    show_register_page()
 
 if __name__ == "__main__":
-    show_register_page()
+    main()

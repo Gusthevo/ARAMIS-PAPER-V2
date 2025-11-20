@@ -1,20 +1,23 @@
 import streamlit as st
 from utils.api_client import api_client
-from utils.session_state import login_user, check_backend_status, init_session_state, is_authenticated
+from utils.session_state import login_user, check_backend_status, init_session_state, is_logged_in
+from utils.cookie_manager import get_cookie_manager, AUTH_TOKEN_KEY
 
-# Inicializa o session state
-init_session_state()
-
-# Se já estiver logado, redireciona para o app principal
-if is_authenticated():
-    st.switch_page("app.py")
-
+# 👈 CORREÇÃO 1: st.set_page_config DEVE ser o primeiro comando st
 st.set_page_config(
     page_title="ARAMIS - Login",
     page_icon="images/logo-aramis-cropped.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Inicializa o session state e os cookies
+init_session_state()
+cookies = get_cookie_manager()
+
+# Se já estiver logado (após o st.rerun), redireciona para o app principal
+if is_logged_in():
+    st.switch_page("app.py")
 
 def show_login_page():
     """Exibe a tela de login"""
@@ -25,7 +28,7 @@ def show_login_page():
     # Verifica status do backend
     if not check_backend_status():
         st.error("🚫 Backend offline - Verifique se o servidor está rodando")
-        st.info("Execute: `docker-compose up backend` no terminal")
+        #st.info("Execute: `docker-compose up backend` no terminal")
         return
     
     with st.form("login_form"):
@@ -50,17 +53,27 @@ def show_login_page():
                     if response and response.status_code == 200:
                         data = response.json()
                         
-                        # 🔥 CORREÇÃO: Pega o token da resposta
-                        auth_token = data.get("access_token") or data.get("token")
+                        session_token = data.get("session_token")
+                        user_info = data.get("user", {})
                         
-                        # 🔥 CORREÇÃO: Chama login_user com token
+                        if not session_token:
+                            st.error("❌ Erro: Token de sessão não recebido do backend")
+                            return
+                        
+                        # 1. Salva o cookie
+                        cookies[AUTH_TOKEN_KEY] = session_token
+                        cookies.save() # Salva o cookie
+
+                        # 2. Faz o login no session_state
                         login_user(
-                            username=data["user"]["username"], 
-                            user_id=data["user"]["id"],
-                            auth_token=auth_token
+                            username=user_info["username"], 
+                            user_id=user_info["id"],
+                            session_token=session_token
                         )
-                        st.success(f"✅ Bem-vindo, {data['user']['username']}!")
-                        st.switch_page("app.py")
+                        
+                        # st.success(f"✅ Bem-vindo, {user_info['username']}!") # Opcional, pois vai recarregar rápido
+                        
+                        st.rerun()
                     else:
                         error_msg = "Verifique suas credenciais e tente novamente"
                         if response:
