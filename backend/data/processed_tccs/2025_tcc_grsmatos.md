@@ -2,15 +2,10 @@
 
 ### UTILIZATION OF THE RAG TECHNIQUE FOR DIALOGUE GENERATION IN RPGS
 
-Gabriel Rudan Sales Matos [1](#page-0-0)
-
-Prof. Dr. José Wellington Franco da Silva (Orientador) [2](#page-0-1)
-
-Prof. Ms. Artur de Oliveira da Rocha Franco (Coorientador) [3](#page-0-2)
 
 #### RESUMO
 
-Este estudo investiga o uso de Modelos de Linguagem de Grande Escala (LLMs) e da técnica *Retrieval-Augmented Generation* (RAG) para auxiliar Mestres de Jogo na criação de diálogos coerentes e contextualizados em *Role-Playing Games* (RPGs) de mesa, considerando a complexidade imposta por múltiplos livros de regras e expansões. A pesquisa envolveu desafios metodológicos significativos, desde a implementação da recuperação de contexto até a validação experimental. O experimento foi conduzido no RPG *Ordem Paranormal*, um dos mais influentes no cenário brasileiro, utilizando *crowdsourcing* para avaliação. Onze jogadores analisaram quatro diálogos — dois escritos por humanos e dois gerados pelo modelo (com e sem RAG) — em cinco categorias: engajamento, coerência, coesão, criatividade e surpresa. Os resultados mostraram que, embora diálogos escritos superem os gerados em aspectos criativos, a técnica RAG aprimora significativamente os diálogos gerados, superando aqueles sem recuperação de contexto em engajamento (27,3% contra 9,1%), coerência (27,3% contra 18,2%), criatividade (27,3% contra 18,2%) e surpresa (36,4% contra 18,2%). Conclui-se que o RAG é uma solução eficaz para enriquecer narrativas em RPGs de mesa, tornando a geração de diálogos mais dinâmica e contextualizada sem a necessidade de retreinamento do modelo.
+Este estudo investiga o uso de Modelos de Linguagem de Grande Escala (LLMs) e da técnica Retrieval-Augmented Generation (RAG) para auxiliar Mestres de Jogo na criação de diálogos coerentes e contextualizados em Role-Playing Games (RPGs) de mesa, considerando a complexidade imposta por múltiplos livros de regras e expansões. A pesquisa envolveu desafios metodológicos significativos, desde a implementação da recuperação de contexto até a validação experimental. O experimento foi conduzido no RPG *Ordem Paranormal*, um dos mais influentes no cenário brasileiro, utilizando *crowdsourcing* para avaliação. Onze jogadores analisaram quatro diálogos — dois escritos por humanos e dois gerados pelo modelo (com e sem RAG) — em cinco categorias: engajamento, coerência, coesão, criatividade e surpresa. Os resultados mostraram que, embora diálogos escritos superem os gerados em aspectos criativos, a técnica RAG aprimora significativamente os diálogos gerados, superando aqueles sem recuperação de contexto em engajamento (27,3% contra 9,1%), coerência (27,3% contra 18,2%), criatividade (27,3% contra 18,2%) e surpresa (36,4% contra 18,2%). Conclui-se que o RAG é uma solução eficaz para enriquecer narrativas em RPGs de mesa, tornando a geração de diálogos mais dinâmica e contextualizada sem a necessidade de retreinamento do modelo.
 
 Palavras-chave: diálogos, RPG, recuperação de informação, jogos e geração de conteúdo procedural.
 
@@ -20,88 +15,71 @@ This paper investigates the use of Large Language Models (LLMs) and the Retrieva
 
 Keywords: dialogue, RPG, retrieval of information, games, procedural content generation.
 
-<span id="page-0-0"></span><sup>1</sup> Graduando em Ciência da Computação na UFC (Campus Crateús) - [gabrielrudan@alu.ufc.br](mailto:gabrielrudan@alu.ufc.br)
-
-<span id="page-0-1"></span><sup>2</sup> Professor Doutor em Ciência da Computação na UFC (Campus Crateús) - [wellington@crateus.ufc.br](mailto:wellington@crateus.ufc.br)
-
-<span id="page-0-2"></span><sup>3</sup> Mestre e Doutorando em Ciência da Computação pela UFC (MDCC) - [arturfranco@ufc.br](mailto:arturfranco@ufc.br)
-
 # 1 INTRODUÇÃO
 
-Os jogos de RPG de mesa são conhecidos por sua capacidade de proporcionar experiências imersivas e narrativas colaborativas, onde jogadores e Mestres do Jogo (MJ) constroem coletivamente mundos ricos e dinâmicos [\(BARTON; STACKS, 2019\)](#page-10-0). O MJ desempenha um papel central nesse processo, sendo responsável por interpretar personagens não jogáveis (NPCs), descrever cenários e arbitrar as regras do jogo [\(BOWMAN, 2007\)](#page-10-1). Assim, os diálogos desempenham um papel crucial, pois são por meio deles que os jogadores conseguem desbravar os enigmas, obter pistas para suas missões e interagir com o mundo de jogo. A capacidade do MJ em gerar diálogos coerentes e envolventes não só facilita o entendimento das missões e a tomada de decisões pelos jogadores, como também é fundamental para manter o ritmo da narrativa.
+Os jogos de RPG de mesa são conhecidos por sua capacidade de proporcionar experiências imersivas e narrativas colaborativas, onde jogadores e Mestres do Jogo (MJ) constroem coletivamente mundos ricos e dinâmicos. O MJ desempenha um papel central nesse processo, sendo responsável por interpretar personagens não jogáveis (NPCs), descrever cenários e arbitrar as regras do jogo. Assim, os diálogos desempenham um papel crucial, pois são por meio deles que os jogadores conseguem desbravar os enigmas, obter pistas para suas missões e interagir com o mundo de jogo. A capacidade do MJ em gerar diálogos coerentes e envolventes não só facilita o entendimento das missões e a tomada de decisões pelos jogadores, como também é fundamental para manter o ritmo da narrativa.
 
-A Figura [1](#page-1-0) apresenta uma cena típica de uma mesa de RPG, onde o Mestre de Jogo (MJ), localizado no canto da mesa, interage com os outros jogadores. Essa imagem ilustra a dinâmica de diálogo entre o MJ e os jogadores, destacando a importância dessas interações para a imersão no universo do jogo.
+É apresentada uma cena típica de uma mesa de RPG, onde o Mestre de Jogo (MJ), localizado no canto da mesa, interage com os outros jogadores. Essa imagem ilustra a dinâmica de diálogo entre o MJ e os jogadores, destacando a importância dessas interações para a imersão no universo do jogo.
 
-<span id="page-1-0"></span>![](_page_1_Picture_3.jpeg)
+Contudo, a crescente complexidade dos RPGs de mesa, com diversas edições, expansões e suplementos de regras, impõe desafios ao MJ, que precisa consultar múltiplas fontes para garantir uma narrativa coesa e aderente às regras oficiais. A dificuldade em acessar e integrar essas informações de forma rápida impacta diretamente a fluidez da narrativa e a qualidade da experiência de jogo. Muitas vezes, o MJ precisa interromper a sessão para consultar livros de regras ou improvisar, o que pode levar a inconsistências ou decisões não embasadas. Além disso, sistemas tradicionais de referência rápida ainda exigem um alto nível de familiaridade com o material, dificultando a adoção de novos jogadores e mestres.
 
-Figura 1 – Diálogo com MJ em uma partida de RPG (*Foto: Reprodução/Wizards of the Coast*).
+Os avanços recentes em Inteligência Artificial, especialmente com LLMs, abriram novas possibilidades para auxiliar os Mestres do Jogo. No entanto, esses modelos enfrentam desafios significativos para incorporar e atualizar novas informações sem a necessidade de retreinamento.
 
-Contudo, a crescente complexidade dos RPGs de mesa, com diversas edições, expansões e suplementos de regras, impõe desafios ao MJ, que precisa consultar múltiplas fontes para garantir uma narrativa coesa e aderente às regras oficiais. A dificuldade em acessar e integrar essas informações de forma rápida impacta diretamente a fluidez da narrativa e a qualidade da experiência de jogo [\(MÄYRÄ, 2017\)](#page-11-0). Muitas vezes, o MJ precisa interromper a sessão para consultar livros de regras ou improvisar, o que pode levar a inconsistências ou decisões não embasadas. Além disso, sistemas tradicionais de referência rápida ainda exigem um alto nível de familiaridade com o material, dificultando a adoção de novos jogadores e mestres.
+A solução tradicional para atualizar LLMs envolve o retreinamento completo do modelo para incorporar novas informações. Esse processo, no entanto, é altamente custoso em termos computacionais, demandando hardware especializado, como GPUs de alta performance. Além do custo, o tempo necessário para um novo treinamento pode variar de semanas a meses, tornando inviável a incorporação frequente de novas regras e expansões de RPGs. Outro problema crítico é a limitação de *tokens* em inferência: mesmo que um modelo seja atualizado, ele ainda possui um limite de contexto que restringe a quantidade de informações que pode processar de uma vez, levando a perdas de coerência e dificuldade na recuperação de regras especíicas.
 
-Os avanços recentes em Inteligência Artificial, especialmente com LLMs, abriram novas possibilidades para auxiliar os Mestres do Jogo. No entanto, esses modelos enfrentam desafios significativos para incorporar e atualizar novas informações sem a necessidade de retreinamento [\(KAPLAN](#page-11-1) *et al.*, [2020\)](#page-11-1).
+Nesse contexto, a abordagem de RAG surge como uma alternativa viável, pois permite que um LLM acesse dinamicamente bancos de informações atualizados, garantindo respostas coerentes e alinhadas às regras mais recentes do RPG. O presente estudo investiga o uso da técnica RAG para auxiliar Mestres do Jogo na geração de narrativas e diálogos coesos, reduzindo a necessidade de consultas manuais aos livros de regras. Para avaliar a eficiência da abordagem, uma avaliação baseada em *crowdsourcing* será utilizada, considerando cinco categorias essenciais para a experiência de jogo: engajamento, coerência, coesão, criatividade e surpresa.
 
-A solução tradicional para atualizar LLMs envolve o retreinamento completo do modelo para incorporar novas informações. Esse processo, no entanto, é altamente custoso em termos computacionais, demandando hardware especializado, como GPUs de alta performance [4](#page-2-0) . Além do custo, o tempo necessário para um novo treinamento pode variar de semanas a meses, tornando inviável a incorporação frequente de novas regras e expansões de RPGs. Outro problema crítico é a limitação de *tokens* [5](#page-2-1) em inferência: mesmo que um modelo seja atualizado, ele ainda possui um limite de contexto que restringe a quantidade de informações que pode processar de uma vez, levando a perdas de coerência e dificuldade na recuperação de regras especíicas.
+Este trabalho está estruturado da seguinte maneira: a Seção 2 apresenta os conceitoschave e trabalhos relacionados; a Seção 3 discute a aplicação da técnica RAG na assistência a Mestres do Jogo; a Seção 4 detalha o processo de validação dos diálogos gerados; por fim, a Seção 5 discute os resultados e aponta direções para estudos futuros.
 
-Nesse contexto, a abordagem de RAG [\(LEWIS](#page-11-2) *et al.*, [2020\)](#page-11-2) surge como uma alternativa viável, pois permite que um LLM acesse dinamicamente bancos de informações atualizados, garantindo respostas coerentes e alinhadas às regras mais recentes do RPG [\(GAO](#page-11-3) *et [al.](#page-11-3)*, [2023\)](#page-11-3). O presente estudo investiga o uso da técnica RAG para auxiliar Mestres do Jogo na geração de narrativas e diálogos coesos, reduzindo a necessidade de consultas manuais aos livros de regras. Para avaliar a eficiência da abordagem, uma avaliação baseada em *crowdsourcing* [\(CHIU](#page-10-2) *et al.*, [2014\)](#page-10-2) será utilizada, considerando cinco categorias essenciais para a experiência de jogo: engajamento, coerência, coesão, criatividade e surpresa [\(MOSER; FANG, 2014\)](#page-12-0).
+#2 ESTADO DA ARTE
 
-Este trabalho está estruturado da seguinte maneira: a Seção [2](#page-2-2) apresenta os conceitoschave e trabalhos relacionados; a Seção [3](#page-3-0) discute a aplicação da técnica RAG na assistência a Mestres do Jogo; a Seção [4](#page-6-0) detalha o processo de validação dos diálogos gerados; por fim, a Seção [5](#page-9-0) discute os resultados e aponta direções para estudos futuros.
+A geração de diálogos para NPCs em RPGs digitais tem recebido atenção crescente na literatura, com diversas abordagens exploradas para aprimorar a interação entre jogadores e sistemas baseados em Inteligência Artificial. Entre essas técnicas, destacam-se a sensibilidade contextual, o *fine-tuning* de modelos e o uso de geração procedural de conteúdo PCG <sup>6</sup> com grafos de conhecimento, além do mais recente método de Geração com Recuperação de Dados (RAG).
 
-#### <span id="page-2-2"></span>2 ESTADO DA ARTE
+Em (CSEPREGI, 2021), foi investigado o impacto da integração de sensibilidade contextual em LLMs para a geração de diálogos. Utilizando um experimento com 21 jogadores em um ambiente de simulação de RPG integrado a um modelo GPT, o estudo concluiu que a inclusão de informações contextuais durante o jogo melhorou significativamente a fluidez e a coerência dos diálogos. Contudo, essa abordagem apresenta desafios relacionados à necessidade de fornecer fluxos constantes de dados contextuais, o que pode ser impraticável em jogos com expansões frequentes.
 
-A geração de diálogos para NPCs em RPGs digitais tem recebido atenção crescente na literatura, com diversas abordagens exploradas para aprimorar a interação entre jogadores e sistemas baseados em Inteligência Artificial [\(FRANCO](#page-11-4) *et al.*, [2024\)](#page-11-4). Entre essas técnicas, destacam-se a sensibilidade contextual [\(LUU](#page-11-5) *et al.*, [2024\)](#page-11-5), o *fine-tuning* de modelos (LIN *[et al.](#page-11-6)*, [2024\)](#page-11-6) e o uso de geração procedural de conteúdo (PCG[6](#page-2-3) ) com grafos de conhecimento [\(MEYER](#page-11-7) *[et al.](#page-11-7)*, [2023\)](#page-11-7), além do mais recente método de Geração com Recuperação de Dados (RAG).
+Na sequência, (STEGEREN; MYSLIWIEC, 2021) exploraram o uso de técnicas de *fine-tuning* em LLMs, como o GPT-2, para personalizar diálogos de NPCs. Essa abordagem permitiu criar diálogos alinhados com a narrativa e objetivos específicos do jogo, enriquecendo a experiência do jogador. No entanto, o *fine-tuning* apresentou limitações importantes, como a necessidade de retreinamento frequente para acomodar expansões ou mudanças no conteúdo do jogo, tornando a técnica menos escalável em RPGs que passam por atualizações constantes.
 
-Em [\(CSEPREGI, 2021\)](#page-10-3), foi investigado o impacto da integração de sensibilidade contextual em LLMs para a geração de diálogos. Utilizando um experimento com 21 jogadores em um ambiente de simulação de RPG integrado a um modelo GPT, o estudo concluiu que a inclusão de informações contextuais durante o jogo melhorou significativamente a fluidez e a coerência dos diálogos. Contudo, essa abordagem apresenta desafios relacionados à necessidade de fornecer fluxos constantes de dados contextuais, o que pode ser impraticável em jogos com expansões frequentes.
+<sup>4</sup> Estudos indicam que o treinamento de um modelo como o GPT-3 pode custar entre 4 e 12 milhões de dólares 
 
-Na sequência, [\(STEGEREN; MYSLIWIEC, 2021\)](#page-12-1) exploraram o uso de técnicas de ´ *fine-tuning* em LLMs, como o GPT-2, para personalizar diálogos de NPCs. Essa abordagem permitiu criar diálogos alinhados com a narrativa e objetivos específicos do jogo, enriquecendo a experiência do jogador. No entanto, o *fine-tuning* apresentou limitações importantes, como a necessidade de retreinamento frequente para acomodar expansões ou mudanças no conteúdo do jogo, tornando a técnica menos escalável em RPGs que passam por atualizações constantes.
+<sup>5</sup> No contexto de LLMs, um *token* é uma unidade básica de processamento do texto. Ele pode representar uma palavra, parte de uma palavra ou até mesmo um caractere, dependendo da tokenização utilizada pelo modelo. O número de *tokens* é um fator importante para a eficiência e os custos computacionais de modelos LLM, já que o modelo processa e gera texto em unidades de *tokens*.
 
-<span id="page-2-0"></span><sup>4</sup> Estudos indicam que o treinamento de um modelo como o GPT-3 pode custar entre 4 e 12 milhões de dólares [\(KAPLAN](#page-11-1) *et al.*, [2020\)](#page-11-1).
-
-<span id="page-2-1"></span><sup>5</sup> No contexto de LLMs, um *token* é uma unidade básica de processamento do texto. Ele pode representar uma palavra, parte de uma palavra ou até mesmo um caractere, dependendo da tokenização utilizada pelo modelo. O número de *tokens* é um fator importante para a eficiência e os custos computacionais de modelos LLM, já que o modelo processa e gera texto em unidades de *tokens*.
-
-<span id="page-2-3"></span><sup>6</sup> Geração Procedural de Conteúdo (PCG) é uma técnica que utiliza algoritmos para criar automaticamente conteúdos, como mapas, personagens ou diálogos, em jogos digitais [\(SMITH, 2014\)](#page-12-2).
+<sup>6</sup> Geração Procedural de Conteúdo (PCG) é uma técnica que utiliza algoritmos para criar automaticamente conteúdos, como mapas, personagens ou diálogos, em jogos digitais.
 
 Mais recentemente, (ASHBY et al., 2023) introduziram o uso de grafos de conhecimento para PCG em diálogos de RPGs. Essa abordagem se mostrou promissora ao permitir a adaptação dinâmica dos diálogos às mudanças narrativas e de missões dentro do jogo. A validação por meio de testes com usuários demonstrou que diálogos gerados dessa forma são comparáveis em qualidade aos roteiros escritos manualmente. Entretanto, a técnica depende de grafos predefinidos e apresenta desafios de escalabilidade quando novas variáveis e elementos narrativos complexos são introduzidos, além de custos significativos para a construção e manutenção dos grafos.
 
-E a técnica de grafos de conhecimento também mostra-se relevante no trabalho mais recente, (NANANUKUL; WONGKAMJAN, 2024), que apresentou uma abordagem inovadora ao integrar o modelo do GPT-4 com sistemas baseados em grafos de conhecimento para geração de diálogos em RPGs. A estrutura desenvolvida utiliza perfis de personagens, históricos de NPCs e cenários extraídos de fontes como páginas Wiki, que são convertidos em triplas para a construção dos grafos. Apesar de sua capacidade de enriquecer a imersão do jogador por meio de diálogos mais detalhados, os testes revelaram que modelos tendem a generalizar características, resultando em diálogos excessivamente positivos, um problema também evidenciado em trabalhos como (LIU *et al.*, 2023) e (HUANG *et al.*, 2023), mesmo quando exemplos explícitos indicam personalidades com mais nuances, como frias ou calculistas.
+E a técnica de grafos de conhecimento também mostra-se relevante no trabalho mais recente, (NANANUKUL; WONGKAMJAN, 2024), que apresentou uma abordagem inovadora ao integrar o modelo do GPT-4 com sistemas baseados em grafos de conhecimento para geração de diálogos em RPGs. A estrutura desenvolvida utiliza perfis de personagens, históricos de NPCs e cenários extraídos de fontes como páginas Wiki, que são convertidos em triplas para a construção dos grafos. Apesar de sua capacidade de enriquecer a imersão do jogador por meio de diálogos mais detalhados, os testes revelaram que modelos tendem a generalizar características, resultando em diálogos excessivamente positivos mesmo quando exemplos explícitos indicam personalidades com mais nuances, como frias ou calculistas.
 
-Diferente das técnicas descritas por (CSEPREGI, 2021), (STEGEREN; MYŚ-LIWIEC, 2021), (ASHBY *et al.*, 2023) e (NANANUKUL; WONGKAMJAN, 2024), a RAG elimina a necessidade de retreinamento frequente e oferece maior flexibilidade na geração de conteúdos contextualizados. Este trabalho, portanto, contribui ao explorar a aplicação da RAG na geração de diálogos para NPCs em RPGs, focando na geração de diálogos em português, um campo ainda pouco explorado nesse contexto (ROLIM, 2023).
+Diferente das técnicas descritas por (CSEPREGI, 2021), (STEGEREN; MYŚ-LIWIEC, 2021), (ASHBY *et al.*, 2023) e (NANANUKUL; WONGKAMJAN, 2024), a RAG elimina a necessidade de retreinamento frequente e oferece maior flexibilidade na geração de conteúdos contextualizados. Este trabalho, portanto, contribui ao explorar a aplicação da RAG na geração de diálogos para NPCs em RPGs, focando na geração de diálogos em português, um campo ainda pouco explorado nesse contexto.
 
-Para aprimorar a compreensão dos trabalhos do estado da arte em comparação com o estudo apresentado nesta tese, a Tabela 1 exibe um resumo esquemático comparativo. Neste resumo, são salientados os trabalhos relacionados conforme suas aplicabilidades com fundamentos em LLMs (LLM), competência na geração de diálogos em Português do Brasil (PT-BR), capacidade de generalização dos resultados (GR)<sup>7</sup>, qualidade na geração de conversas contínuas (CC)<sup>8</sup>, além da utilização das técnicas de aprimoramento abordadas, tais como Sensibilidade ao Contexto (SC), *Fine-Tuning* (FT) e Grafos de Conhecimento (GC), além de, evidentemente, o método RAG.
+Para aprimorar a compreensão dos trabalhos do estado da arte em comparação com o estudo apresentado nesta tese, a Tabela 1 exibe um resumo esquemático comparativo. Neste resumo, são salientados os trabalhos relacionados conforme suas aplicabilidades com fundamentos em LLMs (LLM), competência na geração de diálogos em Português do Brasil (PT-BR), capacidade de generalização dos resultados (GR), qualidade na geração de conversas contínuas (CC), além da utilização das técnicas de aprimoramento abordadas, tais como Sensibilidade ao Contexto (SC), *Fine-Tuning* (FT) e Grafos de Conhecimento (GC), além de, evidentemente, o método RAG.
 
-<span id="page-3-1"></span>Tabela 1 – Resumo Esquemático do Estado da Arte
+### Tabela 1 – Resumo Esquemático do Estado da Arte
+| Trabalhos                                   | LLM | PT-BR | GR | CC | SC | FT | GC | RAG |
+|--------------------------------------------|-----|-------|----|----|----|----|----|-----|
+| (CSEPREGI, 2021)                            | ✓   | -     | ✓  | ✓  | ✓  | -  | ✓  | -   |
+| (STEGEREN; MYŚLIWIEC, 2021)                 | ✓   | -     | -  | ✓  | -  | ✓  | ✓  | -   |
+| (ASHBY et al., 2023)                        | ✓   | -     | ✓  | ✓  | ✓  | -  | -  | -   |
+| (NANANUKUL; WONGKAMJAN, 2024)               | ✓   | -     | ✓  | ✓  | ✓  | -  | ✓  | -   |
+| Este trabalho                               | ✓   | ✓     | ✓  | ✓  | ✓  | -  | ✓  | ✓   |
 
-| Trabalhos                   | LLM      | PT-BR | GR | CC           | SC       | FT | GC           | RAG |
-|-----------------------------|----------|-------|----|--------------|----------|----|--------------|-----|
-| (CSEPREGI, 2021)            | <b>√</b> | -     | -  | ✓            | <b>√</b> | -  | -            | -   |
-| (STEGEREN; MYŚLIWIEC, 2021) | ✓        | -     | -  | -            | -        | ✓  | -            | -   |
-| (ASHBY et al., 2023)        | ✓        | -     | ✓  | -            | -        | ✓  | $\checkmark$ | -   |
-| (NANANUKUL; WONGKAMJAN,     | ✓        | -     | ✓  | $\checkmark$ | ✓        | -  | $\checkmark$ | -   |
-| 2024)                       |          |       |    |              |          |    |              |     |
-| Este trabalho               | ✓        | ✓     | ✓  | ✓            | ✓        | -  | -            | ✓   |
+**Fonte:** elaborada pelo autor.
 
-Fonte: elaborada pelo autor.
+A generalização de resultados refere-se à capacidade do modelo de operar em diferentes sistemas de RPG, sem estar restrito a um único conjunto de regras ou ambientação. Alguns trabalhos são desenvolvidos para um RPG específico, o que limita sua aplicabilidade a outros estilos e sistemas de jogo.
 
-<span id="page-3-2"></span><span id="page-3-0"></span>A generalização de resultados refere-se à capacidade do modelo de operar em diferentes sistemas de RPG, sem estar restrito a um único conjunto de regras ou ambientação. Alguns trabalhos são desenvolvidos para um RPG específico, o que limita sua aplicabilidade a outros estilos e sistemas de jogo.
+Neste contexto, "conversas contínuas" referem-se a diálogos compostos por múltiplas interações entre o usuário e o modelo gerador, em contraste com abordagens que limitam a geração a uma única resposta para uma interação inicial.
 
-<span id="page-3-3"></span>Neste contexto, "conversas contínuas" referem-se a diálogos compostos por múltiplas interações entre o usuário e o modelo gerador, em contraste com abordagens que limitam a geração a uma única resposta para uma interação inicial.
+# 3 METODOLOGIA
 
-### 3 METODOLOGIA
-
-Este trabalho propõe a aplicação da técnica RAG para a geração de diálogos imersivos nas missões do RPG: Ordem Paranormal[9](#page-4-0) . A técnica RAG integra um modelo de recuperação de documentos, responsável por buscar trechos relevantes de texto utilizando *embeddings*[10](#page-4-1), com um modelo gerador de diálogos, que utiliza essas informações para criar respostas fundamentadas [\(WANG](#page-12-5) *et al.*, [2024\)](#page-12-5).
-
-Além da implementação da técnica RAG, este trabalho incluiu experimentos de validação utilizando o método de *crowdsourcing*, que envolveu uma comunidade ativa de jogadores para avaliar a qualidade dos diálogos gerados. O uso do *crowdsourcing* é essencial para garantir uma avaliação diversificada e colaborativa [\(BLOHM](#page-10-5) *et al.*, [2013\)](#page-10-5), pois permite coletar *insights* de jogadores reais, que representam o público-alvo do RPG Ordem Paranormal. Essa abordagem é particularmente valiosa, já que o envolvimento direto de uma comunidade ativa assegura que os diálogos atendam às expectativas dos jogadores [\(DANIEL](#page-10-6) *et al.*, [2018\)](#page-10-6).
+Este trabalho propõe a aplicação da técnica RAG para a geração de diálogos imersivos nas missões do RPG: Ordem Paranormal. A técnica RAG integra um modelo de recuperação de documentos, responsável por buscar trechos relevantes de texto utilizando *embeddings* com um modelo gerador de diálogos, que utiliza essas informações para criar respostas fundamentadas.
+Além da implementação da técnica RAG, este trabalho incluiu experimentos de validação utilizando o método de *crowdsourcing*, que envolveu uma comunidade ativa de jogadores para avaliar a qualidade dos diálogos gerados. O uso do *crowdsourcing* é essencial para garantir uma avaliação diversificada e colaborativa, pois permite coletar *insights* de jogadores reais, que representam o público-alvo do RPG Ordem Paranormal. Essa abordagem é particularmente valiosa, já que o envolvimento direto de uma comunidade ativa assegura que os diálogos atendam às expectativas dos jogadores.
 
 ### 3.1 Visão Geral do Processo
 
-A Figura [2](#page-4-2) apresenta os seis passos principais da aplicação da técnica RAG neste estudo. Essa estrutura é composta por quatro componentes centrais: o Usuário (interagindo com o sistema), o Mestre do Jogo (o algoritmo responsável por orquestrar a busca e a geração dos diálogos), o Vector DB (banco de dados vetorial contendo as regras do RPG convertidas em *embeddings*) e o LLM (modelo de linguagem utilizado para a geração de respostas). A seguir, detalham-se os passos que descrevem o fluxo de interação entre esses elementos:
+É apresentado os seis passos principais da aplicação da técnica RAG neste estudo. Essa estrutura é composta por quatro componentes centrais: o Usuário (interagindo com o sistema), o Mestre do Jogo (o algoritmo responsável por orquestrar a busca e a geração dos diálogos), o Vector DB (banco de dados vetorial contendo as regras do RPG convertidas em *embeddings*) e o LLM (modelo de linguagem utilizado para a geração de respostas). A seguir, detalham-se os passos que descrevem o fluxo de interação entre esses elementos:
 
-<span id="page-4-2"></span>![](_page_4_Picture_5.jpeg)
+<sup>9</sup> Ordem Paranormal é um RPG brasileiro criado por Rafael Lange e sua equipe, ambientado em um universo de mistério, sobrenatural e investigação. O jogo combina elementos de narrativa imersiva com mecânicas clássicas de RPG de mesa. Mais informações podem ser encontradas no site oficial: [https://ordemparanormal.com.br/.](https://ordemparanormal.com.br/)
 
-Figura 2 – A estrutura principal do RAG aplicada na geração de diálogos.
-
-<span id="page-4-0"></span><sup>9</sup> Ordem Paranormal é um RPG brasileiro criado por Rafael Lange e sua equipe, ambientado em um universo de mistério, sobrenatural e investigação. O jogo combina elementos de narrativa imersiva com mecânicas clássicas de RPG de mesa. Mais informações podem ser encontradas no site oficial: [https://ordemparanormal.com.br/.](https://ordemparanormal.com.br/)
-
-<span id="page-4-1"></span><sup>10</sup> *Embeddings* são vetores que representam dados de forma numérica, permitindo buscar informações relevantes no banco de dados com base em similaridades semânticas [\(SINGH](#page-12-6) *et al.*, [2023\)](#page-12-6).
+<sup>10</sup> *Embeddings* são vetores que representam dados de forma numérica, permitindo buscar informações relevantes no banco de dados com base em similaridades semânticas.
 
 - Passo 1: O Usuário inicia a interação com o Mestre do Jogo, submetendo um *prompt*, ou seja, uma entrada textual fornecida ao modelo de linguagem para gerar uma resposta ou realizar uma tarefa específica.
 - Passo 2: O Mestre do Jogo processa o *prompt* e realiza uma solicitação ao Vector DB para recuperar trechos do livro de regras que sejam relevantes à consulta do Usuário.
@@ -112,65 +90,77 @@ Figura 2 – A estrutura principal do RAG aplicada na geração de diálogos.
 
 ### 3.2 Proposição Inicial
 
-No início da interação, os jogadores submetem uma proposição ao mestre do jogo, que atua como NPC [\(TYCHSEN](#page-12-7) *et al.*, [2005\)](#page-12-7). Esse texto livre define a missão e o papel dos personagens, conforme as regras do RPG. A entrada fornecida pelos jogadores é usada para criar diálogos dinâmicos e contextuais, conforme exemplificado na Tabela [2,](#page-5-0) que estrutura a proposição inicial.
+No início da interação, os jogadores submetem uma proposição ao mestre do jogo, que atua como NPC. Esse texto livre define a missão e o papel dos personagens, conforme as regras do RPG. A entrada fornecida pelos jogadores é usada para criar diálogos dinâmicos e contextuais, conforme exemplificado na Tabela 2 que estrutura a proposição inicial.
 
-<span id="page-5-0"></span>Tabela 2 – Estrutura dos dados de geração de diálogos: *SystemMessage* dá instruções à LLM, *HumanMessage* é a entrada do usuário, e *AIMessage* é a resposta da LLM.
+Tabela 2 – Estrutura dos dados de geração de diálogos: *SystemMessage* dá instruções à LLM, *HumanMessage* é a entrada do usuário, e *AIMessage* é a resposta da LLM.
 
-| Estrutura Inicial               | Conteúdo                                                    |
-|---------------------------------|-------------------------------------------------------------|
-| <systemmessage></systemmessage> | Você é um mestre de jogo do                                 |
-|                                 | RPG: Ordem Paranormal                                       |
-| <humanmessage></humanmessage>   | Olá mestre,                                                 |
-|                                 | como você está?                                             |
-| <aimessage></aimessage>         | Estou bem, obrigado.                                        |
-|                                 | Estão prontos para a missão de hoje?                        |
-| Estrutura de Geração            | Conteúdo                                                    |
-| <humanmessage></humanmessage>   | <interação com="" de="" jogo="" mestre="" o=""></interação> |
-| <aimessage></aimessage>         | <resposta gerada=""></resposta>                             |
+### Estrutura Inicial
 
-A partir da proposição inicial, o sistema LangChain[11](#page-5-1) é configurado para gerar diálogos baseados nas regras do jogo. Esse framework foi escolhido por ser amplamente utilizado no desenvolvimento de sistemas com LLMs, além de contar com uma documentação *online* extensa e diversa, o que facilita sua implementação e personalização. O modelo processa a entrada até que um comando de término, como "sair", seja dado, momento em que o modelo ajusta seu comportamento para atuar como o mestre da partida.
+| Estrutura       | Conteúdo                                                  |
+|-----------------|-----------------------------------------------------------|
+| `<SystemMessage>` | Você é um mestre de jogo do RPG: Ordem Paranormal        |
+| `<HumanMessage>`  | Olá mestre, como você está?                              |
+| `<AIMessage>`     | Estou bem, obrigado. Estão prontos para a missão de hoje?|
 
-<span id="page-5-1"></span><sup>11</sup> LangChain é um framework projetado para construir aplicações baseadas em modelos de linguagem. Para mais detalhes, veja: [https://docs.langchain.com.](https://docs.langchain.com)
+### Estrutura de Geração
+
+| Estrutura       | Conteúdo                    |
+|-----------------|-----------------------------|
+| `<HumanMessage>`  | `<Interação com o mestre de jogo>` |
+| `<AIMessage>`     | `<Resposta gerada>`        |
+
+
+A partir da proposição inicial, o sistema LangChain é configurado para gerar diálogos baseados nas regras do jogo. Esse framework foi escolhido por ser amplamente utilizado no desenvolvimento de sistemas com LLMs, além de contar com uma documentação *online* extensa e diversa, o que facilita sua implementação e personalização. O modelo processa a entrada até que um comando de término, como "sair", seja dado, momento em que o modelo ajusta seu comportamento para atuar como o mestre da partida.
+
+<sup>11</sup> LangChain é um framework projetado para construir aplicações baseadas em modelos de linguagem. Para mais detalhes, veja: [https://docs.langchain.com.](https://docs.langchain.com)
 
 #### 3.3 Modelo de Linguagem de Grande Escala
 
-O modelo utilizado para a geração dos diálogos é o *GPT-4.0*, escolhido por sua capacidade de lidar com contextos complexos e longos diálogos, fundamentais para RPGs [\(NYE](#page-12-8) *et al.*, [2023\)](#page-12-8). Em comparação com o *GPT-3*, o *GPT-4.0* oferece maior capacidade de processamento e flexibilidade em diálogos contínuos (LIN *[et al.](#page-11-10)*, [2023\)](#page-11-10), o que é essencial para garantir a imersão no universo do RPG. O desenvolvimento foi feito em *Jupyter Notebook* [\(KLUYVER](#page-11-11) *et al.*, [2016\)](#page-11-11), utilizando o *Google Colab* [\(BISONG; BISONG, 2019\)](#page-10-7) para facilitar a execução dos experimentos.
+O modelo utilizado para a geração dos diálogos é o *GPT-4.0*, escolhido por sua capacidade de lidar com contextos complexos e longos diálogos, fundamentais para RPGs. Em comparação com o *GPT-3*, o *GPT-4.0* oferece maior capacidade de processamento e flexibilidade em diálogos contínuos, o que é essencial para garantir a imersão no universo do RPG. O desenvolvimento foi feito em *Jupyter Notebook*, utilizando o *Google Colab* para facilitar a execução dos experimentos.
 
 O modelo recebe a entrada dos jogadores juntamente com o contexto recuperado do banco vetorial, gerando respostas coerentes e em consonância com o universo do RPG.
 
 ### 3.4 Implementação da Estrutura
 
-Para facilitar a recuperação de informações, utilizamos a integração com *OpenAI-Embeddings* que é uma funcionalidade que converte texto em vetores numéricos, permitindo representar semanticamente conteúdos textuais [\(XIAN](#page-12-9) *et al.*, [2024\)](#page-12-9). Esse processo transforma o Livro de Regras do Ordem Paranormal em vetores que representam semanticamente o conteúdo. O armazenamento e recuperação desses vetores são realizados com a ferramenta *Qdrant*[12](#page-6-1), outra biblioteca escolhida pela sua popularidade e documentação *online*, que utiliza a similaridade do cosseno como métrica principal [\(SINGH](#page-12-6) *et al.*, [2023\)](#page-12-6). Para detalhes sobre a implementação completa, consulte a documentação disponível [neste link.](https://anonymous.4open.science/r/RAG_Dialogue_OPN-370D/README.md)
+Para facilitar a recuperação de informações, utilizamos a integração com *OpenAI-Embeddings* que é uma funcionalidade que converte texto em vetores numéricos, permitindo representar semanticamente conteúdos textuais. Esse processo transforma o Livro de Regras do Ordem Paranormal em vetores que representam semanticamente o conteúdo. O armazenamento e recuperação desses vetores são realizados com a ferramenta *Qdrant*, outra biblioteca escolhida pela sua popularidade e documentação *online*, que utiliza a similaridade do cosseno como métrica principal. Para detalhes sobre a implementação completa, consulte a documentação disponível [neste link.](https://anonymous.4open.science/r/RAG_Dialogue_OPN-370D/README.md)
 
-O sistema converte o texto em um vetor quando uma nova entrada é fornecida, e realiza uma busca vetorial para localizar os dois trechos mais relevantes no banco de dados. Essa escolha (*k* = 2) foi otimizada para equilibrar a eficiência e a qualidade das respostas, sem ultrapassar os limites de *tokens* do modelo [\(RAY, 2023\)](#page-12-10).O pseudocódigo da função responsável por aumentar o *prompt* dos jogadores está apresentado na Tabela [3.](#page-6-2)
+O sistema converte o texto em um vetor quando uma nova entrada é fornecida, e realiza uma busca vetorial para localizar os dois trechos mais relevantes no banco de dados. Essa escolha (*k* = 2) foi otimizada para equilibrar a eficiência e a qualidade das respostas, sem ultrapassar os limites de *tokens* do modelo. O pseudocódigo da função responsável por aumentar o *prompt* dos jogadores está apresentado na Tabela 3.
 
-<span id="page-6-2"></span>Tabela 3 – Pseudocódigo da função que aumenta o prompt digitado pelo humano.
+## Tabela 3 – Pseudocódigo da função que aumenta o prompt digitado pelo humano
 
-## Função 1: Gerar Prompt Personalizado resultados ← SimilaritySearch(pergunta, k = 2) ; conhecimento fonte ← concatenar o conteúdo de cada sessão de resultados ; prompt aumentado ← "Use o contexto abaixo para responder à pergunta." Contexto: + "conhecimento fonte" + Pergunta: + "pergunta"; return *prompt aumentado*
+**Função 1: Gerar Prompt Personalizado**
 
-# <span id="page-6-0"></span>4 AVALIAÇÃO EXPERIMENTAL E RESULTADOS
+```plaintext
+resultados           ← SimilaritySearch(pergunta, k = 2);
+conhecimento fonte   ← concatenar o conteúdo de cada sessão de resultados;
+prompt aumentado     ← “Use o contexto abaixo para responder à pergunta.”
+Contexto:            + “conhecimento fonte” +
+Pergunta:            + “pergunta”;
+return               prompt aumentado
+```
 
-Realizamos uma pesquisa de *crowdsourcing* online para avaliar a qualidade dos diálogos gerados pelo modelo GPT-4.0 utilizando a técnica de RAG, comparando-os com diálogos escritos por humanos. Para isso, foram criados quatro diálogos distintos: o diálogo A foi gerado automaticamente sem o uso de RAG, o diálogo C foi gerado com RAG, o diálogo B
+# 4 AVALIAÇÃO EXPERIMENTAL E RESULTADOS
 
-<span id="page-6-1"></span><sup>12</sup> *Qdrant* é um mecanismo de banco de dados vetorial que facilita a busca e o armazenamento de vetores. Mais detalhes podem ser encontrados em:<https://qdrant.tech>
+Realizamos uma pesquisa de *crowdsourcing* online para avaliar a qualidade dos diálogos gerados pelo modelo GPT-4.0 utilizando a técnica de RAG, comparando-os com diálogos escritos por humanos. Para isso, foram criados quatro diálogos distintos: o diálogo A foi gerado automaticamente sem o uso de RAG, o diálogo C foi gerado com RAG, o diálogo B foi escrito inteiramente por humanos, e o diálogo D foi escrito por humanos, mas com o auxílio do LLM, visando testar a colaboração entre o modelo e a criatividade humana.
 
-foi escrito inteiramente por humanos, e o diálogo D foi escrito por humanos, mas com o auxílio do LLM, visando testar a colaboração entre o modelo e a criatividade humana.
+<sup>12</sup> *Qdrant* é um mecanismo de banco de dados vetorial que facilita a busca e o armazenamento de vetores. Mais detalhes podem ser encontrados em:<https://qdrant.tech>
+
 
 Os diálogos B e D foram escritos por dois universitários da Universidade Federal do Ceará, Campus de Crateús, com experiências tanto no âmbito de atuar como Mestre do Jogo do Ordem Paranormal, quanto no âmbito dos demais participantes da mesa, que possuem amplo conhecimento sobre o jogo e sua ambientação. Dessa forma, eles puderam elaborar diálogos que representassem de maneira autêntica e verossímil a narrativa e a dinâmica de uma partida real do RPG, proporcionando um nível adequado de fidelidade ao material original. A Tabela 4 demonstra a disposição de características de cada um dos quatro diálogos.
 
-<span id="page-7-0"></span>Tabela 4 – Resumo Esquemático dos Diálogos para Validação
+## Tabela 4 – Resumo Esquemático dos Diálogos para Validação
 
-| 1         |        | c       | 3       |          |
-|-----------|--------|---------|---------|----------|
-| Diálogos  | Gerado | Escrito | Com RAG | Sem RAG  |
-| Diálogo A | ✓      | -       | -       | <b>√</b> |
-| Diálogo B | -      | ✓       | -       | -        |
-| Diálogo C | ✓      | -       | ✓       | -        |
-| Diálogo D | -      | ✓       | -       | -        |
+| Diálogos   | Gerado | Escrito | Com RAG | Sem RAG |
+|------------|--------|---------|---------|---------|
+| Diálogo A  | ✓      | -       | -       | ✓       |
+| Diálogo B  | -      | ✓       | -       | -       |
+| Diálogo C  | ✓      | -       | ✓       | -       |
+| Diálogo D  | -      | ✓       | -       | -       |
+
 
 Fonte: elaborada pelo autor.
 
-A pesquisa foi composta por 26 perguntas<sup>13</sup>, elaboradas pelos autores deste trabalho em conjunto com um pequeno grupo de jogadores experientes do RPG "Ordem Paranormal". Essas questões avaliaram cinco categorias principais — as definições para as categorias de avaliação foram baseadas no Dicionário Aurélio e nos estudos de (CSEPREGI, 2021) e (TAPSCOTT *et al.*, 2018), com o intuito de medir aspectos fundamentais de um bom diálogo, conforme indicado pela literatura:
+A pesquisa foi composta por 26 perguntas, elaboradas pelos autores deste trabalho em conjunto com um pequeno grupo de jogadores experientes do RPG "Ordem Paranormal". Essas questões avaliaram cinco categorias principais — as definições para as categorias de avaliação foram baseadas no Dicionário Aurélio, com o intuito de medir aspectos fundamentais de um bom diálogo, conforme indicado pela literatura:
 
 - Engajamento: O quanto o diálogo envolveu o participante na história;
 - Coerência: O quão coerente o diálogo é com o conteúdo do RPG;
@@ -180,17 +170,10 @@ A pesquisa foi composta por 26 perguntas<sup>13</sup>, elaboradas pelos autores 
 
 A pesquisa contou com 11 participantes, todos incentivados a ler e avaliar os quatro diálogos sem qualquer indicação sobre sua origem. Os respondentes não receberam nenhuma informação sobre quais diálogos foram gerados por IA e quais foram escritos por humanos. Além disso, a apresentação dos diálogos no questionário foi feita de forma anônima e aleatorizada, garantindo que os participantes não tivessem qualquer pista sobre a autoria de cada texto. Dessa forma, asseguramos que a avaliação fosse isenta de vieses, já que os avaliadores sabiam apenas que alguns diálogos haviam sido gerados automaticamente e outros escritos manualmente, mas não tinham meios de identificar quais pertenciam a cada categoria.
 
-É fundamental que os participantes não saibam a origem dos diálogos (se foram gerados por IA ou escritos por humanos) para evitar vieses que possam influenciar suas avaliações do modelo de IA (COZMAN; KAUFMAN, 2022). Segundo Cozman e Kaufman, quando os avaliadores têm conhecimento prévio sobre a autoria dos textos, suas percepções podem ser afetadas por preconceitos conscientes ou inconscientes, comprometendo a imparcialidade dos resultados.
+É fundamental que os participantes não saibam a origem dos diálogos (se foram gerados por IA ou escritos por humanos) para evitar vieses que possam influenciar suas avaliações do modelo de IA. Quando os avaliadores têm conhecimento prévio sobre a autoria dos textos, suas percepções podem ser afetadas por preconceitos conscientes ou inconscientes, comprometendo a imparcialidade dos resultados.
 
-Conforme ilustrado no gráfico da Figura 3, a maioria dos participantes afirmou possuir conhecimento avançado do RPG "Ordem Paranormal". Embora essa familiaridade com o sistema de jogo possa enriquecer a avaliação dos diálogos, é importante considerar que os
+Conforme ilustrado no gráfico da Figura 3, a maioria dos participantes afirmou possuir conhecimento avançado do RPG "Ordem Paranormal". Embora essa familiaridade com o sistema de jogo possa enriquecer a avaliação dos diálogos, é importante considerar que os resultados também podem oferecer *insights* valiosos para jogadores menos experientes, ajudando a melhorar o engajamento e a experiência geral com o jogo.
 
-<span id="page-7-1"></span>Para detalhes sobre as perguntas e os quatro diálogos, consulte a documentação disponível online (ANONY-MOUS, 2024)
-
-<span id="page-8-0"></span>resultados também podem oferecer *insights* valiosos para jogadores menos experientes, ajudando a melhorar o engajamento e a experiência geral com o jogo.
-
-![](_page_8_Figure_1.jpeg)
-
-Figura 3 – Nível de Conhecimento sobre o RPG Ordem Paranormal.
 
 #### 4.1 Fase 1
 
@@ -210,68 +193,24 @@ Os diálogos escritos à mão superaram os diálogos gerados nos quesitos Engaja
 
 #### 4.2 Fase 2
 
-Na segunda fase da pesquisa, buscamos entender qual diálogo se destacou em cada categoria. A Figura 5 apresenta os gráficos de barras com as respostas dos participantes. O diálogo gerado com RAG (C) teve um desempenho superior ao gerado sem RAG (A) em quatro
-
-<span id="page-9-1"></span>![](_page_9_Figure_0.jpeg)
-
-Figura 4 – Gráfico de Comparação das Avaliações dos Diálogos.
-
-das cinco categorias: Engajamento, Coerência, Criatividade e Surpresa, empatando com o diálogo A na categoria de Coesão.
+Na segunda fase da pesquisa, buscamos entender qual diálogo se destacou em cada categoria. A Figura 5 apresenta os gráficos de barras com as respostas dos participantes. O diálogo gerado com RAG (C) teve um desempenho superior ao gerado sem RAG (A) em quatro das cinco categorias: Engajamento, Coerência, Criatividade e Surpresa, empatando com o diálogo A na categoria de Coesão.
 
 Esses achados indicam que a técnica RAG pode melhorar significativamente a qualidade dos diálogos gerados por LLMs em termos de fluidez e conexão com o contexto narrativo. No entanto, os participantes indicaram que os textos gerados automaticamente apresentaram limitações no que diz respeito ao engajamento e à criatividade. Os respondentes relataram que, embora os diálogos gerados fossem coerentes, faltava neles uma profundidade emocional e variação nas interações, características mais facilmente percebidas nos diálogos manuais.
 
 A falta de engajamento foi atribuída à previsibilidade e à ausência de nuances sutis que tornam os diálogos humanos mais cativantes. Quanto à criatividade, os textos gerados, embora coerentes, apresentaram menos variações inovadoras e menor capacidade de surpreender, fatores que tornaram os diálogos manuais mais envolventes e interessantes.
 
-### <span id="page-9-0"></span>5 CONCLUSÕES E TRABALHOS FUTUROS
+# 5 CONCLUSÕES E TRABALHOS FUTUROS
 
 Este trabalho avançou significativamente na geração de diálogos para RPGs em português do Brasil, um campo ainda pouco explorado. Utilizando o modelo GPT-4.0 combinado com a técnica RAG, criamos diálogos que superam a coesão dos diálogos gerados manualmente, com uma diferença de 0,23 na média. Além disso, os diálogos gerados são quase tão coerentes quanto os escritos manualmente (média de 3,82). Note-se que o diálogo gerado com RAG se destacou, em relação ao diálogo gerado sem RAG, nas categorias de engajamento (27,3% contra 9,1%), coerência (27,3% contra 18,2%), criatividade (27,3% contra 18,2%) e surpresa (36,4% contra 18,2%), demonstrando uma capacidade robusta de gerar interações naturais. Esses resultados evidenciam a eficácia do RAG em enriquecer diálogos, sugerindo seu potencial para adaptação a outros estilos de RPG e uso em contextos de jogos reais, como NPCs interativos.
 
 Para trabalhos futuros, propõe-se testar a abordagem com outros modelos de LLMs,
 
-especialmente modelos *open source* recentes, como o: Gemini, do Google [\(IMRAN; AL-](#page-11-12)[MUSHARRAF, 2024\)](#page-11-12), ou o DeepSeek (BI *[et al.](#page-10-10)*, [2024\)](#page-10-10), a fim de avaliar a aplicabilidade e a eficiência do método em diferentes arquiteturas de modelos. Além disso, recomenda-se explorar o uso da técnica em diversos estilos de RPG, ampliando a variedade de contextos e estilos de interação a serem avaliados.
+especialmente modelos *open source* recentes, como o: Gemini, do Google, ou o DeepSeek, a fim de avaliar a aplicabilidade e a eficiência do método em diferentes arquiteturas de modelos. Além disso, recomenda-se explorar o uso da técnica em diversos estilos de RPG, ampliando a variedade de contextos e estilos de interação a serem avaliados.
 
 # REFERÊNCIAS
 
-- <span id="page-10-9"></span>ANONYMOUS. Anonymous Github of the project with the implemented Source Code, the applied questionnaire and the four dialogs used for validation. 2024. [https://anonymous.4open.science/r/RAG\\_Dialogue\\_OPN-370D/README.md.](https://anonymous.4open.science/r/RAG_Dialogue_OPN-370D/README.md) Accessed on: October 5, 2024.
 - <span id="page-10-4"></span>ASHBY, T.; WEBB, B. K.; KNAPP, G.; SEARLE, J.; FULDA, N. Personalized quest and dialogue generation in role-playing games: A knowledge graph-and language model-based approach. In: Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems. [*S. l.*: *s. n.*], 2023. p. 1–20.
-- <span id="page-10-0"></span>BARTON, M.; STACKS, S. Dungeons and desktops: The history of computer role-playing games 2e. [*S. l.*]: AK Peters/CRC Press, 2019.
-- <span id="page-10-10"></span>BI, X.; CHEN, D.; CHEN, G.; CHEN, S.; DAI, D.; DENG, C.; DING, H.; DONG, K.; DU, Q.; FU, Z. *et al.* Deepseek llm: Scaling open-source language models with longtermism. arXiv preprint arXiv:2401.02954, 2024.
-- <span id="page-10-7"></span>BISONG, E.; BISONG, E. Google colaboratory. Building machine learning and deep learning models on google cloud platform: a comprehensive guide for beginners, Springer, p. 59–64, 2019.
-- <span id="page-10-5"></span>BLOHM, I.; LEIMEISTER, J. M.; KRCMAR, H. Crowdsourcing: How to benefit from (too) many great ideas. MIS quarterly executive, v. 12, n. 4, 2013.
-- <span id="page-10-1"></span>BOWMAN, S. L. The psychological power of the role-playing experience. Journal of Interactive Drama, v. 2, n. 1, p. 1–15, 2007.
-- <span id="page-10-2"></span>CHIU, C.-M.; LIANG, T.-P.; TURBAN, E. What can crowdsourcing do for decision support? Decision Support Systems, Elsevier, v. 65, p. 40–49, 2014.
-- <span id="page-10-8"></span>COZMAN, F. G.; KAUFMAN, D. Viés no aprendizado de máquina em sistemas de inteligência artificial: a diversidade de origens e os caminhos de mitigação. Revista USP, n. 135, p. 195–210, 2022.
 - <span id="page-10-3"></span>CSEPREGI, L. M. The effect of context-aware llm-based npc conversations on player engagement in role-playing video games. Unpublished manuscript, 2021. Disponível em: [https://youtu.be/mEs7mH0klV0.](https://youtu.be/mEs7mH0klV0)
-- <span id="page-10-6"></span>DANIEL, F.; KUCHERBAEV, P.; CAPPIELLO, C.; BENATALLAH, B.; ALLAHBAKHSH, M. Quality control in crowdsourcing: A survey of quality attributes, assessment techniques, and assurance actions. ACM Computing Surveys (CSUR), ACM New York, NY, USA, v. 51, n. 1, p. 1–40, 2018.
 
-- <span id="page-11-4"></span>FRANCO, A. d. O. da R.; CARVALHO, W. V. de; SILVA, J. W. F. da; MAIA, J. G. R.; CASTRO, M. F. de. Managing and controlling digital role-playing game elements: A current state of affairs. Entertainment Computing, Elsevier, v. 51, p. 100708, 2024.
-- <span id="page-11-3"></span>GAO, Y.; XIONG, Y.; GAO, X.; JIA, K.; PAN, J.; BI, Y.; DAI, Y.; SUN, J.; WANG, H. Retrieval-augmented generation for large language models: A survey. arXiv preprint arXiv:2312.10997, 2023.
-- <span id="page-11-9"></span>HUANG, J.-t.; WANG, W.; LI, E. J.; LAM, M. H.; REN, S.; YUAN, Y.; JIAO, W.; TU, Z.; LYU, M. On the humanity of conversational ai: Evaluating the psychological portrayal of llms. In: The Twelfth International Conference on Learning Representations. [*S. l.*: *s. n.*], 2023.
-- <span id="page-11-12"></span>IMRAN, M.; ALMUSHARRAF, N. Google gemini as a next generation ai educational tool: a review of emerging educational technology. Smart Learning Environments, Springer, v. 11, n. 1, p. 22, 2024.
-- <span id="page-11-1"></span>KAPLAN, J.; MCCANDLISH, S.; HENIGHAN, T.; BROWN, T. B.; CHESS, B.; CHILD, R.; GRAY, S.; RADFORD, A.; WU, J.; AMODEI, D. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361, 2020.
-- <span id="page-11-11"></span>KLUYVER, T.; RAGAN-KELLEY, B.; PÉREZ, F.; GRANGER, B.; BUSSONNIER, M.; FREDERIC, J.; KELLEY, K.; HAMRICK, J.; GROUT, J.; CORLAY, S. *et al.* Jupyter notebooks–a publishing format for reproducible computational workflows. In: Positioning and power in academic publishing: Players, agents and agendas. [*S. l.*]: IOS press, 2016. p. 87–90.
-- <span id="page-11-2"></span>LEWIS, P.; PEREZ, E.; PIKTUS, A.; PETRONI, F.; KARPUKHIN, V.; GOYAL, N.; KÜTTLER, H.; LEWIS, M.; YIH, W.-t.; ROCKTÄSCHEL, T. *et al.* Retrieval-augmented generation for knowledge-intensive nlp tasks. Advances in Neural Information Processing Systems, v. 33, p. 9459–9474, 2020.
-- <span id="page-11-10"></span>LIN, J. C.; YOUNESSI, D. N.; KURAPATI, S. S.; TANG, O. Y.; SCOTT, I. U. Comparison of gpt-3.5, gpt-4, and human user performance on a practice ophthalmology written examination. Eye, Nature Publishing Group UK London, v. 37, n. 17, p. 3694–3695, 2023.
-- <span id="page-11-6"></span>LIN, X.; WANG, W.; LI, Y.; YANG, S.; FENG, F.; WEI, Y.; CHUA, T.-S. Data-efficient fine-tuning for llm-based recommendation. In: Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval. [*S. l.*: *s. n.*], 2024. p. 365–374.
-- <span id="page-11-8"></span>LIU, Y.; YAO, Y.; TON, J.-F.; ZHANG, X.; CHENG, R. G. H.; KLOCHKOV, Y.; TAUFIQ, M. F.; LI, H. Trustworthy llms: A survey and guideline for evaluating large language models' alignment. arXiv preprint arXiv:2308.05374, 2023.
-- <span id="page-11-5"></span>LUU, Q. K.; DENG, X.; HO, A. V.; NAKAHIRA, Y. Context-aware llm-based safe control against latent risks. arXiv preprint arXiv:2403.11863, 2024.
-- <span id="page-11-0"></span>MÄYRÄ, F. Dialogue and interaction in role-playing games. Dialogue across Media, John Benjamins Publishing Company, v. 28, p. 271, 2017.
-- <span id="page-11-7"></span>MEYER, L.-P.; STADLER, C.; FREY, J.; RADTKE, N.; JUNGHANNS, K.; MEISSNER, R.; DZIWIS, G.; BULERT, K.; MARTIN, M. Llm-assisted knowledge graph engineering:
-
-- Experiments with chatgpt. In: SPRINGER FACHMEDIEN WIESBADEN WIESBADEN. Working conference on Artificial Intelligence Development for a Resilient and Sustainable Tomorrow. [*S. l.*], 2023. p. 103–115.
-- <span id="page-12-0"></span>MOSER, C.; FANG, X. Narrative structure and player experience in role-playing games. International Journal of Human-Computer Interaction, v. 31, p. 146–156, 12 2014.
 - <span id="page-12-3"></span>NANANUKUL, N.; WONGKAMJAN, W. What if red can talk? dynamic dialogue generation using large language models. arXiv preprint arXiv:2407.20382, 2024.
-- <span id="page-12-8"></span>NYE, B. D.; MEE, D.; CORE, M. G. Generative large language models for dialog-based tutoring: An early consideration of opportunities and concerns. In: LLM@ AIED. [*S. l.*: *s. n.*], 2023. p. 78–88.
-- <span id="page-12-10"></span>RAY, P. P. Chatgpt: A comprehensive review on background, applications, key challenges, bias, ethics, limitations and future scope. Internet of Things and Cyber-Physical Systems, Elsevier, v. 3, p. 121–154, 2023.
-- <span id="page-12-4"></span>ROLIM, F. M. Llms e ia generativa em jogos. Universidade Federal do Rio de Janeiro, 2023.
-- <span id="page-12-6"></span>SINGH, P. N.; TALASILA, S.; BANAKAR, S. V. Analyzing embedding models for embedding vectors in vector databases. In: IEEE. 2023 IEEE International Conference on ICT in Business Industry & Government (ICTBIG). [*S. l.*], 2023. p. 1–7.
-- <span id="page-12-2"></span>SMITH, G. Understanding procedural content generation: a design-centric analysis of the role of pcg in games. In: Proceedings of the SIGCHI Conference on Human Factors in Computing Systems. [*S. l.*: *s. n.*], 2014. p. 917–926.
 - <span id="page-12-1"></span>STEGEREN, J. van; MYSLIWIEC, J. Fine-tuning gpt-2 on annotated rpg quests for npc dialogue ´ generation. In: Proceedings of the 16th International Conference on the Foundations of Digital Games. [*S. l.*: *s. n.*], 2021. p. 1–8.
-- <span id="page-12-11"></span>TAPSCOTT, A.; LEÓN, C.; GERVÁS, P. Generating stories using role-playing games and simulated human-like conversations. In: Proceedings of the 3rd Workshop on Computational Creativity in Natural Language Generation (CC-NLG 2018). [*S. l.*: *s. n.*], 2018. p. 34–42.
-- <span id="page-12-7"></span>TYCHSEN, A.; HITCHENS, M.; BROLUND, T.; KAVAKLI, M. The game master. In: ACM International Conference Proceeding Series. [*S. l.*: *s. n.*], 2005. v. 123, n. 2005, p. 215–222.
-- <span id="page-12-5"></span>WANG, X.; WANG, Z.; GAO, X.; ZHANG, F.; WU, Y.; XU, Z.; SHI, T.; WANG, Z.; LI, S.; QIAN, Q. *et al.* Searching for best practices in retrieval-augmented generation. In: Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing. [*S. l.*: *s. n.*], 2024. p. 17716–17736.
-- <span id="page-12-9"></span>XIAN, J.; TEOFILI, T.; PRADEEP, R.; LIN, J. Vector search with openai embeddings: Lucene is all you need. In: Proceedings of the 17th ACM International Conference on Web Search and Data Mining. [*S. l.*: *s. n.*], 2024. p. 1090–1093.
-
-<span id="page-13-0"></span>![](_page_13_Figure_0.jpeg)
-
-Figura 5 – Gráficos de Comparação do Melhor Desempenho de cada Diálogo por Categoria.
