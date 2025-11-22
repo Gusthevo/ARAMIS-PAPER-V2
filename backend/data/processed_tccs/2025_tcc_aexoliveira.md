@@ -13,7 +13,7 @@ Data privacy has become a central concern for users with the increased use of di
 
 Keywords: VPN. Privacy. Authentication. Zero-Knowledge Proof. Blockchain.
 
-## 1 INTRODUÇÃO
+# 1 INTRODUÇÃO
 
 Com o crescimento contínuo do uso de tecnologias digitais e plataformas *online*, as preocupações com a privacidade e o uso de dados têm se intensificado entre os usuários . A privacidade digital refere-se à proteção das informações pessoais dos indivíduos no contexto das tecnologias de informação e comunicação. Ela diz respeito ao direito dos indivíduos de controlar a coleta, uso e divulgação de seus dados pessoais em ambientes digitais, bem como à capacidade de navegar e interagir em espaços virtuais sem vigilância indesejada.
 
@@ -71,7 +71,7 @@ Este trabalho está estruturado em oito capítulos, incluindo esta Introdução.
 
 Capítulo 6 tem como objetivo discutir e apresentar os resultados obtidos. No Capítulo 7, são apresentadas as discussões sobre os resultados e algumas análises. Por fim, no Capítulo 8, o trabalho é concluído e são apresentados os próximos passos da pesquisa.
 
-## 2 FUNDAMENTAÇÃO TEÓRICA
+# 2 FUNDAMENTAÇÃO TEÓRICA
 
 O presente Capítulo discute os fundamentos teóricos do trabalho. Nele serão abordados os seguintes temas: privacidade, conceitos de autenticação, o que é uma VPN e como funciona, questões de privacidade e segurança em VPNs, criptografia de chave pública com ênfase em criptografia de curvas elípticas, prova de conhecimento zero (ZKP), *blockchain* e, por fim, contratos inteligentes. Cada um desses tópicos foi selecionado para fornecer uma base teórica abrangente que auxilie na compreensão do tema de pesquisa abordado neste trabalho.
 
@@ -198,7 +198,7 @@ Os contratos inteligentes podem ser desenvolvidos em diferentes plataformas *blo
 
 Cada *blockchain* possui suas particularidades e benefícios para contratos inteligentes, como diferentes níveis de segurança, modelos de permissão e suporte para diversas linguagens de programação. A escolha da plataforma depende das necessidades específicas do projeto e do ambiente em que será implementado.
 
-### 3 TRABALHOS RELACIONADOS
+# 3 TRABALHOS RELACIONADOS
 
 Este Capítulo examina trabalhos relacionados à presente pesquisa, explorando diversas soluções focadas na preservação da privacidade, no anonimato e na segurança no contexto de VPNs. Especial atenção foi dada às soluções que tratam de autenticação e processos de pagamento em redes VPN.
 
@@ -308,7 +308,7 @@ A etapa de comunicação dos resultados na DSR é fundamental para disseminar o 
 - Artigo científico Um artigo científico foi preparado, sintetizando os principais aspectos do trabalho, incluindo o problema, a metodologia, o *design* do artefato e algumas análises. Este artigo foi submetido à trilha de resultados emergentes do Simpósio Brasileiro de Sistemas de Informação (SBSI). Em seguida, planejase expandir a pesquisa e submeter o trabalho completo e mais robusto a uma conferência ou periódico de alto impacto na área de segurança da informação e privacidade. A publicação em um periódico ou conferência permitirá a disseminação dos resultados para a comunidade científica internacional, promovendo o diálogo acadêmico e possíveis colaborações futuras.
 - Repositório GitHub O código-fonte do artefato, juntamente com a documentação técnica, está disponibilizado em um repositório público no GitHub. A disponibilização do projeto no GitHub permitirá que outros pesquisadores e desenvolvedores examinem, repliquem e potencialmente estendam o trabalho.
 
-#### 5 MODELO PROPOSTO
+# 5 MODELO PROPOSTO
 
 Este Capítulo apresenta uma proposta de arquitetura para autenticação anônima em serviços de VPN. O escopo deste trabalho abrange duas etapas principais: a *fase de configuração*, em que o usuário realiza a contratação do serviço VPN, efetua o pagamento e recebe os parâmetros de autenticação; e a *fase de autenticação*, na qual o usuário utiliza esses parâmetros para acessar o serviço de forma anônima e segura. O modelo proposto não visa alterar toda a infraestrutura tradicional das VPNs, como o mecanismo de tunelamento, mas concentra-se em duas fases fundamentais para a segurança e a privacidade dos usuários.
 
@@ -427,7 +427,7 @@ O tempo médio de autenticação via ZKP (ver Seção 6.3) foi de 3,27 segundos,
 
 A arquitetura foi projetada para ser relativamente simples, evitando complexidade excessiva que poderia desestimular o usuário a contratar o serviço de VPN. O pagamento seria realizado diretamente pela aplicação cliente, que se conectaria à carteira do usuário. Para isso, bastaria pressionar o botão "Conectar Carteira", seguido de "Implantar Contrato e Realizar Pagamento". Após essa etapa, o usuário apenas precisaria confirmar as três transações ilustradas na Figura 10, da Subseção 6.2.1. O processo de autenticação também foi projetado para ser simples. O usuário apenas precisaria carregar o arquivo correspondente às suas informações de autenticação. Caso o arquivo estivesse cifrado com uma senha, bastaria inseri-la para decifrá-lo no momento da autenticação com o servidor VPN. O projeto, como um todo, buscou equilibrar segurança, privacidade e anonimato, sem comprometer a usabilidade.
 
-## 8 CONSIDERAÇÕES FINAIS
+# 8 CONSIDERAÇÕES FINAIS
 
 A arquitetura descrita tem como objetivo garantir a segurança e a privacidade durante o processo de autenticação e pagamento em serviços de VPN, utilizando tecnologias avançadas, como *blockchain* e provas de conhecimento zero, a fim de proteger a identidade e as informações dos usuários. Ao mesmo tempo, busca-se manter um nível de simplicidade para o usuário, minimizando o impacto sobre sua experiência e reduzindo o risco de erros decorrentes de estruturas e processos complexos que poderiam levá-lo a cometer falhas. As questões de pesquisa formuladas na introdução são retomadas aqui à luz dos resultados obtidos, com o intuito de oferecer respostas claras e fundamentadas.
 
