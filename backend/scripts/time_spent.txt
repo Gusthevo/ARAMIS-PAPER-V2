@@ -1,0 +1,61 @@
+TCC Chagas - 
+🧠 Carregar modelos:      2.84 s
+📄 Converter PDF:         3858.61 s
+✏️ Extrair markdown:      0.01 s
+💾 Salvar arquivo:        0.00 s
+🔢 Quantidade de tokens do GPT-4 no markdown: 30,536
+🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 20,812
+======================================
+
+TCC Gabriel -
+🧠 Carregar modelos:      3.32 s
+📄 Converter PDF:         2552.34 s
+✏️ Extrair markdown:      0.00 s
+💾 Salvar arquivo:        0.00 s
+--------------------------------------
+⏳ Tempo total:           2555.67 s
+✅ Finalizado — markdown salvo em: ../data/processed_tccs/2025_tcc_grsmatos.md
+🔢 Quantidade de tokens do GPT-4 no markdown: 11,210
+🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 6,727
+======================================
+
+TCC Leticia - 
+🧠 Carregar modelos:      3.17 s
+📄 Converter PDF:         463.35 s
+✏️ Extrair markdown:      0.00 s
+💾 Salvar arquivo:        0.00 s
+--------------------------------------
+⏳ Tempo total:           466.53 s
+🔢 Quantidade de tokens do GPT-4 no markdown: 19,460
+🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 
+======================================
+
+TCC Raylander -
+⏱️   RELATÓRIO DE TEMPO
+======================================
+🧠 Carregar modelos:      2.68 s
+📄 Converter PDF:         1622.82 s
+✏️ Extrair markdown:      0.00 s
+💾 Salvar arquivo:        0.00 s
+--------------------------------------
+⏳ Tempo total:           1625.51 s
+🔢 Quantidade de tokens do GPT-4 no markdown: 38,050
+======================================
+
+TCC Joel -
+⏱️   RELATÓRIO DE TEMPO
+======================================
+🧠 Carregar modelos:      2.53 s
+📄 Converter PDF:         2431.14 s
+✏️ Extrair markdown:      0.01 s
+💾 Salvar arquivo:        0.00 s
+--------------------------------------
+⏳ Tempo total:           2433.68 s
+🔢 Quantidade de tokens do GPT-4 no markdown: 20,678
+======================================
+
+TCC Marllon - 
+🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 20,157
+
+TCC - Elimar
+🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 21,341
