@@ -1,66 +1,9 @@
-![](_page_0_Picture_0.jpeg)
-
-# UNIVERSIDADE FEDERAL DO CEARÁ CAMPUS DE CRATEÚS CURSO DE GRADUAÇÃO EM SISTEMAS DE INFORMAÇÃO
-
-#### ANTONIO ELIMAR XIMENES OLIVEIRA
-
-FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO
-
-### ANTONIO ELIMAR XIMENES OLIVEIRA
-
 # FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO
 
-Trabalho de Conclusão de Curso apresentado ao Curso de Graduação em Sistemas de Informação do Campus de Crateús da Universidade Federal do Ceará, como requisito parcial à obtenção do grau de bacharel em Sistemas de Informação.
-
-Orientador: Prof. Dr. Emerson B. Tomaz
-
-Coorientador: Prof. Dr. Allysson Allex Araújo
-
-Dados Internacionais de Catalogação na Publicação Universidade Federal do Ceará Sistema de Bibliotecas Gerada automaticamente pelo módulo Catalog, mediante os dados fornecidos pelo(a) autor(a)
-
-#### O45f Oliveira, Antonio Elimar Ximenes.
-
- Fortalecendo a privacidade e segurança em VPN: explorando blockchain e prova de conhecimento zero como solução / Antonio Elimar Ximenes Oliveira. – 2025.
-
-64 f. : il. color.
-
- Trabalho de Conclusão de Curso (graduação) – Universidade Federal do Ceará, Campus de Crateús, Curso de Sistemas de Informação, Crateús, 2025.
-
- Orientação: Prof. Dr. Antonio Emerson Barros Tomaz. Coorientação: Prof. Dr. Allysson Allex de Paula Araújo.
-
- 1. VPN. 2. Privacidade. 3. Autenticação. 4. Prova de Conhecimento Zero. 5. Blockchain. I. Título. CDD 005
-
-### ANTONIO ELIMAR XIMENES OLIVEIRA
-
-# FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO
-
-Trabalho de Conclusão de Curso apresentado ao Curso de Graduação em Sistemas de Informação do Campus de Crateús da Universidade Federal do Ceará, como requisito parcial à obtenção do grau de bacharel em Sistemas de Informação.
-
-Aprovada em:
-
-#### BANCA EXAMINADORA
-
-Prof. Dr. Emerson B. Tomaz (Orientador) Universidade Federal do Ceará (UFC)
-
-Prof. Dr. Allysson Allex Araújo (Coorientador) Universidade Federal do Cariri (UFCA)
-
-> Prof. Dr. Alisson Barbosa de Souza Universidade Federal do Ceará (UFC)
-
-> Prof. Dr. Wendley Souza da Silva Universidade Federal do Ceará (UFC)
-
-### AGRADECIMENTOS
-
-Inicialmente, gostaria de agradecer à minha irmã, Leticia, à minha mãe, Mariza, e ao meu avô, José Ximenes, por todo o cuidado, paciência e apoio, que foram a base da minha formação como pessoa e de quem sou hoje.
-
-Aos meus amigos do laboratório Mandacaru, sou grato por estarem sempre disponíveis para auxiliar nas dúvidas, compartilhar conhecimento e até mesmo por uma simples conversa para distrair nos dias mais cansativos.
-
-Agradeço ao meu orientador e ao meu coorientador, os professores Emerson B. Tomaz e Allysson Allex, por aceitarem me orientar e por todos os ensinamentos e inspirações ao longo da minha trajetória acadêmica. Também sou grato aos demais professores da UFC Crateús, cujo compromisso com o ensino foi fundamental para minha formação.
-
-"É ótimo celebrar o sucesso, mas mais importante ainda é assimilar as lições trazidas pelos erros que cometemos" (Bill Gates)
 
 #### RESUMO
 
-Com o aumento do uso de tecnologias digitais e plataformas online, a privacidade dos dados tornou-se uma preocupação central para os usuários. As Redes Virtuais Privadas (VPNs) surgem como uma solução popular para proteger essa privacidade. No entanto, mesmo com o uso de VPNs, ainda existem maneiras pelas quais a privacidade dos usuários pode ser comprometida, especialmente em regimes autoritários, onde a exposição de dados pode levar a perseguições políticas. Além disso, as VPNs enfrentam riscos à privacidade devido a falhas de segurança e vazamentos de dados, ocasionados por ataques de *hackers* ou ordens judiciais abusivas. Isso evidencia a necessidade urgente de desenvolver uma solução mais robusta que garanta anonimato e privacidade aos usuários diante de tais situações adversas. Nesse contexto, este estudo tem como objetivo principal desenvolver e avaliar uma arquitetura de autenticação anônima para serviços de VPN, utilizando tecnologias de *blockchain* e prova de conhecimento zero (ZKP), com o intuito de aprimorar a privacidade e segurança dos usuários em diversos cenários de ameaça. O procedimento metodológico adotado segue os princípios do *Design Science Research* (DSR), focando no desenvolvimento e avaliação de um artefato tecnológico que integra VPN com *blockchain* e ZKP. A integração de *blockchain* e ZKP evita o armazenamento de dados sensíveis, enquanto o uso de criptomoedas elimina a necessidade de registrar informações de pagamento, um ponto comum de vulnerabilidade. A solução proposta tem um potencial para prevenir vazamentos de dados de identificação pessoal, sendo especialmente relevante para jornalistas, ativistas e cidadãos em regimes opressivos, que necessitam de ferramentas confiáveis para proteger suas identidades *online*. A implementação desenvolvida neste trabalho, baseada na *blockchain* Ethereum, confirmou a viabilidade do artefato. As taxas de transação ficaram em torno de 4,21 dólares, sendo a maior parte referente ao *deploy* do contrato inteligente. Para a renovação do serviço de VPN, esse custo cairia para cerca de 0,48 dólares, pois não seria necessário gerar um novo contrato. A autenticação via ZKP, com criptografia no canal de comunicação, obteve um tempo médio de 3,27 segundos, reforçando a viabilidade da solução.
+Com o aumento do uso de tecnologias digitais e plataformas online, a privacidade dos dados tornou-se uma preocupação central para os usuários. As Redes Virtuais Privadas (VPNs) surgem como uma solução popular para proteger essa privacidade. No entanto, mesmo com o uso de VPNs, ainda existem maneiras pelas quais a privacidade dos usuários pode ser comprometida, especialmente em regimes autoritários, onde a exposição de dados pode levar a perseguições políticas. Além disso, as VPNs enfrentam riscos à privacidade devido a falhas de segurança e vazamentos de dados, ocasionados por ataques de *hackers* ou ordens judiciais abusivas. Isso evidencia a necessidade urgente de desenvolver uma solução mais robusta que garanta anonimato e privacidade aos usuários diante de tais situações adversas. Nesse contexto, este estudo tem como objetivo principal desenvolver e avaliar uma arquitetura de autenticação anônima para serviços de VPN, utilizando tecnologias de *blockchain* e prova de conhecimento zero (ZKP), com o intuito de aprimorar a privacidade e segurança dos usuários em diversos cenários de ameaça. O procedimento metodológico adotado segue os princípios do Design Science Research (DSR), focando no desenvolvimento e avaliação de um artefato tecnológico que integra VPN com *blockchain* e ZKP. A integração de *blockchain* e ZKP evita o armazenamento de dados sensíveis, enquanto o uso de criptomoedas elimina a necessidade de registrar informações de pagamento, um ponto comum de vulnerabilidade. A solução proposta tem um potencial para prevenir vazamentos de dados de identificação pessoal, sendo especialmente relevante para jornalistas, ativistas e cidadãos em regimes opressivos, que necessitam de ferramentas confiáveis para proteger suas identidades *online*. A implementação desenvolvida neste trabalho, baseada na *blockchain* Ethereum, confirmou a viabilidade do artefato. As taxas de transação ficaram em torno de 4,21 dólares, sendo a maior parte referente ao *deploy* do contrato inteligente. Para a renovação do serviço de VPN, esse custo cairia para cerca de 0,48 dólares, pois não seria necessário gerar um novo contrato. A autenticação via ZKP, com criptografia no canal de comunicação, obteve um tempo médio de 3,27 segundos, reforçando a viabilidade da solução.
 
 Palavras-chave: VPN. Privacidade. Autenticação. Prova de Conhecimento Zero. Blockchain.
 
@@ -70,164 +13,27 @@ Data privacy has become a central concern for users with the increased use of di
 
 Keywords: VPN. Privacy. Authentication. Zero-Knowledge Proof. Blockchain.
 
-## LISTA DE ILUSTRAÇÕES
-
-| Figura 1<br>–         | Funcionamento geral de uma VPN (esquema cliente-servidor).                  | 21 |
-|-----------------------|-----------------------------------------------------------------------------|----|
-| Figura 2<br>–         | Processo de cifração e decifração em criptossistemas de chave pública.      | 23 |
-| Figura 3<br>–         | Protocolo genérico interativo de prova de conhecimento zero.                | 27 |
-| Figura 4<br>–         | Estrutura simplificada da cadeia de blocos blockchain                       | 29 |
-| Figura 5<br>–         | Visão geral da arquitetura                                                  | 41 |
-| Figura 6<br>–         | Fase configuração                                                           | 44 |
-| Figura 7<br>–         | Autenticação usuário.                                                       | 46 |
-| Figura 8<br>–         | contrato inteligente<br>Sepolia.<br>Deploy<br>testenet                      | 49 |
-| Figura 9<br>–         | Consulta do preço do Ethereum em dólares com a ferramenta Postman           | 49 |
-|                       | Figura 10 – Solicitações de confirmação de transação na carteira Metamask   | 50 |
-|                       | Figura 11 – Taxas em dólar de cada transação                                | 52 |
-| Figura 12 – Tempos de | do contrato e de envio do pagamento para o contrato .<br>deploy             | 53 |
-| Figura 13 –           | Tempos de transferência do pagamento para a VPN e de verificação do         |    |
-|                       | pagamento                                                                   | 54 |
-|                       | Figura 14 – Tempo de Autenticação: Comparação entre Canal Seguro e Inseguro | 56 |
-
-### LISTA DE TABELAS
-
-| Tabela 1<br>–<br>Comparação de resistência equivalente de tamanho de chave. | 25 |
-|-----------------------------------------------------------------------------|----|
-| Tabela 2<br>–<br>Comparação dos trabalhos                                   | 34 |
-| Tabela 3<br>–<br>Tempo médio de execução de cada rodada por tipo de canal   | 55 |
-| Tabela 4<br>–<br>Desvio padrão em cada rodada por tipo de canal             | 56 |
-
-### LISTA DE ABREVIATURAS E SIGLAS
-
-API *Application Programming Interface*
-
-DDoS *Distributed Denial of Service*
-
-DHT Tabela de *Hash* Distribuída
-
-DNS *Domain Name System*
-
-DSR *Design Science Research*
-
-dVPN Rede Privada Virtual Descentralizada
-
-ECC *Elliptic Curve Cryptography*
-
-ECDLP *Elliptic Curve Discrete Logarithm Problem*
-
-EVM *Ethereum Virtual Machine*
-
-FBI *Federal Bureau of Investigation*
-
-IoT *Internet of Things*
-
-IP *Internet Protocol*
-
-IPSec *Internet Protocol Security*
-
-IRMA *I Reveal My Attributes*
-
-L2TP *Layer 2 Tunneling Protocol*
-
-LGPD Lei Geral de Proteção de Dados
-
-MitM *Man-in-the-Middle*
-
-NIST *National Institute of Standards and Technology*
-
-NP *Nondeterministic Polynomial Time*
-
-P2P ponto a ponto
-
-RSA *Rivest-Shamir-Adleman*
-
-RSSFs Redes de Sensores Sem Fio
-
-SBSI Simpósio Brasileiro de Sistemas de Informação
-
-SSL *Secure Sockets Layer*
-
-TLS *Transport Layer Security*
-
-VPN *Virtual Private Network*
-
-WAN *Wide Area Network*
-
-ZKP *Zero-Knowledge Proof*
-
-## SUMÁRIO
-
-| 1     | INTRODUÇÃO .                                  | 13 |
-|-------|-----------------------------------------------|----|
-| 1.1   | Declaração do problema e questões de pesquisa | 16 |
-| 1.2   | Objetivo geral                                | 16 |
-| 1.3   | Objetivos específicos                         | 17 |
-| 1.4   | Contribuições                                 | 17 |
-| 1.5   | Estrutura do trabalho                         | 17 |
-| 2     | FUNDAMENTAÇÃO TEÓRICA                         | 19 |
-| 2.1   | Privacidade                                   | 19 |
-| 2.2   | Autenticação                                  | 19 |
-| 2.3   | (VPN)<br>Virtual Private Network              | 20 |
-| 2.4   | Privacidade e segurança em VPNs               | 22 |
-| 2.5   | Criptografia de chave pública                 | 23 |
-| 2.6   | Criptografia de curva elíptica (ECC)          | 24 |
-| 2.7   | Prova de conhecimento zero (ZKP)              | 26 |
-| 2.8   | Blockchain                                    | 28 |
-| 2.9   | Contratos inteligentes                        | 29 |
-| 3     | TRABALHOS RELACIONADOS                        | 31 |
-| 4     | PROCEDIMENTOS METODOLÓGICOS                   | 35 |
-| 4.1   | Conscientização do problema                   | 35 |
-| 4.2   | Definição de objetivos                        | 36 |
-| 4.3   | e desenvolvimento do artefato<br>Design       | 37 |
-| 4.4   | Demostração do artefato                       | 38 |
-| 4.5   | Avaliação do artefato                         | 39 |
-| 4.5.1 | Análise de custos                             | 39 |
-| 4.5.2 | Análise de desempenho                         | 39 |
-| 4.6   | Comunicação dos resultados                    | 40 |
-| 5     | MODELO PROPOSTO                               | 41 |
-| 5.1   | Fase de configuração                          | 42 |
-| 5.2   | Fase de autenticação                          | 45 |
-| 6     | RESULTADOS E ANÁLISES                         | 47 |
-
-| 6.1   | Ambiente e detalhes da implementação          | 47 |
-|-------|-----------------------------------------------|----|
-| 6.2   | Resultados<br>fase de configuração            | 50 |
-| 6.2.1 | Análise dos custos de transação na blockchain | 50 |
-| 6.2.2 | Análise do tempo de cada operação             | 52 |
-| 6.3   | Resultados<br>fase de autenticação            | 55 |
-| 7     | DISCUSSÕES .                                  | 57 |
-| 8     | CONSIDERAÇÕES FINAIS                          | 59 |
-|       | REFERÊNCIAS                                   | 60 |
-
 ## 1 INTRODUÇÃO
 
-Com o crescimento contínuo do uso de tecnologias digitais e plataformas *online*, as preocupações com a privacidade e o uso de dados têm se intensificado entre os usuários (PERDICES *et al.*, 2023). A privacidade digital refere-se à proteção das informações pessoais dos indivíduos no contexto das tecnologias de informação e comunicação. Ela diz respeito ao direito dos indivíduos de controlar a coleta, uso e divulgação de seus dados pessoais em ambientes digitais, bem como à capacidade de navegar e interagir em espaços virtuais sem vigilância indesejada (ACQUISTI *et al.*, 2020).
+Com o crescimento contínuo do uso de tecnologias digitais e plataformas *online*, as preocupações com a privacidade e o uso de dados têm se intensificado entre os usuários . A privacidade digital refere-se à proteção das informações pessoais dos indivíduos no contexto das tecnologias de informação e comunicação. Ela diz respeito ao direito dos indivíduos de controlar a coleta, uso e divulgação de seus dados pessoais em ambientes digitais, bem como à capacidade de navegar e interagir em espaços virtuais sem vigilância indesejada.
 
-No dia a dia, diversos usuários demonstram preocupação com a segurança de seus dados pessoais ao utilizarem serviços *online*, devido aos riscos de vazamentos de informações, roubo de identidade e uso indevido de dados sensíveis. Essas preocupações cotidianas são amplificadas quando consideramos<sup>1</sup> o contexto de regimes autoritários, nos quais a privacidade na Internet é ainda mais ameaçada. Além dos riscos tradicionais de segurança cibernética, há o perigo adicional de monitoramento e censura por parte do governo. Pesquisas demonstram que regimes autoritários frequentemente monitoram e censuram a Internet, influenciando a auto-censura entre os cidadãos devido ao medo de repressão governamental (ROBINSON; TANNENBERG, 2019; ONG, 2019).
+No dia a dia, diversos usuários demonstram preocupação com a segurança de seus dados pessoais ao utilizarem serviços *online*, devido aos riscos de vazamentos de informações, roubo de identidade e uso indevido de dados sensíveis. Essas preocupações cotidianas são amplificadas quando consideramos o contexto de regimes autoritários, nos quais a privacidade na Internet é ainda mais ameaçada. Além dos riscos tradicionais de segurança cibernética, há o perigo adicional de monitoramento e censura por parte do governo. Pesquisas demonstram que regimes autoritários frequentemente monitoram e censuram a Internet, influenciando a auto-censura entre os cidadãos devido ao medo de repressão governamental.
 
-Para se protegerem de vigilância nesses ambientes, os usuários têm recorrido cada vez mais ao uso de Redes Virtuais Privadas, do inglês *Virtual Private Network* (VPN). Uma VPN é uma maneira de criar comunicações seguras sobre uma infraestrutura de rede pública, como a Internet. As VPNs mascaram o *Internet Protocol* (IP) do usuário, cifram o tráfego de rede e implementam um processo de autenticação para garantir que as informações sejam mantidas privadas e confidenciais (CAMERON *et al.*, 2005). A natureza privada das VPNs permite que os usuários desfrutem de maior segurança e privacidade *online*.
+Para se protegerem de vigilância nesses ambientes, os usuários têm recorrido cada vez mais ao uso de Redes Virtuais Privadas, do inglês Virtual Private Network (VPN). Uma VPN é uma maneira de criar comunicações seguras sobre uma infraestrutura de rede pública, como a Internet. As VPNs mascaram o Internet Protocol (IP) do usuário, cifram o tráfego de rede e implementam um processo de autenticação para garantir que as informações sejam mantidas privadas e confidenciais. A natureza privada das VPNs permite que os usuários desfrutem de maior segurança e privacidade *online*.
 
-A relevância das VPNs se destaca em cenários nos quais a censura e a vigilância são prevalentes. Conforme discutido por Ezra *et al.* (2022), as VPNs estão se tornando cada vez mais populares e têm se mostrado eficazes no contorno da censura ou vigilância imposta por Estados autoritários, bem como no acesso a serviços com restrições geográficas. Contudo,
+A relevância das VPNs se destaca em cenários nos quais a censura e a vigilância são prevalentes. As VPNs estão se tornando cada vez mais populares e têm se mostrado eficazes no contorno da censura ou vigilância imposta por Estados autoritários, bem como no acesso a serviços com restrições geográficas. Contudo, embora as VPNs proporcionem vantagens em termos de privacidade, é importante destacar que essa proteção não é absoluta, como pode ser observado a seguir.
 
-<sup>1</sup> Em concordância com as reflexões de Turato (2008, p.510) e Costa e Costa (2017, p.75) sobre a forma de expressão em textos científicos, acreditamos que devemos redigir trabalhos acadêmicos em português usando a primeira pessoa. Dessa forma, evitamos o emprego do verbo na terceira pessoa com partícula apassivadora ou sujeito indeterminado, tornando o texto mais direto. Portanto, adotaremos o "nós" como pessoa do discurso. Conforme Turato (2008), esse plural de modéstia denota a existência de coautores, que no contexto deste trabalho pode ser entendido como a inclusão dos orientadores.
+Em alguns casos, a privacidade dos usuários pode ser comprometida, especialmente em regimes autoritários, nos quais o uso de VPNs pode ser monitorado e, inclusive, proibido pelo governo. Um artigo jornalístico publicado pelo *site* britânico *TechRadar*, especializado em tecnologia, discute como governos autoritários tentam monitorar e coagir empresas de tecnologia, incluindo provedores de VPNs, para controlar o fluxo de informações. O artigo menciona que na Índia foi implementada uma lei exigindo que os provedores de VPN coletem e mantenham informações dos usuários, como nomes e endereços de IP, por pelo menos cinco anos. Os provedores argumentam, evidentemente, que isso enfraquece a eficácia das VPNs em fornecer privacidade e segurança aos usuários.
 
-embora as VPNs proporcionem vantagens em termos de privacidade, é importante destacar que essa proteção não é absoluta, como pode ser observado a seguir.
+Além das preocupações em cenários de regimes autoritários, as VPNs também podem estar sujeitas a falhas de segurança e vazamentos de dados por ataques de *hackers*. O jornal canadense *National Post* relatou um grave vazamento de dados no Ministério de Relações Exteriores do Canadá. Um ataque de *hackers* comprometeu uma VPN utilizada pelos funcionários, permitindo acesso a e-mails e dados pessoais armazenados nos *laptops* conectados à VPN. Um artigo da *Fox News* destaca vulnerabilidades em VPNs gratuitas. Foi descoberta uma violação de dados do serviço gratuito SuperVPN, expondo 360 milhões de registros contendo informações pessoais dos usuários, como localização de IP e servidores utilizados. Outro incidente de vazamento de dados envolveu a empresa de segurança cibernética *Fortinet*, dos Estados Unidos, que confirmou que um agente malicioso divulgou as senhas e logins de VPNs de 87.000 de seus dispositivos. Essas credenciais foram obtidas por meio da exploração de uma vulnerabilidade que permitiu o acesso a arquivos de sistema, incluindo o arquivo de sessão com nomes de usuário e senhas em texto simples.
 
-Em alguns casos, a privacidade dos usuários pode ser comprometida, especialmente em regimes autoritários, nos quais o uso de VPNs pode ser monitorado e, inclusive, proibido pelo governo. Um artigo jornalístico publicado pelo *site* britânico *TechRadar* (SCHAUB, 2024), especializado em tecnologia, discute como governos autoritários tentam monitorar e coagir empresas de tecnologia, incluindo provedores de VPNs, para controlar o fluxo de informações. O artigo menciona que na Índia foi implementada uma lei exigindo que os provedores de VPN coletem e mantenham informações dos usuários, como nomes e endereços de IP, por pelo menos cinco anos. Os provedores argumentam, evidentemente, que isso enfraquece a eficácia das VPNs em fornecer privacidade e segurança aos usuários.
+Mesmo em Estados democráticos, um aspecto que pode ameaçar a privacidade dos usuários de VPN são ordens judiciais que forçam os provedores de VPN a revelar informações sobre seus clientes. Esse tema é delicado, pois envolve um equilíbrio complexo entre o direito fundamental à privacidade e a necessidade de combate aos crimes digitais por parte das autoridades. No entanto, é preciso reconhecer que, em alguns casos excepcionais, decisões judiciais contra um provedor de VPN podem ter motivação política, a fim de impor vigilância sobre figuras públicas. Existem casos de provedores de VPNs que, intencionalmente ou por solicitações legais, compartilharam dados com governos, conforme revelado pelo *site* indiano *TechNadu*, especializado em VPNs. Embora afirmassem ter uma política de *no-logs* (não registrar atividades dos usuários), documentos judiciais demonstraram que os provedores forneceram informações detalhadas de usuários às autoridades em atendimento a uma ordem judicial. Um desses casos envolveu um incidente de *cyberstalking*, no qual o suspeito foi preso após provedores de VPNs fornecerem registros de atividade ao Federal Bureau of Investigation (FBI).
 
-Além das preocupações em cenários de regimes autoritários, as VPNs também podem estar sujeitas a falhas de segurança e vazamentos de dados por ataques de *hackers*. O jornal canadense *National Post* (NARDI, 2024) relatou um grave vazamento de dados no Ministério de Relações Exteriores do Canadá. Um ataque de *hackers* comprometeu uma VPN utilizada pelos funcionários, permitindo acesso a e-mails e dados pessoais armazenados nos *laptops* conectados à VPN. Um artigo da *Fox News* (KNUTSSON, 2023), destaca vulnerabilidades em VPNs gratuitas. Foi descoberta uma violação de dados do serviço gratuito SuperVPN, expondo 360 milhões de registros contendo informações pessoais dos usuários, como localização de IP e servidores utilizados. Outro incidente de vazamento de dados envolveu a empresa de segurança cibernética *Fortinet*, dos Estados Unidos, que confirmou que um agente malicioso divulgou as senhas e logins de VPNs de 87.000 de seus dispositivos (FORTINET, 2021). Essas credenciais foram obtidas por meio da exploração de uma vulnerabilidade que permitiu o acesso a arquivos de sistema, incluindo o arquivo de sessão com nomes de usuário e senhas em texto simples.
+Quando se trata de potenciais vazamentos de dados dos usuários, tudo depende do tipo e da quantidade de dados que um provedor de VPN decide coletar. Alguns provedores de VPN não mantêm registros das atividades dos usuários, exceto as informações necessárias para cobrança e solução de problemas. No entanto, até mesmo o método de pagamento usado para contratar o serviço de VPN pode representar um risco, pois o uso de um cartão de crédito, por exemplo, pode revelar a identidade do usuário que está usando a VPN, o que poderia ter graves consequências em Estados autoritários. Além disso, não se pode ignorar que as VPNs estão sujeitas a invasões cibernéticas, e considerando que algumas empresas coletam e armazenam informações pessoais dos usuários, isso se torna um fator adicional a ser considerado em relação à segurança e privacidade.
 
-Mesmo em Estados democráticos, um aspecto que pode ameaçar a privacidade dos usuários de VPN são ordens judiciais que forçam os provedores de VPN a revelar informações sobre seus clientes. Esse tema é delicado, pois envolve um equilíbrio complexo entre o direito fundamental à privacidade e a necessidade de combate aos crimes digitais por parte das autoridades<sup>2</sup> . No entanto, é preciso reconhecer que, em alguns casos excepcionais, decisões
+Os cenários descritos anteriormente evidenciam a necessidade de uma nova abordagem para os serviços de VPN, na qual nem mesmo os dados de pagamento do serviço são registrados, fortalecendo o anonimato e a proteção dos usuários contra eventuais vazamentos de dados e monitoramento governamental. Uma solução inovadora pode ser alcançada utilizando o protocolo Prova de Conhecimento Zero, do inglês Zero-Knowledge Proof (ZKP), para garantir a autenticação anônima, combinado com o uso de *blockchain* e criptomoedas para o pagamento do serviço, de modo que os dados de pagamento não sejam identificáveis.
 
-<sup>2</sup> Embora reconheçamos a complexidade do debate em torno do potencial conflito entre a privacidade dos usuários e a necessidade de combate aos crimes digitais, este não é o foco do presente trabalho. Nosso objetivo aqui é simplesmente apresentar o fato de que, mesmo em Estados democráticos, provedores de VPN podem ser compelidos, por meio de ordens judiciais, a revelar informações sobre seus clientes. Esse é um aspecto relevante a ser considerado por aqueles que buscam utilizar VPNs como ferramenta de preservação da sua privacidade.
-
-judiciais contra um provedor de VPN podem ter motivação política, a fim de impor vigilância sobre figuras públicas. Existem casos de provedores de VPNs que, intencionalmente ou por solicitações legais, compartilharam dados com governos, conforme revelado pelo *site* indiano *TechNadu*, especializado em VPNs (MOCAN, 2020). Embora afirmassem ter uma política de *no-logs* (não registrar atividades dos usuários), documentos judiciais demonstraram que os provedores forneceram informações detalhadas de usuários às autoridades em atendimento a uma ordem judicial. Um desses casos envolveu um incidente de *cyberstalking*, no qual o suspeito foi preso após provedores de VPNs fornecerem registros de atividade ao *Federal Bureau of Investigation* (FBI) (CIMPANU, 2017).
-
-Quando se trata de potenciais vazamentos de dados dos usuários, tudo depende do tipo e da quantidade de dados que um provedor de VPN decide coletar. Alguns provedores de VPN não mantêm registros das atividades dos usuários, exceto as informações necessárias para cobrança e solução de problemas (Surfshark, 2023). No entanto, até mesmo o método de pagamento usado para contratar o serviço de VPN pode representar um risco, pois o uso de um cartão de crédito, por exemplo, pode revelar a identidade do usuário que está usando a VPN, o que poderia ter graves consequências em Estados autoritários. Além disso, não se pode ignorar que as VPNs estão sujeitas a invasões cibernéticas, e considerando que algumas empresas coletam e armazenam informações pessoais dos usuários, isso se torna um fator adicional a ser considerado em relação à segurança e privacidade.
-
-Os cenários descritos anteriormente evidenciam a necessidade de uma nova abordagem para os serviços de VPN, na qual nem mesmo os dados de pagamento do serviço são registrados, fortalecendo o anonimato e a proteção dos usuários contra eventuais vazamentos de dados e monitoramento governamental. Uma solução inovadora pode ser alcançada utilizando o protocolo Prova de Conhecimento Zero, do inglês *Zero-Knowledge Proof* (ZKP), para garantir a autenticação anônima, combinado com o uso de *blockchain* e criptomoedas para o pagamento do serviço, de modo que os dados de pagamento não sejam identificáveis.
-
-Para implementar essa solução, propomos que a autenticação entre o usuário e a VPN seja realizada por meio do protocolo ZKP. Esse protocolo envolve uma série de interações em que o usuário prova sua legitimidade para a VPN de maneira segura e anônima. Conforme destacado por Robert *et al.* (2022), o protocolo ZKP permite que um provador, neste caso o usuário, convença um verificador, a VPN, de que é um usuário legítimo, sem revelar detalhes específicos de sua identidade. Isso é extremamente útil no contexto de VPNs, pois possibilita a autenticação do usuário sem necessitar armazenar ou transmitir dados que possam identificá-lo. O uso de criptomoedas para o pagamento dos serviços de VPN complementa essa abordagem, eliminando a necessidade de métodos de pagamento tradicionais que podem ser rastreados, como cartões de crédito. Essa abordagem oferece uma solução robusta para os desafios de privacidade e segurança enfrentados pelos usuários de VPN em diferentes contextos políticos e tecnológicos.
+Para implementar essa solução, propomos que a autenticação entre o usuário e a VPN seja realizada por meio do protocolo ZKP. Esse protocolo envolve uma série de interações em que o usuário prova sua legitimidade para a VPN de maneira segura e anônima. O protocolo ZKP permite que um provador, neste caso o usuário, convença um verificador, a VPN, de que é um usuário legítimo, sem revelar detalhes específicos de sua identidade. Isso é extremamente útil no contexto de VPNs, pois possibilita a autenticação do usuário sem necessitar armazenar ou transmitir dados que possam identificá-lo. O uso de criptomoedas para o pagamento dos serviços de VPN complementa essa abordagem, eliminando a necessidade de métodos de pagamento tradicionais que podem ser rastreados, como cartões de crédito. Essa abordagem oferece uma solução robusta para os desafios de privacidade e segurança enfrentados pelos usuários de VPN em diferentes contextos políticos e tecnológicos.
 
 #### 1.1 Declaração do problema e questões de pesquisa
 
@@ -271,89 +77,72 @@ O presente Capítulo discute os fundamentos teóricos do trabalho. Nele serão a
 
 #### 2.1 Privacidade
 
-Privacidade é um conceito relacionado aos dados dos usuários, principalmente os sensíveis, que não devem ser compartilhados com todos ou compartilhados apenas por vontade do titular (SEN; BASAHEL, 2019). Como as pessoas podem facilmente obter, agregar e distribuir dados pessoais eletronicamente, a privacidade é uma preocupação central na era da informação (HUBERMAN *et al.*, 2005). Dessa forma, podemos compreender que, atualmente, a privacidade é amplamente associada ao controle sobre o acesso aos nossos dados, mas não se restringe a isso.
+Privacidade é um conceito relacionado aos dados dos usuários, principalmente os sensíveis, que não devem ser compartilhados com todos ou compartilhados apenas por vontade do titular. Como as pessoas podem facilmente obter, agregar e distribuir dados pessoais eletronicamente, a privacidade é uma preocupação central na era da informação. Dessa forma, podemos compreender que, atualmente, a privacidade é amplamente associada ao controle sobre o acesso aos nossos dados, mas não se restringe a isso.
 
 A extensão do conceito de privacidade é evidenciada, por exemplo, pela Declaração Universal dos Direitos Humanos, que em seu artigo 12 afirma que ninguém será sujeito a interferências em sua vida privada, família, lar ou correspondência. Essa perspectiva, embora abrangente, reflete um período em que a privacidade era predominantemente associada ao mundo físico. Contudo, com o avanço da Internet, tornou-se essencial levar em conta também o ciberespaço. Ao longo dos anos, foram necessárias adaptações e a criação de leis e convenções internacionais para lidar com as mudanças trazidas pela Internet. Um exemplo disso é a Lei Geral de Proteção de Dados (LGPD) no contexto brasileiro (BRASIL - Lei 13.709, 2018).
 
 #### 2.2 Autenticação
 
-A autenticação consiste na verificação da identidade do usuário, realizada por meio de mecanismos de autenticação diversos (LAL *et al.*, 2016). Esses mecanismos são divididos em três categorias principais, baseadas nos fatores subjacentes de autenticação: (1) fator de conhecimento (algo que se sabe); (2) fator de inerência (algo que se é); (3) fator de posse (algo que se tem) (SHAH; KANHERE, 2019). Dessa forma, é possível observar que os mecanismos de autenticação podem estar associados a diferentes aspectos dependendo das necessidades e
+A autenticação consiste na verificação da identidade do usuário, realizada por meio de mecanismos de autenticação diversos. Esses mecanismos são divididos em três categorias principais, baseadas nos fatores subjacentes de autenticação: (1) fator de conhecimento (algo que se sabe); (2) fator de inerência (algo que se é); (3) fator de posse (algo que se tem). Dessa forma, é possível observar que os mecanismos de autenticação podem estar associados a diferentes aspectos dependendo das necessidades e escolhas do desenvolvedor do sistema. Por exemplo, incluem-se aqui as senhas, que representam "algo que você sabe", ou dispositivos físicos, como cartões inteligentes, que representam "algo que você possui". Características biométricas também são utilizadas, representando "algo que você é".
 
-escolhas do desenvolvedor do sistema. Por exemplo, incluem-se aqui as senhas, que representam "algo que você sabe", ou dispositivos físicos, como cartões inteligentes, que representam "algo que você possui". Características biométricas também são utilizadas, representando "algo que você é" (RATHGEB; UHL, 2010).
+Adicionalmente, o processo de autenticação pode envolver o uso de múltiplos fatores para reforçar a segurança. A autenticação multifator é um método de controle de acesso que exige que o usuário apresente uma prova adicional de identidade, além do nome de usuário e senha, para acessar sua conta. Esses métodos de comprovação podem estar associados a um item específico que apenas o usuário legítimo detém. Esses itens podem estar relacionados a um objeto físico, como um *token* ou cartão inteligente, ou a uma característica pessoal, como impressão digital, reconhecimento facial, reconhecimento de voz ou leitura de íris.
 
-Adicionalmente, o processo de autenticação pode envolver o uso de múltiplos fatores para reforçar a segurança. A autenticação multifator é um método de controle de acesso que exige que o usuário apresente uma prova adicional de identidade, além do nome de usuário e senha, para acessar sua conta. Esses métodos de comprovação podem estar associados a um item específico que apenas o usuário legítimo detém (SHELUPANOV *et al.*, 2019). Esses itens podem estar relacionados a um objeto físico, como um *token* ou cartão inteligente, ou a uma característica pessoal, como impressão digital, reconhecimento facial, reconhecimento de voz ou leitura de íris.
-
-Segundo Idrus *et al.* (2013), não há métodos de autenticação perfeitos, pois eles precisam equilibrar necessidades conflitantes como segurança, usabilidade, aceitação e custo. A usabilidade e o custo são aspectos fundamentais, pois a satisfação do usuário é determinante para a utilização adequada do sistema. Assim, ao desenvolver um mecanismo de autenticação, não se deve considerar apenas a segurança. Sistemas excessivamente complexos podem levar a erros do usuário, como anotar a senha em um caderno ou debaixo do teclado. Portanto, é essencial encontrar um equilíbrio entre segurança e usabilidade.
+Não há métodos de autenticação perfeitos, pois eles precisam equilibrar necessidades conflitantes como segurança, usabilidade, aceitação e custo. A usabilidade e o custo são aspectos fundamentais, pois a satisfação do usuário é determinante para a utilização adequada do sistema. Assim, ao desenvolver um mecanismo de autenticação, não se deve considerar apenas a segurança. Sistemas excessivamente complexos podem levar a erros do usuário, como anotar a senha em um caderno ou debaixo do teclado. Portanto, é essencial encontrar um equilíbrio entre segurança e usabilidade.
 
 #### 2.3 *Virtual Private Network* (VPN)
 
-Uma *Virtual Private Network* (VPN) é uma rede de computadores em que as conexões entre os nós são realizadas por meio de redes públicas (Internet/WAN), o que é útil em situações ou condições específicas que impedem a construção de uma infraestrutura própria (IQBAL; RIADI, 2019). De acordo com Borges *et al.* (2019), a palavra "*private*" está relacionado a forma como os dados trafegam, ou seja, os dados são cifrados garantindo a privacidade das informações, já o termo "*virtual*" indica que as máquinas conectadas na rede não fazem, necessariamente, parte do mesmo meio físico. Nesse contexto, a VPN age como intermediário entre os dispositivos, em vez do usuário se conectar diretamente ao dispositivo, a conexão é feita através da VPN.
+Uma Virtual Private Network (VPN) é uma rede de computadores em que as conexões entre os nós são realizadas por meio de redes públicas (Internet/WAN), o que é útil em situações ou condições específicas que impedem a construção de uma infraestrutura própria. A palavra "*private*" está relacionado a forma como os dados trafegam, ou seja, os dados são cifrados garantindo a privacidade das informações, já o termo "*virtual*" indica que as máquinas conectadas na rede não fazem, necessariamente, parte do mesmo meio físico. Nesse contexto, a VPN age como intermediário entre os dispositivos, em vez do usuário se conectar diretamente ao dispositivo, a conexão é feita através da VPN.
 
-A segurança é implementada e reforçada por *gateways* de VPN, que encapsulam os dados transferidos em canais protegidos, conectando assim, de forma lógica, os locais remotos em uma rede isolada (SCHULZ *et al.*, 2013). Esses *gateways* atuam como pontos de entrada e saída que gerenciam o tráfego de dados entre redes diferentes. Dessa forma, em vez de pacotes atravessando a Internet abertamente, os pacotes de dados são primeiro cifrados para maior segurança e, em seguida, encapsulados em um pacote IP pela VPN e tunelados através da Internet (JYOTHI; REDDY, 2018). De acordo com Varvello *et al.* (2021), o tráfego entre o usuário (cliente VPN) e um servidor VPN é cifrado, impedindo que intermediários na rede tenham acesso a essas informações. Posteriormente, o tráfego é redirecionado utilizando o endereço IP do servidor VPN, permitindo assim que os provedores de VPN contornem o bloqueio geográfico. Para ilustrar o funcionamento geral de uma VPN, a Figura 1 apresenta uma visão geral dos componentes e suas interações no contexto cliente-servidor.
+A segurança é implementada e reforçada por *gateways* de VPN, que encapsulam os dados transferidos em canais protegidos, conectando assim, de forma lógica, os locais remotos em uma rede isolada. Esses *gateways* atuam como pontos de entrada e saída que gerenciam o tráfego de dados entre redes diferentes. Dessa forma, em vez de pacotes atravessando a Internet abertamente, os pacotes de dados são primeiro cifrados para maior segurança e, em seguida, encapsulados em um pacote IP pela VPN e tunelados através da Internet. O tráfego entre o usuário (cliente VPN) e um servidor VPN é cifrado, impedindo que intermediários na rede tenham acesso a essas informações. Posteriormente, o tráfego é redirecionado utilizando o endereço IP do servidor VPN, permitindo assim que os provedores de VPN contornem o bloqueio geográfico. Para ilustrar o funcionamento geral de uma VPN, é apresentada uma visão geral dos componentes e suas interações no contexto cliente-servidor.
 
-DISPOSITIVO **Pacote Pacote cifrado e encapsulado Pacote decifrado e desencapsulado** TUNELAMENTO DO PACOTE SEVIDO VPN CIFRAÇÃO E ENCAPSULAMENTO DO PACOTE ACESSO A WEB SITES E SEVIÇOS ONLINE CLIENTE VPN INTERNET POVEDOR INTENET
+As soluções de VPN podem ser implementadas de diversas formas, cada uma com sua abordagem específica de segurança, vantagens e desvantagens, e que dependem de diferentes combinações de protocolos e padrões. As conexões VPN podem ser implementadas de duas maneiras: usando Internet Protocol Security (IPSec) ou mecanismos de tunelamento. O IPSec é uma suíte de protocolos para a segurança de comunicações IP que fornece autenticação e criptografia para cada pacote IP de um fluxo de dados. O tunelamento é um método usado para encapsular dados dentro de outro protocolo para criar um "túnel" seguro através do qual os dados podem ser transmitidos. O Secure Sockets Layer (SSL) e seu sucessor Transport Layer Security (TLS) são protocolos frequentemente utilizados para este fim. A combinação de IPSec e protocolos de tunelamento oferece uma solução mais completa, com o tunelamento provendo encapsulamento e o IPSec adicionando criptografia e autenticação.
 
-Figura 1 – Funcionamento geral de uma VPN (esquema cliente-servidor).
-
-Fonte: elaborado pelo autor.
-
-As soluções de VPN podem ser implementadas de diversas formas, cada uma com sua abordagem específica de segurança, vantagens e desvantagens, e que dependem de diferentes combinações de protocolos e padrões (ASWAD; SONUÇ, 2020). Segundo Gamundani *et al.* (2014), as conexões VPN podem ser implementadas de duas maneiras: usando *Internet Protocol Security* (IPSec) ou mecanismos de tunelamento. O IPSec é uma suíte de protocolos para a segurança de comunicações IP que fornece autenticação e criptografia para cada pacote IP de um fluxo de dados (MAHMMOD *et al.*, 2020). O tunelamento é um método usado para encapsular dados dentro de outro protocolo para criar um "túnel" seguro através do qual os dados podem ser transmitidos. O *Secure Sockets Layer* (SSL) e seu sucessor *Transport Layer Security* (TLS) são protocolos frequentemente utilizados para este fim (YEBOAH-OFORI; GANIYU, 2024). A combinação de IPSec e protocolos de tunelamento oferece uma solução mais completa, com o tunelamento provendo encapsulamento e o IPSec adicionando criptografia e autenticação (UDDIN *et al.*, 2021).
-
-De acordo com Hayale e Jebur (2014), as VPNs podem ser classificadas em dois tipos principais: *acesso remoto* e *site-a-site*. As VPNs de acesso remoto permitem que usuários individuais, como funcionários trabalhando de casa ou viajantes, se conectem à rede de uma organização de qualquer local. Por outro lado, as VPNs site-a-site estabelecem conexões seguras entre redes inteiras localizadas em locais geograficamente distintos, como a matriz e suas filiais (AUNG; THEIN, 2020)
+As VPNs podem ser classificadas em dois tipos principais: *acesso remoto* e *site-a-site*. As VPNs de acesso remoto permitem que usuários individuais, como funcionários trabalhando de casa ou viajantes, se conectem à rede de uma organização de qualquer local. Por outro lado, as VPNs *site-a-site* estabelecem conexões seguras entre redes inteiras localizadas em locais geograficamente distintos, como a matriz e suas filiais.
 
 #### 2.4 Privacidade e segurança em VPNs
 
-De acordo com Varvello *et al.* (2021), espera-se que os provedores de VPN não interfiram ou registrem o tráfego pessoal dos usuários. No entanto, apesar do uso crescente das VPNs e da capacidade delas em cifrar e encapsular o tráfego de dados, é possível que o tráfego seja monitorado no ponto final da VPN (PERDICES *et al.*, 2023). Portanto, é evidente que o provedor de VPN pode acessar o tráfego do usuário e, ainda mais grave, pode conhecer a identidade dele se a VPN mantiver um registro das informações dos usuários. Em casos de vazamentos acidentais ou maliciosos, o tráfego e a identidade dos usuários podem ser expostos.
+Espera-se que os provedores de VPN não interfiram ou registrem o tráfego pessoal dos usuários. No entanto, apesar do uso crescente das VPNs e da capacidade delas em cifrar e encapsular o tráfego de dados, é possível que o tráfego seja monitorado no ponto final da VPN. Portanto, é evidente que o provedor de VPN pode acessar o tráfego do usuário e, ainda mais grave, pode conhecer a identidade dele se a VPN mantiver um registro das informações dos usuários. Em casos de vazamentos acidentais ou maliciosos, o tráfego e a identidade dos usuários podem ser expostos.
 
-Bansode e Girdhar (2021) discutem uma variedade de ameaças e ataques comuns em VPNs, que podem resultar em consequências graves, como roubo de dados e roubo de identidade. Além disso, o estudo detalha outros ciberataques, como *man-in-the-middle*, sequestro de *Domain Name System* (DNS), *trojans*, *worms*, tentativas repetidas de *login* e problemas com aplicativos legados. Dessa forma, é evidente que as VPNs estão suscetíveis a diversos tipos de ataques e diferentes impactos, seja por falhas de segurança da própria VPN ou por erros cometidos pelo usuário.
+Uma variedade de ameaças e ataques comuns em VPNs, que podem resultar em consequências graves, como roubo de dados e roubo de identidade. Além disso, o estudo detalha outros ciberataques, como *man-in-the-middle*, sequestro de Domain Name System (DNS), *trojans*, *worms*, tentativas repetidas de *login* e problemas com aplicativos legados. Dessa forma, é evidente que as VPNs estão suscetíveis a diversos tipos de ataques e diferentes impactos, seja por falhas de segurança da própria VPN ou por erros cometidos pelo usuário.
 
-Em uma pesquisa anterior, Bui *et al.* (2019) examinaram a segurança de diferentes serviços de VPN comerciais e identificam uma série de problemas, incluindo o uso de chaves pré-compartilhadas conhecidas para autenticar as partes envolvidas na conexão VPN. Um ponto crucial discutido no estudo é a autenticação por meio de usuário e senha, que é a forma mais comum de autenticação em VPNs. Contudo, esse método pode estar suscetível a vulnerabilidades como o roubo de credenciais. Segundo Kanimozhi *et al.* (2012), a utilização exclusiva de autenticação por senha estática de fator único não é adequada para a proteção de VPNs contra acessos não autorizados. Portanto, o uso somente de nome de usuário e senha pode representar um risco em VPNs, pois essas credenciais podem ser facilmente comprometidas por agentes mal-intencionados.
+Em uma pesquisa anterior, examinaram a segurança de diferentes serviços de VPN comerciais e identificam uma série de problemas, incluindo o uso de chaves pré-compartilhadas conhecidas para autenticar as partes envolvidas na conexão VPN. Um ponto crucial discutido no estudo é a autenticação por meio de usuário e senha, que é a forma mais comum de autenticação em VPNs. Contudo, esse método pode estar suscetível a vulnerabilidades como o roubo de credenciais. A utilização exclusiva de autenticação por senha estática de fator único não é adequada para a proteção de VPNs contra acessos não autorizados. Portanto, o uso somente de nome de usuário e senha pode representar um risco em VPNs, pois essas credenciais podem ser facilmente comprometidas por agentes mal-intencionados.
 
 #### 2.5 Criptografia de chave pública
 
-Os algoritmos criptográficos podem ser divididos em dois grupos principais: simétricos e assimétricos (LARA-NINO et al., 2018). A diferença fundamental entre a criptografia assimétrica, também conhecida como criptografia de chave pública, e a criptografia simétrica, de acordo com Imam et al. (2021), reside no fato de que a criptografia simétrica usa uma única chave para cifrar e decifrar informações, enquanto a criptografia de chave pública utiliza um par de chaves — uma pública e outra privada, para realizar o mesmo processo. Em outras palavras, uma chave é utilizada para cifrar e a outra para decifrar.
+Os algoritmos criptográficos podem ser divididos em dois grupos principais: simétricos e assimétricos. A diferença fundamental entre a criptografia assimétrica, também conhecida como criptografia de chave pública, e a criptografia simétrica, reside no fato de que a criptografia simétrica usa uma única chave para cifrar e decifrar informações, enquanto a criptografia de chave pública utiliza um par de chaves — uma pública e outra privada, para realizar o mesmo processo. Em outras palavras, uma chave é utilizada para cifrar e a outra para decifrar.
 
-Conforme mencionado por Abdalla *et al.* (2016), um esquema de criptografia de chave pública envolve três algoritmos: um para gerar o par de chaves; outro para cifrar, utilizando a chave pública e a mensagem; e um terceiro para decifrar, que usa o texto cifrado e a chave privada para recuperar a mensagem original. A Figura 2 representa o processo de cifração e decifração em um criptossistema de chave pública.
+Um esquema de criptografia de chave pública envolve três algoritmos: um para gerar o par de chaves; outro para cifrar, utilizando a chave pública e a mensagem; e um terceiro para decifrar, que usa o texto cifrado e a chave privada para recuperar a mensagem original.
 
-chave privada chave pública de Bob de Bob Algoritmo Algoritmo Mensagem em Mensagem em Texto cifrado de cifração de decifração texto claro texto claro O remetente cifra o texto O destinatário decifra a mensagem usando sua chave privada, que é claro com a chave pública do destinatário conhecida apenas por ele.
+No contexto da criptografia de chave pública, existem dois cenários a serem considerados: um assegura a confidencialidade e o outro, a autenticidade. Autenticidade significa que a origem da mensagem pode ser identificada. De acordo com, confidencialidade garante que apenas o destinatário pretendido possa ler a mensagem.
 
-Figura 2 – Processo de cifração e decifração em criptossistemas de chave pública.
-
-Fonte: elaborado pelo autor.
-
-No contexto da criptografia de chave pública, existem dois cenários a serem considerados: um assegura a confidencialidade e o outro, a autenticidade. Autenticidade significa que a origem da mensagem pode ser identificada (VIGIL *et al.*, 2015). De acordo com Sharma e Gupta (2017), confidencialidade garante que apenas o destinatário pretendido possa ler a mensagem.
-
-No cenário da Figura 2, os dois principais atores são Alice e Bob. Alice, que conhece
-
-a chave pública de Bob, quer garantir que somente Bob possa ler a mensagem, garantindo assim a confidencialidade. Para isso, ela cifra o texto claro com a chave pública de Bob e envia o texto cifrado para ele. Como somente Bob possui acesso à sua chave privada correspondente, apenas ele será capaz de decifrar a mensagem.
+Os dois principais atores são Alice e Bob. Alice, que conhece a chave pública de Bob, quer garantir que somente Bob possa ler a mensagem, garantindo assim a confidencialidade. Para isso, ela cifra o texto claro com a chave pública de Bob e envia o texto cifrado para ele. Como somente Bob possui acesso à sua chave privada correspondente, apenas ele será capaz de decifrar a mensagem.
 
 Em outro cenário, se Bob deseja provar que foi ele quem escreveu uma mensagem, ele pode cifrá-la com sua chave privada e enviá-la para Alice e outros destinatários. Uma vez que a mensagem foi cifrada com a chave privada de Bob, todos podem decifrá-la com a chave pública de Bob, confirmando que realmente foi ele quem a escreveu, assegurando assim sua autenticidade. Isso demonstra a aplicabilidade flexível da criptografia de chave pública, proporcionando segurança em vários aspectos da comunicação digital.
 
 #### 2.6 Criptografia de curva elíptica (ECC)
 
-A Criptografia de Curva Elíptica, em inglês *Elliptic Curve Cryptography* (ECC), é baseada no problema do logaritmo discreto – *Elliptic Curve Discrete Logarithm Problem* (ECDLP) aplicado aos pontos de uma curva elíptica (CILARDO *et al.*, 2006). A ECC foi proposta por Miller (1985) e Koblitz (1987), que curiosamente desenvolveram a mesma ideia de forma independente. Naquela época, eles sugeriram o uso de curvas elípticas para criptossistemas de chave pública. Embora não tenham criado novos algoritmos criptográficos baseados em curvas elípticas, eles adaptaram algoritmos existentes, como o protocolo de troca de chaves Diffie-Hellman (DIFFIE; HELLMAN, 1976), para uso no contexto de curvas elípticas.
+A Criptografia de Curva Elíptica, em inglês Elliptic Curve Cryptography (ECC), é baseada no problema do logaritmo discreto – Elliptic Curve Discrete Logarithm Problem (ECDLP) aplicado aos pontos de uma curva elíptica. Naquela época, eles sugeriram o uso de curvas elípticas para criptossistemas de chave pública. Embora não tenham criado novos algoritmos criptográficos baseados em curvas elípticas, eles adaptaram algoritmos existentes, como o protocolo de troca de chaves Diffie-Hellman, para uso no contexto de curvas elípticas.
 
-O criptossistema ECC pode usar uma chave consideravelmente mais curta e oferecer o mesmo nível de segurança que outros algoritmos assimétricos que usam chaves muito maiores (AMARA; SIAD, 2011). Conforme mencionado por Koblitz *et al.* (2011), o criptossistema *Rivest-Shamir-Adleman* (RSA), apesar de ser dominante no mercado de criptografia de chave pública, foi forçado a adotar chaves cada vez mais longas devido ao avanço contínuo em técnicas de fatoração de números inteiros e ao aumento do poder computacional. Eventualmente, o RSA pode ser considerado inadequado em ambientes com memória e largura de banda limitadas. Por essa razão, o ECC é frequentemente adotado em dispositivos com baixo poder computacional, como Redes de Sensores Sem Fio (RSSFs) e dispositivos de *Internet of Things* (IoT) (ALMAJED; ALMOGREN, 2019).
+O criptossistema ECC pode usar uma chave consideravelmente mais curta e oferecer o mesmo nível de segurança que outros algoritmos assimétricos que usam chaves muito maiores. O criptossistema Rivest-Shamir-Adleman (RSA), apesar de ser dominante no mercado de criptografia de chave pública, foi forçado a adotar chaves cada vez mais longas devido ao avanço contínuo em técnicas de fatoração de números inteiros e ao aumento do poder computacional. Eventualmente, o RSA pode ser considerado inadequado em ambientes com memória e largura de banda limitadas. Por essa razão, o ECC é frequentemente adotado em dispositivos com baixo poder computacional, como Redes de Sensores Sem Fio (RSSFs) e dispositivos de Internet of Things (IoT).
 
 A Tabela 1, baseada em diretrizes do *National Institute of Standards and Technology* (NIST), agência do governo dos Estados Unidos que estabelece padrões e publica diretrizes, compara a resistência equivalente de tamanhos de chave entre RSA e ECC, além da proporção correspondente.
 
 Tabela 1 – Comparação de resistência equivalente de tamanho de chave.
 
-| Tamanho da<br>chave ECC(bits) | Tamanho da<br>chave RSA(bits) | Proporção de tamanho<br>de chave ECC/RSA |
+| Tamanho da chave ECC(bits) | Tamanho da chave RSA(bits) | Proporção de tamanho de chave ECC/RSA |
 |-------------------------------|-------------------------------|------------------------------------------|
-| 160                           | 1024                          | 1 : 6                                    |
-| 224                           | 2048                          | 1 : 9                                    |
-| 256                           | 3072                          | 1 : 12                                   |
-| 384                           | 7680                          | 1 : 20                                   |
-| 512                           | 15360                         | 1 : 30                                   |
+| 160                           | 1024                          | 1 : 6 
+| 224                           | 2048                          | 1 : 9 
+| 256                           | 3072                          | 1 : 12 
+| 384                           | 7680                          | 1 : 20 
+| 512                           | 15360                         | 1 : 30 
 
-Fonte: adaptada de Barker (2020).
 
 Uma curva elíptica sobre um campo finito F*<sup>p</sup>* é o conjunto de todos os pares (*x*, *y*) ∈ F*<sup>p</sup>* que satisfazem a equação
 
 $$y^2 \equiv x^3 + ax + b \bmod p \tag{2.1}$$
 
-em que *p* > 3, *a*,*b* ∈ F*<sup>p</sup>* e 4*a* <sup>3</sup> +27*b* <sup>2</sup> ̸≡ 0 mod *p* (PAAR; PELZL, 2009).
+em que *p* > 3, *a*,*b* ∈ F*<sup>p</sup>* e 4*a* <sup>3</sup> +27*b* <sup>2</sup> ̸≡ 0 mod *p*.
 
 O sistema criptográfico ECC é fundamentado no ECDLP, cujas operações criptográficas são realizadas empregando os pontos de uma curva elíptica *E*. A operação elementar consiste na multiplicação de um ponto *P* ∈ *E* por um número escalar *k* ∈ N, expressa como *Q* = *kP*, que é equivalente a somar *P* a si mesmo *k* vezes. O desafio do logaritmo discreto em curvas elípticas consiste em, dado um ponto *P* ∈ *E*, determinar o inteiro *k* correspondente, tal que:
 
@@ -363,25 +152,17 @@ A segurança do ECC baseia-se na dificuldade computacional de resolver o ECDLP s
 
 ### 2.7 Prova de conhecimento zero (ZKP)
 
-A introdução do conceito sistemas de Prova de Conhecimento Zero, em inglês, *Zero-knowledge Proof* (ZKP) foi realizada por Goldwasser *et al.* (1989). Um sistema de ZKP é um protocolo que permite que uma parte, chamada de *provador*, prove que uma determinada afirmação é verdadeira para outra parte, chamada de *verificador*, mas sem revelar nada além da veracidade da afirmação. De modo geral, o ZKP permite que duas ou mais partes executem tarefas computacionais de maneira cooperativa e segura, onde uma parte pode convencer as outras da validade de um resultado sem divulgar informações sensíveis acidentalmente (ZHANG *et al.*, 2021).
+A introdução do conceito sistemas de Prova de Conhecimento Zero, em inglês, Zero-knowledge Proof (ZKP) foi realizada por. Um sistema de ZKP é um protocolo que permite que uma parte, chamada de *provador*, prove que uma determinada afirmação é verdadeira para outra parte, chamada de *verificador*, mas sem revelar nada além da veracidade da afirmação. De modo geral, o ZKP permite que duas ou mais partes executem tarefas computacionais de maneira cooperativa e segura, onde uma parte pode convencer as outras da validade de um resultado sem divulgar informações sensíveis acidentalmente.
 
-Um sistema tradicional ZKP baseia-se em um protocolo interativo de troca em tempo real, onde tanto o verificador quanto o provador participam de múltiplas rodadas de solicitações e respostas a desafios (RASHEED *et al.*, 2021). No final do protocolo, se a afirmação for, de fato, verdadeira, o verificador deve estar convencido disso. Conforme mencionado por Sun *et al.* (2021), a implementação deste protocolo consiste em seguir três fases:
+Um sistema tradicional ZKP baseia-se em um protocolo interativo de troca em tempo real, onde tanto o verificador quanto o provador participam de múltiplas rodadas de solicitações e respostas a desafios. No final do protocolo, se a afirmação for, de fato, verdadeira, o verificador deve estar convencido disso. Conforme mencionado por, a implementação deste protocolo consiste em seguir três fases:
 
 - Fase de testemunha: o provador utiliza uma testemunha que sustenta sua afirmação para gerar uma evidência inicial ou um compromisso, que é transmitido ao verificador, sem revelar a própria testemunha.
 - Fase de desafio: o verificador faz várias perguntas ao provador.
 - Fase de resposta: o provador gera uma prova e responde às perguntas do verificador, que podem determinar a aceitação ou rejeição da prova gerada.
 
-Em geral, as afirmações que o provador deseja demonstrar podem ser representadas como problemas de pertencimento em linguagens. Assim, o provador deve convencer o verificador de que uma afirmação pública <sup>α</sup>, representada como uma *string* pública neste contexto, pertence a uma linguagem específica *L* da classe *Nondeterministic Polynomial Time* (NP) (GOLDREICH, 2001). Segundo Morais *et al.* (2019), a ideia central é que o provador possui algum conhecimento secreto <sup>ω</sup> (uma "testemunha") que permite provar que <sup>α</sup> ∈ *L*, mas quer fazer isso sem revelar essa testemunha ao verificador. Isso implica que é possível verificar eficientemente, em tempo polinomial, se <sup>ω</sup> é uma solução válida para <sup>α</sup>. A Figura 3 ilustra um protocolo interativo genérico de prova de conhecimento zero, no qual o provador gera uma informação compartilhada, um compromisso δ, e a envia ao verificador. O verificador, por sua vez, gera e envia um desafio <sup>σ</sup> baseado no compromisso. O provador responde com uma prova π, baseada em suas informações privadas e no desafio, que é validada pelo verificador. Esse
+Em geral, as afirmações que o provador deseja demonstrar podem ser representadas como problemas de pertencimento em linguagens. Assim, o provador deve convencer o verificador de que uma afirmação pública <sup>α</sup>, representada como uma *string* pública neste contexto, pertence a uma linguagem específica *L* da classe Nondeterministic Polynomial Time (NP). A ideia central é que o provador possui algum conhecimento secreto <sup>ω</sup> (uma "testemunha") que permite provar que <sup>α</sup> ∈ *L*, mas quer fazer isso sem revelar essa testemunha ao verificador. Isso implica que é possível verificar eficientemente, em tempo polinomial, se <sup>ω</sup> é uma solução válida para <sup>α</sup>. A Figura 3 ilustra um protocolo interativo genérico de prova de conhecimento zero, no qual o provador gera uma informação compartilhada, um compromisso δ, e a envia ao verificador. O verificador, por sua vez, gera e envia um desafio <sup>σ</sup> baseado no compromisso. O provador responde com uma prova π, baseada em suas informações privadas e no desafio, que é validada pelo verificador. Esse ciclo pode ser repetido por várias rodadas, com δ distinto a cada uma, garantindo a unicidade de cada rodada no processo. Dessa forma, quanto mais rodadas forem realizadas, maior será a segurança do protocolo.
 
-ciclo pode ser repetido por várias rodadas, com δ distinto a cada uma, garantindo a unicidade de cada rodada no processo. Dessa forma, quanto mais rodadas forem realizadas, maior será a segurança do protocolo.
-
-Figura 3 – Protocolo genérico interativo de prova de conhecimento zero.
-
-![](_page_27_Figure_3.jpeg)
-
-Fonte: elaborado pelo autor.
-
-Conforme destacado por Sun *et al.* (2021), um sistema de prova de conhecimento zero deve satisfazer três importantes propriedades:
+Um sistema de prova de conhecimento zero deve satisfazer três importantes propriedades:
 
 - Completude: garante que, se a afirmação é verdadeira, o verificador será sempre convencido pela prova apresentada pelo provador.
 - Solidez: assegura que um provador não consegue convencer um verificador de uma afirmação falsa, exceto com uma probabilidade extremamente baixa.
@@ -389,37 +170,31 @@ Conforme destacado por Sun *et al.* (2021), um sistema de prova de conhecimento 
 
 ### 2.8 *Blockchain*
 
-O conceito de *blockchain* foi inicialmente proposto por Nakamoto (2008) como parte da criação da criptomoeda Bitcoin. Desde então, esta tecnologia tem passado por significativas expansões e evoluções. A *blockchain* é fundamentada em um protocolo ponto a ponto (P2P) descentralizado, utilizado para propagar informações relevantes como transações, blocos e outros estados do protocolo (POUR *et al.*, 2023). No geral, a *blockchain* garante segurança e privacidade na autenticação e autorização por meio de uma combinação de primitivas criptográficas, além de descentralização, consenso, e contratos inteligentes (RAGHAV; CHAUDHARY, 2023).
+O conceito de *blockchain* foi inicialmente como parte da criação da criptomoeda Bitcoin. Desde então, esta tecnologia tem passado por significativas expansões e evoluções. A *blockchain* é fundamentada em um protocolo ponto a ponto (P2P) descentralizado, utilizado para propagar informações relevantes como transações, blocos e outros estados do protocolo. No geral, a *blockchain* garante segurança e privacidade na autenticação e autorização por meio de uma combinação de primitivas criptográficas, além de descentralização, consenso, e contratos inteligentes.
 
-Os sistemas baseados na tecnologia *blockchain* funcionam de forma distribuída, envolvendo múltiplos agentes ou participantes que devem ser independentes entre si, e que podem utilizar comunicações P2P para se estruturarem em uma coletividade de rede (BELOTTI *et al.*, 2019). Dessa forma, é evidente que a *blockchain* dispensa a necessidade de uma autoridade centralizadora.
+Os sistemas baseados na tecnologia *blockchain* funcionam de forma distribuída, envolvendo múltiplos agentes ou participantes que devem ser independentes entre si, e que podem utilizar comunicações P2P para se estruturarem em uma coletividade de rede. Dessa forma, é evidente que a *blockchain* dispensa a necessidade de uma autoridade centralizadora.
 
-Conforme mencionado por Nofer *et al.* (2017), a *blockchain* é estendida por cada bloco adicional e, portanto, representa um registro completo do histórico de transações. Além disso, o bloco só poderá ser adicionado à cadeia se a maioria dos nós da rede concordar, por meio de um mecanismo de consenso, sobre a validade das transações do bloco e sobre a validade do próprio bloco.
+A *blockchain* é estendida por cada bloco adicional e, portanto, representa um registro completo do histórico de transações. Além disso, o bloco só poderá ser adicionado à cadeia se a maioria dos nós da rede concordar, por meio de um mecanismo de consenso, sobre a validade das transações do bloco e sobre a validade do próprio bloco.
 
-Para garantir a imutabilidade, cada bloco é vinculado ao *hash* do bloco anterior, criando uma cadeia de blocos interligados, em que cada bloco é dependente do anterior (ZHU *et al.*, 2019). Qualquer alteração em uma transação do bloco modifica seu *hash*, tornandoo inválido e quebrando a cadeia de blocos. Esse efeito cascata torna computacionalmente impraticável modificar um bloco sem alterar todos os blocos subsequentes. Consequentemente, como mencionado por Raghav e Chaudhary (2023), a cadeia de blocos não pode ser alterada sem o consenso da rede, uma vez que cada bloco da cadeia carrega o *hash* criptográfico do anterior. Como resultado, os dados salvos na *blockchain* são extremamente seguros, imutáveis e transparentes.
+Para garantir a imutabilidade, cada bloco é vinculado ao *hash* do bloco anterior, criando uma cadeia de blocos interligados, em que cada bloco é dependente do anterior. Qualquer alteração em uma transação do bloco modifica seu *hash*, tornandoo inválido e quebrando a cadeia de blocos. Esse efeito cascata torna computacionalmente impraticável modificar um bloco sem alterar todos os blocos subsequentes. Consequentemente, a cadeia de blocos não pode ser alterada sem o consenso da rede, uma vez que cada bloco da cadeia carrega o *hash* criptográfico do anterior. Como resultado, os dados salvos na *blockchain* são extremamente seguros, imutáveis e transparentes.
 
-Um bloco consiste em um cabeçalho e um corpo, sendo que o cabeçalho armazena principalmente informações essenciais, como o *hash* do bloco anterior, enquanto o corpo contém os dados das transações (LIU *et al.*, 2021). A Figura 4 apresenta a estrutura simplificada da cadeia de blocos, na qual é possível observar que o cabeçalho de cada bloco inclui o *hash* do bloco anterior, o *hash* do próprio bloco, o *timestamp*, o *nonce* e a raiz de Merkle, que representam seus parâmetros de identificação e validação. A raiz de Merkle é o *hash* final de uma árvore de Merkle, uma estrutura binária em que cada nó contém o *hash* de dois filhos. No corpo do bloco, as transações são organizadas nesta árvore, garantindo que qualquer modificação seja detectada rapidamente, pois qualquer alteração em uma transação propaga-se pela árvore, alterando a raiz.
+Um bloco consiste em um cabeçalho e um corpo, sendo que o cabeçalho armazena principalmente informações essenciais, como o *hash* do bloco anterior, enquanto o corpo contém os dados das transações. É apresentada a estrutura simplificada da cadeia de blocos, na qual é possível observar que o cabeçalho de cada bloco inclui o *hash* do bloco anterior, o *hash* do próprio bloco, o *timestamp*, o *nonce* e a raiz de Merkle, que representam seus parâmetros de identificação e validação. A raiz de Merkle é o *hash* final de uma árvore de Merkle, uma estrutura binária em que cada nó contém o *hash* de dois filhos. No corpo do bloco, as transações são organizadas nesta árvore, garantindo que qualquer modificação seja detectada rapidamente, pois qualquer alteração em uma transação propaga-se pela árvore, alterando a raiz.
 
-Hash (H(T1) H(T2)) Hash (H(T3) H(T4)) timestamp nonce hash Anterior hash do Bloco **Bloco 0 (genesis)** Hash (T1) Hash (T2) Hash (T3) Hash (T4) T1 T2 T3 T4 Raiz Merkle Hash[H(T1) H(T2)) H(H(T3) H(T4)] Cabeçalho do Bloco Corpo do Bloco Hash (H(T1) H(T2)) Hash (H(T3) H(T4)) timestamp nonce hash Anterior hash do Bloco **Bloco 1** Hash (T1) Hash (T2) Hash (T3) Hash (T4) T1 T2 T3 T4 Raiz Merkle Hash[H(T1) H(T2)) H(H(T3) H(T4)] Cabeçalho do Bloco Corpo do Bloco Hash (H(T1) H(T2)) Hash (H(T3) H(T4)) timestamp nonce hash Anterior hash do Bloco **Bloco n** Hash (T1) Hash (T2) Hash (T3) Hash (T4) T1 T2 T3 T4 Raiz Merkle Hash[H(T1) H(T2)) H(H(T3) H(T4)] Cabeçalho do Bloco Corpo do Bloco
-
-Figura 4 – Estrutura simplificada da cadeia de blocos blockchain.
-
-Fonte: elaborado pelo autor.
-
-Geralmente, as *blockchains* são classificadas em dois tipos principais: *blockchains* sem permissão e *blockchains* com permissão, também conhecidas como *blockchains* públicas e privadas, respectivamente (GAMAGE *et al.*, 2020). Segundo Du *et al.* (2022), uma *blockchain* pública permite que qualquer usuário leia, envie transações e obtenha confirmação válida. A segurança da *blockchain* é assegurada por mecanismos de consenso, que recompensam financeiramente os nós participantes por meio de criptomoedas. Essa recompensa serve como um incentivo para que os nós realizem o trabalho necessário para manter a integridade e segurança da rede. Esse tipo *blockchain* oferece alta resistência à censura, neutralidade, abertura, descentralização, imutabilidade e irrevogabilidade. Por outro lado, uma *blockchain* privada é controlada por uma organização, com permissões estritas para escrita e acesso aos dados. As transações são eficientes devido ao baixo número de nós participantes e permissões limitadas de leitura, mantendo ainda autenticidade e uma forma de descentralização parcial.
+Geralmente, as *blockchains* são classificadas em dois tipos principais: *blockchains* sem permissão e *blockchains* com permissão, também conhecidas como *blockchains* públicas e privadas, respectivamente. Uma *blockchain* pública permite que qualquer usuário leia, envie transações e obtenha confirmação válida. A segurança da *blockchain* é assegurada por mecanismos de consenso, que recompensam financeiramente os nós participantes por meio de criptomoedas. Essa recompensa serve como um incentivo para que os nós realizem o trabalho necessário para manter a integridade e segurança da rede. Esse tipo *blockchain* oferece alta resistência à censura, neutralidade, abertura, descentralização, imutabilidade e irrevogabilidade. Por outro lado, uma *blockchain* privada é controlada por uma organização, com permissões estritas para escrita e acesso aos dados. As transações são eficientes devido ao baixo número de nós participantes e permissões limitadas de leitura, mantendo ainda autenticidade e uma forma de descentralização parcial.
 
 #### 2.9 Contratos inteligentes
 
-Os contratos inteligentes (em inglês, *Smart Contracts*), propostos inicialmente por Szabo (1997), são essencialmente programas armazenados em *blockchain* que executam ações para transações com condições pré-determinadas (CAPKO ˇ *et al.*, 2022).
+Os contratos inteligentes (em inglês, *Smart Contracts*), propostos inicialmente por, são essencialmente programas armazenados em *blockchain* que executam ações para transações com condições pré-determinadas.
 
-Em um contrato inteligente, as cláusulas contratuais são escritas em uma linguagem de programação e serão executadas automaticamente quando condições predefinidas forem atendidas (ZHENG *et al.*, 2020). A descentralização, a capacidade de aplicação automática e as características de verificabilidade dos contratos inteligentes permitem que suas regras de negócios codificadas sejam executadas em uma rede P2P, em que cada nó é "igual" e nenhum tem qualquer autoridade especial, sem autoridade confiável ou um servidor central (KHAN *et al.*, 2021). Assim, os contratos inteligentes têm o potencial de eliminar a necessidade de intermediários confiáveis, reduzir custos de arbitragem e execução, e minimizar as perdas decorrentes de fraude (SUN *et al.*, 2021).
+Em um contrato inteligente, as cláusulas contratuais são escritas em uma linguagem de programação e serão executadas automaticamente quando condições predefinidas forem atendidas. A descentralização, a capacidade de aplicação automática e as características de verificabilidade dos contratos inteligentes permitem que suas regras de negócios codificadas sejam executadas em uma rede P2P, em que cada nó é "igual" e nenhum tem qualquer autoridade especial, sem autoridade confiável ou um servidor central. Assim, os contratos inteligentes têm o potencial de eliminar a necessidade de intermediários confiáveis, reduzir custos de arbitragem e execução, e minimizar as perdas decorrentes de fraude.
 
-Conforme abordado por Micheli (2021), um contrato inteligente típico deve abranger, minimamente, os seguintes elementos:
+Um contrato inteligente típico deve abranger, minimamente, os seguintes elementos:
 
 - Termos do contrato: um conjunto de termos pré-determinados e condições de execução acordadas por todas as partes envolvidas;
 - Evento: um ou uma série de eventos específicos que podem acionar o "gatilho" da transação, os quais devem ser precisamente definidos nos termos; e
 - Execução: a transferência dos ativos entre as partes envolvidas quando a condição é acionada.
 
-Os contratos inteligentes podem ser desenvolvidos em diferentes plataformas *blockchain*, como Ethereum e Hyperledger Fabric, cada uma oferecendo recursos distintos. Na Ethereum, esses contratos são escritos utilizando linguagens de alto nível específicas e posteriormente compilados em *bytecodes* para serem executados na *Ethereum Virtual Machine* (EVM) (WANG *et al.*, 2018). Em contrapartida, a Hyperledger Fabric permite o uso de linguagens de programação de uso geral, como Go, Node.js e Java, e é uma estrutura de *blockchain* permisionada, no qual o acesso dos participantes à rede requer permissão (YAMASHITA *et al.*, 2019). As principais diferenças entre as duas plataformas incluem a natureza pública da Ethereum e o foco na linguagem Solidity, enquanto a Hyperledger Fabric se concentra em linguagens gerais e modelagem permissiva.
+Os contratos inteligentes podem ser desenvolvidos em diferentes plataformas *blockchain*, como Ethereum e Hyperledger Fabric, cada uma oferecendo recursos distintos. Na Ethereum, esses contratos são escritos utilizando linguagens de alto nível específicas e posteriormente compilados em *bytecodes* para serem executados na Ethereum Virtual Machine (EVM). Em contrapartida, a Hyperledger Fabric permite o uso de linguagens de programação de uso geral, como Go, Node.js e Java, e é uma estrutura de *blockchain* permisionada, no qual o acesso dos participantes à rede requer permissão. As principais diferenças entre as duas plataformas incluem a natureza pública da Ethereum e o foco na linguagem Solidity, enquanto a Hyperledger Fabric se concentra em linguagens gerais e modelagem permissiva.
 
 Cada *blockchain* possui suas particularidades e benefícios para contratos inteligentes, como diferentes níveis de segurança, modelos de permissão e suporte para diversas linguagens de programação. A escolha da plataforma depende das necessidades específicas do projeto e do ambiente em que será implementado.
 
@@ -427,17 +202,11 @@ Cada *blockchain* possui suas particularidades e benefícios para contratos inte
 
 Este Capítulo examina trabalhos relacionados à presente pesquisa, explorando diversas soluções focadas na preservação da privacidade, no anonimato e na segurança no contexto de VPNs. Especial atenção foi dada às soluções que tratam de autenticação e processos de pagamento em redes VPN.
 
-Bakker (2023) propõe um mecanismo de autenticação anônima em VPNs, desenvolvendo um protótipo que adiciona essa funcionalidade a uma VPN existente, especificamente ao WireGuard<sup>1</sup> . O protótipo integra o aplicativo *I Reveal My Attributes* (IRMA)<sup>2</sup> , uma solução de gerenciamento de identidade digital que permite aos usuários revelar apenas os atributos necessários para a autenticação sem expor informações pessoais adicionais. Essa integração entre IRMA e WireGuard no ambiente *desktop* possibilita a autenticação dos usuários de forma seletiva e segura, preservando a privacidade e o anonimato. Foram considerados dois métodos de autenticação: nome de usuário/senha e IRMA, mas a forma de aquisição dos atributos necessários para acessar a VPN foi considerada fora do escopo do estudo. Durante os experimentos, foram coletados *logs* e tráfego de rede, utilizando ferramentas como Wireshark para avaliar a eficácia da autenticação anônima. Os resultados mostraram que a autenticação por nome de usuário e senha pode revelar ao servidor VPN a associação entre o usuário e o tráfego de rede. Em contraste, a autenticação com IRMA esconde a identidade do usuário, impedindo a associação do tráfego de rede a uma conta específica. O projeto demonstra ganhos em termos de privacidade e anonimato, mas, como mencionado, aspectos como a obtenção do acesso à VPN e o impacto dos dados de pagamentos na preservação do anonimato foram deixados fora do escopo.
+Bakker (2023) propõe um mecanismo de autenticação anônima em VPNs, desenvolvendo um protótipo que adiciona essa funcionalidade a uma VPN existente, especificamente ao WireGuard. O protótipo integra o aplicativo I Reveal My Attributes (IRMA), uma solução de gerenciamento de identidade digital que permite aos usuários revelar apenas os atributos necessários para a autenticação sem expor informações pessoais adicionais. Essa integração entre IRMA e WireGuard no ambiente *desktop* possibilita a autenticação dos usuários de forma seletiva e segura, preservando a privacidade e o anonimato. Foram considerados dois métodos de autenticação: nome de usuário/senha e IRMA, mas a forma de aquisição dos atributos necessários para acessar a VPN foi considerada fora do escopo do estudo. Durante os experimentos, foram coletados *logs* e tráfego de rede, utilizando ferramentas como Wireshark para avaliar a eficácia da autenticação anônima. Os resultados mostraram que a autenticação por nome de usuário e senha pode revelar ao servidor VPN a associação entre o usuário e o tráfego de rede. Em contraste, a autenticação com IRMA esconde a identidade do usuário, impedindo a associação do tráfego de rede a uma conta específica. O projeto demonstra ganhos em termos de privacidade e anonimato, mas, como mencionado, aspectos como a obtenção do acesso à VPN e o impacto dos dados de pagamentos na preservação do anonimato foram deixados fora do escopo.
 
-Varvello *et al.* (2021) propõe uma Rede Privada Virtual Descentralizada (dVPN) que utiliza técnicas avançadas para preservar a privacidade do usuário. O modelo e a arquitetura que ele desenvolveu, nomeada VPN-Zero, emprega pares de chaves efêmeras baseados no algoritmo ElGamal para proteger as conexões, garantindo que as solicitações não possam ser vinculadas a usuários específicos. Com o uso do protocolo ZKP, um nó dVPN pode certificar que o tráfego é autorizado sem conhecer seus detalhes. A rede também implementa uma cadeia dinâmica de túneis VPN e utiliza uma Tabela de *Hash* Distribuída (DHT) para emparelhar clientes com nós, assegurando uma distribuição uniforme e preservando a privacidade. Em termos de resultados, foram identificados problemas de desempenho, especialmente em relação à velocidade, devido à
+Varvello *et al.* (2021) propõe uma Rede Privada Virtual Descentralizada (dVPN) que utiliza técnicas avançadas para preservar a privacidade do usuário. O modelo e a arquitetura que ele desenvolveu, nomeada VPN-Zero, emprega pares de chaves efêmeras baseados no algoritmo ElGamal para proteger as conexões, garantindo que as solicitações não possam ser vinculadas a usuários específicos. Com o uso do protocolo ZKP, um nó dVPN pode certificar que o tráfego é autorizado sem conhecer seus detalhes. A rede também implementa uma cadeia dinâmica de túneis VPN e utiliza uma Tabela de *Hash* Distribuída (DHT) para emparelhar clientes com nós, assegurando uma distribuição uniforme e preservando a privacidade. Em termos de resultados, foram identificados problemas de desempenho, especialmente em relação à velocidade, devido à necessidade de gerar pares de chaves para cada solicitação de roteamento. Por outro lado, essa abordagem proporciona um benefício significativo em termos de privacidade. Embora o trabalho não trate diretamente de autenticação em VPNs ou métodos de pagamento, ele aborda o mesmo desafio que o nosso: aumentar a privacidade em VPNs, um problema que também buscamos resolver.
 
-<sup>1</sup> WireGuard é um protocolo de comunicação VPN e uma solução de VPN de código aberto conhecida por sua simplicidade, rapidez e segurança. Para mais informações, acesse o site oficial: <https://www.wireguard.com>.
-
-<sup>2</sup> Para mais informações sobre a IRMA, acesse o site oficial: <https://privacybydesign.foundation/irma-en>
-
-necessidade de gerar pares de chaves para cada solicitação de roteamento. Por outro lado, essa abordagem proporciona um benefício significativo em termos de privacidade. Embora o trabalho não trate diretamente de autenticação em VPNs ou métodos de pagamento, ele aborda o mesmo desafio que o nosso: aumentar a privacidade em VPNs, um problema que também buscamos resolver.
-
-Praveena *et al.* (2024) propõe um sistema de autenticação multifator para melhorar a segurança de VPNs. O sistema combina uma senha de baixa entropia com uma senha gráfica, usando criptografia para proteger as credenciais. O desenvolvimento do sistema inclui três fases principais: registro das senhas, transmissão segura com a função de mapa de Baker de ElGamal para confundir e difundir a senha gráfica, e autenticação final das credenciais pelo servidor. Além disso, foram aplicadas técnicas, como criptografia baseada em ECC, para garantir a proteção da senha de baixa entropia e aumentam a segurança da senha gráfica, tornando-a resistente a diversos ataques. Em termos de resultados, foi avaliado a segurança contra ataques comuns a VPNs, como *Man-in-the-Middle* (MitM) e *Distributed Denial of Service* (DDoS), no qual o sistema demonstrou oferecer proteção robusta com baixa sobrecarga computacional, sendo viável para implementação prática. No entanto, não aborda questões de anonimato ou pagamento, focando apenas na segurança da autenticação.
+Praveena *et al.* (2024) propõe um sistema de autenticação multifator para melhorar a segurança de VPNs. O sistema combina uma senha de baixa entropia com uma senha gráfica, usando criptografia para proteger as credenciais. O desenvolvimento do sistema inclui três fases principais: registro das senhas, transmissão segura com a função de mapa de Baker de ElGamal para confundir e difundir a senha gráfica, e autenticação final das credenciais pelo servidor. Além disso, foram aplicadas técnicas, como criptografia baseada em ECC, para garantir a proteção da senha de baixa entropia e aumentam a segurança da senha gráfica, tornando-a resistente a diversos ataques. Em termos de resultados, foi avaliado a segurança contra ataques comuns a VPNs, como Man-in-the-Middle (MitM) e Distributed Denial of Service (DDoS), no qual o sistema demonstrou oferecer proteção robusta com baixa sobrecarga computacional, sendo viável para implementação prática. No entanto, não aborda questões de anonimato ou pagamento, focando apenas na segurança da autenticação.
 
 Jin *et al.* (2016) propõe uma forma de aprimorar a autenticação de VPNs utilizando informações de GPS, ao mesmo tempo em que protegem a privacidade geográfica do usuário. O método adota a localização geográfica do usuário como um novo atributo de autenticação para o acesso à VPN. Em vez de usar as coordenadas GPS reais, o que poderia comprometer a privacidade do usuário, o sistema utiliza valores de *hash* dessas coordenadas. Esses valores são comparados com os *hashes* de combinações registradas anteriormente no servidor de autenticação da VPN, garantindo que o acesso permitido seja apenas em áreas designadas pelo usuário. Em termos de resultados, os autores declararam uma taxa de acerto aceitável na determinação de se o *hash* foi enviado, de fato, dentro da área designada. Nesse contexto, o trabalho se concentra em aumentar a segurança em relação métodos tradicionais de autenticação de VPNs e, ao mesmo tempo, manter a privacidade do usuário. Isso também está alinhado com os problemas que buscamos solucionar no projeto. No entanto, o método que eles utilizam não tem como foco o anonimato, mas sim a prevenção de acessos não autorizados. Além disso, pode não ser o mais adequado em estados autoritários, pois pode gerar preocupações entre os usuários, especialmente em relação a um potencial rastreamento geográfico.
 
@@ -445,20 +214,17 @@ Huseynov (2022) propõe uma solução para autenticação segura em sistemas VPN
 
 Os trabalhos mencionados neste capítulo enfocam, de alguma forma, a melhoria da privacidade, anonimato ou segurança em redes VPN, utilizando técnicas específicas para atingir esses objetivos. Enquanto alguns se concentraram na segurança do processo de autenticação, outros abordaram a privacidade de forma mais ampla. Durante a revisão da literatura, ficou claro que os métodos de autenticação comuns em VPNs são vulneráveis a uma série de ataques, o que evidencia a necessidade de soluções mais robustas. Embora alguns dos trabalhos mencionem brevemente a influência do processo de pagamento na privacidade, como é o caso de Bakker (2023), este aspecto raramente é explorado em profundidade. Assim, uma lacuna relevante emerge: a necessidade de um mecanismo que integre autenticação anônima e um sistema de pagamento que preserve a privacidade do usuário em VPNs. Esta lacuna foi abordada no desenvolvimento da presente pesquisa, que visa contribuir com soluções inovadoras para a segurança e privacidade em redes VPN. A Tabela 2 apresenta um resumo das características dos trabalhos relacionados.
 
-<sup>3</sup> *Phishing* é um ataque cibernético que visa enganar usuários para revelar dados confidenciais, se passando por fontes confiáveis, como e-mails ou sites fraudulentos, utilizando técnicas de engenharia social, como táticas de pressão ou manipulação.
-
-<sup>4</sup> Ataque de *Replay* é um tipo de ataque em que um invasor intercepta e retransmite dados legítimos, como credenciais, para obter acesso não autorizado ao reproduzi-los em outro momento.
-
 Tabela 2 – Comparação dos trabalhos
 
-| Autor                  | (1)                                  | (2) | (3)         | (4) | (5) |
-|------------------------|--------------------------------------|-----|-------------|-----|-----|
-| Bakker (2023)          | IRMA, WireGuard                      | Sim | Ambas       | Não | Sim |
-| Varvello et al. (2021) | dVPN, chaves ElGamal, ZKP            | Sim | privacidade | Não | Não |
-| Praveena et al. (2024) | Multifator (gráfica, baixa entropia) | Não | segurança   | Não | Sim |
-| Jin et al. (2016)      | GPS, hash                            | Não | Ambas       | Não | Sim |
-| Huseynov (2022)        | FIDO2, Navegadores Modernos          | Não | segurança   | Não | Sim |
-| Trabalho proposto      | ZKP, Blockchain, chaves ECDLP        | Sim | Ambas       | Sim | Sim |
+| Autor                     | (1)                                      | (2) | (3)         | (4) | (5) |
+|--------------------------|------------------------------------------|-----|-------------|-----|-----|
+| Bakker (2023)            | IRMA, WireGuard                          | Sim | Ambas       | Não | Sim |
+| Varvello et al. (2021)   | dVPN, chaves ElGamal, ZKP                | Sim | privacidade | Não | Não |
+| Praveena et al. (2024)   | Multifator (gráfica, baixa entropia)     | Não | segurança   | Não | Sim |
+| Jin et al. (2016)        | GPS, hash                                | Não | Ambas       | Não | Sim |
+| Huseynov (2022)          | FIDO2, Navegadores Modernos              | Não | segurança   | Não | Sim |
+| Trabalho proposto        | ZKP, Blockchain, chaves ECDLP            | Sim | Ambas       | Sim | Sim |
+
 
 - 1. Solução utilizada
 - 2. Anonimato
@@ -472,14 +238,14 @@ Fonte: elaborada pelo autor.
 
 Este estudo é uma pesquisa de natureza aplicada cujo objetivo é desenvolver uma arquitetura de autenticação anônima para serviços de VPN. A pesquisa se enquadra no tipo descritiva com uma abordagem quantitativa para avaliar de maneira abrangente este modelo de autenticação anônima em serviço de VPN.
 
-Para alcançar o referido objetivo, adotamos uma abordagem metodológica baseada em *Design Science Research* (DSR). No paradigma de pesquisa DSR, artefatos são criações projetadas e desenvolvidas com o propósito de resolver problemas reais e específicos (MAEDCHE *et al.*, 2019). De acordo com Hevner e Chatterjee (2010), os artefatos podem ser classificados em *constructos*, modelos, métodos e instanciações, podendo resultar ainda em um aprimoramento de teorias. Artefatos são criações essenciais que não só resolvem problemas práticos, mas também avançam o conhecimento científico (PEFFERS *et al.*, 2007).
+Para alcançar o referido objetivo, adotamos uma abordagem metodológica baseada em Design Science Research (DSR). No paradigma de pesquisa DSR, artefatos são criações projetadas e desenvolvidas com o propósito de resolver problemas reais e específicos. Os artefatos podem ser classificados em *constructos*, modelos, métodos e instanciações, podendo resultar ainda em um aprimoramento de teorias. Artefatos são criações essenciais que não só resolvem problemas práticos, mas também avançam o conhecimento científico.
 
 Na perspectiva da DSR, nossa arquitetura de autenticação anônima para VPN resultou em dois artefatos: um modelo e uma instanciação, descritos a seguir.
 
 - Modelo Uma representação abstrata que descreveu a estrutura, os componentes principais (*blockchain*, servidor VPN, cliente VPN), suas interações, algoritmos e protocolos. Esse modelo forneceu uma visão clara e estruturada de como a autenticação anônima poderia ser realizada utilizando esses componentes.
 - Instanciação Uma implementação concreta da arquitetura proposta que demonstrou sua aplicabilidade prática e funcionalidade. Essa instância foi apresentada como uma prova de conceito para validar empiricamente a eficácia da arquitetura e demonstrar sua aplicabilidade prática em um ambiente simulado.
 
-Assim, neste estudo, seguimos um percurso metodológico de seis etapas para a execução da DSR, conforme sugerido por Peffers *et al.* (2007), as quais são descritas a seguir.
+Assim, neste estudo, seguimos um percurso metodológico de seis etapas para a execução da DSR, as quais são descritas a seguir.
 
 #### 4.1 Conscientização do problema
 
@@ -501,11 +267,7 @@ O *design* da arquitetura proposta segue uma abordagem modular, integrando *bloc
 
 Para testar a eficácia na prática, foi desenvolvida uma prova de conceito que incorporou nossa proposta de autenticação em uma VPN. A implementação dessa solução ocorreu em um ambiente simulado, que incluiu o servidor VPN, o cliente VPN e a *blockchain*. A arquitetura proposta foi dividida em duas etapas principais: *configuração* e *autenticação*.
 
-Etapa 1 – A configuração envolve dois aspectos principais: a definição dos parâmetros de autenticação e o pagamento. Primeiramente, o usuário, por meio de sua aplicação cliente, autoriza, a partir de sua carteira digital (*wallet*) 1 , o *deploy* de um contrato inteligente na *blockchain*, recebendo como retorno o endereço do contrato. Posteriormente, autoriza uma transação em criptomoeda equivalente a uma quantia em dólares para o endereço do contrato inteligente criado. Em seguida, o usuário executa a função do contrato que transfere as criptomoedas do contrato para o endereço da carteira do servidor VPN. Nesse processo, o contrato gera o *token* de identificação da transação, equivalente a um recibo de pagamento, e o devolve ao usuário. Após receber o *token*, o usuário envia uma solicitação de registro ao servidor VPN, contendo sua chave pública, o *token* e o endereço do contrato inteligente. O servidor, então, gera um código de usuário com base na chave pública e verifica, na *blockchain*, se o *token* enviado é legítimo. Se for, associa o pagamento ao código de usuário gerado anteriormente e armazena todas as informações do usuário. Esse procedimento é executado apenas uma vez; após isso, o
-
-<sup>1</sup> As carteiras de criptomoedas, conhecidas como *wallets*, são softwares ou dispositivos físicos que permitem aos usuários acessar e gerenciar seus ativos digitais armazenados no *blockchain*. Essas carteiras simplificam o processo de envio e recebimento de criptomoedas, eliminando a necessidade de intermediários.
-
-usuário precisará apenas se autenticar na VPN.
+Etapa 1 – A configuração envolve dois aspectos principais: a definição dos parâmetros de autenticação e o pagamento. Primeiramente, o usuário, por meio de sua aplicação cliente, autoriza, a partir de sua carteira digital (*wallet*), o *deploy* de um contrato inteligente na *blockchain*, recebendo como retorno o endereço do contrato. Posteriormente, autoriza uma transação em criptomoeda equivalente a uma quantia em dólares para o endereço do contrato inteligente criado. Em seguida, o usuário executa a função do contrato que transfere as criptomoedas do contrato para o endereço da carteira do servidor VPN. Nesse processo, o contrato gera o *token* de identificação da transação, equivalente a um recibo de pagamento, e o devolve ao usuário. Após receber o *token*, o usuário envia uma solicitação de registro ao servidor VPN, contendo sua chave pública, o *token* e o endereço do contrato inteligente. O servidor, então, gera um código de usuário com base na chave pública e verifica, na *blockchain*, se o *token* enviado é legítimo. Se for, associa o pagamento ao código de usuário gerado anteriormente e armazena todas as informações do usuário. Esse procedimento é executado apenas uma vez; após isso, o usuário precisará apenas se autenticar na VPN.
 
 Etapa 2 – A autenticação consiste na execução do protocolo ZKP para verificar se aquele que está se autenticando é realmente quem diz ser. Após a conclusão da fase de configuração, o usuário será submetido a um processo interativo de perguntas e respostas providenciado pela VPN para autenticação. O protocolo ZKP permite que o usuário prove que conhece os parâmetros gerados na fase de configuração sem revelar a informação privada que possui. Isso garante que apenas usuários autorizados possam acessar o serviço VPN, mantendo a privacidade e a segurança do processo de autenticação. Detalhes mais específicos do funcionamento do protocolo ZKP estão no Capítulo 5.
 
@@ -525,7 +287,7 @@ As aplicações cliente e servidor VPN implementaram a geração de arquivos de 
 
 Esta pesquisa adota uma abordagem de avaliação baseada em simulação computacional, que replica cenários reais de uso, permitindo a análise da eficácia e viabilidade do artefato. A avaliação foi composta por uma análise quantitativa, focada na medição do desempenho e dos custos da arquitetura proposta.
 
-Conforme destacado por Pierro e Rocha (2019), cada transação na Ethereum exige o pagamento de uma taxa chamada *gas fee*, ou simplesmente gás, que funciona como um "combustível"para a execução de instruções computacionais na *blockchain*. Essa taxa faz parte da recompensa recebida pelos nós que validam os blocos e garantem a segurança da rede. Nesse contexto, como se trata de um valor cobrado em cada transação, as taxas de gás da Ethereum serão um dos principais aspectos a serem avaliados. Outro ponto importante é avaliar o tempo necessário para que a transação seja validada, visto que esse fator é crucial para a experiência do usuário. A seguir, serão descritas essas análises, assim como a do tempo gasto na autenticação do usuário utilizando o protocolo ZKP.
+Cada transação na Ethereum exige o pagamento de uma taxa chamada *gas fee*, ou simplesmente gás, que funciona como um "combustível"para a execução de instruções computacionais na *blockchain*. Essa taxa faz parte da recompensa recebida pelos nós que validam os blocos e garantem a segurança da rede. Nesse contexto, como se trata de um valor cobrado em cada transação, as taxas de gás da Ethereum serão um dos principais aspectos a serem avaliados. Outro ponto importante é avaliar o tempo necessário para que a transação seja validada, visto que esse fator é crucial para a experiência do usuário. A seguir, serão descritas essas análises, assim como a do tempo gasto na autenticação do usuário utilizando o protocolo ZKP.
 
 #### *4.5.1 Análise de custos*
 
@@ -550,19 +312,9 @@ A etapa de comunicação dos resultados na DSR é fundamental para disseminar o 
 
 Este Capítulo apresenta uma proposta de arquitetura para autenticação anônima em serviços de VPN. O escopo deste trabalho abrange duas etapas principais: a *fase de configuração*, em que o usuário realiza a contratação do serviço VPN, efetua o pagamento e recebe os parâmetros de autenticação; e a *fase de autenticação*, na qual o usuário utiliza esses parâmetros para acessar o serviço de forma anônima e segura. O modelo proposto não visa alterar toda a infraestrutura tradicional das VPNs, como o mecanismo de tunelamento, mas concentra-se em duas fases fundamentais para a segurança e a privacidade dos usuários.
 
-Nossa proposta se baseia em dois pilares principais: (1) a utilização de criptomoedas e contratos inteligentes para anonimizar as transações financeiras dos usuários; (2) o protocolo de autenticação anônima ZKP, para garantir a segurança do processo de *login* sem comprometer a privacidade dos usuários. A seguir, na Figura 5, apresentamos uma visão geral da arquitetura, os componentes envolvidos e o fluxo de operação da proposta.
+Nossa proposta se baseia em dois pilares principais: (1) a utilização de criptomoedas e contratos inteligentes para anonimizar as transações financeiras dos usuários; (2) o protocolo de autenticação anônima ZKP, para garantir a segurança do processo de *login* sem comprometer a privacidade dos usuários.
 
-Blockchain VPN (Servidor VPN) Verificar validade
-
-Token de pagamento Processar 7 Vericar Token Armazenar Pagamento Parâmetros de autenticação do Receber Parâmetros Gerar Token usuário. Gerar *hash* de ID<sub>user</sub> da Transação validação do *Token* Gerar e Enviar ID<sub>user</sub> Q<sub>user</sub> Token Endereç nntrata Autenticar (Verificador) (Contrato Inteligente) Endereço Pagament Token Usuário (Cliente VPN) 🕜 Gerar Par ZKP Receber e Enviar: chaves ECDLP 0 Endereco Contra Token 6 Parâmetros Enviar Contrato O 10 Autenticar e Pagar (Provador)
-
-Figura 5 – Visão geral da arquitetura.
-
-Fonte: elaborado pelo autor.
-
-Conforme apresentado na Figura 5, tem-se uma visão ampla da proposta, na qual são evidentes as três entidades principais: *blockchain*, Cliente VPN e Servidor VPN, além de suas interações. Também é possível visualizar uma parte numerada de 1 a 9, que representa, de forma detalhada, a *fase de configuração*. A *fase de autenticação* está representada na parte 10 intitulada "autenticar", que ocorre entre o Cliente VPN e o Servidor VPN, descrevendo a
-
-execução do protocolo ZKP, que é realizado em três rodadas. Para um melhor entendimento, a seguir será apresentada uma seção que aprofunda cada uma dessas fases.
+Tem-se uma visão ampla da proposta, na qual são evidentes as três entidades principais: *blockchain*, Cliente VPN e Servidor VPN, além de suas interações. Também é possível visualizar uma parte numerada de 1 a 9, que representa, de forma detalhada, a *fase de configuração*. A *fase de autenticação* está representada na parte 10 intitulada "autenticar", que ocorre entre o Cliente VPN e o Servidor VPN, descrevendo a execução do protocolo ZKP, que é realizado em três rodadas. Para um melhor entendimento, a seguir será apresentada uma seção que aprofunda cada uma dessas fases.
 
 ### 5.1 *Fase de configuração*
 
@@ -572,17 +324,9 @@ Com o endereço do contrato em mãos, o usuário envia o valor correspondente ao
 
 O usuário, por sua vez, chama a função do contrato responsável por realizar a transferência do valor do pagamento para o Servidor da VPN. Ao receber esse comando, o contrato executa uma série de ações: primeiramente, envia o valor do pagamento (*amount*) para o endereço da carteira do Servidor VPN; em seguida, gera um *token* (recibo do pagamento), que serve como identificador único da transação e deve ser conhecido apenas pelo usuário. Depois disso, dois procedimentos são realizados: primeiro, o *token* é enviado ao usuário e, para garantir a autenticidade do pagamento, é gerado um *hash* que possibilita a verificação da transação. Esse *hash* é calculado como *H*(*token* ∥ *amount* ∥ *timestamp*), onde *amount* representa o valor do pagamento e *timestamp* o registro temporal. Posteriormente, um registro é feito na *blockchain*, funcionando como um *log*, contendo as informações *hash*, *amount* e *timestamp*. O *token* não é registrado, pois será utilizado para a verificação do pagamento.
 
-Com o *token* de pagamento em mãos, o usuário gera um par de chaves ECDLP, composto pela chave pública (*Quser*) e pela chave privada (*kuser*). O usuário então envia ao Servidor VPN, via canal TLS, a sua chave pública *Quser*, juntamente com o *token* de pagamento
+Com o *token* de pagamento em mãos, o usuário gera um par de chaves ECDLP, composto pela chave pública (*Quser*) e pela chave privada (*kuser*). O usuário então envia ao Servidor VPN, via canal TLS, a sua chave pública *Quser*, juntamente com o *token* de pagamento e o endereço do contrato inteligente na *blockchain*. Ao receber essas informações, o Servidor VPN gera, com base na chave pública, o *IDuser* e verifica na *blockchain* a validade do *token*. Para isso, realiza uma busca na *blockchain* pelo endereço do contrato, a fim de encontrar o registro de *log* que contém as informações *hash*, *amount* e *timestamp*. Para verificar a validade do *token*, o servidor recalcula um *novo\_hash* usando o *token* recebido do usuário e os valores de *amount* e *timestamp* armazenados na *blockchain*, ou seja, calcula *H*(*token* ∥ *amount* ∥ *timestamp*) novamente. Se o *novo\_hash* for diferente do *hash* armazenado na *blockchain*, significa que o *token* é inválido, levando ao descarte das informações enviadas pelo usuário e ao envio de uma mensagem de erro. Caso o *token* seja válido, o Servidor VPN o associa ao *IDuser* e armazena todas as informações fornecidas. Posteriormente, o *IDuser* é enviado de volta ao usuário.
 
-e o endereço do contrato inteligente na *blockchain*. Ao receber essas informações, o Servidor VPN gera, com base na chave pública, o *IDuser* e verifica na *blockchain* a validade do *token*. Para isso, realiza uma busca na *blockchain* pelo endereço do contrato, a fim de encontrar o registro de *log* que contém as informações *hash*, *amount* e *timestamp*. Para verificar a validade do *token*, o servidor recalcula um *novo\_hash* usando o *token* recebido do usuário e os valores de *amount* e *timestamp* armazenados na *blockchain*, ou seja, calcula *H*(*token* ∥ *amount* ∥ *timestamp*) novamente. Se o *novo\_hash* for diferente do *hash* armazenado na *blockchain*, significa que o *token* é inválido, levando ao descarte das informações enviadas pelo usuário e ao envio de uma mensagem de erro. Caso o *token* seja válido, o Servidor VPN o associa ao *IDuser* e armazena todas as informações fornecidas. Posteriormente, o *IDuser* é enviado de volta ao usuário.
-
-Com todos os parâmetros de autenticação, o usuário gera um arquivo contendo essas informações. A Figura 6 apresenta de forma mais clara esse fluxo de interações entre as entidades do sistema. Como uma camada adicional de segurança, o usuário pode ser solicitado a fornecer uma senha que será utilizada para cifrar o arquivo antes de sua entrega. Embora essa etapa seja opcional, é altamente recomendada para garantir a proteção do usuário contra roubo de identidade. Caso um agente malicioso obtenha acesso ao arquivo, dois fatores de autenticação estariam em vigor: um de posse (o arquivo cifrado) e outro de conhecimento (a senha).
-
-Figura 6 – Fase configuração.
-
-![](_page_44_Figure_2.jpeg)
-
-Fonte: elaborada pelo autor.
+Com todos os parâmetros de autenticação, o usuário gera um arquivo contendo essas informações. Como uma camada adicional de segurança, o usuário pode ser solicitado a fornecer uma senha que será utilizada para cifrar o arquivo antes de sua entrega. Embora essa etapa seja opcional, é altamente recomendada para garantir a proteção do usuário contra roubo de identidade. Caso um agente malicioso obtenha acesso ao arquivo, dois fatores de autenticação estariam em vigor: um de posse (o arquivo cifrado) e outro de conhecimento (a senha).
 
 #### 5.2 *Fase de autenticação*
 
@@ -596,13 +340,7 @@ Com o desafio <sup>σ</sup><sup>1</sup> em mãos, o Cliente VPN calcula a respos
 
 Para verificar se a prova apresentada pelo Cliente VPN é válida, o Servidor VPN calcula um novo ponto *P*1, tal que *P*<sup>1</sup> = <sup>π</sup><sup>1</sup> ·*G*−<sup>σ</sup><sup>1</sup> ·*Qu*. Se *P*<sup>1</sup> = *A*1, a prova é considerada válida, e o usuário passa para a segunda rodada. Caso contrário, a autenticação falha e o processo não prossegue para as rodadas subsequentes.
 
-Como as rodadas seguintes seguem o mesmo processo descrito para a primeira, apenas esta foi explicada em detalhes. A Figura 7 ilustra o processo completo, incluindo as três rodadas.
-
-Figura 7 – Autenticação usuário.
-
-![](_page_46_Figure_2.jpeg)
-
-Fonte: elaborada pelo autor.
+Como as rodadas seguintes seguem o mesmo processo descrito para a primeira, apenas esta foi explicada em detalhes.
 
 ## 6 RESULTADOS E ANÁLISES
 
@@ -610,35 +348,19 @@ Este capítulo tem como objetivo apresentar e analisar os resultados obtidos nes
 
 #### 6.1 Ambiente e detalhes da implementação
 
-O artefato desenvolvido<sup>1</sup> para validar o modelo utilizou diversas tecnologias, tanto para sua implementação quanto para a análise. A implementação das *Application Programming Interface*s (APIs) e das operações matemáticas com curvas elípticas foi realizada na linguagem *Python*, escolha motivada pela ampla disponibilidade de bibliotecas, como ecdsa e hashlib, que serviram de suporte para a implementação do protocolo ZKP e das demais operações no artefato como um todo. A curva elíptica utilizada para implementar o protocolo ZKP foi a secp256k1, a mesma utilizada no Bitcoin, escolhida por sua segurança comprovada e popularidade. Esses fatores garantem a disponibilidade de bibliotecas em diversas linguagens, como Python, JavaScript e até mesmo na plataforma Arduino, o que pode ser relevante para a expansão da pesquisa e para adaptações realizadas por outros pesquisadores.
+O artefato desenvolvido para validar o modelo utilizou diversas tecnologias, tanto para sua implementação quanto para a análise. A implementação das Application Programming Interfaces (APIs) e das operações matemáticas com curvas elípticas foi realizada na linguagem *Python*, escolha motivada pela ampla disponibilidade de bibliotecas, como ecdsa e hashlib, que serviram de suporte para a implementação do protocolo ZKP e das demais operações no artefato como um todo. A curva elíptica utilizada para implementar o protocolo ZKP foi a secp256k1, a mesma utilizada no Bitcoin, escolhida por sua segurança comprovada e popularidade. Esses fatores garantem a disponibilidade de bibliotecas em diversas linguagens, como Python, JavaScript e até mesmo na plataforma Arduino, o que pode ser relevante para a expansão da pesquisa e para adaptações realizadas por outros pesquisadores.
 
 Para o desenvolvimento das APIs, optamos pelo *framework* Flask, devido principalmente à sua simplicidade, leveza e flexibilidade, permitindo uma rápida prototipação de soluções web. Como banco de dados, foi utilizado o MySQL em conjunto com a ferramenta de administração de banco de dados phpMyAdmin. No contexto da figura *Servidor VPN* descrito no modelo proposto, para os testes, foi escolhido o serviço de nuvem da Google Cloud, devido à sua confiabilidade e alto desempenho. A máquina virtual utilizada foi configurada com as seguintes especificações: 16 vCPUs, 16 GB de memória RAM, disco de inicialização de 50 GB do tipo Disco Permanente Equilibrado (*Balanced Persistent Disk*), com o sistema operacional Ubuntu 20.04 LTS, localizado nos Estados Unidos (us-central1-c). Para o *Cliente VPN*, foi utilizado um *notebook* com processador Ryzen 5 5500U, 20 GB de memória RAM, 256 GB de SSD NVME e o sistema operacional Windows 10.
 
-<sup>1</sup> Projeto disponível no repositório GitHub: <https://github.com/projeto-zkp-blockchain>
-
 A *blockchain* escolhida para este trabalho foi a Ethereum, por sua ampla adoção e documentação robusta, facilitando a validação da ideia. Dessa forma, o contrato inteligente foi escrito na linguagem Solidity, utilizada na Ethereum, e compilado utilizando a versão do compilador 0.8.2+commit.661d1103. Com isso definido, um ponto crucial a considerar é que toda *blockchain* pública impõe custos em transações que modificam o estado da rede. Para evitar custos, especialmente no desenvolvimento, utilizamos as chamadas *testnets*, que simulam a rede principal e utilizam criptomoedas sem valor real, permitindo realizar testes sem incorrer em gastos. Dentre as redes de teste disponíveis na Ethereum, a escolhida para as análises deste trabalho foi a Rede Sepolia, por ser a *testnet* oficial da Ethereum e apresentar taxas de transação e tempo de validação das transações alinhados aos da rede principal.
 
-Para a interação com a *blockchain*, relacionada à contratação do serviço e ao recebimento dos parâmetros de autenticação, foi desenvolvida uma interface simples, com o objetivo de tornar o uso mais intuitivo para o usuário. A interface foi implementada utilizando HTML e JavaScript, associada à biblioteca web3.js para interagir com a Ethereum e com a carteira (*Wallet*) do usuário, e à biblioteca elliptic.js para geração das chaves pública e privada na curva secp256k1. A carteira escolhida foi a Metamask<sup>2</sup> , por sua popularidade e ampla utilização mundial. Além disso, vale ressaltar que as transações passam pela carteira do usuário e, como algumas delas envolvem custos de gás, a Metamask exibe uma estimativa desses custos, permitindo que o usuário decida se confirma ou não as transações. Para exemplificar, a Figura 8 mostra a primeira interação com a carteira do usuário, referente ao *deploy* do contrato na *blockchain*. Como pode ser observado, a carteira exibe informações sobre a solicitação, como o solicitante, a estimativa do custo da transação e uma conversão aproximada desse valor para dólar. Esse mecanismo torna os detalhes da transação mais claros para o usuário, proporcionando maior segurança ao exigir sua confirmação antes da execução.
+Para a interação com a *blockchain*, relacionada à contratação do serviço e ao recebimento dos parâmetros de autenticação, foi desenvolvida uma interface simples, com o objetivo de tornar o uso mais intuitivo para o usuário. A interface foi implementada utilizando HTML e JavaScript, associada à biblioteca web3.js para interagir com a Ethereum e com a carteira (*Wallet*) do usuário, e à biblioteca elliptic.js para geração das chaves pública e privada na curva secp256k1. A carteira escolhida foi a Metamask, por sua popularidade e ampla utilização mundial. Além disso, vale ressaltar que as transações passam pela carteira do usuário e, como algumas delas envolvem custos de gás, a Metamask exibe uma estimativa desses custos, permitindo que o usuário decida se confirma ou não as transações. Para exemplificar, a Figura 8 mostra a primeira interação com a carteira do usuário, referente ao *deploy* do contrato na *blockchain*. Como pode ser observado, a carteira exibe informações sobre a solicitação, como o solicitante, a estimativa do custo da transação e uma conversão aproximada desse valor para dólar. Esse mecanismo torna os detalhes da transação mais claros para o usuário, proporcionando maior segurança ao exigir sua confirmação antes da execução.
 
 Após uma transação ser enviada para a *blockchain*, há duas informações que queremos obter: o tempo que demorou para ser validada pela rede e o custo de fato daquela transação. O tempo é simples de ser obtido, basta registrar o momento em que a transação foi enviada e quando se recebeu a confirmação. Quanto ao custo, é necessário calcular, uma vez que, ao ser confirmada, também recebemos as informações da transação em um objeto JSON, das quais as que nos interessam são gasUsed e effectiveGasPrice, ou seja, o quanto de gás foi usado e qual o preço naquele momento. Com esses dados, o custo total pode ser calculado pela fórmula:
 
-<sup>2</sup> Mais informações sobre a Metamask em: <https://metamask.io/>
-
-Figura 8 – *Deploy* contrato inteligente *testenet* Sepolia.
-
-Fonte: elaborado pelo autor.
-
 ### Custo Total = Gas Used×Gas Price
 
-Na avaliação dos custos do gás, não serão apresentados os valores no formato de criptomoeda, uma vez que esses valores são extremamente pequenos, com precisão de dezoito casas decimais. Para contornar essa questão, foi desenvolvida uma API para obter o preço do Ethereum em tempo real, a partir do site CoinMarketCap<sup>3</sup> . Sempre que uma transação era confirmada, o preço era consultado automaticamente. Isso permite capturar dois aspectos importantes: a variação do custo do gás nas transações e seu valor correspondente em dólares no momento da transação. A Figura 9 apresenta uma requisição GET usando a ferramenta Postman para consulta do preço do Ethereum em dólares.
-
-Figura 9 – Consulta do preço do Ethereum em dólares com a ferramenta Postman
-
-![](_page_49_Picture_7.jpeg)
-
-Fonte: elaborado pelo autor.
-
-<sup>3</sup> Mais informações sobre o CoinMarketCap em: <https://coinmarketcap.com/>
+Na avaliação dos custos do gás, não serão apresentados os valores no formato de criptomoeda, uma vez que esses valores são extremamente pequenos, com precisão de dezoito casas decimais. Para contornar essa questão, foi desenvolvida uma API para obter o preço do Ethereum em tempo real, a partir do site CoinMarketCap. Sempre que uma transação era confirmada, o preço era consultado automaticamente. Isso permite capturar dois aspectos importantes: a variação do custo do gás nas transações e seu valor correspondente em dólares no momento da transação. A Figura 9 apresenta uma requisição GET usando a ferramenta Postman para consulta do preço do Ethereum em dólares.
 
 ### 6.2 Resultados *fase de configuração*
 
@@ -648,28 +370,13 @@ Nesta seção, avalia-se o desempenho da solução na *fase de configuração*, 
 
 Nesta subseção, são avaliados os custos das transações, ou seja, a taxa de gás da rede. Ao todo, três valores são analisados: o primeiro refere-se ao *deploy* do contrato inteligente, o segundo ao envio do pagamento para o endereço do contrato inteligente e o terceiro à execução da função do contrato que transfere os fundos armazenados para o endereço da carteira do servidor VPN. A Figura 10 apresenta uma estimativa dessas três taxas de transação pela Metamask, que serão cobradas e debitadas da conta do usuário. Um ponto a ser observado é que, na transação 2, a Metamask exibe, além do valor da taxa, o montante enviado para o contrato, sendo esse envio de aproximadamente 19,93 dólares. Nas demais transações (1 e 3), como não há envio de valor adicional, exibe-se apenas a taxa da rede, indicada como "*Network fee*".
 
-1- *deploy* contrato inteligente na *blockchain*  2 - Envio valor do pagamento para o contrato 3 - Transferência pagamento do contrato para a VPN
-
-Figura 10 – Solicitações de confirmação de transação na carteira Metamask
-
-Fonte: elaborado pelo autor.
-
 A análise das taxas das transações na *blockchain* baseou-se em duas métricas principais para as 30 execuções: média e desvio padrão, cujos valores são apresentados com aproximação de duas casas decimais. Em relação à análise do primeiro valor, referente ao *deploy* do contrato inteligente, a média foi de 3,73 dólares, um valor relativamente alto. No entanto, isso era esperado, já que a Ethereum possui taxas relativamente altas e a implantação de um contrato inteligente é uma operação custosa. O desvio padrão foi de 0,20, o que não representa uma variação significativa. O maior custo foi de 4,10 dólares e o menor foi de 3,33 dólares, ou seja, a diferença foi relativamente pequena.
 
 O segundo valor de taxa, referente ao envio do pagamento para o endereço do contrato inteligente, apresentou uma média de 0,12 dólares, um valor baixo por se tratar de uma operação mais simples. O desvio padrão foi de 0,01, indicando uma variação mínima, o que se confirma ao observar que o maior custo foi de 0,13 dólares e o menor 0,11 dólares, resultando em uma diferença pouco significativa. Por fim, o terceiro valor de taxa, correspondente à execução da função que transfere o pagamento para o endereço do servidor VPN, foi ligeiramente mais alto que o anterior devido à realização de operações adicionais, como a geração do *token* e operações *hash*. No entanto, como essas operações não são muito pesadas, a média ficou em 0,36 dólares, um valor ainda aceitável. O desvio padrão foi de 0,02, indicando uma variação baixa. Entre as três taxas analisadas, esse custo foi intermediário.
 
 A Figura 11 apresenta as 30 execuções com as três taxas de cada amostra em um único gráfico. É interessante notar que o *deploy* do contrato, representado pela linha azul, foi a operação mais custosa, como mencionado anteriormente, e também a que apresentou o maior desvio padrão, evidenciado pela oscilação de uma amostra para outra. A segunda operação com maior desvio padrão foi a de transferir os valores do contrato para o endereço da carteira do servidor VPN, representada pela cor verde, com uma pequena oscilação observada em alguns pontos. A última operação, com o menor desvio padrão, referente ao envio das criptomoedas para o endereço do contrato (no gráfico, em vermelho), apresenta uma oscilação quase imperceptível. Isso pode indicar que operações mais simples tendem a ser mais estáveis na *blockchain*, pois são menos impactadas pela rede.
 
-Por fim, considerando os custos das três transações, o valor total médio seria de aproximadamente 4,21 dólares. Reconhecemos que é um valor relativamente alto. No entanto, uma pequena observação é que o alto custo se deve principalmente ao *deploy* do contrato. Nesse contexto, se considerarmos que o usuário renovaria o serviço da VPN, não haveria necessidade de
-
-criar um novo contrato. O usuário poderia simplesmente realizar as duas transações subsequentes. Nesse cenário, a renovação seria bem mais acessível, pois, sem considerar o *deploy* do contrato, o valor cairia para uma média de 0,48 dólares.
-
-![](_page_52_Figure_2.jpeg)
-
-Figura 11 – Taxas em dólar de cada transação
-
-Fonte: elaborado pelo autor.
-
+Por fim, considerando os custos das três transações, o valor total médio seria de aproximadamente 4,21 dólares. Reconhecemos que é um valor relativamente alto. No entanto, uma pequena observação é que o alto custo se deve principalmente ao *deploy* do contrato. Nesse contexto, se considerarmos que o usuário renovaria o serviço da VPN, não haveria necessidade de criar um novo contrato. O usuário poderia simplesmente realizar as duas transações subsequentes. Nesse cenário, a renovação seria bem mais acessível, pois, sem considerar o *deploy* do contrato, o valor cairia para uma média de 0,48 dólares.
 ### *6.2.2 Análise do tempo de cada operação*
 
 Nesta subseção, são avaliados os tempos de confirmação das transações na *blockchain*, entre os quais se destacam: o *deploy* do contrato inteligente, o envio do pagamento para o endereço do contrato inteligente e a execução da função do contrato que transfere os fundos armazenados para o endereço da carteira do servidor VPN, ou seja, os três discutidos na subseção anterior 6.2.1, referente aos custos. Além disso, é avaliada uma operação adicional em relação à subseção anterior, que mede o tempo que o servidor leva para verificar a validade do pagamento na *blockchain*. Como essa é uma operação de consulta, ela não gera custos, razão pela qual é analisada apenas nesta subseção. Além disso, como os tempos de confirmação na *blockchain* podem variar consideravelmente entre as amostras, a visualização dos quatro tempos em um único gráfico seria muito complexa. Por esse motivo, a análise foi dividida em dois gráficos distintos, cada um com duas operações.
@@ -678,19 +385,7 @@ Em relação à análise do primeiro tempo de confirmação da transação na *b
 
 A Figura 12 apresenta os dois tempos analisados: o *deploy* do contrato na *blockchain*, representado pela linha azul, e o envio do pagamento para o endereço do contrato inteligente, representado pela linha vermelha. Como é possível observar, ambos os tempos apresentaram variações significativas entre as amostras. Por exemplo, a amostra de número 15 registrou um tempo de 29,27 segundos, devido à entrada em um bloco difícil e ter aguardado um tempo até ser incluída nele. As demais amostras apresentaram valores menores. De maneira geral, a maioria das transações ocorreu em um intervalo de 5 a 20 segundos. Normalmente, os tempos ficam dentro dessa faixa, salvo em casos de congestionamento na rede.
 
-Índice da Amostra Tempo (Segundos) 5 10 15 20 25 30
-
-Figura 12 – Tempos de *deploy* do contrato e de envio do pagamento para o contrato
-
-Fonte: elaborado pelo autor.
-
-O terceiro tempo, ou seja, a função que transfere o pagamento para o endereço da carteira do servidor VPN, segue a mesma lógica das duas anteriores, apresentando grande variação. Sua média foi de 9,97 segundos, um tempo bastante aceitável, com um desvio padrão de 3,90 segundos. Apesar da variação, essa métrica flutuou um pouco menos que as duas anteriores. O quarto e último tempo, referente à verificação do pagamento, é particularmente interessante, pois trata-se apenas de uma consulta na *blockchain* para obter informações. Por esse motivo, tende a ser bem estável, já que não requer validação, dado que qualquer usuário pode ter uma cópia da *blockchain* a partir de seu nó local. Nesse contexto, a média de tempo foi de apenas 1,37 segundos, com um desvio padrão de 0,59 segundos. Como é evidente, essa operação é previsível em termos de tempo, diferentemente das três anteriores. A Figura 13 ilustra essa situação. A linha verde, que representa a transferência do pagamento, apresenta grande variação, semelhante às duas primeiras operações analisadas. Já a verificação do pagamento também varia, porém em uma escala bem menor.
-
-Figura 13 – Tempos de transferência do pagamento para a VPN e de verificação do pagamento
-
-![](_page_54_Figure_3.jpeg)
-
-Fonte: elaborado pelo autor.
+O terceiro tempo, ou seja, a função que transfere o pagamento para o endereço da carteira do servidor VPN, segue a mesma lógica das duas anteriores, apresentando grande variação. Sua média foi de 9,97 segundos, um tempo bastante aceitável, com um desvio padrão de 3,90 segundos. Apesar da variação, essa métrica flutuou um pouco menos que as duas anteriores. O quarto e último tempo, referente à verificação do pagamento, é particularmente interessante, pois trata-se apenas de uma consulta na *blockchain* para obter informações. Por esse motivo, tende a ser bem estável, já que não requer validação, dado que qualquer usuário pode ter uma cópia da *blockchain* a partir de seu nó local. Nesse contexto, a média de tempo foi de apenas 1,37 segundos, com um desvio padrão de 0,59 segundos. Como é evidente, essa operação é previsível em termos de tempo, diferentemente das três anteriores. A linha verde, que representa a transferência do pagamento, apresenta grande variação, semelhante às duas primeiras operações analisadas. Já a verificação do pagamento também varia, porém em uma escala bem menor.
 
 Por fim, ao analisar a soma do tempo médio de todas as operações, obteve-se um total de 32,74 segundos, que pode até a princípio parecer um valor alto. Entretanto, deve-se levar em conta que esse processo ocorrerá apenas uma vez a cada poucos meses ou de forma anual. Tendo isso em mente, fica claro que é um valor bem aceitável. Se considerarmos que o usuário renovaria o serviço da VPN, o tempo gasto com o *deploy* do contrato já não seria necessário. Desconsiderando esse tempo, a média de tempo fica em 23,39 segundos, um valor baixo que não traria impacto negativo na experiência do usuário.
 
@@ -709,9 +404,7 @@ Tabela 3 – Tempo médio de execução de cada rodada por tipo de canal.
 
 Fonte: elaborada pelo autor.
 
-Para uma análise mais precisa do desvio padrão, sem nos limitarmos a uma avaliação visual, foi calculado esse valor para as 30 execuções em cada rodada. A Tabela 4 apresenta algumas informações relevantes. Como mencionado anteriormente, o canal seguro aparentava ter um desvio padrão maior; no entanto, isso não ocorreu em todas as rodadas. Na Rodada 1, o desvio padrão foi o mesmo para ambos os canais. Já nas Rodadas 2 e 3, o canal seguro, de fato, apresentou um desvio padrão maior. Vale ressaltar que, apesar desse desvio, ele não foi
-
-considerável o suficiente para afetar significativamente a consistência dos tempos de execução em nenhum dos canais.
+Para uma análise mais precisa do desvio padrão, sem nos limitarmos a uma avaliação visual, foi calculado esse valor para as 30 execuções em cada rodada. A Tabela 4 apresenta algumas informações relevantes. Como mencionado anteriormente, o canal seguro aparentava ter um desvio padrão maior; no entanto, isso não ocorreu em todas as rodadas. Na Rodada 1, o desvio padrão foi o mesmo para ambos os canais. Já nas Rodadas 2 e 3, o canal seguro, de fato, apresentou um desvio padrão maior. Vale ressaltar que, apesar desse desvio, ele não foi considerável o suficiente para afetar significativamente a consistência dos tempos de execução em nenhum dos canais.
 
 Tabela 4 – Desvio padrão em cada rodada por tipo de canal.
 
@@ -722,13 +415,7 @@ Tabela 4 – Desvio padrão em cada rodada por tipo de canal.
 
 Fonte: elaborada pelo autor.
 
-Por fim, em uma análise final, é importante avaliar o tempo e o desvio padrão, considerando as três rodadas. A média do canal seguro foi de 3,27 segundos, com um desvio padrão de aproximadamente 0,045, enquanto o canal inseguro teve uma média de 2,22 segundos e um desvio padrão de 0,017. Com isso, podemos observar que o uso do TLS gerou um aumento de aproximadamente 1,05 segundos, além de ter causado um aumento de cerca de 2,6 vezes no desvio padrão em relação ao canal inseguro. A Figura 14 apresenta o tempo total de cada uma das amostras, com a linha azul representando o canal seguro e a linha vermelha o canal inseguro. É evidente que ambos os canais possuem tempos bem estáveis, com pequenas oscilações no geral. A principal variação ocorre no canal seguro, que apresenta mais flutuação em alguns pontos. O canal inseguro apresenta variação entre a primeira e a segunda amostra, mas nas demais amostras se mantém estável. Concluímos que o uso do TLS não tem um impacto significativo no tempo de execução; seus benefícios são consideravelmente maiores, evitando a interceptação de dados durante a transmissão pela rede.
-
-Figura 14 – Tempo de Autenticação: Comparação entre Canal Seguro e Inseguro
-
-![](_page_56_Figure_7.jpeg)
-
-Fonte: elaborado pelo autor.
+Por fim, em uma análise final, é importante avaliar o tempo e o desvio padrão, considerando as três rodadas. A média do canal seguro foi de 3,27 segundos, com um desvio padrão de aproximadamente 0,045, enquanto o canal inseguro teve uma média de 2,22 segundos e um desvio padrão de 0,017. Com isso, podemos observar que o uso do TLS gerou um aumento de aproximadamente 1,05 segundos, além de ter causado um aumento de cerca de 2,6 vezes no desvio padrão em relação ao canal inseguro. É evidente que ambos os canais possuem tempos bem estáveis, com pequenas oscilações no geral. A principal variação ocorre no canal seguro, que apresenta mais flutuação em alguns pontos. O canal inseguro apresenta variação entre a primeira e a segunda amostra, mas nas demais amostras se mantém estável. Concluímos que o uso do TLS não tem um impacto significativo no tempo de execução; seus benefícios são consideravelmente maiores, evitando a interceptação de dados durante a transmissão pela rede.
 
 # 7 DISCUSSÕES
 
@@ -752,91 +439,8 @@ Em termos de trabalhos futuros, pretende-se expandir a avaliação quantitativa,
 
 # REFERÊNCIAS
 
-- ABDALLA, M.; BENHAMOUDA, F.; POINTCHEVAL, D. Public-key encryption indistinguishable under plaintext-checkable attacks. IET Information Security, Wiley Online Library, v. 10, n. 6, p. 288–303, 2016.
-- ACQUISTI, A.; BRANDIMARTE, L.; LOEWENSTEIN, G. Secrets and likes: The drive for privacy and the difficulty of achieving it in the digital age. Journal of Consumer Psychology, Wiley Online Library, v. 30, n. 4, p. 736–758, 2020.
-- ALMAJED, H. N.; ALMOGREN, A. S. Se-enc: A secure and efficient encoding scheme using elliptic curve cryptography. IEEE Access, IEEE, v. 7, p. 175865–175878, 2019.
-- AMARA, M.; SIAD, A. Elliptic curve cryptography and its applications. In: IEEE. International workshop on systems, signal processing and their applications, WOSSPA. [S.l.], 2011. p. 247–250.
-- ASWAD, S. A.; SONUÇ, E. Classification of vpn network traffic flow using time related features on apache spark. In: IEEE. 2020 4th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT). [S.l.], 2020. p. 1–8.
-- AUNG, S. T.; THEIN, T. Comparative analysis of site-to-site layer 2 virtual private networks. In: IEEE. 2020 IEEE Conference on Computer Applications (ICCA). [S.l.], 2020. p. 1–5.
 - BAKKER, J. A. IRMAGUARD: Anonymous but authenticated VPN. Dissertação (Dissertação (Mestrado em Engenharia de Software)) — Department of Computer Science, fev. 2023.
-- BANSODE, R.; GIRDHAR, A. Common vulnerabilities exposed in vpn–a survey. In: IOP PUBLISHING. Journal of Physics: Conference Series. [S.l.], 2021. v. 1714, n. 1, p. 012045.
-- BARKER, E. Recommendation for key management: Part 1-general. NIST Special Publication 800-57 Part 1, Revision 5, 2020.
-- BELOTTI, M.; BOŽIC, N.; PUJOLLE, G.; SECCI, S. A vademecum on blockchain technologies: ´ When, which, and how. IEEE Communications Surveys & Tutorials, IEEE, v. 21, n. 4, p. 3796–3838, 2019.
-- BORGES, F.; FAGUNDES, B. A.; CUNHA, G. N. da. Vpn: Protocolos e segurança. S/D, v. 10, 2019.
-- BRASIL Lei 13.709. Lei Geral de Proteção de Dados Pessoais (LGPD). 2018. Diário Oficial da União. Lei nº 13.709, de 14 de agosto de 2018. Disponível em: <http://www.planalto.gov.br/ccivil\_03/\_ato2015-2018/2018/lei/L13709.htm>.
-- BUI, T.; RAO, S.; ANTIKAINEN, M.; AURA, T. Client-side vulnerabilities in commercial vpns. In: SPRINGER. Secure IT Systems: 24th Nordic Conference, NordSec 2019, Aalborg, Denmark, November 18–20, 2019, Proceedings 24. [S.l.], 2019. p. 103–119.
-- CAMERON, R.; CANTRELL, C.; KILLION, D.; RUSSELL, K.; TAM, K. Vpn theory and usage - chapter 11. In: CAMERON, R.; CANTRELL, C.; KILLION, D.; RUSSELL, K.; TAM, K. (Ed.). Configuring NetScreen Firewalls. Burlington: Syngress, 2005. p. 439–474. ISBN 978-1-932266-39-9.
-
-- CAPKO, D.; VUKMIROVI ˇ C, S.; NEDI ´ C, N. State of the art of zero-knowledge proofs in ´ blockchain. In: IEEE. 2022 30th Telecommunications Forum (TELFOR). [S.l.], 2022. p. 1–4.
-- CILARDO, A.; COPPOLINO, L.; MAZZOCCA, N.; ROMANO, L. Elliptic curve cryptography engineering. Proceedings of the IEEE, IEEE, v. 94, n. 2, p. 395–406, 2006.
-- CIMPANU, C. Cyberstalking suspect arrested after vpn providers shared logs with the fbi. Bleeping Computer, 2017. Accessed: June 19, 2024. Disponível em: <https://yro.slashdot.org/story/17/10/08/029217/ cyberstalking-suspect-arrested-after-vpn-providers-shared-logs-with-the-fbi>.
-- COSTA, M. da; COSTA, M. de Fátima Barrozo da. Projeto de pesquisa: Entenda e faça. [S.l.]: Editora Vozes, 2017. ISBN 9788532656148.
-- DIFFIE, W.; HELLMAN, M. New directions in cryptography. IEEE transactions on Information Theory, IEEE, v. 22, n. 6, p. 644–654, 1976.
-- DU, R.; MA, C.; LI, M. Privacy-preserving searchable encryption scheme based on public and private blockchains. Tsinghua Science and Technology, TUP, v. 28, n. 1, p. 13–26, 2022.
-- EZRA, P. J.; MISRA, S.; AGRAWAL, A.; OLURANTI, J.; MASKELIUNAS, R.; DAMASEVICIUS, R. Secured communication using virtual private network (vpn). Cyber Security and Digital Forensics: Proceedings of ICCSDF 2021, Springer, p. 309–319, 2022.
-- FORTINET. Malicious Actor Discloses FortiGate SSL-VPN Credentials. 2021. Fortinet. Accessed: June 19, 2024. Disponível em: <https://www.fortinet.com/blog/psirt-blogs/ malicious-actor-discloses-fortigate-ssl-vpn-credentials>.
-- GAMAGE, H.; WEERASINGHE, H.; DIAS, N. A survey on blockchain technology concepts, applications, and issues. SN Computer Science, Springer, v. 1, p. 1–15, 2020.
-- GAMUNDANI, A. M.; NAMBILI, J. N.; BERE, M. A vpn security solution for connectivity over insecure network channels: A novel study. SSRG Int J Comput Sci Eng, v. 1, p. 1–8, 2014.
-- GOLDREICH, O. Foundations of Cryptography: Volume 1, Basic Tools. [S.l.]: Cambridge University Press, 2001. ISBN 9780521791724.
-- GOLDWASSER, S.; MICALI, S.; RACKOFF, C. The knowledge complexity of interactive proof systems. SIAM Journal on Computing, v. 18, n. 1, p. 186–208, 1989.
-- HAYALE, W. S.; JEBUR, E. A. Implementing virtual private network using ipsec framework. International Journal Of Engineering Research & Technology, 2014.
-- HEVNER, A.; CHATTERJEE, S. Design science research: Looking to the future. p. 261–268, 2010.
-- HUBERMAN, B. A.; ADAR, E.; FINE, L. R. Valuating privacy. IEEE security & privacy, IEEE, v. 3, n. 5, p. 22–25, 2005.
 - HUSEYNOV, E. Passwordless vpn using fido2 security keys: Modern authentication security for legacy vpn systems. In: IEEE. 2022 4th International Conference on Data Intelligence and Security (ICDIS). [S.l.], 2022. p. 01–03.
-
-- IDRUS, S. Z. S.; CHERRIER, E.; ROSENBERGER, C.; SCHWARTZMANN, J.-J. A review on authentication methods. Australian Journal of Basic and Applied Sciences, v. 7, n. 5, p. 95–107, 2013.
-- IMAM, R.; AREEB, Q. M.; ALTURKI, A.; ANWER, F. Systematic and critical review of rsa based public key cryptographic schemes: Past and present status. IEEE access, IEEE, v. 9, p. 155949–155976, 2021.
-- IQBAL, M.; RIADI, I. Analysis of security virtual private network (vpn) using openvpn. International Journal of Cyber-Security and Digital Forensics, The Society of Digital Information and Wireless Communications, v. 8, n. 1, p. 58–65, 2019.
-- JIN, Y.; TOMOISHI, M.; MATSUURA, S. Enhancement of vpn authentication using gps information with geo-privacy protection. In: IEEE. 2016 25th International Conference on Computer Communication and Networks (ICCCN). [S.l.], 2016. p. 1–6.
-- JYOTHI, K. K.; REDDY, B. I. Study on virtual private network (vpn), vpn's protocols and security. International Journal of Scientific Research in Computer Science, Engineering and Information Technology, v. 3, n. 5, p. 919–932, 2018.
-- KANIMOZHI, G.; RAVIMARAN, S.; MOHAMED, M. M. Intrusion prevention system in vpn with entities based access rule and vibrant key authentication. International Journal of Future Computer and Communication, IACSIT Press, v. 1, n. 2, p. 176, 2012.
-- KHAN, S. N.; LOUKIL, F.; GHEDIRA-GUEGAN, C.; BENKHELIFA, E.; BANI-HANI, A. Blockchain smart contracts: Applications, challenges, and future trends. Peer-to-peer Networking and Applications, Springer, v. 14, p. 2901–2925, 2021.
-- KNUTSSON, K. Massive free vpn data breach exposes 360m records. CyberGuy Report Fox News, June 2023. Accessed: March 24, 2024. Disponível em: <https: //www.foxnews.com/tech/massive-free-vpn-data-breach-exposes-360-million-records>.
-- KOBLITZ, A. H.; KOBLITZ, N.; MENEZES, A. Elliptic curve cryptography: The serpentine course of a paradigm shift. Journal of Number theory, Elsevier, v. 131, n. 5, p. 781–814, 2011.
-- KOBLITZ, N. Elliptic curve cryptosystems. Mathematics of computation, v. 48, n. 177, p. 203–209, 1987.
-- LAL, N. A.; PRASAD, S.; FARIK, M. A review of authentication methods. Int. J. Sci. Technol. Res, v. 5, n. 11, p. 246–249, 2016.
-- LARA-NINO, C. A.; DIAZ-PEREZ, A.; MORALES-SANDOVAL, M. Elliptic curve lightweight cryptography: A survey. IEEE Access, IEEE, v. 6, p. 72514–72550, 2018.
-- LIU, M.; WANG, H.; YANG, F. An efficient data query method of blockchain based on index. In: IEEE. 2021 7th International Conference on Computer and Communications (ICCC). [S.l.], 2021. p. 1539–1544.
-- MAEDCHE, A.; GREGOR, S.; MORANA, S.; FEINE, J. Conceptualization of the problem space in design science research. p. 18–31, 2019.
-- MAHMMOD, K. F.; AZEEZ, M. M.; AHMED, M. A. Ipsec cryptography for data packets security within vpn tunneling networks communications. 2020 International Conference on Electrical Engineering and Informatics (ICELTICs), p. 1–8, 2020.
-
-- MICHELI, L. M. D. Blockchain, criptoativos e os títulos circulatórios do direito comercial. Tese (Doutorado) — Universidade de São Paulo, 2021.
-- MILLER, V. S. Use of elliptic curves in cryptography. In: SPRINGER. Conference on the theory and application of cryptographic techniques. [S.l.], 1985. p. 417–426.
-- MOCAN, S.-V. No-log vpns that shared data with governments (intentionally and unintentionally). TechNadu, 2020. Accessed: June 19, 2024. Disponível em: <https: //www.technadu.com/no-log-vpns-shared-data-with-governments/95041/>.
-- MORAIS, E.; KOENS, T.; WIJK, C. V.; KOREN, A. A survey on zero knowledge range proofs and applications. SN Applied Sciences, Springer, v. 1, p. 1–17, 2019.
-- NAKAMOTO, S. Bitcoin: A peer-to-peer electronic cash system. 2008.
-- NARDI, C. Global affairs investigating 'malicious' hack after vpn compromised for over one month. National Post, Jan 2024. Accessed: March 24, 2024. Disponível em: <https://nationalpost.com/news/canada/global-affairs-vpn-data-breach>.
-- NOFER, M.; GOMBER, P.; HINZ, O.; SCHIERECK, D. Blockchain. Business & information systems engineering, Springer, v. 59, p. 183–187, 2017.
-- ONG, E. Online repression and self-censorship: Evidence from southeast asia. Government and Opposition, v. 56, p. 141 – 162, 2019.
-- PAAR, C.; PELZL, J. Understanding Cryptography: A Textbook for Students and Practitioners. Germany: Springer Berlin Heidelberg, 2009. ISBN 9783642041013.
-- PEFFERS, K.; TUUNANEN, T.; ROTHENBERGER, M. A.; CHATTERJEE, S. A design science research methodology for information systems research. Journal of management information systems, Taylor & Francis, v. 24, n. 3, p. 45–77, 2007.
-- PERDICES, D.; VERGARA, J. E. L. de; GONZÁLEZ, I.; PEDRO, L. de. Web browsing privacy in the deep learning era: Beyond vpns and encryption. Computer Networks, Elsevier, v. 220, p. 109471, 2023.
-- PIERRO, G. A.; ROCHA, H. The influence factors on ethereum transaction fees. In: IEEE. 2019 IEEE/ACM 2nd international workshop on emerging trends in software engineering for blockchain (WETSEB). [S.l.], 2019. p. 24–31.
-- POUR, M. S.; NADER, C.; FRIDAY, K.; BOU-HARB, E. A comprehensive survey of recent internet measurement techniques for cyber security. Computers & Security, Elsevier, v. 128, p. 103123, 2023.
+- JIN, Y.; TOMOISHI, M.; MATSUURA, S. Enhancement of vpn authentication using gps information with geo-privacy protection. In: IEEE. 2016 25th International Conference on Computer Communication and Networks (ICCCN). [S.l.], 2016. p. 1–6
 - PRAVEENA, N.; JACKSON, B.; VARALAKSHMI, S.; MAHESWARI, G. U. *et al.* A secure multi-factor authentication system using elgamal bakers map function in virtual private network. In: IEEE. 2024 Third International Conference on Distributed Computing and Electrical Circuits and Electronics (ICDCECE). [S.l.], 2024. p. 01–07.
-- RAGHAV, R.; CHAUDHARY, E. A. Authentication system and authorization system using blockchain technology. In: IEEE. 2023 IEEE North Karnataka Subsection Flagship International Conference (NKCon). [S.l.], 2023. p. 1–6.
-
-- RASHEED, A.; MAHAPATRA, R. N.; VAROL, C.; NARASHIMHA, K. Exploiting zero knowledge proof and blockchains towards the enforcement of anonymity, data integrity and privacy (adip) in the iot. IEEE Transactions on Emerging Topics in Computing, IEEE, v. 10, n. 3, p. 1476–1491, 2021.
-- RATHGEB, C.; UHL, A. Two-factor authentication or how to potentially counterfeit experimental results in biometric systems. In: SPRINGER. International Conference Image Analysis and Recognition. [S.l.], 2010. p. 296–305.
-- ROBERT, L.; MIYAHARA, D.; LAFOURCADE, P.; MIZUKI, T. Card-based zkp for connectivity: applications to nurikabe, hitori, and heyawake. New Generation Computing, Springer, v. 40, n. 1, p. 149–171, 2022.
-- ROBINSON, D.; TANNENBERG, M. Self-censorship of regime support in authoritarian states: Evidence from list experiments in china. Research Politics, v. 6, 2019.
-- SCHAUB, S. VPNs and the fight against government censorship. TechRadar, May 2024. Accessed: June 19, 2024. Disponível em: <https://www.techradar.com/features/ vpns-and-the-fight-against-government-censorship>.
-- SCHULZ, S.; VARADHARAJAN, V.; SADEGHI, A.-R. The silence of the lans: efficient leakage resilience for ipsec vpns. IEEE transactions on information forensics and security, IEEE, v. 9, n. 2, p. 221–232, 2013.
-- SEN, A. A. A.; BASAHEL, A. M. A comparative study between security and privacy. In: IEEE. 2019 6th International Conference on Computing for Sustainable Global Development (INDIACom). [S.l.], 2019. p. 1282–1286.
-- SHAH, S. W.; KANHERE, S. S. Recent trends in user authentication–a survey. IEEE access, IEEE, v. 7, p. 112505–112519, 2019.
-- SHARMA, S.; GUPTA, Y. Study on cryptography and techniques. International Journal of Scientific Research in Computer Science, Engineering and Information Technology, v. 2, n. 1, p. 249–252, 2017.
-- SHELUPANOV, A.; EVSYUTIN, O.; KONEV, A.; KOSTYUCHENKO, E.; KRUCHININ, D.; NIKIFOROV, D. Information security methods—modern research directions. Symmetry, MDPI, v. 11, n. 2, p. 150, 2019.
-- SUN, X.; YU, F. R.; ZHANG, P.; SUN, Z.; XIE, W.; PENG, X. A survey on zero-knowledge proof in blockchain. IEEE network, IEEE, v. 35, n. 4, p. 198–205, 2021.
-- Surfshark. Can Police Track a VPN? Surfshark, 2023. Web Blog Post. Accessed: June 20, 2024. Disponível em: <https://surfshark.com/blog/can-police-track-vpn>.
-- SZABO, N. Formalizing and securing relationships on public networks. First monday, 1997.
-- TURATO, E. Tratado da metodologia da pesquisa clínico-qualitativa: Construção teórico-epistemológica, discussão comparada e aplicação nas áreas da saúde e humanas. [S.l.]: Editora Vozes, 2008. ISBN 9788532627513.
-
-- UDDIN, M. R.; EVAN, N. A.; ALAM, R.; AREFIN, M. T. Analysis of generic routing encapsulation (gre) over ip security (ipsec) vpn tunneling in ipv6 network. Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering, 2021.
 - VARVELLO, M.; AZURMENDI, I. Q.; NAPPA, A.; PAPADOPOULOS, P.; PESTANA, G.; LIVSHITS, B. Vpn-zero: a privacy-preserving decentralized virtual private network. In: IEEE. 2021 IFIP Networking Conference (IFIP Networking). [S.l.], 2021. p. 1–6.
-- VIGIL, M.; BUCHMANN, J.; CABARCAS, D.; WEINERT, C.; WIESMAIER, A. Integrity, authenticity, non-repudiation, and proof of existence for long-term archiving: A survey. Computers & Security, Elsevier, v. 50, p. 16–32, 2015.
-- WANG, S.; YUAN, Y.; WANG, X.; LI, J.; QIN, R.; WANG, F.-Y. An overview of smart contract: architecture, applications, and future trends. In: IEEE. 2018 IEEE Intelligent Vehicles Symposium (IV). [S.l.], 2018. p. 108–113.
-- YAMASHITA, K.; NOMURA, Y.; ZHOU, E.; PI, B.; JUN, S. Potential risks of hyperledger fabric smart contracts. In: IEEE. 2019 IEEE International Workshop on Blockchain Oriented Software Engineering (IWBOSE). [S.l.], 2019. p. 1–10.
-- YEBOAH-OFORI, A.; GANIYU, A. Big data security using rsa algorithms in a vpn domain. In: IEEE. 2024 International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA). [S.l.], 2024. p. 1–6.
-- ZHANG, Y.; WANG, S.; ZHANG, X.; DONG, J.; MAO, X.; LONG, F.; WANG, C.; ZHOU, D.; GAO, M.; SUN, G. Pipezk: Accelerating zero-knowledge proof with a pipelined architecture. In: IEEE. 2021 ACM/IEEE 48th Annual International Symposium on Computer Architecture (ISCA). [S.l.], 2021. p. 416–428.
-- ZHENG, Z.; XIE, S.; DAI, H.-N.; CHEN, W.; CHEN, X.; WENG, J.; IMRAN, M. An overview on smart contracts: Challenges, advances and platforms. Future Generation Computer Systems, Elsevier, v. 105, p. 475–491, 2020.
-- ZHU, Y.; ZHANG, Z.; JIN, C.; ZHOU, A.; YAN, Y. Sebdb: Semantics empowered blockchain database. In: IEEE. 2019 IEEE 35th international conference on data engineering (ICDE). [S.l.], 2019. p. 1820–1831.
