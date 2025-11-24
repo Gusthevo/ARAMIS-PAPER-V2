@@ -7,4 +7,4 @@ python-multipart
 python-dotenv
 requests
 mysql-connector-python
-#marker-pdf
+agno
