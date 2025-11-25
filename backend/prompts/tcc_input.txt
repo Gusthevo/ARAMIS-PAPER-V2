@@ -1,0 +1,85 @@
+A previsão de séries temporais é uma ferramenta essencial para a tomada de decisão
+
+em diversos setores, como o varejo e a mobilidade urbana. A capacidade de antecipar comportamentos
+
+futuros a partir de dados históricos permite não apenas a otimização de processos, mas
+
+também a identificação de padrões que podem influenciar estratégias operacionais e comerciais.
+
+Tradicionalmente, métodos como Random Forest (RF) e Redes Neurais Long Short-Term
+
+Memory (LSTM) têm sido amplamente utilizados para essa finalidade, empregando a técnica
+
+de janelas deslizantes que transforma os dados históricos em conjuntos de treinamento para
+
+algoritmos de aprendizado supervisionado Kane et al. (2014).
+
+Nos últimos anos, contudo, o surgimento dos Modelo de Linguagem de Grande
+
+Escala - Large Language Models (LLM) e a evolução das técnicas de Engenharia de Prompt -
+
+Prompting Engineering (PE) têm ampliado o leque de abordagens disponíveis para a previsão de
+
+séries temporais. Estudos recentes demonstram o potencial desses modelos para capturar, de
+
+forma integrada, padrões sazonais e tendências Freitas et al. (2023b). Por exemplo, o trabalho de
+
+Liu et al. (2024) propõe um modelo espaço-temporal que incorpora embeddings específicos para
+
+representar as dependências entre dados de tráfego, enquanto Gruver et al. (2024) exploram a
+
+capacidade dos LLM em configurações zero-shot para realizar previsões sem a necessidade de
+
+ajustes finos. Além disso, o paradigma introduzido pelo PromptCast, conforme apresentado por
+
+Xue e Salim (2023), reformula a previsão de séries temporais como uma tarefa de transformação
+
+de sentenças, utilizando prompts — instruções textuais que guiam a resposta do modelo — para
+
+orientar a modelagem dos dados.
+
+Diante desse cenário, o presente trabalho propõe uma abordagem comparativa entre
+
+métodos tradicionais – representados pelo RF e pela Rede Neural LSTM – e uma metodologia
+
+inovadora baseada em LLM, utilizando o modelo Gemini-1.5-pro orientado por um prompt
+
+desenvolvido especificamente para a tarefa de previsão. Para tanto, foram utilizados dois
+
+conjuntos de dados reais: um referente às vendas de produtos de um supermercado em Fortaleza
+
+e outro composto pelos registros de embarques em linhas de ônibus na mesma cidade. Essa
+
+escolha permite avaliar o desempenho dos modelos em cenários com padrões sazonais distintos,
+
+possibilitando uma análise robusta das técnicas empregadas.
+
+A metodologia adotada envolve etapas fundamentais que garantem a qualidade e
+
+a consistência dos dados. Inicialmente, os conjuntos de dados são submetidos a um rigoroso
+
+processo de pré-processamento – que inclui a correção de valores ausentes, a remoção de registros duplicados e a normalização – a fim de preparar as séries temporais para a modelagem. Para
+
+os métodos tradicionais, a aplicação da técnica de janelas deslizantes possibilita a extração de
+
+características relevantes dos dados históricos, transformando-os em amostras rotuladas para
+
+o treinamento dos algoritmos. Em contrapartida, a abordagem baseada em LLM utiliza um
+
+prompt estruturado que direciona o modelo a identificar e extrapolar padrões temporais sem a
+
+necessidade de fragmentar os dados em blocos, permitindo uma análise mais holística da série.
+
+A avaliação dos modelos é realizada por meio de métricas como o Erro Percentual
+
+Médio Simétrico (SMAPE) Makridakis (1993) e o Erro Padrão da Média (SEM) Altman e Bland
+
+(2005), as quais fornecem uma base quantitativa para a comparação do desempenho preditivo
+
+entre as abordagens tradicionais e a inovadora metodologia proposta. Assim, este trabalho não
+
+só busca evidenciar as vantagens e limitações inerentes a cada técnica, mas também contribuir
+
+para o avanço das práticas de previsão de séries temporais, integrando métodos clássicos com as
+
+inovações proporcionadas pelos LLM e pela PE.
