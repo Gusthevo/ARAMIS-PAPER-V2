@@ -1,0 +1,11 @@
+{
+    "avaliacao_geral": "Muito boa coerência",
+    "principais_problemas": [
+        "A transição entre o primeiro parágrafo (a contextualização do desafio do TCC) e o segundo (a introdução da IA Generativa e LLMs) é abrupta. O texto salta da 'problemática do TCC' para a 'solução tecnológica' sem uma frase de ligação que conecte explicitamente a necessidade de apoio aos estudantes com o surgimento de novas ferramentas de IA."
+    ],
+    "sugestoes": [
+        "Para suavizar a transição inicial, considere adicionar uma frase ao final do primeiro parágrafo ou no início do segundo que estabeleça uma ponte, como por exemplo: 'Nesse contexto de desafios acadêmicos, o avanço de tecnologias como a Inteligência Artificial apresenta novas possibilidades de suporte'.",
+        "A partir do terceiro parágrafo, o encadeamento lógico é excelente. A progressão 'LLMs podem ajudar' (parágrafo 3), 'mas LLMs generalistas têm problemas' (parágrafo 4), para 'nossa solução específica resolve esses problemas' (parágrafo 5) é um exemplo claro de uma argumentação bem estruturada e convincente.",
+        "A sequência final, que define os objetivos (parágrafo 6) e a estrutura do trabalho (parágrafo 7), decorre naturalmente da argumentação apresentada, fechando a introdução de forma lógica e coesa."
+    ]
+}

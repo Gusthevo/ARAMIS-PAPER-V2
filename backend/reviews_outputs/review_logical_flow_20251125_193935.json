@@ -1,0 +1,10 @@
+{
+    "avaliacao_geral": "Análise Impossível",
+    "principais_problemas": [
+        "O texto do TCC não foi fornecido para análise.",
+        "O campo '{texto_tcc}' está vazio, o que impede a execução da revisão de coerência, fluidez e progressão lógica."
+    ],
+    "sugestoes": [
+        "Por favor, forneça o trecho da introdução do TCC que você deseja revisar para que a análise possa ser realizada."
+    ]
+}
