@@ -1,20 +1,4 @@
-#### SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA
-
-## AGRADECIMENTOS
-
-Gostaria de expressar minha profunda gratidão à Universidade Federal do Ceará, que foi o alicerce fundamental dessa jornada.
-
-Agradeço de coração aos meus amigos em especial ao Gabriel Rudan e a Letícia Torres, que não apenas compartilharam momentos de risadas e desafios, mas também me ajudaram a crescer e a superar obstáculos.
-
-Agradeço ao meu orientador Wellignton Franco e coorientador Renato William por todo apoio prestado durante a graduação.
-
-Agradeço também à Fundação Cearense de Apoio ao Desenvolvimento (Funcap), na pessoa do Presidente Tarcísio Haroldo Cavalcante Pequeno pelo financiamento da pesquisa via bolsa de estudos.
-
-Agradeço também Instituto Centro de Ensino Tecnológico (CENTEC), pelo apoio em durante a construção do projeto.
-
-"Vivemos em uma era em que a tecnologia deixou de ser apenas uma ferramenta e se tornou uma extensão de nossas capacidades, moldando a forma como nos comunicamos, trabalhamos e interagimos com o mundo ao nosso redor."
-
-(Satya Nadella)
+# SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA
 
 ## RESUMO
 
@@ -24,203 +8,11 @@ Palavras-chave: Apicultura de Precisão. Apicultura. Internet das Coisas. Transm
 
 ABSTRACT
 
-The incorporation of IoT in the beekeeping sector has been considered a promising strategy for
+The incorporation of IoT in the beekeeping sector has been considered a promising strategy for addressing the contemporary challenges of honey production. In this context, this study presents a proposed monitoring system for Apis mellifera beehives, focusing on apiaries located in the semi-arid region of Ceará, an area that plays a significant role in Brazilian beekeeping. Beekeeping in the semi-arid region of Ceará plays a crucial role in the local economy, being one of the key activities in an area where adverse climatic conditions and resource scarcity make agricultural production more challenging. Honey production, in addition to serving as an important source of income for many small-scale farmers, contributes to environmental conservation due to the role of bees in pollinating various crops. The developed system utilizes IoT technologies to collect and transmit essential hive data, such as temperature, humidity, atmospheric pressure, weight, and hive status. These data are remotely and continuously monitored in real time using LoRa communication technology, enabling beekeepers to access precise information without the need for frequent visits to the apiary. Furthermore, the system was designed to be energy self-sufficient, ensuring continuous operation in remote locations without reliance on external power sources. The results of the conducted tests proved to be promising, demonstrating a significant reduction in the need for physical visits to the apiary and enabling more efficient management by beekeepers. This advancement facilitates constant monitoring of hive health and improves decision-making in a timely manner. The project was developed in collaboration with local beekeepers, ensuring a deeper understanding of the real needs of the application. This collaborative approach not only enhances the system's relevance but also ensures its feasibility and applicability for honey producers by offering solutions tailored to local conditions and demands.
 
-addressing the contemporary challenges of honey production. In this context, this study presents
+Keywords: Precision Beekeeping, Beekeeping, Internet of Things, Data Transmission.
 
-a proposed monitoring system for Apis mellifera beehives, focusing on apiaries located in the
-
-semi-arid region of Ceará, an area that plays a significant role in Brazilian beekeeping.
-
-Beekeeping in the semi-arid region of Ceará plays a crucial role in the local economy, being
-
-one of the key activities in an area where adverse climatic conditions and resource scarcity
-
-make agricultural production more challenging. Honey production, in addition to serving as
-
-an important source of income for many small-scale farmers, contributes to environmental
-
-conservation due to the role of bees in pollinating various crops.
-
-The developed system utilizes IoT technologies to collect and transmit essential hive data, such
-
-as temperature, humidity, atmospheric pressure, weight, and hive status. These data are remotely
-
-and continuously monitored in real-time using LoRa communication technology, enabling
-
-beekeepers to access precise information without the need for frequent visits to the apiary.
-
-Furthermore, the system was designed to be energy self-sufficient, ensuring continuous operation
-
-in remote locations without reliance on external power sources.
-
-The results of the conducted tests proved to be promising, demonstrating a significant reduction in
-
-the need for physical visits to the apiary and enabling more efficient management by beekeepers.
-
-This advancement facilitates constant monitoring of hive health and improves decision-making
-
-in a timely manner.
-
-The project was developed in collaboration with local beekeepers, ensuring a deeper unders-
-
-tanding of the real needs of the application. This collaborative approach not only enhances
-
-the system's relevance but also ensures its feasibility and applicability for honey producers by
-
-offering solutions tailored to local conditions and demands.
-
-Keywords: Precision Beekeeping. Beekeeping. Internet of Things. Data Transmission.
-
-## LISTA DE TABELAS
-
-| Tabela 1 | – | Diferença entre trabalhos relacionados                                    | 32 |
-|----------|---|---------------------------------------------------------------------------|----|
-| Tabela 2 | – | Especificações técnicas do BME280                                         | 38 |
-| Tabela 3 | – | Especificações Técnicas do HX711 .                                        | 39 |
-| Tabela 4 | – | Especificações Técnicas da Célula de Carga de 50kg .                      | 40 |
-| Tabela 5 | – | Especificações Técnicas do Sensor Magnético MC-38                         | 41 |
-| Tabela 6 | – | Especificações Técnicas do Rádio E32-433T20D                              | 42 |
-| Tabela 7 | – | Especificações Técnicas da Placa fotovoltaica Resun RSM020P .             | 43 |
-| Tabela 8 | – | Especificações Técnicas do Regulador LM2596                               | 44 |
-| Tabela 9 | – | Especificações Técnicas do<br>Battery Management-Monitoring Unit<br>(BMS) |    |
-|          |   | HX-2S-A10                                                                 | 45 |
-
-## LISTA DE ABREVIATURAS E SIGLAS
-
-ADC conversor analógico-digital
-
-AP *Agricultura de Precisão*
-
-API *Application Programming Interface*
-
-BLE *Bluetooth Low Energy*
-
-BMS *Battery Management-Monitoring Unit*
-
-DAC Digital-to-Analog Converter
-
-DC *Direct Current*
-
-DT *Data*
-
-EXI *Efficient XML Interchange*
-
-FPGA *field programmable gate array*
-
-GPIO General-Purpose Input/Output
-
-HTTP *Hypertext Transfer Protocol*
-
-I2C Inter-Integrated Circuit
-
-I2S Inter-IC Sound
-
-IoT *Internet of Things*
-
-kg *Quilograma*
-
-LoRa *Long Range*
-
-LoRaWAN *Long Range Wide Area Network*
-
-mA *Miliampere*
-
-MAC *Media Access Control*
-
-NFC *Near Field Communication*
-
-OWL *Web Ontology Language*
-
-PWM Pulse Width Modulation
-
-RDF *Resource Description Framework*
-
-RFID *Radio Frequency Identification*
-
-ROM *Read-Only Memory*
-
-RXD *Received Data*
-
-SAP Sistema de Apicultura de Precisão
-
-SCK *Serial Clock*
-
-SCL *Serial Clock*
-
-SDA *Serial Data*
-
-SPI Serial Peripheral Interface
-
-TXD *Transmit Data*
-
-UART Universal Asynchronous Receiver/Transmitter
-
-USB Universal Serial Bus
-
-V *Volt*
-
-W *Watt*
-
-# SUMÁRIO
-
-| 1       | INTRODUÇÃO .                                                            | 15 |
-|---------|-------------------------------------------------------------------------|----|
-| 1.1     | Contextualização                                                        | 15 |
-| 1.2     | Justificativa                                                           | 16 |
-| 1.3     | Escopo do Trabalho                                                      | 16 |
-| 1.4     | Objetivos                                                               | 17 |
-| 1.4.1   | Objetivo Geral                                                          | 17 |
-| 1.4.2   | Objetivos Específicos                                                   | 17 |
-| 1.5     | Organização do Trabalho                                                 | 18 |
-| 2       | FUNDAMENTAÇÃO TEÓRICA                                                   | 19 |
-| 2.1     | Apicultura na Região Nordeste                                           | 19 |
-| 2.2     | Apicultura de Precisão                                                  | 21 |
-| 2.3     | Sistemas embarcados                                                     | 22 |
-| 2.4     | Internet das Coisas                                                     | 23 |
-| 2.5     | Sensores                                                                | 25 |
-| 3       | TRABALHOS RELACIONADOS                                                  | 26 |
-| 3.1     | Design and development of low-power, long-range data acquisition system |    |
-|         | for beehives - BeeDAS                                                   | 26 |
-| 3.2     | An Integrated Multi-Sensor System for Remote Bee Health Monitoring      | 27 |
-| 3.3     | Application of A Precision Apiculture System to Monitor Honey Daily     |    |
-|         | Production                                                              | 28 |
-| 3.4     | A Smart Sensor-Based Measurement System for Advanced Bee Hive           |    |
-|         | Monitoring                                                              | 29 |
-| 3.5     | Discussão sobre os trabalhos relacionados                               | 30 |
-| 4       | BEEHY                                                                   | 33 |
-| 4.1     | Metodologia                                                             | 33 |
-| 4.2     | Definição de Parâmetros                                                 | 34 |
-| 4.3     | Planejamento                                                            | 35 |
-| 4.3.1   | Microcontrolador                                                        | 35 |
-| 4.3.2   | Sensores                                                                | 37 |
-| 4.3.2.1 | BME280                                                                  | 37 |
-
-| 4.3.2.2 | Sensor de peso                  | 38 |
-|---------|---------------------------------|----|
-| 4.3.2.3 | Reed Switch                     | 40 |
-| 4.3.3   | Transmissor de Rádio Frequência | 41 |
-| 4.3.4   | Alimentação                     | 42 |
-| 4.3.4.1 | Placa Fotovoltaica              | 43 |
-| 4.3.4.2 | Regulador de tensão             | 44 |
-| 4.3.4.3 | Carregador                      | 45 |
-| 4.4     | Desenvolvimento                 | 46 |
-| 4.4.1   | Nó colmeia                      | 46 |
-| 4.4.1.1 | BME280                          | 49 |
-| 4.4.1.2 | Balança                         | 49 |
-| 4.4.1.3 | Reed Switch                     | 52 |
-| 4.4.1.4 | Alimentação                     | 53 |
-| 4.4.1.5 | E32 433T20D                     | 54 |
-| 4.4.1.6 | Fluxograma                      | 56 |
-| 4.4.2   | Gateway                         | 58 |
-| 4.4.3   | Aplicação Web                   | 61 |
-| 4.5     | Experimentação                  | 62 |
-| 4.6     | Exibição dos dados              | 63 |
-| 5       | RESULTADOS E DISCUSSÃO          | 65 |
-| 6       | CONCLUSÕES E TRABALHOS FUTUROS  | 72 |
-|         | REFERÊNCIAS                     | 73 |
-
-## 1 INTRODUÇÃO
+# 1 INTRODUÇÃO
 
 ## 1.1 Contextualização
 
@@ -244,7 +36,7 @@ Outro problema significativo também está relacionado ao manejo. Durante as ins
 
 Adicionalmente, a atividade apícola enfrenta problemas relacionados à segurança das colmeias, tais como o roubo e a destruição das caixas, o que gera prejuízos econômicos e impacta diretamente a produção de mel (CERQUEIRA; FIGUEIREDO, ; FONTENELE, 2022). Diante desses desafios, a implementação de tecnologias para monitoramento remoto e gestão eficiente das colmeias pode contribuir significativamente para a redução dos impactos negativos, promovendo uma apicultura mais sustentável e produtiva.
 
-#### 1.3 Escopo do Trabalho
+## 1.3 Escopo do Trabalho
 
 Este trabalho abrange o desenvolvimento de um sistema de monitoramento para colmeias, baseado na implementação de sensores capazes de coletar dados em tempo real sobre variáveis ambientais e comportamentais das abelhas. O sistema incluirá um módulo de transmissão de dados para permitir a visualização remota das informações coletadas, visando reduzir a necessidade de inspeções físicas frequentes e melhorar a eficiência da gestão apícola.
 
@@ -259,7 +51,7 @@ O escopo do trabalho envolve as seguintes etapas:
 
 Este projeto se limita ao desenvolvimento de um protótipo funcional para validação da viabilidade da tecnologia proposta, não abrangendo a produção em larga escala ou aspectos econômicos detalhados da sua comercialização.
 
-#### 1.4 Objetivos
+## 1.4 Objetivos
 
 #### *1.4.1 Objetivo Geral*
 
@@ -288,7 +80,7 @@ Os resultados e discussões apresentam a análise dos dados coletados e a avalia
 
 Por fim, as considerações finais trazem uma síntese dos achados, bem como sugestões para trabalhos futuros.
 
-## 2 FUNDAMENTAÇÃO TEÓRICA
+# 2 FUNDAMENTAÇÃO TEÓRICA
 
 Neste capítulo será apresentado a fundamentação teórica para um melhor entendimento do BeeHy. A mesma está dividia da seguinte forma: Na seção 2.1 apresenta a atual situação da apicultura na região nordeste do Brasil; Na seção 2.2 aborda a utilização da tecnologia para a melhoria na produção apícola; Na seção 2.3 é abordado o conceito de sistemas embarcado; Na seção 2.4 é tratado a concepção de internet das coisas; Por fim, na seção 2.5 é discorrido sobre sensores.
 
@@ -296,9 +88,7 @@ Neste capítulo será apresentado a fundamentação teórica para um melhor ente
 
 A apicultura é uma atividade milenar que desempenha um papel significativo na economia e no meio ambiente, especialmente na região nordeste do Brasil. A prática da apicultura no Brasil remonta aos tempos em que apenas os povos indígenas habitavam o território nacional, os quais já criavam abelhas nativas, como as melíponas e trígonas (Guimarães, 1989). No entanto, a apicultura racional é uma prática relativamente nova no Brasil. Estudiosos sugerem que ela teve início por volta de 1839 com a chegada da Apis mellifera mellifera, embora a criação de outras subespécies europeias tenha ocorrido posteriormente (KHAN *et al.*, 2014). Mas em 1956, houve um cruzamento acidental entre abelhas africanas e europeias, originando um híbrido mais adequado ao clima tropical, mais produtivo e resistente a pragas e doenças, embora mais agressivo, Esse fato provocou a gradual africanização das abelhas Apis mellifera de toda América do Sul e Central (PAULA, 2008).
 
-Com novas espécies de abelhas, também teve que ser alterado o tipo de manejo, pois este era feito praticamente de forma extrativa e manejo rudimentar, eram criadas em caixões de madeira no fundo dos quintais, próximas a animais domésticos (PEREIRA *et al.*, 2003). A partir de 1970, foram adotadas novas técnicas de manejo para criação racional das abelhas africanizadas, e desde então a produção de mel no Brasil, especialmente no Nordeste, tem registrado um notável crescimento devido à crescente profissionalização da atividade apícola (VIDAL, 2020). Diante do aperfeiçoamento do manejo, o aumento da produtividade com uma nova espécie de abelha e o surgimento de uma demanda internacional, o mel em especial o do nordeste teve um crescimento acelerado, cujo a taxa de crescimento tem sido superior à do Brasil (XIMENES; VIDAL, 2023). O mel nordestino se destaca pela baixa contaminação por pesticidas e resíduos de antibióticos, uma vez que uma parcela significativa é produzida a partir
-
-da vegetação nativa da região. Além disso, a baixa umidade do ar contribui para a prevenção de doenças nas abelhas, reduzindo a necessidade de medicamentos (VIDAL, 2022).
+Com novas espécies de abelhas, também teve que ser alterado o tipo de manejo, pois este era feito praticamente de forma extrativa e manejo rudimentar, eram criadas em caixões de madeira no fundo dos quintais, próximas a animais domésticos (PEREIRA *et al.*, 2003). A partir de 1970, foram adotadas novas técnicas de manejo para criação racional das abelhas africanizadas, e desde então a produção de mel no Brasil, especialmente no Nordeste, tem registrado um notável crescimento devido à crescente profissionalização da atividade apícola (VIDAL, 2020). Diante do aperfeiçoamento do manejo, o aumento da produtividade com uma nova espécie de abelha e o surgimento de uma demanda internacional, o mel em especial o do nordeste teve um crescimento acelerado, cujo a taxa de crescimento tem sido superior à do Brasil (XIMENES; VIDAL, 2023). O mel nordestino se destaca pela baixa contaminação por pesticidas e resíduos de antibióticos, uma vez que uma parcela significativa é produzida a partir da vegetação nativa da região. Além disso, a baixa umidade do ar contribui para a prevenção de doenças nas abelhas, reduzindo a necessidade de medicamentos (VIDAL, 2022).
 
 Nessa região semiárida, a apicultura se destaca como uma importante fonte de subsistência para muitas famílias, oferecendo uma alternativa de renda em meio às condições climáticas adversas. Os apicultores brasileiros são predominantemente de pequeno porte, sendo a apicultura uma atividade de elevada importância social. Dados do censo agropecuário apontam que a maioria dos empreendimentos que trabalham com produtos apícolas estão concentrados no nordeste brasileiro, mais especificamente nos estados do Piauí, Bahia e Ceará, onde são poucas as opções de atividades produtivas rentáveis no meio rural devido às limitações socioeconômica e edafoclimática da Região, em especial escassez de água (AGROPECUÁRIO, 2006). De acordo com Santos e Ribeiro (2009), "a apicultura contribui para o desenvolvimento regional e a preservação do meio ambiente, sendo uma atividade essencialmente ecológica, comprovadamente lucrativa e sustentável". Além disso, a apicultura também pode aumentar a produtividade do setor primário, estimulando o crescimento e a diversificação da produção agrícola e reduzindo subempregos (LOURENÇO; CABRAL, 2016).
 
@@ -318,7 +108,7 @@ De acordo com ZACEPINS *et al.* (2012), a apicultura de precisão pode ser divid
 
 Além disso, a apicultura de precisão também oferece benefícios ambientais, ajudando a reduzir o uso desnecessário de insumos e minimizando os impactos negativos da atividade apícola no ecossistema (PEJIC´ *et al.*, 2022). Ao promover uma gestão mais eficiente dos apiários, essa abordagem contribui para a sustentabilidade da apicultura e para a preservação das populações de abelhas, tão importantes para a polinização e a produção de alimentos (TRINDADE, 2024).
 
-### 2.3 Sistemas embarcados
+## 2.3 Sistemas embarcados
 
 Um sistema embarcado é um sistema computacional integrado a um sistema maior, sendo responsável por executar funções específicas dentro desse contexto, seja esse sistema um circuito integrado, equipamento ou um sistema computacional mais amplo (ISO/IEC/IEEE. . . , 2010; CUNHA, 2007). Além de serem projetados para tarefas específicas, os sistemas embarcados podem interagir continuamente com o ambiente circundante por meio de sensores e atuadores (BALL, 2002).
 
@@ -364,11 +154,11 @@ Devido à vasta gama de sensores, sua segmentação pode ser feita com base em d
 
 Em um horizonte próximo, a IoT se beneficiará da consciência de contexto para integrar o mundo físico com as entidades virtuais de computação. Esse processo inclui, entre outras coisas, a detecção do ambiente (LIU *et al.*, 2020). Essa detecção envolve o uso de sensores para monitorar e medir diferentes condições e variáveis do mundo físico.
 
-#### 3 TRABALHOS RELACIONADOS
+# 3 TRABALHOS RELACIONADOS
 
 Este capítulo tem como objetivo apresentar os trabalhos relacionados ao monitoramento de colmeias no cenário atual da pesquisa, além de realizar uma comparação entre essas abordagens e o estudo desenvolvido neste trabalho.
 
-# 3.1 Design and development of low-power, long-range data acquisition system for beehives - BeeDAS
+## 3.1 Design and development of low-power, long-range data acquisition system for beehives - BeeDAS
 
 Neste trabalho, Anwar *et al.* (2022) apresenta o BeeDAS, um sistema de aquisição de dados de baixo consumo de energia e longo alcance para monitoramento remoto de colmeias. O sistema integra múltiplos sensores para coletar dados sobre temperatura, umidade, pressão atmosférica, CO2, acústica, vibrações e peso da colmeia, com foco em estimar o peso diário das colmeias por meio de regressão linear, abordando os desafios de design associados a tais sistemas.
 
@@ -386,7 +176,7 @@ O consumo de energia do dispositivo varia conforme os equipamentos utilizados. E
 
 Com o uso de todos os recursos de dados disponíveis no equipamento, a previsão do peso diário da colmeia obteve um erro médio absoluto (MAE) de 0,2 kg, com registros dos sensores e dados meteorológicos coletados ao longo de 1250 dias. A eficácia da estimativa de peso demonstrou a precisão dos sensores utilizados no equipamento. O dispositivo foi capaz de se comunicar utilizando o NB-IoT a uma distância de 21 km da torre de comunicação, com apenas algumas falhas e a necessidade de pequenas adaptações, mostrando a eficiência do meio de comunicação utilizado. Os dados coletados por este dispositivo estão disponíveis no GitHub (UM *et al.*, 2022).
 
-#### 3.2 An Integrated Multi-Sensor System for Remote Bee Health Monitoring
+## 3.2 An Integrated Multi-Sensor System for Remote Bee Health Monitoring
 
 Neste trabalho, Bellino *et al.* (2022) apresenta um sistema multissensor para coleta de dados dentro das colmeias, utilizando um sistema personalizado de longo alcance. O sistema integra diversos sensores para coletar dados de temperatura, umidade, peso e CO2.
 
@@ -400,7 +190,7 @@ A alimentação do dispositivo é fornecida por uma bateria LiPo de 3,7V. O trab
 
 O dispositivo foi capaz de coletar dados no norte da Itália, mas o trabalho não especifica o período de teste completo, mencionando apenas os dados coletados ao longo de quatro dias no mês de maio, o que deixa a desejar em termos de aplicabilidade do dispositivo. Os dados coletados indicam variações que correspondem ao funcionamento normal da colmeia.
 
-#### 3.3 Application of A Precision Apiculture System to Monitor Honey Daily Production
+## 3.3 Application of A Precision Apiculture System to Monitor Honey Daily Production
 
 O trabalho Catania e Vallone (2020) apresenta um sistema para monitoramento e controle de colmeias, no qual o dispositivo coleta dados de temperatura e umidade interna e externa da colmeia, além do peso e da velocidade do vento. O objetivo da coleta de dados é avaliar a influência desses parâmetros na produção de mel.
 
@@ -418,7 +208,7 @@ O monitoramento ocorreu entre 24 de abril e 1 de junho de 2019, com os sensores 
 
 O estudo permitiu correlacionar diversos fatores com a produção de mel. Entre as observações, destacam-se a diminuição na produção de mel durante picos de vento e o impacto negativo da queda de temperatura na produção. Além disso, a manutenção da umidade relativa interna da colmeia em 60% resultou em uma melhoria na produção de mel. Dessa forma, é possível perceber que o dispositivo contribui para a tomada de decisões importantes, tanto para a saúde das colmeias quanto para o aumento da produção de mel.
 
-#### 3.4 A Smart Sensor-Based Measurement System for Advanced Bee Hive Monitoring
+## 3.4 A Smart Sensor-Based Measurement System for Advanced Bee Hive Monitoring
 
 No trabalho Cecchi *et al.* (2020), é desenvolvido o Bee Board, uma plataforma de aquisição multiparamétrica que coleta dados sobre peso, temperatura, umidade, som gerado pelas abelhas e CO<sup>2</sup> interno da colmeia. O sistema também conta com outro equipamento, o Bee Queen, que centraliza os dados coletados pela Bee Board e realiza a coleta de parâmetros climáticos por meio de sensores empregados na mesma.
 
@@ -448,7 +238,7 @@ Cecchi *et al.* (2020) apresentou uma plataforma de aquisição de dados multipa
 
 Após revisar estudos sobre monitoramento de colmeias, é possível identificar suas contribuições distintas. A análise comparativa evidencia que este trabalho se destaca por abordagens inovadoras e soluções únicas. A Tabela 1 apresenta a comparação entre os estudos.
 
-## Pontos analisados:
+### Pontos analisados:
 
 - 1. Coleta de dados com acompanhamento em tempo real. Aumenta o custo do equipamento e complexidade de implantação.
 - 2. Autossuficiência energética. Aumenta o custo do equipamento devido o acrescimo de dispositivos como placa solar.
@@ -469,7 +259,7 @@ Tabela 1 – Diferença entre trabalhos relacionados
 
 Fonte: Elaboração própria, 2025.
 
-## 4 BEEHY
+# 4 BEEHY
 
 Neste capítulo será apresentado o BeeHy, um sistema de monitoramento de colmeias construído para monitorar variáveis ambientais das colmeias em tempo real.
 
@@ -487,7 +277,7 @@ A seguir será apresentado cada uma das etapas do desenvolvimento do projeto Bee
 
 informações coletadas em tempo real.
 
-#### 4.2 Definição de Parâmetros
+## 4.2 Definição de Parâmetros
 
 Na literatura, diversos dispositivos de monitoramento de colmeias têm sido apresentados, destacando-se diferentes abordagens para a coleta e análise de dados. Em Anwar *et al.* (2022) a temperatura da colmeia é um indicador essencial da saúde da ninhada e da força da colônia de abelhas . Uma vez que a faixa térmica ideal para a reprodução é significativamente mais restrita do que a faixa de sobrevivência das abelhas, já que a temperatura na câmara de ninhada composta por ovos, larvas e pupas, requer um ambiente térmico estável para garantir seu desenvolvimento adequado, mantendo uma temperatura entre 34 °C e 36 °C, pois variações além desse intervalo podem comprometer o crescimento das larvas e a saúde da colônia (ME-DRZYCKI *et al.*, 2010). Dessa modo, monitorar a temperatura interna da colmeia é essencial para garantir a estabilidade térmica. Manter a temperatura dentro da faixa ideal impacta diretamente a eficiência térmica, a estabilidade e a produtividade da colmeia, assegurando condições adequadas para a sobrevivência e o crescimento da colônia.
 
@@ -499,7 +289,7 @@ forrageamento das abelhas (CLARKE; ROBERT, 2018). A variação nos níveis de CO
 
 De acordo com (DANIELI *et al.*, 2023), o peso de uma colmeia varia ao longo das estações, sendo menor em alguns períodos do ano e atingindo seu pico durante o período produtivo, podendo servir como um indicador valioso tanto da produção de mel quanto da atividade geral da colmeia. O peso da colmeia está diretamente relacionado a eventos cruciais que ocorrem em seu interior, como o início da coleta de néctar, o consumo de recursos, a necessidade de suplementação alimentar e o estado de saúde da colônia, entre outros fatores (KVIESIS *et al.*, 2020; DEGENFELLNER; TEMPL, 2024). Dessa maneira, o monitoramento do peso da colmeia é um aspecto relevante para a avaliação de diversos fatores, incluindo a disponibilidade de recursos, a produtividade e o bem-estar da colônia.
 
-#### 4.3 Planejamento
+## 4.3 Planejamento
 
 Nesta seção, serão apresentados os equipamentos selecionados para o projeto, juntamente com os motivos que embasaram a escolha de cada um. Serão abordados o microcontrolador, os sensores utilizados e o sistema de alimentação do equipamento, destacando suas características e funcionalidades que atendem às necessidades do monitoramento da colmeia.
 
@@ -517,9 +307,7 @@ O ESP32 desempenha um papel central no sistema, sendo responsável tanto pela co
 
 <sup>1</sup> Disponível em: <https://docs.arduino.cc/software/ide/#ide-v1>.(https://docs.arduino.cc/software/ide/##ide-v1) Acesso em: 21 de fevereiro de 2025.
 
-37
-
-## *4.3.2 Sensores*
+#### *4.3.2 Sensores*
 
 O equipamento é composto por três sensores que capturam os dados de temperatura, umidade, pressão, peso e status de abertura da colmeia. A seguir serão detalhados individualmente cada sensor utilizado.
 
@@ -535,20 +323,20 @@ A Tabela 2 apresenta as especificações do sensor BME280.
 
 Tabela 2 – Especificações técnicas do BME280
 
-| Especificações                    |                                     |  |
-|-----------------------------------|-------------------------------------|--|
-| Especificação                     | Valor                               |  |
-| Faixa de temperatura              | -40°C a +85°C                       |  |
-| Precisão da temperatura           | ±1.0°C                              |  |
-| Faixa de pressão                  | 300 hPa a 1100 hPa                  |  |
-| Precisão da pressão               | ±1.0 hPa                            |  |
-| Faixa de umidade relativa         | 0 a 100%                            |  |
-| Precisão da umidade               | ±3%                                 |  |
-| Tensão de operação                | 1.71V a 3.6V                        |  |
-| Consumo de corrente (modo normal) | 3.6 µA                              |  |
-| Consumo de corrente (modo sleep)  | 0.1 µA                              |  |
-| Interface de comunicação          | I2C (até 3.4 MHz), SPI (até 10 MHz) |  |
-| Dimensões                         | 2.5 mm x 2.5 mm x 0.93 mm           |  |
+| Especificações                    |                                     |
+|-----------------------------------|-------------------------------------|
+| **Especificação**                 | **Valor**                           |
+| Faixa de temperatura              | -40°C a +85°C                       |
+| Precisão da temperatura           | ±1.0°C                              |
+| Faixa de pressão                  | 300 hPa a 1100 hPa                  |
+| Precisão da pressão               | ±1.0 hPa                            |
+| Faixa de umidade relativa         | 0 a 100%                            |
+| Precisão da umidade               | ±3%                                 |
+| Tensão de operação                | 1.71V a 3.6V                        |
+| Consumo de corrente (modo normal) | 3.6 µA                              |
+| Consumo de corrente (modo sleep)  | 0.1 µA                              |
+| Interface de comunicação          | I2C (até 3.4 MHz), SPI (até 10 MHz) |
+| Dimensões                         | 2.5 mm x 2.5 mm x 0.93 mm           |
 
 Fonte: Adaptado de (SENSORTEC, 2024).
 
@@ -562,17 +350,17 @@ A Tabela 3 apresenta as especificações do ADC HX711.
 
 Tabela 3 – Especificações Técnicas do HX711
 
-| Especificações             |                        |  |
-|----------------------------|------------------------|--|
-| Especificação              | Valor                  |  |
-| Tensão de operação         | 2.6V a 5.5V            |  |
-| Corrente típica            | 1.5 mA (modo normal)   |  |
-| Corrente em modo de espera | <1 µA                  |  |
-| Resolução do ADC           | 24 bits                |  |
-| Taxa de amostragem         | 10 Hz ou 80 Hz         |  |
-| Ganho do amplificador      | 32, 64 ou 128 vezes    |  |
-| Interface de comunicação   | Serial (Clock + Dados) |  |
-| Temperatura de operação    | -40°C a +85°C          |  |
+| Especificações             |                        |
+|----------------------------|------------------------|
+| **Especificação**          | **Valor**              |
+| Tensão de operação         | 2.6V a 5.5V            |
+| Corrente típica            | 1.5 mA (modo normal)   |
+| Corrente em modo de espera | <1 µA                  |
+| Resolução do ADC           | 24 bits                |
+| Taxa de amostragem         | 10 Hz ou 80 Hz         |
+| Ganho do amplificador      | 32, 64 ou 128 vezes    |
+| Interface de comunicação   | Serial (Clock + Dados) |
+| Temperatura de operação    | -40°C a +85°C          |
 
 Fonte: Adaptado de (SEMICONDUCTOR, 2016).
 
@@ -582,20 +370,20 @@ A Tabela 4 apresenta as especificações da célula de carga de 50kg.
 
 Tabela 4 – Especificações Técnicas da Célula de Carga de 50kg
 
-| Especificações                     |                                        |  |
-|------------------------------------|----------------------------------------|--|
-| Especificação                      | Valor                                  |  |
-| Capacidade máxima                  | 50 kg                                  |  |
-| Sensibilidade                      | 1.0 ± 0.15 mV/V                        |  |
-| Tensão de excitação recomendada    | 5V a 10V                               |  |
-| Tensão de excitação máxima         | 15V                                    |  |
-| Resistência do ponte de Wheatstone | 1kΩ (típico)                           |  |
-| Erro total                         | ≤ ±0.05% FS                            |  |
-| Histerese                          | ≤ ±0.03% FS                            |  |
-| Repetibilidade                     | ≤ ±0.03% FS                            |  |
-| Faixa de temperatura de operação   | -10°C a +50°C                          |  |
-| Material                           | Alumínio                               |  |
-| Dimensões                          | Aproximadamente 80mm x 12.7mm x 12.7mm |  |
+| Especificações                     |                                        |
+|------------------------------------|----------------------------------------|
+| **Especificação**                  | **Valor**                              |
+| Capacidade máxima                  | 50 kg                                  |
+| Sensibilidade                      | 1.0 ± 0.15 mV/V                        |
+| Tensão de excitação recomendada    | 5V a 10V                               |
+| Tensão de excitação máxima         | 15V                                    |
+| Resistência do ponte de Wheatstone | 1kΩ (típico)                           |
+| Erro total                         | ≤ ±0.05% FS                            |
+| Histerese                          | ≤ ±0.03% FS                            |
+| Repetibilidade                     | ≤ ±0.03% FS                            |
+| Faixa de temperatura de operação   | -10°C a +50°C                          |
+| Material                           | Alumínio                               |
+| Dimensões                          | Aproximadamente 80mm x 12.7mm x 12.7mm |
 
 Fonte: Adaptado de (EUROPE, 2025).
 
@@ -607,22 +395,22 @@ A Tabela 5 apresenta as especificações do sensor magnético MC-38.
 
 Tabela 5 – Especificações Técnicas do Sensor Magnético MC-38
 
-| Especificações           |                                           |  |
-|--------------------------|-------------------------------------------|--|
-| Especificação            | Valor                                     |  |
-| Tipo                     | Sensor magnético de contato (reed switch) |  |
-| Tensão de operação       | 3V a 36V DC                               |  |
-| Corrente máxima          | 0.5A                                      |  |
-| Distância de acionamento | 15mm a 25mm                               |  |
-| Material do invólucro    | Plástico ABS                              |  |
-| Modo de operação         | Normalmente aberto (NO)                   |  |
-| Temperatura de operação  | -10°C a +50°C                             |  |
-| Dimensões                | 27mm x 14mm x 9mm                         |  |
-| Comprimento dos fios     | Aproximadamente 35cm                      |  |
+| Especificações           |                                           |
+|--------------------------|-------------------------------------------|
+| **Especificação**        | **Valor**                                 |
+| Tipo                     | Sensor magnético de contato (reed switch) |
+| Tensão de operação       | 3V a 36V DC                               |
+| Corrente máxima          | 0.5A                                      |
+| Distância de acionamento | 15mm a 25mm                               |
+| Material do invólucro    | Plástico ABS                              |
+| Modo de operação         | Normalmente aberto (NO)                   |
+| Temperatura de operação  | -10°C a +50°C                             |
+| Dimensões                | 27mm x 14mm x 9mm                         |
+| Comprimento dos fios     | Aproximadamente 35cm                      |
 
 Fonte: Adaptado de (SYNACORP, 2024).
 
-## *4.3.3 Transmissor de Rádio Frequência*
+#### *4.3.3 Transmissor de Rádio Frequência*
 
 O dispositivo foi equipado com o Rádio Ibyte E32 433T20D (Figura 7) (TECHNO-LOGY, 2024), um rádio altamente prático e eficiente, que se destaca pelo seu excelente alcance e facilidade de uso. Esse módulo de rádio permite a comunicação sem fio entre os dispositivos do sistema, proporcionando transmissão de dados de longa distância e garantindo a integridade da comunicação, mesmo em ambientes com possíveis obstáculos ou interferências. Este transmissor trabalha com a tecnologia *Long Range* (LoRa) com o protocolo de transmissão *Long Range Wide Area Network* (LoRaWAN).
 
@@ -636,19 +424,19 @@ A Tabela 5 apresenta as especificações do rádio LoRa E32-433T20D.
 
 Tabela 6 – Especificações Técnicas do Rádio E32-433T20D
 
-| Especificações                  |                                                         |  |
-|---------------------------------|---------------------------------------------------------|--|
-| Especificação                   | Valor                                                   |  |
-| Frequência de operação          | 433 MHz                                                 |  |
-| Potência de transmissão         | 20 dBm (100 mW)                                         |  |
-| Sensibilidade                   | -116 dBm                                                |  |
-| Tipo de modulação               | FSK (Frequency Shift Keying)                            |  |
-| Tensão de operação              | 3.3V a 5V DC                                            |  |
-| Corrente de operação            | 25 mA (modo de recepção) / 120 mA (modo de transmissão) |  |
-| Distância máxima de transmissão | Até 1.8 km (em condições ideais)                        |  |
-| Interface de comunicação        | UART (TTL)                                              |  |
-| Temperatura de operação         | -40°C a +85°C                                           |  |
-| Dimensões                       | 27.8 mm x 14.3 mm x 3.8 mm                              |  |
+| Especificações                  |                                                         |
+|---------------------------------|---------------------------------------------------------|
+| **Especificação**               | **Valor**                                               |
+| Frequência de operação          | 433 MHz                                                 |
+| Potência de transmissão         | 20 dBm (100 mW)                                         |
+| Sensibilidade                   | -116 dBm                                                |
+| Tipo de modulação               | FSK (Frequency Shift Keying)                            |
+| Tensão de operação              | 3.3V a 5V DC                                            |
+| Corrente de operação            | 25 mA (modo de recepção) / 120 mA (modo de transmissão) |
+| Distância máxima de transmissão | Até 1.8 km (em condições ideais)                        |
+| Interface de comunicação        | UART (TTL)                                              |
+| Temperatura de operação         | -40°C a +85°C                                           |
+| Dimensões                       | 27.8 mm x 14.3 mm x 3.8 mm                              |
 
 Fonte: Adaptado de (TECHNOLOGY, 2024).
 
@@ -664,22 +452,22 @@ A Tabela 7 apresenta as especificações da placa fotovoltaica.
 
 Tabela 7 – Especificações Técnicas da Placa fotovoltaica Resun RSM020P
 
-| Especificações                   |                                       |  |
-|----------------------------------|---------------------------------------|--|
-| Especificação                    | Valor                                 |  |
-| Potência máxima (Pmax)           | 20W                                   |  |
-| Tensão em Pmax (Vmp)             | 18V                                   |  |
-| Corrente em Pmax (Imp)           | 1.11A                                 |  |
-| Tensão de circuito aberto (Voc)  | 21.6V                                 |  |
-| Corrente de curto-circuito (Isc) | 1.2A                                  |  |
-| Eficiência do módulo             | Aproximadamente 17%                   |  |
-| Tensão máxima do sistema         | 1000V DC                              |  |
-| Temperatura de operação          | -40°C a +85°C                         |  |
-| Dimensões                        | 485mm x 350mm x 25mm                  |  |
-| Peso                             | 1.8kg                                 |  |
-| Material do vidro frontal        | Vidro temperado de alta transparência |  |
-| Tipo de célula                   | Policristalino                        |  |
-| Número de células                | 36                                    |  |
+| Especificações                   |                                       |
+|----------------------------------|---------------------------------------|
+| **Especificação**                | **Valor**                             |
+| Potência máxima (Pmax)           | 20W                                   |
+| Tensão em Pmax (Vmp)             | 18V                                   |
+| Corrente em Pmax (Imp)           | 1.11A                                 |
+| Tensão de circuito aberto (Voc)  | 21.6V                                 |
+| Corrente de curto-circuito (Isc) | 1.2A                                  |
+| Eficiência do módulo             | Aproximadamente 17%                   |
+| Tensão máxima do sistema         | 1000V DC                              |
+| Temperatura de operação          | -40°C a +85°C                         |
+| Dimensões                        | 485mm x 350mm x 25mm                  |
+| Peso                             | 1.8kg                                 |
+| Material do vidro frontal        | Vidro temperado de alta transparência |
+| Tipo de célula                   | Policristalino                        |
+| Número de células                | 36                                    |
 
 Fonte: Adaptado de (ENERGY, 2025).
 
@@ -691,19 +479,19 @@ A Tabela 8 apresenta as especificações do regulador de tensão LM2596.
 
 Tabela 8 – Especificações Técnicas do Regulador LM2596
 
-| Especificações              |                                 |  |
-|-----------------------------|---------------------------------|--|
-| Especificação               | Valor                           |  |
-| Tensão de entrada           | 4.5V a 40V                      |  |
-| Tensão de saída ajustável   | 1.23V a 37V                     |  |
-| Corrente de saída máxima    | 3A                              |  |
-| Eficiência típica           | 73% a 90%                       |  |
-| Frequência de operação      | 150 kHz                         |  |
-| Precisão da tensão de saída | ±4%                             |  |
-| Ripple típico da saída      | 50mV                            |  |
-| Proteções                   | Sobrecorrente, superaquecimento |  |
-| Temperatura de operação     | -40°C a +125°C                  |  |
-| Tipo de encapsulamento      | TO-220, TO-263                  |  |
+| Especificações              |                                 |
+|-----------------------------|---------------------------------|
+| **Especificação**           | **Valor**                       |
+| Tensão de entrada           | 4.5V a 40V                      |
+| Tensão de saída ajustável   | 1.23V a 37V                     |
+| Corrente de saída máxima    | 3A                              |
+| Eficiência típica           | 73% a 90%                       |
+| Frequência de operação      | 150 kHz                         |
+| Precisão da tensão de saída | ±4%                             |
+| Ripple típico da saída      | 50mV                            |
+| Proteções                   | Sobrecorrente, superaquecimento |
+| Temperatura de operação     | -40°C a +125°C                  |
+| Tipo de encapsulamento      | TO-220, TO-263                  |
 
 Fonte: Adaptado de (INSTRUMENTS, 2025).
 
@@ -715,20 +503,20 @@ A Tabela 9 apresenta as especificações do controlador de carga BMS HX-2S-A10.
 
 Tabela 9 – Especificações Técnicas do BMS HX-2S-A10
 
-| Especificações                 |                          |  |
-|--------------------------------|--------------------------|--|
-| Especificação                  | Valor                    |  |
-| Tipo de bateria suportada      | Íons de lítio (2S)       |  |
-| Tensão de operação             | 7.4V a 8.4V              |  |
-| Corrente máxima de carga       | 10A                      |  |
-| Corrente máxima de descarga    | 10A                      |  |
-| Tensão de corte de carga       | 8.4V ±0.05V              |  |
-| Tensão de corte de descarga    | 5.4V ±0.1V               |  |
-| Proteção contra sobrecarga     | Sim                      |  |
-| Proteção contra sobredescarga  | Sim                      |  |
-| Proteção contra curto-circuito | Sim                      |  |
-| Temperatura de operação        | -40°C a +50°C            |  |
-| Dimensões                      | Aprox. 45mm x 15mm x 3mm |  |
+| Especificações                 |                          |
+|--------------------------------|--------------------------|
+| **Especificação**              | **Valor**                |
+| Tipo de bateria suportada      | Íons de lítio (2S)       |
+| Tensão de operação             | 7.4V a 8.4V              |
+| Corrente máxima de carga       | 10A                      |
+| Corrente máxima de descarga    | 10A                      |
+| Tensão de corte de carga       | 8.4V ±0.05V              |
+| Tensão de corte de descarga    | 5.4V ±0.1V               |
+| Proteção contra sobrecarga     | Sim                      |
+| Proteção contra sobredescarga  | Sim                      |
+| Proteção contra curto-circuito | Sim                      |
+| Temperatura de operação        | -40°C a +50°C            |
+| Dimensões                      | Aprox. 45mm x 15mm x 3mm |
 
 Fonte: Adaptado de (ALEXNLD.COM, 2025).
 
@@ -756,7 +544,7 @@ A Figura 13 é um esquema de conexões do dispositivo, onde o mesmo é composto 
 - 6. A sexta parte é expresso a ligação do rádio E32 com todas as suas necessidades de adequação para a ligação com o ESP32;
 - 7. Aqui é evidenciado todas as conexões realizadas ao microcontrolador.
 
-## *4.4.1.1 BME280*
+#### *4.4.1.1 BME280*
 
 O BME280 se comunica com o microcontrolador ESP32 por meio do protocolo de comunicação I2C. A alimentação do sensor é fornecida com uma tensão de 3,3*Volt* (V) proveniente do próprio ESP32. Os pinos *Serial Clock* (SCL) e *Serial Data* (SDA) da conexão I2C estão conectados, respectivamente, às portas GPIO22 e GPIO21 do microcontrolador. Essa conexão está ilustrada na Figura 14.
 
@@ -766,7 +554,7 @@ A balança é composta por quatro células de carga interligadas em uma configur
 
 Para realização de tara foi incorporado um botão ao equipamento, onde uma extremidade do botão é ligada ao 3,3V e a outra ao GPIO2 do microcontrolador, assim quando o botão é pressionado o GPIO2 assume o valor de HIGH ativando o led builtin e sinalizando ao ESP32 a interrupção de tara da balança. Essa conexão é ilustrada na seguinte Figura 18.
 
-## *4.4.1.3 Reed Switch*
+#### *4.4.1.3 Reed Switch*
 
 O Reed Switch se comunica com o ESP32 por meio da porta GPIO4, onde sua leitura é realizada de forma analógica para detectar alterações no estado do sensor. Essa conexão está ilustrada na Figura 19.
 
@@ -778,7 +566,7 @@ Para carregar corretamente as baterias conectadas em série, é fundamental o us
 
 A fim de monitorar os níveis de bateria do sistema, foi desenvolvido um divisor de tensão que permite a medição da voltagem utilizando o PWM do GPIO13 do ESP32. Esse divisor de tensão reduz a tensão da bateria para um nível adequado à entrada analógica do microcontrolador, garantindo leituras seguras e precisas. Com essa abordagem, é possível acompanhar o estado de carga da bateria em tempo real, permitindo a implementação de estratégias para otimizar o consumo energético e garantir o funcionamento contínuo do sistema. Essa conexão está ilustrada na Figura 20.
 
-### *4.4.1.5 E32 433T20D*
+#### *4.4.1.5 E32 433T20D*
 
 Na transmissão de dados, foi utilizado o rádio LoRa E32 433T20D, que se comunica com o microcontrolador ESP32 por meio dos pinos GPIO19, GPIO18, GPIO16 (RX), GPIO17 (TX) e GPIO5, conectados, respectivamente, aos pinos M0, M1, *Received Data* (RXD), *Transmit Data* (TXD) e AUX do módulo LoRa. Os pinos RXD e TXD são responsáveis pela comunicação serial, permitindo a troca de informações entre o ESP32 e o rádio. Já os pinos M0 e M1 controlam o modo de operação do rádio, possibilitando alternar entre estados como transmissão normal, recepção ou modo de baixo consumo. O pino AUX, por sua vez, indica o status do funcionamento do módulo e pode ser utilizado para sinalizar quando uma transmissão foi concluída ou até mesmo para despertar o microcontrolador, caso necessário.
 
@@ -812,9 +600,7 @@ Como o módulo LoRa opera com uma tensão recomendada de 5V e o ESP32 trabalha c
   - Verifica recebimento: Verifica se o gateway recebeu os dados.
     - * Sim: Realiza a verificação de a colmeia ainda está aberta.
       - · Sim: Continua verificando se a colmeia permanece aberta.
-      - · Não: É realizada fluxo de leitura normal dos dados de quando a colmeia
-
-está fechada.
+      - · Não: É realizada fluxo de leitura normal dos dados de quando a colmeia está fechada.
 
 - * Não: Reenvia os dados até o gateway retornar a confirmação.
 - Captura dados sensores: Ler os dados de cada sensor individualmente de quando a porta está fechada.
@@ -848,9 +634,7 @@ A alimentação do equipamento é realizada por meio de uma fonte de 5V, garanti
 O fluxo de funcionamento deste equipamento é apresentado na seguinte Figura 23.
 
 - Início: O processo começa assim que o equipamento é ligado.
-- Configuração do Wi-Fi: Configura os parâmetros de conexão e tenta se conectar até
-
-alcançar a conexão.
+- Configuração do Wi-Fi: Configura os parâmetros de conexão e tenta se conectar até alcançar a conexão.
 
 - Configuração do rádio: Configura o rádio para que ele funcione com estruturas específicas de dados.
 - Início do loop: Verifica se algum dado foi recebido.
@@ -895,7 +679,7 @@ A realização dos testes iniciais em laboratório e sua posterior aplicação e
 
 Ademais, a persistência de falhas intermitentes na comunicação do segundo dispositivo evidenciou a necessidade de aprimorar a conectividade e a robustez do software, a fim de garantir a estabilidade na transmissão de dados. Embora o dispositivo esteja operando, os ajustes necessários no sistema exigem atenção para que os objetivos do projeto sejam plenamente alcançados. O monitoramento contínuo e a busca por soluções mais eficazes são essenciais para superar os desafios encontrados, visando a viabilização de uma tecnologia que contribua de maneira significativa para a coleta de dados em ambientes de apicultura.
 
-#### 4.6 Exibição dos dados
+## 4.6 Exibição dos dados
 
 No desenvolvimento do sistema Web, são utilizadas tecnologias web, para o desenvolvimento do Front-end e BackEnd. Onde para o front, são utilizadas tecnologias como HTML5, CCS3, React.js e TypeScript, Já para o back-end, foi usado Node.js para comunicação com os dispositivos e processamento dos dados, para o armazenamento de dados é utilizado o PostgreSQL, que tem como principal característica o desempenho na gestão de grandes volumes de dados. A interface é intuitiva, permitindo visualização em tempo real, geração de relatórios e alertas sobre mudanças críticas nos parâmetros.
 
@@ -903,7 +687,7 @@ Na Figura 24, o diagrama ilustra o fluxo de informações e operações dentro d
 
 O processo começa com a coleta e processamento de dados, que são enviados para uma API. Esses dados são então utilizados para configurar a interface web e gerar relatórios. A interface permite a entrada do usuário, que é validada e utilizada para atualizar o banco de dados. O servidor web coordena todas as operações e envia as respostas de volta para o navegador, completando o ciclo de comunicação.
 
-## 5 RESULTADOS E DISCUSSÃO
+# 5 RESULTADOS E DISCUSSÃO
 
 O estudo envolveu a instalação de dois dispositivos em um apiário localizado na região de Lagoas, distrito de Tucuns, zona rural de Crateús – CE, nas coordenadas -5.209066, -40.868391. Os equipamentos permaneceram em funcionamento durante o período de testes até a redação deste trabalho.
 
@@ -941,7 +725,7 @@ Dessa forma, o dispositivo se mostra uma solução promissora para o monitoramen
 
 A utilização do dispositivo pode, portanto, auxiliar de maneira significativa o apicultor no processo de manejo, permitindo uma tomada de decisão mais informada e eficiente. Isso resulta em uma gestão mais eficiente do apiário, ajudando a otimizar os recursos, melhorar a saúde das abelhas e maximizar a produção de mel. Além disso, com o aprimoramento contínuo do sistema e a correção das falhas de transmissão, espera-se que a ferramenta se torne ainda mais robusta e eficaz no futuro, consolidando-se como um aliado importante para os apicultores na modernização da apicultura.
 
-## 6 CONCLUSÕES E TRABALHOS FUTUROS
+# 6 CONCLUSÕES E TRABALHOS FUTUROS
 
 O desenvolvimento e a implementação do sistema de monitoramento remoto de colmeias demonstraram ser uma solução promissora para enfrentar os desafios tradicionais da apicultura. A integração de sensores para coleta de dados em tempo real permitirá reduzir significativamente a necessidade de visitas físicas aos apiários, pois, com a análise dos dados, o apicultor terá uma noção mais precisa do estado das colmeias, diminuindo custos operacionais e minimizando o estresse causado às colônias. A análise contínua dos dados coletados possibilita uma resposta rápida a possíveis problemas, contribuindo para a eficiência e produtividade das colmeias.
 

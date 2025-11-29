@@ -12,32 +12,7 @@ Authenticity is an essential aspect of information security, addressed in variou
 
 Keywords: Authenticity. Information Security. IoT Devices. Industry 4.0. Authentication Mechanisms
 
-# SUMÁRIO
-
-| 1                                                                              | INTRODUÇÃO .                                              | 7  |  |  |
-|--------------------------------------------------------------------------------|-----------------------------------------------------------|----|--|--|
-| 1.1                                                                            | Declaração do problema e questão de pesquisa              | 8  |  |  |
-| 1.2                                                                            | Objetivo geral                                            | 9  |  |  |
-| 1.3                                                                            | Objetivos específicos                                     | 9  |  |  |
-| 1.4                                                                            | Contribuições                                             | 9  |  |  |
-| 1.5                                                                            | Estrutura do trabalho                                     | 9  |  |  |
-| 2                                                                              | FUNDAMENTAÇÃO TEÓRICA                                     | 10 |  |  |
-| 2.1                                                                            | Indústria 4.0 e<br>Internet of Things                     | 10 |  |  |
-| 2.2                                                                            | Mecanismos de autenticação criptográficos                 | 11 |  |  |
-| 2.2.1                                                                          | Autenticação baseada em cifra simétrica                   | 11 |  |  |
-| 2.2.2                                                                          | Autenticação baseada em cifra assimétrica                 | 13 |  |  |
-| 2.2.3                                                                          | Código de autenticação de mensagem baseado em função hash | 15 |  |  |
-| 2.2.4                                                                          | Autenticação baseada em desafio-resposta                  | 18 |  |  |
-| 2.3<br>Autenticação em cenários críticos da indústria que dispensam confidenci |                                                           |    |  |  |
-|                                                                                | alidade                                                   | 21 |  |  |
-| 3                                                                              | TRABALHOS RELACIONADOS                                    | 22 |  |  |
-| 4                                                                              | ESTUDO EMPÍRICO                                           | 25 |  |  |
-| 4.1                                                                            | Procedimentos metodológicos                               | 25 |  |  |
-| 4.2                                                                            | Resultados preliminares                                   | 28 |  |  |
-| 5                                                                              | CRONOGRAMA E PRÓXIMOS PASSOS .                            | 30 |  |  |
-|                                                                                | REFERÊNCIAS                                               | 31 |  |  |
-
-## 1 INTRODUÇÃO
+# 1 INTRODUÇÃO
 
 A Indústria 4.0 engloba processos de produção eficientes, gerenciamento de dados, relacionamento com consumidores e competitividade, sendo frequentemente referida como a Quarta Revolução Industrial (PICCAROZZI *et al.*, 2018). De acordo com Liu *et al.* (2020), a Indústria 4.0 se destaca por incorporar um conjunto diversificado de tecnologias emergentes, entre elas a Internet das Coisas (em inglês, *Internet of Things* - IoT). Em termos gerais, a IoT é caracterizada por ser uma ampla rede interconectada de dispositivos inteligentes com a capacidade de se comunicar automaticamente, compartilhando dados e recursos entre si, reagindo e se adaptando às situações e alterações no ambiente (MADAKAM *et al.*, 2015).
 
@@ -45,13 +20,11 @@ Os dispositivos de IoT têm ganhado ampla aceitação, sendo integrados a divers
 
 Nesse cenário, garantir a autenticidade dos dispositivos IoT torna-se essencial para assegurar a integridade dos dados e o funcionamento seguro do sistema. Um dispositivo IoT não autenticado adequadamente representa uma ameaça grave aos sistemas da Indústria 4.0. Na ausência de autenticação apropriada, entidades mal-intencionadas podem infiltrar-se no sistema, fingindo uma identidade confiável enquanto, na realidade, buscam causar danos, incluindo a manipulação de dados críticos ou a execução de ações disruptivas que levam a paradas na produção (MARÍN *et al.*, 2024).
 
-Conforme destacado por Roy *et al.* (2018), um dos principais desafios para implementar esquemas de segurança em dispositivos IoT é o fato de muitos deles serem projetados com restrições severas de recursos, visando garantir a eficiência energética. Dispositivos de baixo poder computacional são especialmente relevantes na Indústria 4.0 porque são projetados para consumir menos energia, o que é essencial em aplicações onde muitos dispositivos precisam funcionar continuamente sem intervenção humana. A eficiência energética não apenas reduz
-
-os custos operacionais, mas também é fundamental para aplicações onde o acesso à energia é limitado ou onde a substituição de baterias é impraticável.
+Conforme destacado por Roy *et al.* (2018), um dos principais desafios para implementar esquemas de segurança em dispositivos IoT é o fato de muitos deles serem projetados com restrições severas de recursos, visando garantir a eficiência energética. Dispositivos de baixo poder computacional são especialmente relevantes na Indústria 4.0 porque são projetados para consumir menos energia, o que é essencial em aplicações onde muitos dispositivos precisam funcionar continuamente sem intervenção humana. A eficiência energética não apenas reduz os custos operacionais, mas também é fundamental para aplicações onde o acesso à energia é limitado ou onde a substituição de baterias é impraticável.
 
 Muitas pesquisas têm abordado o desafio de implementar mecanismos de autenticação em dispositivos IoT. Alguns deles utilizam criptografia de chave pública baseada em RSA (Rivest, Shamir e Adleman) ou ECC (*Elliptic Curve Cryptography*), como os estudos de Mumtaz *et al.* (2019), Xu *et al.* (2018) e Porambage *et al.* (2014). Outros são baseados na tradicional cifra simétrica AES (*Advanced Encryption Standard*), como por exemplo os trabalhos de Jan *et al.* (2014), Jan *et al.* (2019) e Zhou *et al.* (2019). Além disso, o esquema de autenticação HMAC (*Hash-Based Message Authentication Codes*) também tem sido amplamente utilizado, como demonstrado por Khemissa e Tandjaoui (2015) e Taha *et al.* (2020). Há ainda um crescente emprego do esquema de autenticação ZKP (*Zero-Knowledge Proof*) ou da varição NIZKP (Noninteractive Zero-Knowledge Proofs) no campo da IoT, conforme demonstrado pelos estudos de Nissar *et al.* (2022), Puthiyidam *et al.* (2023) e Tomaz *et al.* (2020). No entanto, a literatura acadêmica ainda carece de estudos comparativos entre esses diferentes esquemas dentro de um mesmo ambiente de configuração e implementação.
 
-#### 1.1 Declaração do problema e questão de pesquisa
+## 1.1 Declaração do problema e questão de pesquisa
 
 Dispositivos IoT comumente enfrentam limitações de poder computacional, restrições energéticas e memória reduzida (WEI *et al.*, 2016). A implementação eficaz de métodos de segurança, incluindo autenticação, representa um desafio significativo no contexto da IoT, especialmente devido à alta demanda computacional das operações (NGUYEN *et al.*, 2015).
 
@@ -59,30 +32,30 @@ Embora os diversos trabalhos que abordam mecanismos de autenticação tenham apl
 
 Neste contexto, este trabalho visa investigar a seguinte questão de pesquisa: *qual dos esquemas de autenticação – RSA, AES, HMAC e NIZKP – apresenta o melhor desempenho em termos de tempo de processamento, uso de memória e consumo de energia quando implementados em dispositivos IoT com restrições de recursos computacionais?*
 
-### 1.2 Objetivo geral
+## 1.2 Objetivo geral
 
 Realizar uma análise comparativa abrangente dos algoritmos RSA, AES, HMAC e NIZKP, avaliando seu desempenho como esquemas de autenticação em um ambiente IoT padronizado.
 
-### 1.3 Objetivos específicos
+## 1.3 Objetivos específicos
 
 - Implementar os esquemas de autenticação RSA, AES, HMAC e NIZKP.
 - Executar os algoritmos em dispositivos IoT com severas restrições de recursos.
 - Coletar informações sobre o tempo de processamento, o consumo de energia e a utilização de memória.
 - Avaliar o desempenho dos algoritmos nos experimentos realizados.
 
-### 1.4 Contribuições
+## 1.4 Contribuições
 
 Este trabalho contribui para uma compreensão mais aprofundada do desempenho de esquemas de autenticação populares em dispositivos IoT com recursos limitados na era da Indústria 4.0. As descobertas desta pesquisa têm o potencial de orientar as decisões estratégicas das indústrias que estão implementando ou planejando implementar dispositivos IoT, facilitando a escolha de esquemas de autenticação adequados para suas aplicações específicas. Além disso, fora do ambiente da Indústria 4.0, este trabalho também oferece *insights* para pesquisadores e desenvolvedores, ajudando-os a fazer escolhas e implementações adequadas, levando em consideração as peculiaridades operacionais dos dispositivos IoT.
 
-### 1.5 Estrutura do trabalho
+## 1.5 Estrutura do trabalho
 
 O presente trabalho é composto por cinco capítulos, incluindo esta Introdução. O Capítulo 2 aborda o referencial teórico que embasa este estudo. No Capítulo 3, são apresentados os trabalhos relacionados. O Capítulo 4 detalha o procedimento metodológico adotado e apresenta os resultados preliminares. Por fim, o Capítulo 5 apresenta os próximos passos da pesquisa.
 
-### 2 FUNDAMENTAÇÃO TEÓRICA
+# 2 FUNDAMENTAÇÃO TEÓRICA
 
 Neste capítulo, são abordados os aspectos teóricos fundamentais do trabalho, iniciando com uma análise da Indústria 4.0 e da *Internet of Things* na Seção 2.1. Em seguida, na Seção 2.2, são apresentados os mecanismos de autenticação criptográficos investigados neste trabalho. Na Seção 2.3, há uma discussão sobre autenticação em cenários industriais críticos.
 
-### 2.1 Indústria 4.0 e *Internet of Things*
+## 2.1 Indústria 4.0 e *Internet of Things*
 
 A Indústria 4.0 é frequentemente referida como a Quarta Revolução Industrial, caracterizando-se não só pelo uso de tecnologias avançadas, mas também pela integração do mundo digital com o ambiente físico, conectando recursos tecnológicos, produtos, pessoas e empresas (SILVA *et al.*, 2020). Nesse contexto, destacam-se benefícios consideráveis, tais como o monitoramento e controle remotos de processos de produção, a redução de desperdício, a economia de recursos naturais e a diminuição do consumo de energia (WAIBEL *et al.*, 2018).
 
@@ -90,13 +63,11 @@ Nesse cenário de transformações impulsionadas por tecnologias avançadas, a I
 
 Uma vez compreendida a natureza dos dispositivos IoT, é essencial ressaltar os desafios associados a sua implementação, como, por exemplo, o consumo de energia. A maioria dos dispositivos IoT é alimentada por bateria devido a uma combinação de fatores, incluindo custo, conveniência e a necessidade de operação sem fio, conforme afirmado por (JAYAKUMAR *et al.*, 2014). Dispositivos IoT geralmente têm restrições de tamanho, pois muitas vezes são integrados a objetos pequenos ou possuem design compacto para facilitar sua instalação em diferentes ambientes. Assim, para manter o dispositivo IoT pequeno e discreto, são preferíveis baterias menores e mais leves, mesmo que isso signifique uma capacidade de armazenamento de energia mais limitada. Apesar disso, muitos dispositivos IoT exigem longevidade operacional, evitando a troca frequente da bateria, pois tal procedimento seria contraproducente.
 
-Outro desafio na implementação de IoT é a limitação de recursos, como memória e
-
-poder de processamento. Devido a essas limitações, é essencial desenvolver algoritmos leves e eficientes. Esses algoritmos são projetados para minimizar o uso de recursos, garantindo que os dispositivos IoT possam executar suas funções de forma eficaz, mesmo com recursos limitados.
+Outro desafio na implementação de IoT é a limitação de recursos, como memória e poder de processamento. Devido a essas limitações, é essencial desenvolver algoritmos leves e eficientes. Esses algoritmos são projetados para minimizar o uso de recursos, garantindo que os dispositivos IoT possam executar suas funções de forma eficaz, mesmo com recursos limitados.
 
 Considerando os aspectos críticos da limitação de recursos nos dispositivos IoT, a seleção cuidadosa de métodos criptográficos é essencial para garantir a segurança e o desempenho desses dispositivos em contextos de operação desafiadores.
 
-### 2.2 Mecanismos de autenticação criptográficos
+## 2.2 Mecanismos de autenticação criptográficos
 
 Tradicionalmente, a criptografia é definida como a ciência da escrita secreta, visando ocultar o significado de uma mensagem. Atualmente, porém, a garantia da confidencialidade não é o único objetivo da criptografia moderna. Ela também é utilizada para fornecer soluções a outros problemas, como a autenticação (DELFS *et al.*, 2002). Para garantir a autenticidade, um método criptográfico deve permitir que o receptor confirme a identidade do remetente da mensagem (TOMASIN, 2017). De acordo com Delgado-Vargas *et al.* (2023), mecanismos de autenticação criptográficos referem-se às técnicas e protocolos usados para verificar a identidade de um usuário, dispositivo ou sistema de forma segura, utilizando princípios criptográficos. Em contraste, abordagens de autenticação não criptográfica podem basear-se em biometria, conhecimento (como senhas) ou proximidade física.
 
@@ -116,7 +87,7 @@ O algoritmo é referido como AES-128, AES-192 ou AES-256, dependendo do comprime
 
 A função de *expansão da chave*, mostrada na Figura 1, cria *n*+1 chaves de rodada (*K*0,*K*1,...,*Kn*) de 128 bits cada a partir da chave principal, em que *n* é o número de rodadas. Em cada rodada do AES, o bloco de dados, combinado com a chave de rodada, passa por uma série de transformações para produzir o bloco de texto cifrado. Cada operação contribui para a segurança do AES de uma maneira específica (AUMASSON, 2017).
 
-### *2.2.2 Autenticação baseada em cifra assimétrica*
+#### *2.2.2 Autenticação baseada em cifra assimétrica*
 
 O conceito de criptografia assimétrica, também chamada de criptografia de chave pública foi introduzido por Diffie e Hellman (2022). Este método utiliza um par de chaves, que consiste em uma chave privada e uma chave pública. Assim, uma chave é usada para cifrar e a outra chave é usada para decifrar. Em 1978, Rivest, Shamir e Adleman publicaram o sistema RSA, o primeiro criptossistema prático de chave pública completo, que se baseia na dificuldade de fatorar inteiros grandes e suporta assinaturas digitais (BOLFING, 2020). O RSA é o criptossistema de chave pública mais amplamente utilizado e conhecido.
 
@@ -221,9 +192,7 @@ Um protocolo de prova de conhecimento zero deve satisfazer três propriedades (S
 
 Uma variação não interativa do ZKP, chamada de *Non-Interactive Zero-Knowledge Proof* (NIZKP), foi proposta por Santis *et al.* (1988). Essa abordagem consiste em um único fluxo de prova do provador para o verificador, após uma fase inicial de configuração confiável. De acordo com Tong *et al.* (2024), a principal vantagem desse método é que o provador pode pré-gerar uma prova e reutilizá-la em vários cenários, eliminando a necessidade de interação contínua com o verificador. Essa abordagem é adequada para cenários em que a interação não é viável ou não é desejada.
 
-Para transformar um protocolo interativo (ZKP) em um formato não interativo
-
-(NIZKP), uma técnica comum é a heurística de Fiat-Shamir (FIAT; SHAMIR, 1986), em que os desafios do verificador ao provador são substituídos por uma saída uniformemente aleatória, que na prática é uma função de hash criptográfica. Neste trabalho, a transformação de um ZKP interativo em um ZKP não interativo é realizada aplicando a heurística Fiat-Shamir. Para isso, é fundamental empregar uma função hash criptográfica  $\mathcal{H}$ . O provador calcula suas mensagens como faria no protocolo interativo, mas o desafio  $\sigma$ , em vez de escolhido pelo verificador, é substituído por um valor hash, conforme ilustrado na Figura 6.
+Para transformar um protocolo interativo (ZKP) em um formato não interativo (NIZKP), uma técnica comum é a heurística de Fiat-Shamir (FIAT; SHAMIR, 1986), em que os desafios do verificador ao provador são substituídos por uma saída uniformemente aleatória, que na prática é uma função de hash criptográfica. Neste trabalho, a transformação de um ZKP interativo em um ZKP não interativo é realizada aplicando a heurística Fiat-Shamir. Para isso, é fundamental empregar uma função hash criptográfica  $\mathcal{H}$ . O provador calcula suas mensagens como faria no protocolo interativo, mas o desafio  $\sigma$ , em vez de escolhido pelo verificador, é substituído por um valor hash, conforme ilustrado na Figura 6.
 
 Nesta abordagem, a aplicação do NIZKP envolve uma transmissão unidirecional da prova, acrescida da mensagem de compromisso do provador  $\mathcal P$  para o verificador  $\mathcal V$ , sem interação adicional. Ou seja, nenhuma verificação adicional precisa ser feita pelo verificador além da prova. A transformação de ZKP em NIZKP usando a heurística Fiat-Shamir ocorre pelo seguinte protocolo:
 
@@ -239,7 +208,7 @@ comuns que podem ser usados para construir uma prova de conhecimento zero, está
 
 Para implementar o sistema NIZKP utilizado neste trabalho, foi empregada uma variação do protocolo de Schnorr baseada em curvas elípticas, mais especificamente no problema do logaritmo discreto sobre curvas elípticas (*Elliptic Curve Discrete Logarithm Problem* - ECDLP), que foi padronizado na RFC 8235 (HAO, 2017).
 
-### 2.3 Autenticação em cenários críticos da indústria que dispensam confidencialidade
+## 2.3 Autenticação em cenários críticos da indústria que dispensam confidencialidade
 
 Em alguns cenários específicos, é prescindível a aplicação da propriedade da confidencialidade em mecanismos criptográficos. Para exemplificar, Liu *et al.* (2007) defende no seu trabalho sobre Redes Ad Hoc Veiculares (*Vehicular Ad Hoc Networks* - VANETs), que devido à natureza das mensagens de segurança não serem sensíveis, prioriza-se a autenticação segura em detrimento da confidencialidade. A legitimidade das mensagens no contexto apontado é obrigatória para proteger as VANETs de invasores, bem como de *insiders* mal-intencionados.
 
@@ -247,7 +216,7 @@ Em outra abordagem conduzida por Shi *et al.* (2012), foi introduzido o esquema 
 
 De forma análoga, em situações específicas da Indústria 4.0, observa-se que os sistemas ciberfísicos, que interagem diretamente com infraestrutura crítica, em aplicações como energia, água e transporte, geralmente não utilizam criptografia para suas mensagens de controle. Isso ocorre porque os sistemas de computador que se conectam a dispositivos físicos estão sujeitos a restrições rigorosas de tempo real, e é amplamente assumido que os custos computacionais da criptografia são muito altos em tais situações (HUNTER *et al.*, 2017). Portanto, em situações críticas na Indústria 4.0 que dispensam a necessidade de confidencialidade, como em mensagens de alerta (JIN; SONG, 2014), de controle ou afins, apenas a autenticação é exigida.
 
-### 3 TRABALHOS RELACIONADOS
+# 3 TRABALHOS RELACIONADOS
 
 Este capítulo apresenta uma revisão da literatura relevante para o presente estudo. Inicialmente, serão examinadas as pesquisas empíricas que investigaram mecanismos de autenticação em dispositivos com recursos computacionais limitados, no contexto da Indústria 4.0. Em seguida, será apresentada uma análise comparativa das referências consultadas, com o objetivo de destacar a lacuna de pesquisa que este estudo se propõe a preencher.
 
@@ -284,11 +253,11 @@ Tomaz *et al.* (2020) realizaram uma pesquisa que explorou a autenticação base
 
 Os artigos anteriormente mencionados focaram na aplicação isolada do HMAC ou NIZKP, bem como na comparação do AES e RSA como mecanismos de autenticação para dispositivos com restrição de recursos. No entanto, ainda não há na literatura uma análise comparativa abrangente envolvendo esses quatro esquemas de autenticação no mesmo ambiente de implementação. Em um cenário de IoT da Indústria 4.0, por exemplo, frequentemente existem vários dispositivos com consideráveis restrições de recursos. Esta revisão da literatura indica que não há um estudo que avalie e compare todos esses importantes algoritmos que podem ser aplicados na Indústria 4.0. Portanto, existe uma lacuna que requer uma investigação empírica mais abrangente, comparando o desempenho dos algoritmos RSA, AES, HMAC e NIZKP considerando as limitações computacionais e energéticas dos dispositivos.
 
-### 4 ESTUDO EMPÍRICO
+# 4 ESTUDO EMPÍRICO
 
 Nesta seção, são descritos os procedimentos metodológicos adotados para esta pesquisa, incluindo o desenho metodológico. Em seguida, é apresentada uma seção com os resultados preliminares obtidos por meio de um experimento computacional.
 
-### 4.1 Procedimentos metodológicos
+## 4.1 Procedimentos metodológicos
 
 Este trabalho se caracteriza como uma pesquisa de natureza aplicada e do tipo descritiva. Seu objetivo é realizar uma análise comparativa entre os mecanismos de autenticação criptográficos RSA, AES, HMAC e NIZKP. Assim, busca-se determinar qual desses mecanismos de autenticação consome menos recursos computacionais, considerando o tempo de processamento, o consumo de memória e o gasto energético.
 
@@ -320,7 +289,7 @@ No Passo 5 (indicada em lilás), será realizada uma série específica de itera
 
 No Passo 6 (indicada em roxo), será realizada a análise dos dados obtidos anteriormente. Essa análise comparativa dos resultados terá como base as variáveis dependentes. Serão comparados os resultados de cada algoritmo do grupo controle com o NIZKP+ECDLP, considerando as métricas definidas. Com base nesses resultados, será possível determinar qual algoritmo apresentou melhor desempenho.
 
-### 4.2 Resultados preliminares
+## 4.2 Resultados preliminares
 
 Para obter alguns resultados preliminares, realizou-se um breve experimento para verificar a viabilidade de usar o NIZKP em um Arduino Nano. Neste experimento, mediu-se os valores das seguintes variáveis dependentes em 30 execuções do NIZKP, focando no processo de geração de chaves (pares de chaves pública e privada): alocação de memória, consumo de energia e tempo de processamento computacional. Para o ambiente experimental, utilizamos o Arduino Nano equipado com 32 KB de memória Flash ROM, 2 KB de memória SRAM e um processador ATmega328 operando a 16 MHz. Além disso, utilizamos o módulo Bluetooth HM-10 para comunicação entre o Arduino e um smartphone Android 10 equipado com processador octa-core Snapdragon 632 e 2GB de RAM. Além disso, utilizamos o BetterTools (BETTERTOOLS, 2023), que foi explorado para enviar comandos e interagir com a placa Arduino. Todo o código-fonte está disponível em nosso repositório de suporte2 .
 
@@ -351,7 +320,7 @@ integrado ao IDE do Arduino fornece informações sobre a alocação de memória
 
 A Figura 8 ilustra o comportamento do NIZKP durante o processo de geração de chaves, destacando o consumo de energia (em mJ) e o tempo de processamento computacional (em ms). Essa análise preliminar do tempo de processamento computacional revelou que o NIZKP requeriu uma média de 3739,07 ms, com um desvio padrão de 3,86 ms. Em relação ao consumo de energia, observamos uma média de 514,12 mJ, com um desvio padrão de 0,53 mJ. Por fim, observamos que o NIZKP alocou 25832 bytes de memória Flash ROM, representando 84% do espaço de memória Flash disponível (30720 bytes). O NIZKP utilizou 766 bytes de memória SRAM dinâmica, correspondendo a 37% do espaço total disponível (2048 bytes). Portanto, podemos concluir que o NIZKP foi implementado com sucesso e obteve resultados promissores, mesmo considerando o cenário de recursos limitados do Arduino Nano.
 
-### 5 CRONOGRAMA E PRÓXIMOS PASSOS
+# 5 CRONOGRAMA E PRÓXIMOS PASSOS
 
 Este Capítulo descreve o cronograma planejado com os passos que serão seguidos para materializar na conclusão desta pesquisa. Logo em seguida, são definidas cada uma das atividades, tal como pode ser visualizado através da tabela 1.
 

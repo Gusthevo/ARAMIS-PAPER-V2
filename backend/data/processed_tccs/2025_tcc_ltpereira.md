@@ -30,7 +30,7 @@ De acordo com Batista *et al.* (2018), a flora apícola compreende o conjunto de
 
 Contudo, o processo de identificação destas flores ainda é executado de forma manual, que, além de ser um trabalho dispendioso, pode ocasionar classificações distorcidas e erros de precisão por aqueles que realizam este processo. Um estudo conduzido na cidade de Marcelino Vieira, no Rio Grande do Norte, por Câmara *et al.* (2021), objetivou identificar as espécies mais representativas da flora apícola com base no etnoconhecimento dos apicultores do município. Os autores fizeram levantamentos em quatro fazendas da região e aplicaram questionários ao produtores para realizar a pesquisa. Como resultado, foram identificados 93 espécies vegetais com potencial apícola e um total de 91 destas foram consideradas importantes fontes de recursos florais na região.
 
-A identificação de flores de forma geral é um processo complexo, que demanda experiência e um conhecimento botânico profundo e, dada a similaridade de algumas flores, desafia até mesmo profissionais experientes LI *et al.*, 2024). Entretanto, no estado atual da tecnologia, técnicas mais modernas para classificação de flores já estão disponíveis para facilitar o trabalho de pesquisadores ou qualquer indivíduo que possua interesse sobre a temática.
+A identificação de flores de forma geral é um processo complexo, que demanda experiência e um conhecimento botânico profundo e, dada a similaridade de algumas flores, desafia até mesmo profissionais experientes LI *et al.*, (2024). Entretanto, no estado atual da tecnologia, técnicas mais modernas para classificação de flores já estão disponíveis para facilitar o trabalho de pesquisadores ou qualquer indivíduo que possua interesse sobre a temática.
 
 Nesse contexto, este estudo teve como objetivo desenvolver um modelo computacional que utiliza arquitetura híbrida para classificar imagens de flores presentes na flora apícola do Sertão Central Cearense, as quais as abelhas *Apis mellifera* usam em sua alimentação, quanto ao recurso floral por elas fornecido. Para isto, foi utilizada uma base de dados própria com imagens classificadas em três classes: flores poliníferas, nectaríferas e nectaríferas-poliníferas.
 
@@ -227,12 +227,35 @@ Dentre todas as combinações, destacam-se a ResNet50 + SVM, com o melhor result
 
 Assim, a combinação ResNet50 + SVM mostra-se como a mais eficiente para o processo de classificação de flores quanto ao recurso floral fornecido a abelhas *Apis mellifera*, mesmo apresentando um maior tempo de treinamento e teste, com 35.3679 e 8.6335 segudnos, quando comparado a combinação EfficientNetV2B3 + CNN, com 7.1206 e 0.2766 segundos, como destacado na Tabela 4.
 
+Tabela 4 – Tempos de treinamento e teste por extrator e classificador
+
+| Extrator             | Tempo  | CNN      | MLP       | KNN      | SVM      |
+|----------------------|--------|----------|-----------|----------|----------|
+| **VGG16**            | Treino | 4.5171   | 7.0594    | 0.0103   | 7.2657   |
+|                      | Teste  | 0.1922   | 0.0138    | 0.0479   | 2.0053   |
+| **VGG19**            | Treino | 4.2874   | 9.2125    | 0.0104   | 8.7973   |
+|                      | Teste  | 0.1866   | 0.0090    | 0.4808   | 1.9393   |
+| **ResNet50**         | Treino | 8.6470   | 71.9531   | 0.0484   | **35.3679** |
+|                      | Teste  | 0.3112   | 0.0454    | 2.4701   | **8.6335** |
+| **ResNet50V2**       | Treino | 8.5089   | 73.9998   | 0.0483   | 45.9590   |
+|                      | Teste  | 0.3116   | 0.0425    | 2.4534   | 6.2121    |
+| **InceptionResNetV2**| Treino | 5.3741   | 20.4372   | 0.0211   | 22.0193   |
+|                      | Teste  | 0.2260   | 0.0214    | 1.0492   | 2.4776    |
+| **InceptionV3**      | Treino | 6.4347   | 93.6101   | 0.0283   | 26.5923   |
+|                      | Teste  | 0.2560   | 0.0312    | 1.3781   | 2.4450    |
+| **MobileNetV3Small** | Treino | 4.7139   | 13.4345   | 0.0143   | 14.2405   |
+|                      | Teste  | 0.1959   | 0.0162    | 0.7140   | 1.3597    |
+| **ConvNeXtSmall**    | Treino | 4.5836   | 9.4942    | 0.0147   | 14.7436   |
+|                      | Teste  | 0.1975   | 0.0162    | 0.7133   | 1.4428    |
+| **EfficientNetV2B3** | Treino | **7.1206** | 32.8763  | 0.0368   | 31.4387   |
+|                      | Teste  | **0.2766** | 0.0383   | 1.8390   | 3.1855    |
+| **EfficientNetV2B0** | Treino | 6.4119   | 27.2324   | 0.0307   | 25.3736   |
+|                      | Teste  | 0.2539   | 0.0349    | 1.5414   | 3.1831    |
+Fonte: Elaborada pela autora.
 
 ## 5 CONCLUSÕES E TRABALHOS FUTUROS
 
-Este estudo explora o problema de classificação de imagens de flores quanto ao recurso floral fornecido a abelhas *Apis mellifera*. Além do problema explorado, sua unicidade, encontra-se, também, no uso de uma base de dados própria, com imagens que refletem condições reais nas quais essas plantas são encontradas. O que permite que o modelo desenvolvido aprenda com um cenário mais próximo da realidade daqueles que o utilizarão. Assim, o sistema elaborado possui o potencial de auxiliar pesquisadores, apicultores e outros interessados no
-
-assunto oferecendo uma ferramenta rápida e confiável para classificar as flores da flora apícola em poliníferas, nectaríferas e nectaríferas-poliníferas, facilitando a identificação das fontes de alimento disponíveis para as colmeias de abelhas.
+Este estudo explora o problema de classificação de imagens de flores quanto ao recurso floral fornecido a abelhas *Apis mellifera*. Além do problema explorado, sua unicidade, encontra-se, também, no uso de uma base de dados própria, com imagens que refletem condições reais nas quais essas plantas são encontradas. O que permite que o modelo desenvolvido aprenda com um cenário mais próximo da realidade daqueles que o utilizarão. Assim, o sistema elaborado possui o potencial de auxiliar pesquisadores, apicultores e outros interessados no assunto oferecendo uma ferramenta rápida e confiável para classificar as flores da flora apícola em poliníferas, nectaríferas e nectaríferas-poliníferas, facilitando a identificação das fontes de alimento disponíveis para as colmeias de abelhas.
 
 Além disso, dez CNNs foram usadas como extratores de características e quatro algoritmos, incluindo uma CNN, foram utilizados para o processo de classificação, explorando, assim, o emprego de arquiteturas híbridas na solução do problema discutido. Em sua maioria, as combinações geradas obtiveram performances satisfatórias com MCC acima de 80%.
 

@@ -1,25 +1,5 @@
 # PREVISÃO DE SÉRIES TEMPORAIS ORIENTADA POR PROMPT COM MODELOS DE LINGUAGEM DE GRANDE ESCALA
 
-# AGRADECIMENTOS
-
-À Universidade Federal do Ceará, pelo apoio e incentivo ao longo de toda a minha formação.
-
-Aos meus estimados colegas de turma, pelas valiosas trocas de conhecimento e pelos momentos de amizade que tornaram essa jornada ainda mais especial.
-
-Aos professores que, com dedicação, orientaram este trabalho.
-
-Ao EngineLab, por oferecer um ambiente acolhedor e inspirador.
-
-Aos meus colegas e amigos de laboratório, por todas as risadas, aprendizados e experiências compartilhadas.
-
-A todos os funcionários terceirizados, pelo respeito, gentileza e pelo excelente tratamento que sempre me proporcionaram.
-
-Ao Fluminense Football Club, por tornar minha graduação ainda mais memorável com um ano inesquecível em 2023.
-
-E ao meu Deus.
-
-"Eu perdi o vestibular de medicina Minha mãe ficou zangada E eu nem um pouco Eu não sei Mas talvez seja muito louco" (Santanna o Cantador)
-
 ## RESUMO
 
 A previsão de séries temporais é uma ferramenta essencial para a tomada de decisões em diversos setores, como o varejo e a mobilidade urbana. Este trabalho apresenta uma abordagem comparativa entre métodos tradicionais – representados pelo *Random Forest* e pela Rede Neural *LSTM* (Long Short-Term Memory) – e uma metodologia inovadora que utiliza Modelo de Linguagem de Grande Escala (LLM) orientados por engenharia de prompt. Para a realização deste estudo, foram utilizados dois conjuntos de dados reais: um relativo às vendas de produtos em um supermercado de Fortaleza e outro composto pelos registros de embarques em linhas de ônibus da mesma cidade. Enquanto os métodos clássicos empregaram a técnica de janelas deslizantes para estruturar os dados históricos, o método baseado em LLM foi desenvolvido por meio de um prompt especificamente elaborado para o modelo Gemini-1.5-pro, de forma a captar padrões sazonais e tendências de forma integrada. A avaliação dos modelos foi realizada por meio das métricas SMAPE (Symmetric Mean Absolute Percentage Error) e SEM (Standard Error of the Mean), permitindo uma análise comparativa de desempenho entre as abordagens.
@@ -31,80 +11,6 @@ Palavras-chave: Previsão de Séries Temporais; LLM; Random Forest; LSTM; Engenh
 Time series forecasting is an essential tool for decision-making in various sectors, such as retail and urban mobility. This paper presents a comparative approach between traditional methods – represented by *Random Forest* and *LSTM* Neural Network (Long Short-Term Memory) – and an innovative methodology that uses Prompt Engineering-driven Large Language Model (LLM). For this study, two real datasets were used: one relating to product sales in a supermarket in Fortaleza and the other composed of boarding records on bus lines in the same city. While the classical methods employed the sliding window technique to structure historical data, the LLM-based method was developed through a prompt specifically designed for the Gemini-1.5-pro model, in order to capture seasonal patterns and trends in an integrated way. The evaluation of the models was carried out using the SMAPE (Symmetric Mean Absolute Percentage Error) and SEM (Standard Error of the Mean), metrics, allowing a comparative performance analysis between the approaches.
 
 Keywords: Time Series Forecasting; Large Language Model (LLM); Random Forest; Long Short-Term Memory (LSTM); Prompt Engineering.
-
-# LISTA DE ABREVIATURAS E SIGLAS
-
-IA Inteligência Artificial
-
-LLM Modelo de Linguagem de Grande Escala - Large Language Models
-
-LSTM Long Short-Term Memory
-
-ML Machine Learning (Aprendizado de Máquina)
-
-PE Engenharia de Prompt - Prompting Engineering
-
-PLN Processamento de Linguagem Natural
-
-RF Random Forest
-
-RNN Redes Neurais Recorrentes
-
-SEM Erro Padrão da Média
-
-SMAPE Erro Percentual Médio Simétrico
-
-# SUMÁRIO
-
-| 1     | INTRODUÇÃO .                                                          | 13 |
-|-------|-----------------------------------------------------------------------|----|
-| 1.1   | Justificativa                                                         | 14 |
-| 1.2   | Objetivo Geral                                                        | 14 |
-| 1.3   | Objetivos Específicos                                                 | 15 |
-| 1.4   | Organização do Trabalho                                               | 15 |
-| 2     | FUNDAMENTAÇÃO TEÓRICA                                                 | 16 |
-| 2.1   | Séries Temporais                                                      | 16 |
-| 2.2   | Inteligência Artificial                                               | 17 |
-| 2.3   | Aprendizado de Máquina                                                | 20 |
-| 2.3.1 | Aprendizado Supervisionado                                            | 20 |
-| 2.3.2 | Aprendizado Não Supervisionado                                        | 21 |
-| 2.3.3 | Aprendizado Por Reforço                                               | 21 |
-| 2.4   | LSTM                                                                  | 21 |
-| 2.5   | Random Forest                                                         | 23 |
-| 2.6   | Processamento de Linguagem Natural                                    | 23 |
-| 2.7   | Modelos de Linguagem de Grande Escala                                 | 25 |
-| 2.8   | Gemini                                                                | 25 |
-| 2.8.1 | Características Principais                                            | 26 |
-| 2.8.2 | Aplicações                                                            | 26 |
-| 2.9   | Engenharia de Prompt                                                  | 26 |
-| 2.9.1 | Zero-shot e Few-shot Prompting                                        | 27 |
-| 2.9.2 | COSTAR                                                                | 28 |
-| 3     | TRABALHOS RELACIONADOS                                                | 29 |
-| 3.1   | Spatial-temporal large language model for traffic prediction          | 29 |
-| 3.2   | Large language models are zero-shot time series forecasters           | 30 |
-| 3.3   | PromptCast: A New Prompt-based Learning Paradigm for Time Series      |    |
-|       | Forecasting                                                           | 31 |
-| 3.4   | The impact of window size on univariate time series forecasting using |    |
-|       | machine learning                                                      | 32 |
-| 3.5   | Análise Comparativa                                                   | 33 |
-
-| 3.5.1 | Abordagens Baseadas em LLMs                 | 33 |
-|-------|---------------------------------------------|----|
-| 3.5.2 | Abordagens Baseadas em Algoritmos Clássicos | 34 |
-| 3.5.3 | Comparativo de Desempenho e Aplicabilidade  | 34 |
-| 3.5.4 | Preliminar                                  | 35 |
-| 4     | METODOLOGIA                                 | 36 |
-| 4.1   | Visão Geral                                 | 36 |
-| 4.2   | Conjunto de Dados                           | 37 |
-| 4.3   | Ajustes de Dados                            | 39 |
-| 4.4   | Modelagem e Treinamento de Modelos          | 39 |
-| 4.5   | Prompt desenvolvido                         | 41 |
-| 4.6   | Ambiente de execução dos experimentos       | 44 |
-| 4.7   | Avaliação                                   | 44 |
-| 4.8   | Cronograma                                  | 45 |
-| 5     | RESULTADOS                                  | 46 |
-| 6     | CONCLUSÕES E TRABALHOS FUTUROS              | 48 |
-|       | REFERÊNCIAS                                 | 49 |
 
 # 1 INTRODUÇÃO
 
@@ -159,7 +65,7 @@ A literatura também distingue as séries temporais de acordo com sua classifica
 
 Em resumo, a análise de séries temporais oferece um conjunto de ferramentas poderosas para entender a dinâmica de dados sequenciais, permitindo a extração de insights valiosos para a tomada de decisões em diversas áreas.
 
-#### 2.2 Inteligência Artificial
+## 2.2 Inteligência Artificial
 
 A Inteligência Artificial (IA) emergiu como um campo interdisciplinar que busca desenvolver sistemas computacionais capazes de simular a capacidade humana de raciocinar, aprender e tomar decisões. O termo "Inteligência Artificial" foi formalmente introduzido por John McCarthy na Conferência de Dartmouth em 1956, marcando o início do estudo sistemático dessa área McCarthy *et al.* (2006). Entretanto, as primeiras discussões sobre a possibilidade
 
@@ -174,9 +80,7 @@ Apesar de seu amplo reconhecimento, não há consenso sobre uma definição úni
 - Sistemas que pensam racionalmente (Leis do Pensamento): Baseada na lógica criada por Aristóteles, essa abordagem busca construir sistemas de IA que resolvem problemas por meio de regras lógicas. O desafio está em representar conhecimento informal de maneira rigorosa e no alto custo computacional para aplicar essas regras em problemas complexos.
 - Sistemas que agem racionalmente (Agente Racional): Aqui, o foco é criar sistemas que tomam decisões inteligentes para atingir os melhores resultados. Um agente racional observa o ambiente, analisa informações e age de maneira lógica e eficiente. Essa abordagem é prática e amplamente usada, mas alcançar uma racionalidade perfeita ainda é um grande desafio, especialmente em ambientes complexos.
 
-Gams *et al.* (2019) conceitua IA como a implementação de funções cognitivas
-
-humanas, como percepção, aprendizado e tomada de decisão. Ahmed *et al.* (2022) ampliam essa definição ao considerar IA como um conjunto de tecnologias que permitem a sistemas e dispositivos perceberem, processarem informações e aprenderem com experiências passadas.
+Gams *et al.* (2019) conceitua IA como a implementação de funções cognitivas humanas, como percepção, aprendizado e tomada de decisão. Ahmed *et al.* (2022) ampliam essa definição ao considerar IA como um conjunto de tecnologias que permitem a sistemas e dispositivos perceberem, processarem informações e aprenderem com experiências passadas.
 
 A IA abrange uma variedade de técnicas e métodos, sendo os principais:
 
@@ -191,7 +95,7 @@ Com o avanço das pesquisas, desafios éticos e regulatórios também surgem, co
 
 A Inteligência Artificial evoluiu significativamente desde suas primeiras concepções, tornando-se um dos campos mais promissores da atualidade. Seu crescimento exponencial evidencia sua relevância em diversos setores, tornando-se um elemento essencial para o futuro da inovação tecnológica. No entanto, à medida que a IA avança, torna-se fundamental abordar questões éticas e regulatórias para garantir seu uso adequado e benéfico para a sociedade. Assim, compreender os fundamentos, as abordagens e os desafios da IA é essencial para avançar na pesquisa e aplicação dessa tecnologia de maneira responsável e eficaz.
 
-# 2.3 Aprendizado de Máquina
+## 2.3 Aprendizado de Máquina
 
 O Aprendizado de Máquina (AM) é um ramo da Inteligência Artificial (IA) que tem como objetivo capacitar sistemas computacionais a aprenderem padrões a partir de dados e, com isso, melhorarem sua capacidade de tomada de decisão sem a necessidade de serem explicitamente programados para tal Russell e Norvig (2016), Coppin (2004). Essa característica o torna uma ferramenta essencial para a solução de problemas complexos em diversas áreas do conhecimento.
 
@@ -207,17 +111,17 @@ No aprendizado supervisionado, o algoritmo é treinado com um conjunto de dados 
 
 Exemplos de aplicação incluem a filtragem de spam em e-mails Mohri (2018), onde um sistema aprende a categorizar automaticamente mensagens como spam ou não, e a análise de sentimentos, utilizada em redes sociais para identificar emoções expressas em textos.
 
-# *2.3.2 Aprendizado Não Supervisionado*
+#### *2.3.2 Aprendizado Não Supervisionado*
 
 Diferente do aprendizado supervisionado, o aprendizado não supervisionado não utiliza dados rotulados. Em vez disso, o algoritmo busca identificar padrões e estruturas nos dados, agrupando elementos semelhantes (clustering) ou reduzindo a dimensionalidade para extrair características essenciais Anantrasirichai e Bull (2022).
 
 Uma das principais técnicas dessa abordagem é o clustering, que organiza os dados em grupos homogêneos. Um exemplo de aplicação é a segmentação de clientes em campanhas de marketing, onde os consumidores são agrupados com base em padrões de comportamento e preferências.
 
-# *2.3.3 Aprendizado Por Reforço*
+#### *2.3.3 Aprendizado Por Reforço*
 
 No aprendizado por reforço, um agente interage com um ambiente e aprende por meio de recompensas ou penalidades atribuídas a suas ações Russell e Norvig (2016). O objetivo é maximizar a recompensa acumulada ao longo do tempo, ajustando seu comportamento de acordo com a experiência adquirida. Essa abordagem é amplamente utilizada em jogos e robótica, onde sistemas aprendem a realizar tarefas complexas por meio da experimentação e feedback recebido.
 
-#### 2.4 LSTM
+## 2.4 LSTM
 
 As Redes Neurais Recorrentes (RNN)são amplamente utilizadas para processar dados sequenciais, pois permitem a modelagem de dependências temporais através de conexões recorrentes entre os neurônios. Entretanto, um dos principais desafios enfrentados por RNNs convencionais é a dificuldade em aprender relações de longo prazo devido ao problema do desaparecimento ou explodir do gradiente Hochreiter e Schmidhuber (1997). Para mitigar essa limitação, Hochreiter e Schmidhuber (1997)propuseram a arquitetura Long Short-Term Memory (LSTM), que se destaca pela capacidade de armazenar e processar informações ao longo de grandes intervalos temporais.
 
@@ -234,7 +138,7 @@ A arquitetura LSTM tem sido amplamente empregada em diferentes domínios, inclui
 
 A capacidade das redes LSTM de lidar com a dinâmica não linear de fenômenos temporais é um dos principais fatores que justificam seu uso crescente em aplicações de previsão. A estrutura de memória permite que essas redes absorvam características complexas do conjunto de dados e, ao mesmo tempo, mantenham informações relevantes por períodos extensos. Dessa forma, a LSTM tem se consolidado como uma das principais abordagens para solução de problemas que envolvem dados sequenciais e dependências temporais prolongadas, destacandose como uma alternativa eficaz para desafios complexos em aprendizado de máquina.
 
-# 2.5 Random Forest
+## 2.5 Random Forest
 
 O Random Forest (Árvore Aleatória) é um algoritmo de aprendizado de máquina baseado na abordagem de aprendizado em conjunto, introduzido por Breiman (2001). Esse método consiste na combinação de múltiplas árvores de decisão para formar um modelo mais robusto e preciso. A estratégia de aprendizado em conjunto visa reduzir a variabilidade dos modelos individuais e aumentar a precisão preditiva ao integrar várias previsões Sheykhmousa *et al.* (2020).
 
@@ -244,7 +148,7 @@ Uma das principais vantagens do Random Forest é sua capacidade de lidar com gra
 
 Portanto, a utilização do Random Forest como ferramenta de aprendizado de máquina se justifica pela sua robustez, capacidade de lidar com dados complexos e facilidade de implementação, sendo uma escolha adequada para aplicações que exigem previsões confiáveis e interpretáveis.
 
-#### 2.6 Processamento de Linguagem Natural
+## 2.6 Processamento de Linguagem Natural
 
 O Processamento de Linguagem Natural (PLN), ou Natural Language Processing (NLP), é uma área da inteligência artificial que busca permitir a interação entre humanos e máquinas por meio da linguagem natural. Seu objetivo principal é analisar e interpretar textos ou discursos, sejam eles escritos ou falados, utilizando diferentes abordagens computacionais Chowdhary e Chowdhary (2020).
 
@@ -276,14 +180,14 @@ O *Gemini*2 é um modelo de inteligência artificial (IA) desenvolvido pelo Goog
 
 <sup>2</sup> <https://blog.google/technology/ai/google-gemini-ai/>
 
-# *2.8.1 Características Principais*
+### *2.8.1 Características Principais*
 
 - Multimodalidade: Treinado em múltiplos formatos de dados, o modelo pode correlacionar informações de diferentes fontes para uma compreensão mais abrangente.
 - Flexibilidade: Disponível em diferentes versões (Ultra, Pro e Nano), o modelo pode ser adaptado para diversas tarefas e dispositivos.
 - Capacidade de Processamento: Apresenta alto desempenho em tarefas como compreensão de linguagem natural, raciocínio lógico, geração de código e interpretação de imagens.
 - Integração com Ferramentas: O modelo pode ser incorporado a diversas plataformas, auxiliando em processos computacionais e melhorando a interação com sistemas automatizados.
 
-# *2.8.2 Aplicações*
+### *2.8.2 Aplicações*
 
 O modelo pode ser empregado em diversas áreas, tais como:
 
@@ -292,7 +196,7 @@ O modelo pode ser empregado em diversas áreas, tais como:
 - Educação: Facilita processos educacionais personalizados, proporcionando feedback e auxiliando na criação de conteúdos interativos.
 - Ciência: Contribui para a análise de grandes volumes de dados e modelagem de sistemas complexos em diferentes áreas do conhecimento.
 
-# 2.9 Engenharia de Prompt
+## 2.9 Engenharia de Prompt
 
 A engenharia de prompt é uma técnica essencial no uso de modelos de linguagem, pois permite a formulação de instruções específicas para guiar a geração de respostas mais precisas e alinhadas com as expectativas do usuário. Essa prática se mostra crucial, principalmente em aplicações que envolvem a interação com Large Language Models (LLMs), como o Gemini, onde a qualidade das respostas pode variar conforme a estrutura e o conteúdo dos prompts fornecidos Ekin (2023).
 
@@ -304,7 +208,7 @@ A engenharia de prompt também envolve o uso estratégico de palavras-chave, a c
 
 Nas seções subsequentes, exploraremos algumas das técnicas de engenharia de prompt que foram empregadas na elaboração desta pesquisa, incluindo:
 
-#### *2.9.1 Zero-shot e Few-shot Prompting*
+### *2.9.1 Zero-shot e Few-shot Prompting*
 
 O Zero-shot Prompting3 consiste em fornecer apenas uma pergunta ou comando ao modelo, sem incluir exemplos adicionais, confiando em sua capacidade de interpretar e responder corretamente com base no treinamento prévio. No entanto, quando esse método não é suficiente, recorre-se ao Few-shot Prompting4 , que incorpora alguns exemplos dentro do próprio prompt para orientar melhor a geração de respostas.
 
@@ -318,7 +222,7 @@ O Few-shot Prompting é uma técnica de aprendizado de máquina que permite à I
 
 <sup>4</sup> <https://www.promptingguide.ai/techniques/fewshot>
 
-# *2.9.2 COSTAR*
+### *2.9.2 COSTAR*
 
 Este é um método organizado para criar prompts de forma rápida e eficiente, garantindo que a resposta de uma LLM seja mais personalizada e relevante (Frugal Zentennial, 2024).(https://medium.com/@frugalzentennial/unlocking-the-power-of-costar-prompt-engineering-a-guide-and-example-on-converting-goals-into-dc5751ce9875) Ele considera seis elementos importantes:
 
@@ -329,25 +233,23 @@ Este é um método organizado para criar prompts de forma rápida e eficiente, g
 - Público (A): Identifique quem vai ler a resposta para ajustá-la a esse grupo.
 - Resposta (R): Especifique o formato da saída (como texto, lista ou arquivo JSON).
 
-Figura 3 – Exemplo de um prompt, utilizando a técnica do COSTAR
-
-### **Contexto**
+#### **Contexto**
 
 Estou apresentando nosso novo aplicativo de fitness com tecnologia de IA, o FitAI, que oferece planos personalizados de condicionamento físico e nutrição.
 
-## **Objetivo**
+#### **Objetivo**
 
 Seu objetivo é escrever uma postagem para o nosso blog, de modo que destaque os recursos e benefícios exclusivos do FitAI, diferenciando-o de outros aplicativos de fitness.
 
-### **Estilo**
+#### **Estilo**
 
 Adote o estilo envolvente e informativo dos blogs de fitness populares, tornando os aspectos técnicos complexos fáceis de entender.
 
-### **Tom**
+#### **Tom**
 
 Motivacional e encorajador, inspirando os leitores a embarcar em sua jornada fitness com o FitAI.
 
-## **Público**
+#### **Público**
 
 Entusiastas do fitness e que também possuem um certo conhecimento de tecnologia, mas não necessariamente são especialistas em tecnologia.
 
@@ -355,13 +257,11 @@ Entusiastas do fitness e que também possuem um certo conhecimento de tecnologia
 
 Uma postagem de blog bem estruturada com uma introdução, explicação detalhada dos recursos do FitAI, benefícios e um apelo à ação para baixar o aplicativo.
 
-Fonte: elaborada pelo autor.
-
-## 3 TRABALHOS RELACIONADOS
+# 3 TRABALHOS RELACIONADOS
 
 Nesta seção, serão apresentados os trabalhos correlatos, com o objetivo de destacar as contribuições relevantes de pesquisadores e profissionais no desenvolvimento de algoritmos baseados em LLMs para a previsão de séries temporais. A análise dos resultados enfatiza a identificação de estudos que utilizam modelos open-source, integrando estratégias avançadas de engenharia de prompt, como zero-shot, cadeia de pensamento e few-shot. Além disso, são abordados trabalhos que aplicam técnicas baseadas em transformers, bem como estudos que empregam algoritmos clássicos de aprendizado de máquina, como LSTM e Random Forest, proporcionando uma visão abrangente sobre as abordagens utilizadas na área de previsão de séries temporais.
 
-### 3.1 Spatial-temporal large language model for traffic prediction
+## 3.1 Spatial-temporal large language model for traffic prediction
 
 O artigo Liu *et al.* (2024)propõe um novo modelo para a previsão de tráfego, abordando as limitações dos modelos existentes em capturar dependências espaço-temporais complexas. Diferentemente das abordagens tradicionais que evoluíram de modelos de séries temporais para redes neurais complexas, este trabalho explora o uso de Large Language Models (LLMs), que ganharam destaque na análise de séries temporais.
 
@@ -373,7 +273,7 @@ Em resumo, o artigo apresenta uma abordagem inovadora para a previsão de tráfe
 
 dados de tráfego. O ST-LLM oferece uma alternativa promissora aos modelos tradicionais, com potencial para melhorar a precisão e a adaptabilidade das previsões de tráfego.
 
-#### 3.2 Large language models are zero-shot time series forecasters
+## 3.2 Large language models are zero-shot time series forecasters
 
 A previsão de séries temporais é um desafio significativo devido à natureza variável e frequentemente incompleta dos dados. Diferentemente de outras modalidades, como vídeo ou áudio, séries temporais agregadas podem conter sequências de fontes distintas, frequentemente com valores ausentes. Nesse contexto, modelos de linguagem de grande porte (LLMs) emergem como uma abordagem promissora para preencher a lacuna entre os métodos tradicionais, que tendem a ser excessivamente enviesados, e os modelos modernos de aprendizado profundo, que oferecem capacidades representacionais avançadas. O Gruver *et al.* (2024)apresenta em seu artigo o método LLMTIME, que propõe a utilização de LLMs pré-treinados, como GPT-3 e LLaMA-2, para previsão de séries temporais contínuas.
 
@@ -385,7 +285,7 @@ Por fim, os autores discutem os desafios de aplicar modelos LLM a séries tempor
 
 desafio aberto.
 
-#### 3.3 PromptCast: A New Prompt-based Learning Paradigm for Time Series Forecasting
+## 3.3 PromptCast: A New Prompt-based Learning Paradigm for Time Series Forecasting
 
 A previsão de séries temporais tem sido amplamente estudada na literatura, com abordagens que variam desde modelos estatísticos clássicos, como ARIMA (AutoRegressive Integrated Moving Average), até técnicas baseadas em redes neurais profundas, como LSTMs (Long Short-Term Memory) e Transformers. No entanto, recentes avanços no uso de Modelos de Linguagem de Grande Escala (LLMs) têm aberto novas possibilidades para essa tarefa, explorando o uso de prompts como mecanismo de entrada para modelagem e previsão.
 
@@ -397,7 +297,7 @@ Para facilitar a pesquisa e o desenvolvimento nessa área, o artigo apresenta o 
 
 Os resultados demonstram que o PromptCast, ao utilizar modelos de geração de linguagem, representa uma direção promissora para pesquisa em previsão de séries temporais. Em comparação com abordagens convencionais baseadas em valores numéricos, o PromptCast exibe uma capacidade de generalização superior, especialmente em configurações de zero-shot. Além disso, ao discutir os resultados e limitações do PromptCast, este estudo visa incentivar futuras pesquisas em temas como a criação de prompts automáticos, explicabilidade dos modelos de linguagem e aplicações práticas, como sistemas de perguntas e respostas e chatbots orientados por séries temporais. A exploração desses aspectos pode ampliar ainda mais o uso de LLMs na previsão de séries temporais e consolidar esse novo paradigma como uma alternativa viável às abordagens tradicionais.
 
-# 3.4 The impact of window size on univariate time series forecasting using machine learning
+## 3.4 The impact of window size on univariate time series forecasting using machine learning
 
 A escolha do tamanho da janela (w) em problemas de previsão de séries temporais é um aspecto fundamental na modelagem desses dados, influenciando diretamente o desempenho dos modelos de aprendizado de máquina. Diversos estudos analisam o impacto desse hiperparâmetro, buscando compreender como a quantidade de unidades temporais utilizadas como entrada pode afetar a capacidade de generalização dos algoritmos Azlan *et al.* (2019).
 
@@ -411,7 +311,7 @@ aprendizado do modelo ao introduzir ruídos desnecessários Liu *et al.* (2022).
 
 Diante dessas considerações, a presente pesquisa contribui para o entendimento da influência do tamanho da janela na previsão de séries temporais, comparando diferentes abordagens de aprendizado de máquina e identificando padrões de estabilização na precisão preditiva. Os achados reforçam a necessidade de estudos adicionais que explorem essa relação em outros contextos e tipos de séries temporais, contribuindo para avanços no campo da previsão automatizada.
 
-# 3.5 Análise Comparativa
+## 3.5 Análise Comparativa
 
 Nesta seção, realizamos uma análise comparativa entre os trabalhos relacionados apresentados, com o objetivo de destacar suas principais contribuições, limitações e a forma como abordam a previsão de séries temporais por meio de Modelos de Linguagem de Grande Escala (LLMs) e outros métodos clássicos de aprendizado de máquina.
 
@@ -427,13 +327,13 @@ próprio, o PISA, com conjuntos de dados diversos.
 
 Embora os três trabalhos utilizem LLMs, suas abordagens variam na representação dos dados e nos métodos de inferência. O ST-LLM enfatiza relações espaço-temporais, enquanto o LLMTIME foca na conversão textual das séries temporais, e o PromptCast introduz um novo paradigma de modelagem baseado em prompts.
 
-# *3.5.2 Abordagens Baseadas em Algoritmos Clássicos*
+### *3.5.2 Abordagens Baseadas em Algoritmos Clássicos*
 
 O estudo de Freitas *et al.* (2023a)investiga o impacto do tamanho da janela na previsão de séries temporais, utilizando técnicas tradicionais de aprendizado de máquina, como ensemble learning (Bagging, Boosting e Stacking) e Redes Neurais Recorrentes (RNNs). Ao contrário dos trabalhos baseados em LLMs, esse estudo se concentra na otimização de hiperparâmetros e na influência da quantidade de dados históricos na qualidade das previsões.
 
 Os resultados indicam que a expansão da janela melhora a precisão das previsões até um certo limite, reforçando a necessidade de um balanceamento entre informação histórica e ruído. Essa abordagem contrasta com os modelos baseados em LLMs, que buscam inferir padrões sem necessidade de janelas fixas.
 
-#### *3.5.3 Comparativo de Desempenho e Aplicabilidade*
+### *3.5.3 Comparativo de Desempenho e Aplicabilidade*
 
 Os modelos baseados em LLMs apresentam vantagens em cenários com poucos dados e alto grau de incerteza, devido à sua capacidade de generalização e de aprendizado implícito de padrões temporais. No entanto, eles também enfrentam desafios, como a necessidade de recursos computacionais elevados e dificuldades na interpretação dos resultados.
 
@@ -441,7 +341,7 @@ Por outro lado, os modelos clássicos, como os utilizados por Freitas *et al.* (
 
 Em termos de aplicação, o ST-LLM se mostra particularmente adequado para problemas que envolvem dependências espaciais, como previsão de tráfego. O LLMTIME é mais versátil e pode ser aplicado a diferentes domínios sem necessidade de ajuste fino. O PromptCast, por sua vez, representa uma abordagem inovadora, mas ainda requer estudos adicionais para validar sua eficácia em cenários reais.
 
-# *3.5.4 Preliminar*
+### *3.5.4 Preliminar*
 
 A evolução dos modelos para previsão de séries temporais tem demonstrado que os LLMs oferecem novas possibilidades e desafios para a área. Enquanto abordagens tradicionais continuam sendo eficazes e amplamente utilizadas, os modelos de linguagem emergem como uma alternativa promissora, principalmente em cenários com dados limitados e onde a interpretação contextual dos padrões é necessária. No entanto, sua adoção ainda requer um maior entendimento sobre suas limitações e a elaboração de métodos para melhor integração com as técnicas já estabelecidas na literatura.
 
@@ -449,71 +349,41 @@ A evolução dos modelos para previsão de séries temporais tem demonstrado que
 
 Este capítulo apresenta a metodologia utilizada na previsão de séries temporais com modelos LLMs e métodos clássicos de aprendizado de máquina. A Seção 4.1 fornece uma visão geral do processo, ilustrado por um fluxograma que abrange desde a coleta e pré-processamento dos dados até a análise dos resultados. A Seção 4.2 detalha os conjuntos de dados utilizados (varejo e transporte público), destacando suas características e desafios. Na Seção 4.3, discutimos as técnicas de pré-processamento, como tratamento de valores ausentes, remoção de duplicatas e normalização. A Seção 4.4 aborda o treinamento dos modelos Random Forest e LSTM, explicando o uso de janelas deslizantes. A Seção 4.5 descreve o desenvolvimento do prompt para LLMs, destacando sua estrutura e impacto na previsão. A Seção 4.6 detalha as ferramentas utilizadas para o desenvolvimento dos algoritmos, incluindo a linguagem de programação, as bibliotecas e suas respectivas versões. Por fim, a Seção 4.7 apresenta as métricas utilizadas para avaliação dos modelos, com destaque para o Erro Percentual Médio Simétrico (*SMAPE*) e o Erro Padrão da Média (*SEM*). Esse detalhamento garante transparência e reprodutibilidade ao estudo.
 
-#### 4.1 Visão Geral
-
-O modelo proposto, ilustrado na Figura 4, é dividido em cinco etapas principais.
-
-Figura 4 – A figura apresenta o fluxograma do modelo proposto, detalhando suas principais etapas e o fluxo de processamento dos dados.
-
-!(_page_37_Picture_6.jpeg)
-
-Fonte: Elaborada pelo autor.
+## 4.1 Visão Geral
 
 Primeiramente, são definidos os conjuntos de dados utilizados no processo. Em seguida, realizase o pré-processamento, no qual os dados passam por ajustes para tratar possíveis duplicatas e valores faltantes. Na terceira etapa, são configurados os parâmetros dos modelos empregados
 
 na previsão. Posteriormente, a sequência temporal é utilizada como entrada para os modelos Random Forest e LSTM, enquanto, no caso da LLM, os dados são estruturados em forma de prompt. Por fim, na etapa de visualização e avaliação, são gerados gráficos que representam os valores previstos, além de uma análise da quantidade de tokens consumidos especificamente pela LLM. As métricas de avaliação SMAPE e SEM são calculadas para medir o desempenho dos modelos.
 
-# 4.2 Conjunto de Dados
+## 4.2 Conjunto de Dados
 
 O primeiro conjunto conjunto de dados trata de séries temporais de vendas de produtos de uma loja do varejo, no setor de supermercado, localizado na cidade de Fortaleza-CE. Obtiveram-se informações de vendas de vinte produtos da curva A (itens com maior contribuição no faturamento da loja) em um período de 02 de Janeiro/2017 a 30 de Abril/2019, totalizando cerca de 850 dias. As vendas dos produtos, por unidades ou por quilogramas, foram agrupadas por dias para cada um dos produtos analisados e montadas as séries temporais finais. Os identificadores dos produtos foram anonimizados. Neste trabalho utilizamos como dado de treino 02 de janeiro de 2017 até 02 janeiro de 2019, já o dado de teste foi de 03 de janeiro de 2019 até 03 de março de 2019. A Figura 5 ilustra uma série temporal de venda por dia de um produto da curva A em uma amostra de 200 dias.
 
-0 10 20 30 40 50 15 20 25 30 35 40 45 55 Real Previsão de vendas Dias Vendas
-
-Figura 5 – Quantidade de vendas de um produto de curva A, em uma amostra de 60 dias.
-
-Fonte: Elaborada pelo Autor.
-
-O segundo conjunto de dados trata de séries temporais do número de embarques de
-
-passageiros nas vinte linhas de ônibus com maior uso dentro do sistema de transporte público na cidade de Fortaleza (Ceará). Os passageiros do sistema de ônibus possuem um *smart card* com o identificador do usuário e, toda vez que este cartão é usado, um registro de embarque é gravado. Os dados foram cedidos pela Prefeitura de Fortaleza e foram utilizados em outros artigos, respeitando a Lei Geral de Proteção de Dados Pessoais (LGPD) Caminha e Furtado (2017), Ponte *et al.* (2018), Bomfim *et al.* (2020), Ponte *et al.* (2021). Neste trabalho, foi utilizado como dado de treinamento o período de 01 de março de 2018 até 04 de junho de 2018, já o teste foi de uma semana, 168 horas, de 05 de junho de 2018 até 11 de junho de 2018. Desta forma, foram geradas vinte séries temporais com mais de 2280 horas de embarques para cada linha de ônibus no treino e 168 horas no teste. A Figura 6 ilustra uma série temporal de embarque por hora de uma linha de ônibus, detalhando os padrões de sazonalidade que ocorrem nos veículos em uma amostra de cerca de 7 dias (168 horas).
-
-0 20 40 60 80 100 120 140 160 0 200 400 600 800 1000 1200 1400 Real Passageiros do ônibus Dias Vendas
-
-Figura 6 – Quantidade de passageiros em uma linha de ônibus durante as primeiras 168 horas.
-
-Fonte: Elaborada pelo Autor.
+O segundo conjunto de dados trata de séries temporais do número de embarques de passageiros nas vinte linhas de ônibus com maior uso dentro do sistema de transporte público na cidade de Fortaleza (Ceará). Os passageiros do sistema de ônibus possuem um *smart card* com o identificador do usuário e, toda vez que este cartão é usado, um registro de embarque é gravado. Os dados foram cedidos pela Prefeitura de Fortaleza e foram utilizados em outros artigos, respeitando a Lei Geral de Proteção de Dados Pessoais (LGPD) Caminha e Furtado (2017), Ponte *et al.* (2018), Bomfim *et al.* (2020), Ponte *et al.* (2021). Neste trabalho, foi utilizado como dado de treinamento o período de 01 de março de 2018 até 04 de junho de 2018, já o teste foi de uma semana, 168 horas, de 05 de junho de 2018 até 11 de junho de 2018. Desta forma, foram geradas vinte séries temporais com mais de 2280 horas de embarques para cada linha de ônibus no treino e 168 horas no teste. A Figura 6 ilustra uma série temporal de embarque por hora de uma linha de ônibus, detalhando os padrões de sazonalidade que ocorrem nos veículos em uma amostra de cerca de 7 dias (168 horas).
 
 Os dados do domínio de Varejo apresentam padrões sazonais mais complexos e variados em comparação com os dados do domínio de Mobilidade. As vendas no setor de Varejo sofrem variações significativas devido a fatores como promoções, eventos sazonais e oscilações na oferta e demanda, que não estão totalmente capturados no conjunto de dados utilizado neste estudo. Isso resulta em padrões sazonais distintos em cada série temporal, onde certos produtos podem ter picos de vendas imprevisíveis, dependendo de campanhas promocionais ou mudanças nas condições de mercado. Por outro lado, os dados de Mobilidade, que registram o número de embarques de passageiros em linhas de ônibus, exibem padrões sazonais mais regulares, com variações previsíveis baseadas em fatores como dias da semana e horários do dia. Embora existam linhas mais movimentadas nos finais de semana ou com maior demanda em determinados dias da semana, a variação dentro de cada série é relativamente baixa, tornando os padrões temporais mais homogêneos e menos complexos de modelar.
 
-# 4.3 Ajustes de Dados
+## 4.3 Ajustes de Dados
 
 Essa etapa é relativamente simples e tem como objetivo tratar situações que podem surgir em determinados conjuntos de dados. Entre os dois conjuntos utilizados — um referente a uma empresa de varejo da cidade de Fortaleza e outro contendo dados de mobilidade urbana das linhas de ônibus da mesma cidade —, foi necessário realizar ajustes apenas no *dataset* de mobilidade urbana. Isso ocorreu porque esse conjunto apresentava dados duplicados e valores ausentes em determinados horários, tornando-o não sequencial, o que poderia impactar negativamente a previsão dos modelos.
 
 Para cada problema identificado, foi adotada uma estratégia específica: no caso dos dados duplicados, os valores foram somados e apenas um registro foi mantido para o respectivo horário. Já para os valores ausentes, adicionamos o horário correspondente ao *dataset* e atribuímos o valor zero, pois não houve coleta de dados nesse intervalo. Esses ajustes visam garantir a qualidade dos dados e melhorar a precisão da previsão da série temporal.
 
-#### 4.4 Modelagem e Treinamento de Modelos
+## 4.4 Modelagem e Treinamento de Modelos
 
 Utilizou-se o conceito de janelas deslizantes no processo de modelagem do problema de previsão de série temporal Chu (1995)para os modelos *Random Forest* e *LSTM*. A técnica de janelas deslizantes trata de uma abordagem em que o dado da série temporal é dividido em segmentos menores e de tamanho constante (*w*). O termo deslizante refere-se ao processo de deslocamento da janela ao longo da série e com um determinado passo (*p*) para a direita, permitindo a construção de um conjunto de dados de treinamento.
 
-As janelas deslizantes tratam-se de um artifício para transformar a série temporal em um conjunto de dados rotulado, em que cada janela contém um conjunto de observações ocorridas no passado da série temporal e que consideramos a entrada para os modelos de previsão. A observação logo após o final da janela é definida como o valor alvo que se deseja prever dado a janela passada. Desta forma, está técnica é bastante aderente a métodos de Aprendizado de
-
-Máquinas supervisionados de regressão para realizar previsão em séries temporais.
+As janelas deslizantes tratam-se de um artifício para transformar a série temporal em um conjunto de dados rotulado, em que cada janela contém um conjunto de observações ocorridas no passado da série temporal e que consideramos a entrada para os modelos de previsão. A observação logo após o final da janela é definida como o valor alvo que se deseja prever dado a janela passada. Desta forma, está técnica é bastante aderente a métodos de Aprendizado de Máquinas supervisionados de regressão para realizar previsão em séries temporais.
 
 A Figura 7 ilustra o processo da geração dos exemplos de entradas e saídas que serão utilizadas para o treinamento de modelos de IA. Uma série temporal diária, em verde, como exemplo, será transformada em um conjunto de dados supervisionado. Uma janela de tamanho *w* é aplicada, gerando a primeira amostra de entrada do conjunto e que possui *w* valores, representando as características que devem ser aprendidas pelos modelos. Somado as informações da janela, é concatenado um *Embedding de tempo* com informações temporais a respeito da variável alvo, são elas: hora do dia (excepcionalmente para as séries de mobilidade); dia da semana; dia do mês; e dia do ano. Estas características permitem que os modelos aprendam, a partir de padrões e tendências presentes em observações passadas, as dependências temporais das séries. O dia logo após a janela representa a variável alvo que se deseja prever. Em seguida, desloca-se a janela *p* passos à direita, a fim de se obter novas amostras para o conjunto de dados e repetindo o processo até percorrer toda a série. Dependendo de *w* e *p* irá existir uma sobreposição nos dados, reforçando a descoberta do padrão dos dados e aumentando o número de amostras de treinamento. A parte final do fluxo da Figura 7 ilustra o processo de treinamento de modelos de Aprendizado de Máquina a partir dos dados rotulados das etapas anteriores.
 
-Jul/2017 Aug/2017 Sep/2017 Oct/2017 Nov/2017 Dec/2017 Jan/2018 Feb/2018 Mar/2018 Apr/2018 May/2018 Jun/2018 Jul/2018 150
-
-Figura 7 – Construção de exemplos utilizando o conceito de janelas deslizantes.
-
-Fonte: Elaborada pelo autor.
-
-(aproximadamente três meses), enquanto para as séries temporais de mobilidade urbana, o tamanho da janela foi definido como *w* = 168 (exatamente uma semana). Esses valores foram escolhidos porque abrangem um período de tempo suficiente para capturar os principais padrões de sazonalidade presentes nas séries, garantindo que as variações mais significativas sejam refletidas nos exemplos modelados.
+Para as séries temporais do varejo, foi utilizado um tamanho de janela de w = 90 (aproximadamente três meses), enquanto para as séries temporais de mobilidade urbana, o tamanho da janela foi definido como *w* = 168 (exatamente uma semana). Esses valores foram escolhidos porque abrangem um período de tempo suficiente para capturar os principais padrões de sazonalidade presentes nas séries, garantindo que as variações mais significativas sejam refletidas nos exemplos modelados.
 
 Os modelos utilizados serão do tipo *ensemble* (*Random Forest* e uma rede neural (*LSTM*). No *Random Forest* Breiman (2001) foram utilizados os parâmetros padrões do *Scikitlearn* Pedregosa *et al.* (2011). Já na *LSTM* Hochreiter e Schmidhuber (1997) foi utilizada implementação do *Tensorflow* Abadi *et al.* (2016), com os parâmetros *neurons* = 200, *batch_size* = 32, e com função de ativação *ReLu*, *epochs* = 200, validação de 20% e otimizador "Adam" com learning rate de 0,0001. No caso da LLM *Gemini-1.5-PRO*, foi configurada apenas a temperatura de resposta para 1, mantendo os demais parâmetros, como max *tokens*, *top-p* e *top-k*, em seus valores padrão.
 
 A escolha dos modelos *Random Forest* e *LSTM* para a previsão de séries temporais nesta pesquisa se justifica pela natureza das séries temporais analisadas, que são univariadas e não possuem um volume muito grande de dados no tempo. O *Random Forest* é conhecido por sua robustez em problemas univariados, especialmente quando se lida com séries temporais curtas e com padrões sazonais relativamente simples Freitas *et al.* (2023b). Já o *LSTM* é amplamente utilizado para capturar dependências temporais e padrões de curto e médio prazo, sendo eficaz em séries temporais com uma estrutura moderadamente complexa Sagheer e Kotb (2019). O uso de modelos *Transformers*, embora poderoso, não seria indicado neste contexto, pois esses modelos são mais apropriados para séries temporais que envolvem grandes volumes de dados no tempo ou múltiplas características que variam simultaneamente (séries multivariadas) com padrões complexos de sazonalidade Zeng *et al.* (2023). Dado que as séries temporais utilizadas nesta pesquisa não possuem essas características, a aplicação de *Transformers* seria desnecessária e potencialmente menos eficiente, justificando assim a escolha dos modelos mais simples e adequados ao tipo de dados disponível.
 
-### 4.5 Prompt desenvolvido
+## 4.5 Prompt desenvolvido
 
 Neste estudo, o processo de modelagem para a previsão de séries temporais utilizando LLMs é bastante diferente do que é feito em modelos como o *LSTM* e *Random Forest*, onde o conceito de janelas deslizantes é essencial. No caso dos LLMs, não faz sentido utilizar uma abordagem baseada em janelas, uma vez que o modelo opera sobre toda a sequência de dados fornecida de uma única vez, sem a necessidade de fragmentação dos dados em blocos temporais. Em vez disso, a modelagem é orientada por um *prompt* elaborado que instrui o modelo a realizar previsões de acordo com os padrões e tendências capturados nos dados.
 
@@ -599,7 +469,7 @@ Para realizar as inferências com o *Gemini-1.5-PRO*, será utilizada a API do *
 
 Adicionalmente, será empregado o *Streamlit 1.42.0* para o desenvolvimento de uma interface web interativa, permitindo a visualização dos resultados por meio de gráficos gerados com *Plotly 6.0.0*. A aplicação também exibirá as métricas *SMAPE* e *SEM* e armazenará o histórico de testes em um banco de dados, utilizando *SQLite 3.49.1*.
 
-#### 4.7 Avaliação
+## 4.7 Avaliação
 
 A avaliação dos resultados será realizada utilizando o Erro Percentual Médio Simétrico (*SMAPE*) Makridakis (1993), uma métrica escolhida por ser percentual, o que é particularmente relevante dado que o *dataset* de varejo contém unidades diferentes (e.g., produtos vendidos por unidade e por peso). Além disso, o *SMAPE* é uma medida geométrica média, tornando-o ideal para comparar o desempenho de múltiplos modelos em um grande número de previsões, conforme destacado em Kreinovich *et al.* (2014). O *SMAPE* será calculado conforme a Equação 4.1:
 
@@ -657,7 +527,7 @@ No domínio de Mobilidade, o desempenho dos modelos foi mais equilibrado. O *Gem
 
 Os resultados obtidos neste estudo demonstram que o *Large Language Model* (LLM) *Gemini 1.5 PRO* apresentou um desempenho promissor quando comparado aos modelos tradicionais de aprendizado de máquina, como o *Random Forest* e o *LSTM*, na tarefa de previsão de séries temporais. Em diversas séries temporais, especialmente no domínio da Mobilidade, o LLM superou os algoritmos tradicionais, o que é particularmente interessante considerando que o modelo utilizou apenas suas capacidades intrínsecas de linguagem para capturar e inferir padrões de sazonalidade.
 
-Este resultado sugere que, embora os LLMs como o *Gemini 1.5 PRO* não tenham sido originalmente projetados para a previsão de séries temporais, sua habilidade em modelar padrões complexos em dados variados pode ser explorada com sucesso em certas condições. A capacidade de um LLM de generalizar informações e identificar padrões ocultos nos dados, que
+Este resultado sugere que, embora os LLMs como o *Gemini 1.5 PRO* não tenham sido originalmente projetados para a previsão de séries temporais, sua habilidade em modelar padrões complexos em dados variados pode ser explorada com sucesso em certas condições. A capacidade de um LLM de generalizar informações e identificar padrões ocultos nos dados, que é crucial para a compreensão da linguagem natural, também pode ser útil em cenários específicos de previsão, como evidenciado pelos resultados obtidos com as séries temporais de Mobilidade.
 
 Tabela 2 – Valores de SMAPE obtidos nos experimentos.
 
@@ -686,7 +556,6 @@ Tabela 2 – Valores de SMAPE obtidos nos experimentos.
 | 20     | 74,85 ± 0,86 | 77,49 ± 0,44 | 74,91 ± 0,20 | 20 | 26,64 ± 1,13 | 35,92 ± 1,18 | 15,03 ± 0,14 |
 | µ      | 41,80        | 45,85        | 36,22        | µ  | 20,60        | 27,03        | 19,67        |
 
-é crucial para a compreensão da linguagem natural, também pode ser útil em cenários específicos de previsão, como evidenciado pelos resultados obtidos com as séries temporais de Mobilidade.
 
 No entanto, os resultados piores observados nas séries temporais do domínio de Varejo indicam que ainda há desafios significativos a serem superados para a aplicação eficaz de LLMs nessa área. As séries temporais do Varejo, com seus padrões mais complexos e diversificados, parecem exigir um nível de especialização que os LLMs ainda não conseguem atingir plenamente. A dificuldade do LLM em lidar com a variabilidade e a complexidade dessas séries temporais aponta para a necessidade de aprimoramentos nos modelos ou, possivelmente, a integração de técnicas complementares que possam lidar melhor com essas características dos dados.
 
