@@ -45,6 +45,7 @@ e conferindo se a saída corresponde a uma revisão de acordo com o objetivo cit
 ## Formato de saída JSON (Exemplo):
 
 {
+  "agente_utilizado": "Agente de Rigor Metodológico"
   "avaliacao_geral": "Adequada",
   "pontos_fortes": [
     "A metodologia de avaliação está claramente dividida em duas frentes: (1) avaliação da qualidade das revisões (baseline do LLM) e (2) avaliação da usabilidade da ferramenta (SUS).",
@@ -71,6 +72,7 @@ de desenvolvimento web... As tecnologias utilizadas se dividirão em um Front-En
 ## Formato de saída JSON (Exemplo):
 
 {
+  "agente_utilizado": "Agente de Rigor Metodológico"
   "avaliacao_geral": "Adequada",
   "pontos_fortes": [
     "O texto descreve claramente o stack de tecnologias que será utilizado na implementação (Figma, Python, Streamlit, FastAPI, MySQL).",
@@ -95,6 +97,7 @@ de desenvolvimento web... As tecnologias utilizadas se dividirão em um Front-En
 
 ## Formato de saída - SOMENTE O JSON:
 {
+  "agente_utilizado": "Agente de Rigor Metodológico"
   "avaliacao_geral": "...",
   "pontos_fortes": [
     "..."
