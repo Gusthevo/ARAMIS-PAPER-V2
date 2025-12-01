@@ -4,7 +4,7 @@ import json
 import re
 from datetime import datetime
 import threading # Necessário para rodar o salvamento e o servidor juntos
-import time      # Usado para uma pequena pausa
+import time      # Pequena pausa entre geração da revisão e salvamento
 
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -27,7 +27,7 @@ def clean_json_string(raw_str: str):
         return match.group(1).strip()
     return raw_str.strip()
 
-output_dir = os.path.join(backend_dir, "./reviews_outputs")
+output_dir = os.path.join(backend_dir, "./reviews_outputs/reviews_logicals")
 
 def load_tcc_text(file_path: str) -> str:
     try:
@@ -36,35 +36,41 @@ def load_tcc_text(file_path: str) -> str:
     except FileNotFoundError:
         print(f"⚠️ AVISO: Arquivo '{file_path}' não encontrado.")
         return "Texto do TCC não fornecido."
-
+    
+#Variável de chamada dos arquivos de texto
 instructions_file = "../prompts/raw_prompts/v3/logical_flow_v3.txt"
-input_text_file = "../prompts/tcc_input.txt"
+input_text_file = "../data/processed_tccs/2025_tcc_aexoliveira.md"
 texto_do_tcc = load_tcc_text(input_text_file)
+
 dados_do_frontend = {
-    "area_conhecimento_tcc": "Inteligência Artificial",
-    "secao_desejada": "Introdução",
-    "titulo_tcc": "FERRAMENTA MULTIAGENTE INTEGRADA COM LLM OPEN-SOURCE PARA APOIO À CORREÇÃO DE TCCS DE ESTUDANTES DE GRADUAÇÃO",
+    "area_conhecimento_tcc": "Segurança da Informação",
+    "secao_desejada": "Fundamentação Teórica",
+    "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
     "nivel_rigor_modelo": "Rigoroso",
-    "informacoes_adicionais": "Não há informações adicionais",
+   #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
 }
+
+#Variável que passa o prompt + os dados do sistema necessários para o modelo analisar
 system_prompt_final = render_prompt(instructions_file, dados_do_frontend)
 
-print("--- PROMPT RENDERIZADO (PREVIEW) ---")
-print(system_prompt_final)
-print("------------------------------------")
+print(" === PROMPT RENDERIZADO (PREVIEW) ===")
+print(system_prompt_final[:100])
+print("====================================")
+
 
 logical_flow_agent = Agent(
     id="logical_flow_agentid",
     name="Agente Revisor de Encadeamento Lógico do ARAMIS",
-    model=Gemini(id="gemini-2.5-pro"), # Mantendo o modelo que você pediu
+    model=Gemini(id="gemini-2.5-pro"), # Definição do modelo
     markdown=True,
     instructions= system_prompt_final,
+    reasoning= True,
 )
 
-# --- Sua lógica de salvamento, agora dentro de uma função ---
+# --- Lógica de salvamento ---
 def run_and_save_review():
-    """Esta função contém a sua lógica de execução e salvamento."""
+    """Esta função contém a lógica de execução e salvamento."""
     print("\n" + "="*50)
     print(f"🚀 INICIANDO REVISÃO COM {logical_flow_agent.model.id} (em background)")
     print("="*50 + "\n")
@@ -78,7 +84,7 @@ def run_and_save_review():
 
         raw_content = response.content
         
-        # O resto da sua lógica de salvamento
+        # O resto da lógica de salvamento
         json_content_str = clean_json_string(raw_content)
         json_data = json.loads(json_content_str)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
