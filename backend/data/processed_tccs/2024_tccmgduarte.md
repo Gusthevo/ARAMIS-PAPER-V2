@@ -148,7 +148,7 @@ O protocolo de comunicação proposto neste trabalho define duas estruturas de m
 
 A mensagem ServidorParaCliente, gerada como resposta do servidor, replica os campos correspondentes da solicitação, acrescentando o número de faltas do aluno (num\_faltas, um inteiro) e um repositório de dados binários (repositorio) que pode ser utilizado para transacionar pacotes de imagens para compor o banco de dados do cliente. O serviço denominado EnvioDeMensagens implementa a funcionalidade de transmissão, permitindo ao cliente enviar uma mensagem ClienteParaServidor e receber a resposta ServidorParaCliente através do RPC EnviarMensagem.
 
-# *4.1.3 Descoberta de Servidor*
+#### *4.1.3 Descoberta de Servidor*
 
 O sistema utiliza um servidor *socket* que, por meio de um serviço *multicast*, envia pacotes na rede contendo o endereço IP do servidor gRPC, responsável pela comunicação entre cliente e servidor para a troca de imagens. O cliente monitora a rede em busca de pacotes com endereços de servidores e, caso não receba nenhuma mensagem, entra em repouso por cinco segundos para evitar a sobrecarga da rede. Após receber os dados do corpo da mensagem, os valores iram preencher a configuração de IP do servidor gRPC durante toda a execução do sistema.
 

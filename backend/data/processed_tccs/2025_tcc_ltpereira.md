@@ -1,6 +1,6 @@
 # UM ESTUDO COMPARATIVO DE MODELOS DE APRENDIZADO DE MÁQUINA PARA CLASSIFICAÇÃO DE FLORES APÍCOLAS: INTEGRANDO EXTRATORES DE TEXTURAS E CLASSIFICADORES
 
-#### RESUMO
+### RESUMO
 
 A Flora Apícola é o grupo de plantas das quais as abelhas retiram algum recurso floral, podendo este ser polén, néctar ou ambos. Sendo o potencial de produção apícola de uma região determinado pelo revestimento floral da mesma, entender o pasto apícola contribui para um manejo planejado e a otimização de apiários. Isto posto, este trabalho propõe a construção de um modelo computacional baseado em aprendizado de máquina, que classifica imagens de flores em três classes: poliníferas, nectaríferas e nectaríferas-poliníferas, buscando, assim, fornecer subsídios para determinar o potencial de produção apícola de uma região. Os experimentos utilizaram um conjunto de dados com 1.145 imagens de flores presentes na flora apícola do Sertão Central do estado do Ceará. Para extração das características dez Redes Neurais Convolucionais foram usadas, enquanto os algoritmos SVM, KNN, MLP e uma CNN proposta, foram responsáveis pelo processo de classificação. Assim, buscou-se encontrar a melhor combinação entre extrator e classificador. Por fim, os resultados indicaram a eficiência do sistema proposto, com a melhor combinação sendo o ResNet50 + SVM, que atingiu um MCC de 92.94%.
 
@@ -38,7 +38,7 @@ As imagens foram processadas e submetidas aos extratores, que deram como resulta
 
 O presente trabalho encontra-se estruturado da seguinte maneira: na Seção 2 discutese trabalhos relevantes para a temática; na Seção 3 a arquitetura proposta do sistema é apresentada; na Seção 4 os resultados obtidos são analisados e na Seção 5 são apresentados as conclusões e são introduzidos os direcionamentos para o futuros do estudo.
 
-## 2 ESTADO DA ARTE
+# 2 ESTADO DA ARTE
 
 No trabalho de Patel e Patel (2019) os autores apresentam um modelo híbrido para classificação *multi-label* de flores. O mesmo, utiliza técnicas de CV para realizar o préprocessamento, segmentação das imagens e extração de características, enquanto os algoritmos *Multiple Kernel Labeling* (MKL) (BUCAK *et al.*, 2013) e *Support Vector Machine* (SVM) (VAPNIK *et al.*, 1996) são combinados e designados para o processo de classificação. Ao todo 14 características, como cor, tamanho, textura, tipo de pétala e número de pétalas, foram extraídas utilizando diferentes técnicas de CV. Essas características foram então repassadas ao algoritmo MKL que combinou os diferentes dados extraídos e os repassou ao SVM que realiza a classificação final. Para seu treinamento, o *Oxford flower dataset* foi utilizado em conjunto com imagens adquiridas na internet, o que totalizou um conjunto de dados com 25.000 imagens e 102 diferentes espécies de flores. Por fim, ao comparar o desempenho da arquitetura proposta com os algoritmos de classificação *K-Nearest Neighbors* (KNN) (FIX; HODGES, 1951), *Random Forest* (BREIMAN, 2001), SVM e Redes Neurais Artificiais, percebeu-se um desempenho superior da mesma, que atingiu uma acurácia de 78%.
 
@@ -64,11 +64,11 @@ Tabela 1 – Comparação entre os trabalhos correlatos
 
 Fonte: Elaborada pela autora.
 
-### 3 METODOLOGIA
+# 3 METODOLOGIA
 
 Este artigo investiga a eficiência de arquiteturas híbridas no processo de classificação de flores utilizadas por abelhas *Apis mellifera* para retirada de alimentos a partir de imagens. Para isso, foram usadas CNN como extratores de características, combinados a quatro classificadores de aprendizado de máquina, incluindo a própria CNN.
 
-## 3.1 Visão Geral
+### 3.1 Visão Geral
 
 A Figura 1 ilustra o processo desenvolvido neste trabalho. Ao total sete passos foram conduzidos para alcançar o objetivo final: Carregamento das imagens, preparação dos dados, extração das características, divisão dos dados em treino e teste, treinamento, predição das classes e avaliação do modelo. Tais etapas são descritas com maiores detalhes na sequência:
 
@@ -80,7 +80,7 @@ A Figura 1 ilustra o processo desenvolvido neste trabalho. Ao total sete passos 
 - Etapa 6: Em seguida, ocorre a predição das classes das características dos dados de teste com os modelos desenvolvidos;
 - Etapa 7: Por fim, os modelos são avaliados utilizando as predições realizadas e as classes dos dados de teste.
 
-#### 3.2 Conjunto de Dados
+### 3.2 Conjunto de Dados
 
 Os dados usados neste estudo foram obtidos de uma base de dados própria, que encontra-se em processo de publicação, constituída por imagens de flores da flora apícola do Sertão Central do estado do Ceará, mais especificamente da cidade de Boa Viagem. As imagens foram capturadas em campo, ou seja, em um ambiente não controlado, por um *smartphone* Samsung A32 equipado com uma câmera de 64 Megapixel, possibilitando obter imagens de alta resolução com dimensões de (2675x3547). Além disso, também foram capturadas imagens com um fundo branco opaco, sob diferentes ângulos e iluminações, visando aumentar a variedade e qualidade das imagens do mesmo.
 
@@ -120,7 +120,7 @@ Como neste trabalho modelos de CNNs já são empregados no processo de extraçã
 
 Por outro lado, o classificador MLP foi executado com um número máximo de 200 iterações, usando o otimizador Adam e a função de ativação Relu, bem como um *random state* igual a um. Já o algoritmo KNN, utilizou o número de vizinhos mais próximos igual cinco e todos os outros hiperparâmetros configurados como padrão. Por fim, o algoritmo SVM usou o *kernel* linear em seu funcionamento e também teve todos os outros parâmetros configurados como padrão.
 
-## 3.5 Métricas de Avaliação
+### 3.5 Métricas de Avaliação
 
 Este estudo explora um problema de classificação, assim, para a avaliação será utilizada a Matriz de Confusão do modelo e métricas derivadas da mesma. Dessa maneira, foram analisados os Verdadeiros Positivos (VP), Falso Positivos (FP), Verdadeiros Negativos (VN) e os Falsos Negativos (FN). Ademais, também foram consideradas as métricas *Matthews Correlation Coefficient* (MCC), Acurácia global (AccGlobal), precisão da classe pólen (PrecPolen), precisão da classe néctar (PrecNectar), precisão da classe pólen e néctar (PrecPolenNectar).
 
@@ -149,7 +149,7 @@ $$PrecNectar = \frac{VP}{VP + FN} \tag{4}$$
 
 $$PrecPolenNectar = \frac{VP}{VP + FN} \tag{5}$$
 
-## 4 RESULTADOS
+# 4 RESULTADOS
 
 Neste estudo, foram extraídas as características de 1.145 imagens utilizando dez modelos de CNN pré-treinados, que foram combinados a quatro algoritmos classificadores. Ao total 40 resultados forma obtidos. Dessa forma, buscou-se identificar a melhor combinação entre extrator e classificador.
 
@@ -253,7 +253,7 @@ Tabela 4 – Tempos de treinamento e teste por extrator e classificador
 |                      | Teste  | 0.2539   | 0.0349    | 1.5414   | 3.1831    |
 Fonte: Elaborada pela autora.
 
-## 5 CONCLUSÕES E TRABALHOS FUTUROS
+# 5 CONCLUSÕES E TRABALHOS FUTUROS
 
 Este estudo explora o problema de classificação de imagens de flores quanto ao recurso floral fornecido a abelhas *Apis mellifera*. Além do problema explorado, sua unicidade, encontra-se, também, no uso de uma base de dados própria, com imagens que refletem condições reais nas quais essas plantas são encontradas. O que permite que o modelo desenvolvido aprenda com um cenário mais próximo da realidade daqueles que o utilizarão. Assim, o sistema elaborado possui o potencial de auxiliar pesquisadores, apicultores e outros interessados no assunto oferecendo uma ferramenta rápida e confiável para classificar as flores da flora apícola em poliníferas, nectaríferas e nectaríferas-poliníferas, facilitando a identificação das fontes de alimento disponíveis para as colmeias de abelhas.
 

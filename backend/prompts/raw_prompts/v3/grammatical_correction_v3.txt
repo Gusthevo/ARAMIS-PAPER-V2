@@ -100,7 +100,7 @@ Com base em todo o contexto, regras e exemplos fornecidos, analise o texto do TC
 {{texto_tcc}}
 
 # SAÍDA JSON:
-
+```json
 {
   "agente_utilizado": "Agente de Correção Gramatical",
   "texto_corrigido": "...",

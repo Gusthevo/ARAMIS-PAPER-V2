@@ -92,6 +92,7 @@ Com base em todo o contexto, regras e exemplos fornecidos, analise o texto do TC
 ```json
 {
   "agente_utilizado": "Agente de Rigor Metodológico",
+  "texto_analisado": "...",
   "avaliacao_geral": "...",
   "comentarios_detalhados": [
     {

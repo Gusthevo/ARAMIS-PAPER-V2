@@ -3,6 +3,7 @@ import os
 import json
 import re
 from datetime import datetime
+from zoneinfo import ZoneInfo
 import threading # Necessário para rodar o salvamento e o servidor juntos
 import time      # Pequena pausa entre geração da revisão e salvamento
 
@@ -14,6 +15,7 @@ from scripts.prompt_manager import render_prompt
 
 from agno.agent import Agent
 from agno.models.google import Gemini
+from agno.models.openai import OpenAIChat
 from agno.os import AgentOS
 import uvicorn
 from dotenv import load_dotenv
@@ -27,6 +29,7 @@ def clean_json_string(raw_str: str):
         return match.group(1).strip()
     return raw_str.strip()
 
+#Diretório de salvamento das revisões geradas
 output_dir = os.path.join(backend_dir, "./reviews_outputs/reviews_logicals")
 
 def load_tcc_text(file_path: str) -> str:
@@ -39,13 +42,13 @@ def load_tcc_text(file_path: str) -> str:
     
 #Variável de chamada dos arquivos de texto
 instructions_file = "../prompts/raw_prompts/v3/logical_flow_v3.txt"
-input_text_file = "../data/processed_tccs/2025_tcc_aexoliveira.md"
+input_text_file = "../data/processed_tccs/2025_tcc_ltpereira.md"
 texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
-    "area_conhecimento_tcc": "Segurança da Informação",
-    "secao_desejada": "Fundamentação Teórica",
-    "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
+    "area_conhecimento_tcc": "Visão Computacional",
+    "secao_desejada": "Metodologia",
+    "titulo_tcc": "UM ESTUDO COMPARATIVO DE MODELOS DE APRENDIZADO DE MÁQUINA PARA CLASSIFICAÇÃO DE FLORES APÍCOLAS: INTEGRANDO EXTRATORES DE TEXTURAS E CLASSIFICADORES",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
@@ -62,37 +65,67 @@ print("====================================")
 logical_flow_agent = Agent(
     id="logical_flow_agentid",
     name="Agente Revisor de Encadeamento Lógico do ARAMIS",
-    model=Gemini(id="gemini-2.5-pro"), # Definição do modelo
+    model=OpenAIChat(id="gpt-4o"), # Definição do modelo
     markdown=True,
     instructions= system_prompt_final,
-    reasoning= True,
+    #reasoning= True,
 )
 
 # --- Lógica de salvamento ---
 def run_and_save_review():
     """Esta função contém a lógica de execução e salvamento."""
     print("\n" + "="*50)
-    print(f"🚀 INICIANDO REVISÃO COM {logical_flow_agent.model.id} (em background)")
+    print(f"🚀 INICIANDO REVISÃO GRAMATICAL COM {logical_flow_agent.model.id} (em background)")
+    print(f"📄 Arquivo de Entrada: {input_text_file}")
     print("="*50 + "\n")
     os.makedirs(output_dir, exist_ok=True)
     try:
-        # Executa o agente
+        start_time = time.monotonic()
+        
+        print("⏳ Gerando revisão gramatical...")
         response = logical_flow_agent.run(
             "Analise o texto fornecido no contexto e gere o JSON de revisão.",
             stream=False
         )
 
+        end_time = time.monotonic()
+        duration = end_time - start_time
+        print(f" ⏱️ Tempo de Geração: {duration:.2f} segundos")
+
         raw_content = response.content
-        
-        # O resto da lógica de salvamento
         json_content_str = clean_json_string(raw_content)
-        json_data = json.loads(json_content_str)
+        
+        # O JSON que o Gemini retornou
+        resultado_revisao = json.loads(json_content_str)
+        
+
+        # 1. Cria o dicionário completo com os metadados
+        json_final_completo = {
+            "metadados_da_revisao": {
+                "arquivo_fonte_tcc": os.path.basename(input_text_file),
+                "titulo_tcc": dados_do_frontend.get("titulo_tcc"),
+                "agente_utilizado": logical_flow_agent.name, # Pega o nome do agente
+                "modelo_llm": logical_flow_agent.model.id,   # Pega o ID do modelo
+                "prompt_utilizado": instructions_file,
+                "nivel_rigor": dados_do_frontend.get("nivel_rigor_modelo"),
+                "data_revisao_utc": datetime.now(ZoneInfo("America/Sao_Paulo")).isoformat(),
+                "tempo_de_geracao_segundos": round(duration, 2)
+            },
+            "resultado_da_revisao": resultado_revisao # Aninha o resultado do LLM aqui
+        }
+
+        # 2. Cria o nome do arquivo mais descritivo
+        tcc_filename_base = os.path.splitext(os.path.basename(input_text_file))[0]
+        rigor_level = dados_do_frontend.get("nivel_rigor_modelo", "NivelNaoDefinido")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"review_logical_flow_{timestamp}.json"
+        
+        # Adapta o nome para o agente gramatical
+        filename = f"review_logical_{tcc_filename_base}_{rigor_level}_{timestamp}.json"
         file_path = os.path.join(output_dir, filename)
+
+        # 3. Salva o JSON final e completo
         with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(json_data, f, ensure_ascii=False, indent=4)
-        print(f"\n✅ Sucesso! Revisão salva em:\n📂 {file_path}")
+            json.dump(json_final_completo, f, ensure_ascii=False, indent=4)
         
     except json.JSONDecodeError as e:
         print(f"\n❌ Erro ao decodificar JSON: {e}")
