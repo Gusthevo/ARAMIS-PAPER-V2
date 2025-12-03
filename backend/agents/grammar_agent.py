@@ -42,13 +42,13 @@ def load_tcc_text(file_path: str) -> str:
     
 #Variável de chamada dos arquivos de texto
 instructions_file = "../prompts/raw_prompts/v3/grammatical_correction_v3.txt"
-input_text_file = "../data/processed_tccs/2025_tcc_rmmelo.md"
+input_text_file = "../data/processed_tccs/2024_tccmgduarte.md"
 texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
-    "area_conhecimento_tcc": "Internet das Coisas",
-    "secao_desejada": "Fundamentação Teórica",
-    "titulo_tcc": "SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA",
+    "area_conhecimento_tcc": "Redes de Computadores",
+    "secao_desejada": "FUNDAMENTAÇÃO TEÓRICA",
+    "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
@@ -67,7 +67,7 @@ grammatical_corrector_agent = Agent(
     model=OpenAIChat(id="gpt-4o-mini"), # Definição do modelo
     markdown=True,
     instructions= system_prompt_final,
-    reasoning= True,
+   # reasoning= True,
 )
 
 # --- Lógica de salvamento ---
@@ -101,12 +101,8 @@ def run_and_save_review():
         # 1. Cria o dicionário completo com os metadados
         json_final_completo = {
             "metadados_da_revisao": {
-                "arquivo_fonte_tcc": os.path.basename(input_text_file),
                 "titulo_tcc": dados_do_frontend.get("titulo_tcc"),
-                "agente_utilizado": grammatical_corrector_agent.name, # Pega o nome do agente
                 "modelo_llm": grammatical_corrector_agent.model.id,   # Pega o ID do modelo
-                "prompt_utilizado": instructions_file,
-                "nivel_rigor": dados_do_frontend.get("nivel_rigor_modelo"),
                 "data_revisao_utc": datetime.now(ZoneInfo("America/Sao_Paulo")).isoformat(),
                 "tempo_de_geracao_segundos": round(duration, 2)
             },
@@ -116,10 +112,12 @@ def run_and_save_review():
         # 2. Cria o nome do arquivo mais descritivo
         tcc_filename_base = os.path.splitext(os.path.basename(input_text_file))[0]
         rigor_level = dados_do_frontend.get("nivel_rigor_modelo", "NivelNaoDefinido")
+        #Pegar o nome do modelo
+        model_name = grammatical_corrector_agent.model.id
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         
         # Adapta o nome para o agente gramatical
-        filename = f"review_gramatical_{tcc_filename_base}_{rigor_level}_{timestamp}.json"
+        filename = f"review_gramatical_{tcc_filename_base}_{model_name}_{timestamp}.json"
         file_path = os.path.join(output_dir, filename)
 
         # 3. Salva o JSON final e completo
