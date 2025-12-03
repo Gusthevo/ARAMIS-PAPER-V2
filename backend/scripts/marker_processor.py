@@ -19,7 +19,7 @@ from token_counter_gpt import count_gpt_tokens
 
 # ---------- Tentativa de importar a API nova do marker ----------
 try:
-    from marker.converters import PdfConverter
+    from marker.converters.pdf import PdfConverter
     from marker.models import create_model_dict
     from marker.output import text_from_rendered
     MARKER_API = "new"
@@ -289,8 +289,8 @@ def process_single_pdf_newapi(pdf_path: Path, out_dir: Path, use_models: bool = 
     logger.info(f"Salvo: {md_out}  (images: {len(saved_images)})")
     return {"success": True, "md": str(md_out), "json": str(json_out), "images": saved_images}
 
-PDF_PATH = "../data/raw_tccs/2025_tcc_aexoliveira.pdf"        # <-- coloque o PDF aqui
-OUT_MD = "../data/processed_tccs/2025_tcc_aexoliveira.md"             # <-- markdown sai aqui
+PDF_PATH = "../data/raw_tccs/2025_tcc_ltpereira.pdf"        # <-- coloque o PDF aqui
+OUT_MD = "../data/processed_tccs/2025_tcc_ltpereira2.md"             # <-- markdown sai aqui
 
 def main():
     start_total = perf_counter()

@@ -27,7 +27,7 @@ TCC Leticia -
 --------------------------------------
 ⏳ Tempo total:           466.53 s
 🔢 Quantidade de tokens do GPT-4 no markdown: 19,460
-🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 
+🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 11,811
 ======================================
 
 TCC Raylander -
@@ -52,10 +52,13 @@ TCC Joel -
 --------------------------------------
 ⏳ Tempo total:           2433.68 s
 🔢 Quantidade de tokens do GPT-4 no markdown: 20,678
+🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 11,939
 ======================================
 
 TCC Marllon - 
+🔢 Quantidade de tokens do GPT-4 no markdown: 25,959
 🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 20,157
 
 TCC - Elimar
+🔢 Quantidade de tokens do GPT-4 no markdown: 31,275
 🔢 Quantidade de tokens do GPT-4 no markdown após o tratamento: 21,341

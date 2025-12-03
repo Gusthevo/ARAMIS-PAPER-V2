@@ -14,6 +14,7 @@ def render_prompt(file_path: str, context: Dict[str, Any]) -> str:
 
         with open(file_path, 'r', encoding='utf-8') as f:
             template_content = f.read()
+            print(f"Arquivo de prompt '{file_path}' lido e variáveis sendo preenchidas.")
 
         # Realiza a substituição das variáveis
         rendered_content = template_content
