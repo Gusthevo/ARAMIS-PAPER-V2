@@ -66,10 +66,15 @@ print("====================================")
 logical_flow_agent = Agent(
     id="logical_flow_agentid",
     name="Agente Revisor de Encadeamento Lógico do ARAMIS",
-    model=OpenAIChat(id="gpt-4o-mini"), # Definição do modelo
+    model=OpenAIChat(
+        id="gpt-oss-20b",
+        base_url = os.getenv("LMSTUDIO_BASE_URL"),
+        api_key = os.getenv("LMSTUDIO_API_KEY"),
+        ), # Definição do modelo
+    system_message_role="user",
     markdown=True,
     instructions= system_prompt_final,
-    reasoning= True,
+    #reasoning= True,
 )
 
 # --- Lógica de salvamento ---

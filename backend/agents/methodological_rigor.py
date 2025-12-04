@@ -46,7 +46,7 @@ texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
     "area_conhecimento_tcc": "Redes de Computadores",
-    "secao_desejada": "METODOLOGIA",
+    "secao_desejada": "FUNDAMENTAÇÃO TEÓRICA",
     "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
@@ -63,10 +63,15 @@ print("------------------------------------")
 methodological_rigor_agent = Agent(
     id="methodological_rigor_agentid",
     name="Agente Revisor de Rigor Metodológico do ARAMIS",
-    model=OpenAIChat(id="gpt-4o-mini"), # Definição do modelo
+    model=OpenAIChat(
+        id="gpt-oss-20b",
+        base_url = os.getenv("LMSTUDIO_BASE_URL"),
+        api_key = os.getenv("LMSTUDIO_API_KEY"),
+        ), # Definição do modelo
+    system_message_role="user",
     markdown=True,
     instructions= system_prompt_final,
-    reasoning= True,
+    #reasoning= True,
 )
 
 # --- Lógica de salvamento ---

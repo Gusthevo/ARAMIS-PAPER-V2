@@ -14,7 +14,7 @@ sys.path.append(backend_dir)
 from scripts.prompt_manager import render_prompt
 
 from agno.agent import Agent
-from agno.models.google import Gemini
+#from agno.models.google import Gemini
 from agno.models.openai import OpenAIChat
 from agno.os import AgentOS
 import uvicorn
@@ -64,7 +64,12 @@ print("====================================")
 grammatical_corrector_agent = Agent(
     id="grammatical_correction_agentid",
     name="Agente de Correção Gramatical do ARAMIS",
-    model=OpenAIChat(id="gpt-4o-mini"), # Definição do modelo
+    model=OpenAIChat(
+        id="gpt-oss-20b",
+        base_url = os.getenv("LMSTUDIO_BASE_URL"),
+        api_key = os.getenv("LMSTUDIO_API_KEY"),
+        ), # Definição do modelo
+    system_message_role="user",
     markdown=True,
     instructions= system_prompt_final,
    # reasoning= True,
