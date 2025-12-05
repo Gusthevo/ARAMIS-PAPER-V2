@@ -41,13 +41,13 @@ def load_tcc_text(file_path: str) -> str:
         return "Texto do TCC não fornecido."
 
 instructions_file = "../prompts/raw_prompts/v3/methodological_rigor_v3.txt"
-input_text_file = "../data/processed_tccs/2024_tccmgduarte.md"
+input_text_file = "../prompts/tcc_input.txt"
 texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
-    "area_conhecimento_tcc": "Redes de Computadores",
-    "secao_desejada": "FUNDAMENTAÇÃO TEÓRICA",
-    "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
+    "area_conhecimento_tcc": "SEGURANÇA DA INFORMAÇÃO",
+    "secao_desejada": "PROCEDIMENTOS METODOLÓGICOS",
+    "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
@@ -64,7 +64,7 @@ methodological_rigor_agent = Agent(
     id="methodological_rigor_agentid",
     name="Agente Revisor de Rigor Metodológico do ARAMIS",
     model=OpenAIChat(
-        id="gpt-oss-20b",
+        id="deepseek-r1-distill-qwen-14b",
         base_url = os.getenv("LMSTUDIO_BASE_URL"),
         api_key = os.getenv("LMSTUDIO_API_KEY"),
         ), # Definição do modelo
