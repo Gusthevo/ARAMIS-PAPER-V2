@@ -1,8 +1,8 @@
 import logging
 from typing import List, Dict
-from agents.grammar_agent import GrammarAgent
-from agents.logical_flow import LogicalFlowAgent
-from agents.methodological_rigor import MethodologicalAgent
+from agents.grammar_agent import agent_os_grammar
+from agents.logical_flow import agent_os_flow
+from agents.methodological_rigor import agent_os_rigor
 from models.analysis_model import AnalysisRequest, AnalysisResponse
 
 logger = logging.getLogger(__name__)
@@ -10,9 +10,9 @@ logger = logging.getLogger(__name__)
 class AnalysisService:
     def __init__(self):
         self.agents = {
-            "grammar_correction": GrammarAgent(),
-            "logical_flow": LogicalFlowAgent(),
-            "methodological_rigor": MethodologicalAgent()
+            "grammar_correction": agent_os_grammar,
+            "logical_flow": agent_os_flow,
+            "methodological_rigor": agent_os_rigor
         }
     
     async def analyze_text(self, request: AnalysisRequest) -> AnalysisResponse:
@@ -22,8 +22,8 @@ class AnalysisService:
         context = {
             "section": request.section,
             "title_tcc": request.title,
-            "area_knowledge": request.area_knowledge,
-            "course_name": request.course,
+            "area_knowledge": request.area,
+            #"course_name": request.course,
             "model_rigor": request.rigor
         }
         
