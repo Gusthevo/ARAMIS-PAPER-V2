@@ -140,8 +140,8 @@ def run_and_save_review():
 
 
 # --- Servidor Agno ---
-agent_os = AgentOS(agents=[grammatical_corrector_agent])
-app = agent_os.get_app()
+agent_os_grammar = AgentOS(agents=[grammatical_corrector_agent])
+app = agent_os_grammar.get_app()
 
 if __name__ == "__main__":
     
