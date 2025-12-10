@@ -47,8 +47,8 @@ texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
     "area_conhecimento_tcc": "SEGURANÇA DA INFORMAÇÃO",
-    "secao_desejada": "FUNDAMENTAÇÃO TEÓRICA",
-    "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+    "secao_desejada": "METODOLOGIA",
+    "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
@@ -67,7 +67,7 @@ logical_flow_agent = Agent(
     id="logical_flow_agentid",
     name="Agente Revisor de Encadeamento Lógico do ARAMIS",
     model=OpenAIChat(
-        id="deepseek-r1-distill-qwen-14b",
+        id="gpt-oss-20b",
         base_url = os.getenv("LMSTUDIO_BASE_URL"),
         api_key = os.getenv("LMSTUDIO_API_KEY"),
         ), # Definição do modelo

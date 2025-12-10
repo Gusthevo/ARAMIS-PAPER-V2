@@ -47,8 +47,8 @@ texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
     "area_conhecimento_tcc": "SEGURANÇA DA INFORMAÇÃO",
-    "secao_desejada": "FUNDAMENTAÇÃO TEÓRICA",
-    "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+    "secao_desejada": "METODOLOGIA",
+    "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
@@ -65,11 +65,11 @@ grammatical_corrector_agent = Agent(
     id="grammatical_correction_agentid",
     name="Agente de Correção Gramatical do ARAMIS",
     model=OpenAIChat(
-        id="deepseek-r1-distill-qwen-14b",
+        id="gpt-oss-120b",
         base_url = os.getenv("LMSTUDIO_BASE_URL"),
         api_key = os.getenv("LMSTUDIO_API_KEY"),
         ), # Definição do modelo
-    system_message_role="user",
+    system_message_role= "user",
     markdown=True,
     instructions= system_prompt_final,
    # reasoning= True,
@@ -81,6 +81,9 @@ def run_and_save_review():
     print("\n" + "="*50)
     print(f"🚀 INICIANDO REVISÃO GRAMATICAL COM {grammatical_corrector_agent.model.id} (em background)")
     print(f"📄 Arquivo de Entrada: {input_text_file}")
+    print("Base URL:", os.getenv("LMSTUDIO_BASE_URL"))
+    print("API Key:", os.getenv("LMSTUDIO_API_KEY"))
+
     print("="*50 + "\n")
     os.makedirs(output_dir, exist_ok=True)
     try:
