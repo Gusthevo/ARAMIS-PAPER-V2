@@ -1,0 +1,34 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
+        "modelo_llm": "gpt-4o-mini",
+        "data_revisao_utc": "2025-12-09T19:24:40.737005-03:00",
+        "tempo_de_geracao_segundos": 22.88
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "A frequência escolar é essencial para uma gestão educacional eficiente. Métodos tradicionais são menos eficazes em comparação com tecnologias que, além de poupar tempo e esforço dos professores, permitem a extração de novos conhecimentos a partir dos dados gerados. A Inteligência Artificial, com técnicas como Aprendizado de Máquina, Processamento de Linguagem Natural e Visão Computacional, passou a integrar o cotidiano das pessoas, mas tarefas complexas como essas exigem o *offloading* computacional para dispositivos mais poderosos, como na Computação em Nuvem, devido às limitações dos dispositivos de Internet das Coisas. Este trabalho adota uma abordagem de Visão Computacional para reconhecimento facial de alunos em sala de aula, visando realizar a frequência escolar de forma automatizada. A proposta envolve um sistema baseado em um *Raspberry Pi* com uma câmera que captura imagens, as quais serão processadas pelo próprio dispositivo e/ou enviadas para um dispositivo de borda com maior poder computacional. Uma vez que o conjunto de imagens ou dados característicos esteja no dispositivo de borda, ou ainda no *Raspberry Pi*, o sistema oferecerá diversos modelos de detecção e reconhecimento facial para a realização da frequência e posterior registro em um banco de dados. Neste trabalho, foram utilizados os modelos *Single Shot MultiBox Detector* e *ArcFace*, que trabalham em conjunto para detectar rostos e realizar o reconhecimento facial, respectivamente. Os experimentos foram conduzidos como uma prova de conceito e um teste de estresse computacional. Os resultados obtidos demonstram que o sistema atingiu 85% de acurácia nos reconhecimentos. O *offloading* computacional se mostrou uma opção válida, embora o *Raspberry Pi* tenha apresentado tempo médio de 4,05 segundos para a conclusão da tarefa.\n\nPalavras-chave: Reconhecimento Facial. *Offloading*. Frequência Escolar. Computação de Borda.\n\n#### ABSTRACT\n\nSchool attendance is essential for efficient educational management. Traditional methods seem less effective than technologies that, in addition to saving teachers' time and effort, allow the extraction of new insights from the data generated. Artificial Intelligence, with techniques such as Machine Learning, Natural Language Processing, and Computer Vision, has become part of people's daily lives. However, complex tasks like these require computational offloading to more powerful devices, such as in Cloud Computing, due to the limitations of Internet of Things devices. This work adopts a Computer Vision approach for facial recognition of students in the classroom, aiming to automate the school attendance process. The proposed system is based on a Raspberry Pi with a camera that captures images, which will be processed by the device itself or sent to an edge device with greater computational power. Once the set of pictures or characteristic data is on the edge device or the Raspberry Pi, the system will offer various facial detection and recognition models to perform attendance and subsequent logging into a database. This work used the Single Shot MultiBox Detector and ArcFace models, which work together to detect faces and perform facial recognition, respectively. The experiments were conducted as a proof of concept and a computational stress test. The results show that the system achieved 85% accuracy in recognitions. Computational offloading proved a valid option, although the Raspberry Pi presented an average time of 4.05 seconds to complete the task.",
+        "resumo_correcoes": {
+            "total_erros": 6,
+            "acentuacao": 3,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 3,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Acentuação",
+                "descricao": "Adicionados acentos agudos em palavras como 'será', 'frequência' e 'terá'."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Substituída a pontuação desnecessária e corrigidos os pontos finais em algumas frases para manter a fluidez do texto."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Removido o ponto antes de 'e/ou', que não era necessário."
+            }
+        ]
+    }
+}

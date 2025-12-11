@@ -1,0 +1,42 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_rmmelo.md",
+        "titulo_tcc": "SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA",
+        "agente_utilizado": "Agente de Correção Gramatical do ARAMIS",
+        "modelo_llm": "gpt-4o-mini",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/grammatical_correction_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-02T15:21:38.892286-03:00",
+        "tempo_de_geracao_segundos": 28.73
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "Neste capítulo será apresentada a fundamentação teórica para um melhor entendimento do BeeHy. A mesma está dividida da seguinte forma: Na seção 2.1 apresenta-se a atual situação da apicultura na região Nordeste do Brasil; na seção 2.2 aborda-se a utilização da tecnologia para a melhoria na produção apícola; na seção 2.3 é abordado o conceito de sistemas embarcados; na seção 2.4 é tratada a concepção de Internet das Coisas; por fim, na seção 2.5 é discutido sobre sensores.",
+        "resumo_correcoes": {
+            "total_erros": 6,
+            "acentuacao": 1,
+            "maiusculas_minusculas": 1,
+            "pontuacao": 3,
+            "concordancia": 1,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Acentuação",
+                "descricao": "Adicionada a acentuação em 'dividida'."
+            },
+            {
+                "tipo_correcao": "Maiúsculas/Minúsculas",
+                "descricao": "Corrigido o uso de letra maiúscula em 'Internet das Coisas'."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Inseridas vírgulas para separar as seções claramente (ex.: antes e depois de 'na seção 2.1' e 'na seção 2.5')."
+            },
+            {
+                "tipo_correcao": "Concordância",
+                "descricao": "Alterado para 'Na seção 2.1 apresenta-se' para corrigir a concordância verbal."
+            }
+        ]
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA",
+        "modelo_llm": "gpt-4o-mini",
+        "data_revisao_utc": "2025-12-04T13:56:31.031280-03:00",
+        "tempo_de_geracao_segundos": 35.7
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "O texto apresenta uma boa estrutura e aborda adequadamente os temas relacionados ao sistema de monitoramento de colmeias. No entanto, algumas transições entre seções podem ser aprimoradas para melhorar a fluidez do texto.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Dessa forma, é apresentado neste trabalho uma solução tecnológica para apicultura de precisão que tem por objetivo contribuir com a gestão de apiários...",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "A transição do problema da apicultura para a solução proposta é um pouco abrupta. A introdução do objetivo deveria ter um conectivo que vincule melhor os desafios existentes às soluções oferecidas.",
+                "sugestao_estrutural": "Considere incluir uma frase que diga algo como 'Considerando os desafios apresentados, propomos uma solução tecnológica que visa...' para fazer a conexão mais suave."
+            },
+            {
+                "trecho_relevante": "Neste capítulo será apresentado a fundamentação teórica para um melhor entendimento do BeeHy.",
+                "tipo_problema": "Falta de Contexto",
+                "analise": "A introdução a esta seção carece de uma contextualização que ligue os conceitos teóricos diretamente à aplicação no sistema discutido.",
+                "sugestao_estrutural": "Adicione uma frase que relacione diretamente a fundamentação teórica ao sistema BeeHy, como 'Para compreender melhor o funcionamento do BeeHy, é essencial discutir os princípios teóricos que o sustentam.'"
+            },
+            {
+                "trecho_relevante": "A partir de 1970, foram adotadas novas técnicas de manejo para criação racional das abelhas africanizadas...",
+                "tipo_problema": "Desconexão Temporal",
+                "analise": "A passagem de informações sobre técnicas de manejo para a discussão sobre a introdução da apicultura de precisão está um pouco desconectada, dificultando o acompanhamento da linha do tempo.",
+                "sugestao_estrutural": "Insira uma frase de transição que relacione os avanços nas técnicas de manejo aos novos desafios que levaram à adoção da apicultura de precisão, como 'Com a adoção de novas técnicas de manejo, surgiram também novos desafios que motivaram a implementação da apicultura de precisão...'."
+            }
+        ]
+    }
+}

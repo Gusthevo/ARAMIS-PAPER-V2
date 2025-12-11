@@ -1,0 +1,12 @@
+{
+    "avaliacao_geral": "Coerência Razoável",
+    "principais_problemas": [
+        "A transição entre o primeiro e o segundo parágrafo é abrupta. O texto salta da explicação do algoritmo de detecção de faces (software) para a descrição dos componentes físicos (hardware) sem uma frase de ligação.",
+        "A sequência de argumentação não é linear. O fluxo lógico do processo de software (Detecção no parágrafo 1 -> Identificação no parágrafo 3) é interrompido pela descrição do hardware no parágrafo 2. Isso força o leitor a reconectar mentalmente o terceiro parágrafo ao primeiro para entender o pipeline de processamento."
+    ],
+    "sugestoes": [
+        "Considere inverter a ordem dos parágrafos. Apresentar primeiro a arquitetura do hardware (parágrafo 2) e, em seguida, descrever o fluxo de processamento de software que ocorre nesse hardware (parágrafos 1, 3 e 4) pode criar uma progressão mais lógica (do físico para o lógico).",
+        "Caso a ordem atual seja mantida, adicione uma frase de transição ao final do primeiro parágrafo ou no início do segundo para conectar a etapa de software com o hardware responsável pela captura, como por exemplo: 'Este processo de detecção é executado em um hardware específico, composto por...'.",
+        "A conexão entre o terceiro parágrafo (identificação) e o quarto (contagem e exibição) é clara e eficaz, servindo como um bom exemplo de encadeamento lógico dentro do texto."
+    ]
+}

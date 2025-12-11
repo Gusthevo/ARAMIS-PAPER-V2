@@ -1,0 +1,30 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_ltpereira.md",
+        "titulo_tcc": "UM ESTUDO COMPARATIVO DE MODELOS DE APRENDIZADO DE MÁQUINA PARA CLASSIFICAÇÃO DE FLORES APÍCOLAS: INTEGRANDO EXTRATORES DE TEXTURAS E CLASSIFICADORES",
+        "agente_utilizado": "Agente Revisor de Encadeamento Lógico do ARAMIS",
+        "modelo_llm": "gpt-4o",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/logical_flow_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-02T13:48:25.273354-03:00",
+        "tempo_de_geracao_segundos": 41.39
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "O texto apresenta uma metodologia bem estruturada, mas a análise rigorosa identificou algumas áreas onde a transição entre etapas poderia ser melhorada para maior fluidez e conexão lógica.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Etapa 3: Estas são, posteriormente, enviadas para as CNNs, onde terão suas características extraídas e armazenadas em uma matriz;\nEtapa 4: A matriz de características, resultado da última etapa é, então, divida em dados para treinamento e dados para teste;",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "A transição entre a extração de características e sua divisão em conjuntos de treinamento e teste é feita de forma abrupta, o que pode dificultar o seguimento do processo pelo leitor.",
+                "sugestao_estrutural": "Adicione uma frase de transição entre as etapas 3 e 4, como 'Após a extração de características, estas são organizadas na matriz resultante, que será dividida para propósitos de treinamento e teste.'"
+            },
+            {
+                "trecho_relevante": "...usados 10 modelos de CNNs prétreinadas, importadas da biblioteca Keras: VGG16 e VGG19..., ResNet50, InceptionResNetV2,...",
+                "tipo_problema": "Omissão de Contexto",
+                "analise": "A lista de modelos de CNN é apresentada diretamente sem um contexto que explica por que esses modelos específicos foram escolhidos.",
+                "sugestao_estrutural": "Inclua uma breve introdução que explique os critérios para a seleção dos modelos de CNN mencionados, melhorando a compreensão da escolha e seu papel na metodologia."
+            }
+        ]
+    }
+}

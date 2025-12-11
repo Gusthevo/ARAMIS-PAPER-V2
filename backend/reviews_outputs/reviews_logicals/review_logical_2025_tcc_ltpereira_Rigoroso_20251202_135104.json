@@ -1,0 +1,42 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_ltpereira.md",
+        "titulo_tcc": "UM ESTUDO COMPARATIVO DE MODELOS DE APRENDIZADO DE MÁQUINA PARA CLASSIFICAÇÃO DE FLORES APÍCOLAS: INTEGRANDO EXTRATORES DE TEXTURAS E CLASSIFICADORES",
+        "agente_utilizado": "Agente Revisor de Encadeamento Lógico do ARAMIS",
+        "modelo_llm": "gpt-4o",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/logical_flow_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-02T13:51:04.026029-03:00",
+        "tempo_de_geracao_segundos": 41.47
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "A metodologia apresenta uma descrição clara do processo seguido no estudo, mas há algumas oportunidades para melhorar a fluidez nas transições entre as etapas e subseções.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "A Figura 1 ilustra o processo desenvolvido neste trabalho. Ao total sete passos foram conduzidos para alcançar o objetivo final: Carregamento das imagens...",
+                "tipo_problema": "Transição entre Seções",
+                "analise": "A introdução dos sete passos do processo ocorre de maneira abrupta, sem um contexto claro que os conecta à seção de visão geral.",
+                "sugestao_estrutural": "Adicione uma frase de transição explicando que a próxima etapa detalhará cada um dos passos apresentados na seção anterior. Isso ajudará os leitores a entender melhor a conexão entre os antigos e novos parágrafos."
+            },
+            {
+                "trecho_relevante": "Os dados usados neste estudo foram obtidos de uma base de dados própria, que encontra-se em processo de publicação...",
+                "tipo_problema": "Detalhamento Insuficiente",
+                "analise": "A mudança do tópico de visão geral para o conjunto de dados ocorre de forma repentina, sem aprofundar como esse conjunto de dados será incorporado ao modelo metodológico geral.",
+                "sugestao_estrutural": "Forneça uma breve explicação de como esses dados específicos se conectam ao modelo geral, especialmente como eles serão usados nas etapas descritas posteriormente."
+            },
+            {
+                "trecho_relevante": "Além disso, o conjunto de dados é formado por 20 espécies de plantas...",
+                "tipo_problema": "Conexão Lógica",
+                "analise": "A frase começa descrevendo o conjunto de dados sem conectar como a informação das espécies de plantas é relevante diretamente para os métodos subsequentes.",
+                "sugestao_estrutural": "Explique como o número de espécies ou outras especificidades do conjunto de dados informatizam a preparação das imagens e os processos experimentais subsequentes."
+            },
+            {
+                "trecho_relevante": "Dessa forma, as imagens do conjunto de dados foram, primeiramente, carregadas e convertidas em matrizes...",
+                "tipo_problema": "Progressão Lógica",
+                "analise": "A progressão entre como os dados são dispostos inicialmente a como são preparados não está claramente estruturada entre as etapas.",
+                "sugestao_estrutural": "Considere adicionar um guia para cada etapa importante, indicando claramente ao início de cada etapa o seu propósito e como ela se encaixa no fluxo geral do método."
+            }
+        ]
+    }
+}

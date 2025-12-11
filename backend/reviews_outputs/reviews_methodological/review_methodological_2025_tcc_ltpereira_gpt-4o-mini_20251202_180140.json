@@ -1,0 +1,49 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_ltpereira.md",
+        "titulo_tcc": "UM ESTUDO COMPARATIVO DE MODELOS DE APRENDIZADO DE MÁQUINA PARA CLASSIFICAÇÃO DE FLORES APÍCOLAS: INTEGRANDO EXTRATORES DE TEXTURAS E CLASSIFICADORES",
+        "agente_utilizado": "Agente Revisor de Rigor Metodológico do ARAMIS",
+        "modelo_llm": "gpt-4o-mini",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/methodological_rigor_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-02T18:01:40.966599-03:00",
+        "tempo_de_geracao_segundos": 36.28
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Rigor Metodológico",
+        "texto_analisado": "Metodologia do TCC sobre classificação de flores apícolas utilizando aprendizado de máquina.",
+        "avaliacao_geral": "A seção de metodologia possui uma estrutura clara, mas carece de detalhes em várias etapas para garantir a reprodutibilidade dos experimentos.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Utilização de SMOTE para balancear as classes.",
+                "tipo_ponto": "Ponto Fraco (Justificativa Superficial)",
+                "analise": "Embora a técnica de SMOTE seja uma escolha adequada para lidar com o desbalanceamento, falta uma justificativa mais detalhada sobre sua eficácia e os motivos da escolha em relação a outras técnicas.",
+                "recomendacao": "Amplie a seção para incluir uma comparação entre SMOTE e outras abordagens possíveis para o balanceamento de classes."
+            },
+            {
+                "trecho_relevante": "Os dados foram obtidos de uma base de dados própria, em ambiente não controlado.",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "Esta abordagem é válida, pois proporciona um cenário realista para a implementação e avaliação do modelo, abordando a aplicabilidade prática do sistema.",
+                "recomendacao": "Considere discutir a metodologia de coleta de dados em mais profundidade, incluindo possíveis limitações dessa abordagem."
+            },
+            {
+                "trecho_relevante": "O uso de CNNs e os quatro classificadores.",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A escolha de modelos de CNN e classificadores tradicionais é bem fundamentada e relevante ao problema, mostrando um bom entendimento da literatura existente.",
+                "recomendacao": "Mantenha a fundamentação, mas seria interessante referenciar especificamente as contribuições de cada classificador no contexto do estudo."
+            },
+            {
+                "trecho_relevante": "As etapas do desenvolvimento estão listadas de forma clara.",
+                "tipo_ponto": "Ponto Fraco (Falta de Detalhamento)",
+                "analise": "Apesar de a estrutura das etapas estar clara, algumas como a normalização e o processo de treinamento precisam de mais detalhes para permitir replicação.",
+                "recomendacao": "Inclua descrições mais específicas sobre os parâmetros usados em cada etapa, especialmente no treinamento dos modelos."
+            },
+            {
+                "trecho_relevante": "As técnicas e métricas de avaliação discutidas.",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "As métricas de avaliação escolhidas, incluindo o MCC, são adequadas para a natureza do problema de classificação e correspondem aos objetivos da pesquisa.",
+                "recomendacao": "Assegure-se de referenciar as fontes das métricas e justificar a escolha com base em experiências anteriores ou literatura relevante."
+            }
+        ]
+    }
+}
