@@ -1,0 +1,42 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_rmmelo.md",
+        "titulo_tcc": "SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA",
+        "agente_utilizado": "Agente Revisor de Encadeamento Lógico do ARAMIS",
+        "modelo_llm": "gpt-4o-mini",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/logical_flow_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-02T17:44:28.610885-03:00",
+        "tempo_de_geracao_segundos": 33.08
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "O texto apresenta uma explicação abrangente sobre o sistema de monitoramento de colmeias de Apis mellifera, mas possui transições abruptas e falta de clareza em algumas áreas, que impactam a fluidez e a compreensão geral.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "A atual transição do paradigma tecnológico mundial é um fenômeno revolucionário que está remodelando a sociedade e os negócios de mercado.",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "A introdução do conceito de transição tecnológica carece de uma conexão mais clara com a apicultura, o que pode deixar o leitor um pouco perdido quanto ao foco do texto.",
+                "sugestao_estrutural": "Incluir uma frase de transição que relacione diretamente a evolução tecnológica com suas implicações para a apicultura."
+            },
+            {
+                "trecho_relevante": "Dessa forma, é apresentado neste trabalho uma solução tecnológica para apicultura de precisão que tem por objetivo contribuir com a gestão de apiários.",
+                "tipo_problema": "Falta de Conectivo",
+                "analise": "A frase de introdução para a solução tecnológica poderia ser antecedida por um conectivo que ligue a problemática discutida anteriormente.",
+                "sugestao_estrutural": "Usar 'Em resposta a esses desafios,' para fornecer uma transição mais suave."
+            },
+            {
+                "trecho_relevante": "Os dados coletados são armazenados em servidores de banco de dados remotos para análises posteriores.",
+                "tipo_problema": "Falta de Clareza",
+                "analise": "Essa frase poderia ser expandida para incluir o processo de coleta e como os dados são utilizados após serem armazenados.",
+                "sugestao_estrutural": "Adicionar uma breve explicação sobre a importância desse armazenamento para análises futuras."
+            },
+            {
+                "trecho_relevante": "A análise contínua dos dados coletados possibilita uma resposta rápida a possíveis problemas, contribuindo para a eficiência e produtividade das colmeias.",
+                "tipo_problema": "Conexão Lógica",
+                "analise": "Embora a frase apresente um benefício claro, a relação entre a continuação da coleta de dados e a resposta a problemas poderia ser mais explícita.",
+                "sugestao_estrutural": "Conectar diretamente a importância da resposta rápida à melhoria na produtividade das colmeias."
+            }
+        ]
+    }
+}

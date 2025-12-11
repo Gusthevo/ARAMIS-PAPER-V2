@@ -1,0 +1,42 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_rmmelo.md",
+        "titulo_tcc": "SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA",
+        "agente_utilizado": "Agente de Correção Gramatical do ARAMIS",
+        "modelo_llm": "gpt-4o",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/grammatical_correction_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-02T14:14:59.346895-03:00",
+        "tempo_de_geracao_segundos": 21.25
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "Neste capítulo será apresentada a fundamentação teórica para um melhor entendimento do BeeHy. A mesma está dividida da seguinte forma: Na seção 2.1 apresenta-se a atual situação da apicultura na região nordeste do Brasil; Na seção 2.2 aborda-se a utilização da tecnologia para a melhoria na produção apícola; Na seção 2.3 é abordado o conceito de sistemas embarcados; Na seção 2.4 é tratada a concepção de Internet das Coisas; Por fim, na seção 2.5 é discorrido sobre sensores.",
+        "resumo_correcoes": {
+            "total_erros": 5,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 1,
+            "pontuacao": 0,
+            "concordancia": 2,
+            "ortografia": 2
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Concordância Verbal",
+                "descricao": "Alterado 'será apresentado' para 'será apresentada' para concordar com 'a fundamentação teórica'."
+            },
+            {
+                "tipo_correcao": "Concordância Nominal",
+                "descricao": "Alterado 'dividia' para 'dividida' para concordar com o tempo verbal do restante da frase."
+            },
+            {
+                "tipo_correcao": "Ortografia",
+                "descricao": "Corrigido 'apresenta' para 'apresenta-se' e 'aborda' para 'aborda-se' para indicar a forma passiva pronominal."
+            },
+            {
+                "tipo_correcao": "Maiúsculas/Minúsculas",
+                "descricao": "Alterado 'internet das coisas' para 'Internet das Coisas' por ser uma expressão específica e geralmente capitalizada."
+            }
+        ]
+    }
+}

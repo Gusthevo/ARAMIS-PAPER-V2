@@ -1,0 +1,38 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "SISTEMA DE MONITORAMENTO DE ABELHAS APIS MELLIFERA",
+        "modelo_llm": "gpt-4o",
+        "data_revisao_utc": "2025-12-10T13:53:45.970123-03:00",
+        "tempo_de_geracao_segundos": 64.26
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "Essa seção de fundamentação teórica consegue propor um panorama técnico e específico para o sistema de monitoramento proposto, mas faltam transições suaves entre alguns parágrafos e subseções, o que dificulta a continuidade lógica e o entendimento.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Na seção 2.1, entre a descrição histórica da apicultura na região Nordeste e a abordagem sobre práticas e comercialização atuais.",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "A conclusão sobre a evolução histórica da apicultura não se conecta de maneira clara à introdução de práticas contemporâneas, enfraquecendo a intenção narrativa.",
+                "sugestao_estrutural": "Elabore um parágrafo de transição que resuma a importância histórica e introduza o impacto dessas práticas no desenvolvimento atual da atividade apícola."
+            },
+            {
+                "trecho_relevante": "Transição da seção 2.2 sobre Apicultura de Precisão para a seção 2.3 sobre Sistemas Embutidos.",
+                "tipo_problema": "Falta de Conectivo",
+                "analise": "A introdução de sistemas embutidos não é suavemente ligada ao contexto definido para apicultura de precisão, resultando em uma quebra abrupta de foco.",
+                "sugestao_estrutural": "Adicione uma sentença encadeada que reforce como a evolução em técnicas de precisão naturalmente gravita para a introdução de sistemas embutidos na prática apícola."
+            },
+            {
+                "trecho_relevante": "Início da seção 2.4 sobre Internet das Coisas.",
+                "tipo_problema": "Transição entre Tópicos",
+                "analise": "O texto salta diretamente para a definição de IoT sem estabelecer uma conexão com a discussão anterior sobre sistemas embutidos.",
+                "sugestao_estrutural": "Incorpore uma breve explicação de como os sistemas embarcados são componentes essenciais no ecossistema IoT, criando um link conceitual."
+            },
+            {
+                "trecho_relevante": "Seção 2.5 sobre Sensores",
+                "tipo_problema": "Descontinuidade Conceitual",
+                "analise": "Os tipos de sensores são apresentados sem vincular diretamente à aplicação na proposta de sistema de monitoramento de colmeias, o que gera dúvidas sobre sua relevância específica.",
+                "sugestao_estrutural": "Explique o papel vital que os sensores discutidos desempenham no contexto do monitoramento de colmeias IoT, reforçando o alinhamento entre os conceitos teóricos e a aplicação prática do sistema."
+            }
+        ]
+    }
+}

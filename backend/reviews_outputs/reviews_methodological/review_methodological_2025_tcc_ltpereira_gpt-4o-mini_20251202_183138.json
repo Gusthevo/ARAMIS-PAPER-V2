@@ -1,0 +1,48 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_ltpereira.md",
+        "titulo_tcc": "UM ESTUDO COMPARATIVO DE MODELOS DE APRENDIZADO DE MÁQUINA PARA CLASSIFICAÇÃO DE FLORES APÍCOLAS: INTEGRANDO EXTRATORES DE TEXTURAS E CLASSIFICADORES",
+        "agente_utilizado": "Agente Revisor de Rigor Metodológico do ARAMIS",
+        "modelo_llm": "gpt-4o-mini",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/methodological_rigor_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-02T18:31:38.548520-03:00",
+        "tempo_de_geracao_segundos": 26.17
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Rigor Metodológico",
+        "avaliacao_geral": "A metodologia apresentada é abrangente e bem estruturada, detalhando as etapas necessárias para atingir os objetivos do estudo. As escolhas metodológicas são justificadas de forma clara e estão alinhadas com as perguntas de pesquisa.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "As imagens são, inicialmente, carregadas da base dados; passam por uma etapa de preparação...",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A descrição das etapas metodológicas é clara e segue uma sequência lógica que facilita a compreensão do processo de classificação.",
+                "recomendacao": "Adicionar mais detalhes sobre parâmetros específicos dos algoritmos pode melhorar a reprodutibilidade do estudo."
+            },
+            {
+                "trecho_relevante": "Foram usados 10 modelos de CNNs pré-treinadas",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A fundamentação teórica é sólida, com base em literatura científica reconhecida, o que valida as escolhas metodológicas.",
+                "recomendacao": "Continuar a fundamentar as escolhas em trabalhos seminais na área para fortalecer a base teórica."
+            },
+            {
+                "trecho_relevante": "A técnica de SMOTE foi utilizada no conjunto de treino para balancear as classes.",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A aplicação de técnicas de balanceamento de classes é uma abordagem apropriada para lidar com conjuntos de dados desbalanceados, demonstrando rigor metodológico.",
+                "recomendacao": "Incluir a justificativa para a escolha do SMOTE em vez de outras técnicas de balanceamento poderia enriquecer a seção."
+            },
+            {
+                "trecho_relevante": "...a combinação ResNet50 + SVM mostra-se como a mais eficiente...",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "Os resultados obtidos são claros e bem apresentados, dando aos leitores uma boa visão da eficácia das combinações testadas.",
+                "recomendacao": "Considerar a apresentação de gráficos ou visualizações para ilustrar melhor os resultados obtidos pode ser útil."
+            },
+            {
+                "trecho_relevante": "...as imagens de flores da flora apícola do Sertão Central do estado do Ceará...",
+                "tipo_ponto": "Ponto Fraco",
+                "analise": "Embora a base de dados tenha sido bem descrita, a variabilidade das condições de captura das imagens poderia ser discutida mais amplamente.",
+                "recomendacao": "Esclarecer como as condições de captura podem afetar a generalização do modelo em cenários do mundo real."
+            }
+        ]
+    }
+}

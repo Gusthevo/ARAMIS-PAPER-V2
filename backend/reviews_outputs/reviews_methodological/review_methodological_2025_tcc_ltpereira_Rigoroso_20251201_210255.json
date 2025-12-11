@@ -1,0 +1,54 @@
+{
+    "metadados_da_revisao": {
+        "arquivo_fonte_tcc": "2025_tcc_ltpereira.md",
+        "titulo_tcc": "UM ESTUDO COMPARATIVO DE MODELOS DE APRENDIZADO DE MÁQUINA PARA CLASSIFICAÇÃO DE FLORES APÍCOLAS: INTEGRANDO EXTRATORES DE TEXTURAS E CLASSIFICADORES",
+        "agente_utilizado": "Agente Revisor de Rigor Metodológico do ARAMIS",
+        "modelo_llm": "gemini-2.5-pro",
+        "prompt_utilizado": "../prompts/raw_prompts/v3/methodological_rigor_v3.txt",
+        "nivel_rigor": "Rigoroso",
+        "data_revisao_utc": "2025-12-01T21:02:55.166463-03:00",
+        "tempo_de_geracao_segundos": 46.0
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Rigor Metodológico",
+        "avaliacao_geral": "A metodologia apresenta uma estrutura experimental robusta, com pontos fortes no uso de Validação Cruzada K-Fold e na aplicação correta da técnica SMOTE para lidar com o desbalanceamento de classes. No entanto, o rigor científico é seriamente comprometido por uma falha crítica na definição das métricas de precisão e pela falta de especificidade na configuração de alguns classificadores, o que prejudica a reprodutibilidade do estudo.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Para isso, foi usado a técnica de K-Fold *Cross-Validation*, com 5 *folds*. Assim, ao longo das iterações, 4 *folds* foram usados para treinamento e 1 para teste...",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A escolha da Validação Cruzada K-Fold é metodologicamente sólida. Ela garante que o modelo seja avaliado em diferentes subconjuntos de dados, fornecendo uma estimativa mais robusta e menos enviesada do seu desempenho de generalização em comparação com uma única divisão treino-teste.",
+                "recomendacao": "Nenhuma recomendação necessária. A abordagem está alinhada com as boas práticas."
+            },
+            {
+                "trecho_relevante": "Dado o desequilíbrio das classes no conjunto de dados a técnica chamada *Synthetic Minority Oversampling Technique* (SMOTE) foi empregada no conjunto de treino para balancear as classes.",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A aplicação do SMOTE demonstra consciência sobre um problema comum em conjuntos de dados do mundo real (desbalanceamento) e a escolha de uma técnica apropriada para mitigá-lo. A aplicação apenas no conjunto de treino previne o vazamento de dados (*data leakage*), o que é uma prática metodologicamente correta e crucial.",
+                "recomendacao": "Nenhuma recomendação necessária. A aplicação e a fundamentação (citando Chawla *et al.*, 2002) são excelentes."
+            },
+            {
+                "trecho_relevante": "Já o algoritmo KNN, utilizou o número de vizinhos mais próximos igual cinco e todos os outros hiperparâmetros configurados como padrão. Por fim, o algoritmo SVM usou o *kernel* linear em seu funcionamento e também teve todos os outros parâmetros configurados como padrão.",
+                "tipo_ponto": "Ponto Fraco (Reprodutibilidade)",
+                "analise": "A descrição 'configurados como padrão' é ambígua e insuficiente para a reprodutibilidade. Os valores padrão podem variar entre diferentes bibliotecas (ex: Scikit-learn, Weka) e até mesmo entre versões da mesma biblioteca. Um estudo científico deve fornecer todos os detalhes para que possa ser replicado.",
+                "recomendacao": "Especifique a biblioteca utilizada (ex: Scikit-learn versão X.Y.Z) e, idealmente, liste os principais hiperparâmetros padrão que foram utilizados (ex: valor de C para o SVM, métrica de distância para o KNN) para garantir a reprodutibilidade."
+            },
+            {
+                "trecho_relevante": "A arquitetura desta, apresentada na Figura 2, é composta por uma camada de Flatten, dois módulos com uma camada Densa, uma de Batch Normalizarion e outra de Dropout, e, por fim, finalizando com uma camada Densa.",
+                "tipo_ponto": "Ponto Fraco (Vagueza)",
+                "analise": "A descrição da arquitetura da CNN proposta é subespecificada. Faltam detalhes cruciais como o número de neurônios em cada camada Densa, a taxa de Dropout utilizada e a ordem exata das camadas dentro dos 'módulos'. Sem esses detalhes, a arquitetura não pode ser replicada.",
+                "recomendacao": "Detalhe a arquitetura da CNN de forma explícita, incluindo: 1) o número de neurônios de cada camada Densa; 2) o valor da taxa de Dropout; 3) a função de ativação utilizada em cada camada Densa."
+            },
+            {
+                "trecho_relevante": "– Precisão classe pólen (PrecPolen): É a probabilidade de uma flor possuir pólen e ela realmente conter. $PrecPolen = \\frac{VP}{VP + FN}$",
+                "tipo_ponto": "Ponto Fraco (Erro Crítico)",
+                "analise": "A fórmula apresentada para a Precisão está incorreta. A equação $\\frac{VP}{VP + FN}$ corresponde à métrica de Revocação (Recall) ou Sensibilidade. A fórmula correta para a Precisão é $\\frac{VP}{VP + FP}$. Este é um erro metodológico fundamental que invalida os resultados reportados para 'Precisão', pois a métrica calculada não corresponde ao que está sendo nomeado e discutido.",
+                "recomendacao": "Corrija a fórmula para todas as métricas de precisão (equações 3, 4 e 5) para $\\frac{VP}{VP + FP}$ e recalcule os resultados correspondentes. Alternativamente, se a intenção era usar Revocação, renomeie a métrica de acordo."
+            },
+            {
+                "trecho_relevante": "*Matthews Correlation Coefficient* (MCC) (MATTHEWS, 1975; BALDI *et al.*, 2000): É um coeficiente de correlação, utilizado para avaliar modelos que utilizam conjuntos de dados desbalanceados, já que leva em consideração todos os elementos da matriz de confusão.",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A escolha e a justificativa do MCC são excelentes. Esta métrica é considerada uma das mais robustas para problemas de classificação com classes desbalanceadas, pois utiliza todos os quatro quadrantes da matriz de confusão. Sua inclusão demonstra um alto nível de maturidade metodológica.",
+                "recomendacao": "Nenhuma recomendação necessária. A escolha é muito adequada para o problema."
+            }
+        ]
+    }
+}
