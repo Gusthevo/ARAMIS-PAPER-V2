@@ -1,0 +1,62 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
+        "modelo_llm": "oreal-deepseek-r1-distill-qwen-7b",
+        "data_revisao_utc": "2025-12-03T20:34:04.192579-03:00",
+        "tempo_de_geracao_segundos": 126.49
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "# 2 FUNDAMENTAÇÃO TEÓRICA\n\nA presente seção apresentará uma base necessária ao entendimento do sistema proposto neste trabalho. Dentre os assuntos que serão abordados nesta parte do trabalho estão: IA, Computer Vision (CV), IoT e Mobile Cloud Computing (MCC).\n\n#### 2.1 Inteligência Artificial (IA)\n\nA conceptualização da inteligência apresenta desafios substanciais em termos de definição precisa, refletindo‑se, consequentemente, na complexidade inerente à delimitação da IA. É o campo que se concentra na pesquisa de sistemas que se comportam de tal forma que, para um observador, suas ações seriam percebidas como inteligentes. A IA é um campo de estudo que busca compreender e criar entidades inteligentes com base no que constitui a inteligência, proporcionando aos seres humanos uma maior autonomia nas atividades cotidianas. É através da inteligência humana que se pode manipular o mundo e facilitar a realização de diversas tarefas. A IA é um campo relativamente recente, com origens pós‑Segunda Guerra Mundial, e tem atraído o interesse de profissionais de diversas áreas do conhecimento, sobretudo nos últimos anos, com o surgimento de diversas plataformas online que oferecem serviços através de IA.\n\nAtualmente, a IA abrange uma ampla gama de subcampos e é aplicável a tarefas intelectuais diversas, tornando‑se um campo universal em constante expansão. Ela está intrinsecamente ligada à ação racional, na qual um agente inteligente busca tomar a melhor decisão possível com base na situação. Esse agente pode ser qualquer entidade capaz de perceber seu ambiente por meio de sensores e agir sobre ele usando atuadores. Por exemplo, um agente humano utiliza órgãos sensoriais, como olhos e ouvidos, e partes do corpo, como mãos e pernas, como atuadores. Algumas técnicas foram desenvolvidas para tornar os agentes inteligentes e capazes de reagir de acordo com o que se espera. Uma dessas técnicas é o Aprendizado de Máquina.\n\n#### 2.2 Aprendizado de Máquina\n\nAprendizado de Máquina envolve treinar sistemas para generalizar a partir de dados rotulados e classificar novos dados. É a capacidade de um sistema computacional aprender e melhorar seu desempenho em uma tarefa com base em dados, sem ser explicitamente programado para tal. A *IBM* define Aprendizado de Máquina como um ramo da inteligência artificial e ciência da computação que se concentra no uso de dados e algoritmos para imitar a forma como os humanos aprendem, melhorando gradualmente sua precisão. O Aprendizado de Máquina é um componente importante da crescente área de ciência de dados. Por meio do uso de métodos estatísticos, os algoritmos são treinados para fazer classificações ou previsões, descobrindo informações fundamentais em projetos de mineração de dados. Certos tipos de tarefas necessitam de treinamentos mais complexos, assim como o cérebro humano faz ao reconhecer padrões. Dentro da IA, as Redes Neurais Artificiais (RNA) tentam realizar essas tarefas.\n\n#### 2.3 Redes Neurais Artificiais\n\nAs RNA são modelos computacionais inspirados nas redes de neurônios biológicos presentes no cérebro humano. Elas consistem em unidades simples de processamento interconectadas, os neurônios artificiais, que se comunicam uns com os outros através de conexões ponderadas para a maioria das redes. Os atuais projetos de RNA englobam estruturas complexas que incluem milhões de neurônios dispostos em dezenas ou até centenas de camadas, capazes de realizar uma vasta variedade de tarefas avançadas de Aprendizado de Máquina.\n\nA rede neural é construída conectando múltiplos neurônios em camadas. Redes neurais de propagação para frente apresentam conexões unidirecionais entre suas camadas de entrada, ocultas e de saída. Por outro lado, redes neurais recorrentes ou de realimentação caracterizam‑se por conexões arbitrárias, permitindo retroalimentação entre unidades neurais.\n\nAs redes neurais são robustas e têm a capacidade de generalizar a partir de exemplos, modelando relações complexas não lineares entre entradas e saídas. Elas encontram aplicações em reconhecimento de padrões, classificação, aproximação de funções, previsão de séries temporais e otimização. Sua inspiração biológica e propriedades de aprendizado as tornam particularmente adequadas para problemas de IA. O uso de RNA permitiu à computação realizar tarefas mais difíceis como o Reconhecimento Facial.\n\n#### 2.4 Reconhecimento Facial\n\nO reconhecimento facial pertence a área da IA e visa identificar ou verificar a identidade de uma pessoa através de características únicas do seu rosto. O processo envolve várias etapas, começando com a detecção da face em uma imagem ou vídeo. Em seguida, ocorre o alinhamento da face detectada, geralmente para uma posição frontal, utilizando técnicas como o alinhamento 3D, que emprega um modelo 3D genérico para ajustar a posição da face. Na Figura 1 (página 6‑0) é apresentada a etapa do pipeline de detecção e alinhamento, da seguinte forma:\n\n- (a) Detecção da face, com seis pontos de referência iniciais nos olhos, nariz e boca;\n- (b) O corte alinhado em 2D é induzido;\n- (c) Expande‑se então os pontos para 67 no corte alinhado em 2D, adicionando triângulos no contorno para evitar descontinuidades;\n- (d) A forma 3D de referência é transformada a partir de (b);\n- (e) Visualização dos triângulos. Triângulos mais escuros são menos visíveis;\n- (f) Os 67 pontos de referência induzidos pelo modelo 3D que são usados para direcionar a deformação;\n- (g) O corte final com o rosto alinhado.\n\nApós o alinhamento, o passo sequente é a extração de características faciais, que pode ser realizada de diferentes maneiras. Em um exemplo, utiliza‑se uma Deep Neural Network (DNN) com múltiplas camadas, incluindo camadas convolucionais e de *pooling*, para extrair um vetor de características de alta dimensionalidade. Já em outro, emprega‑se uma Convolutional Neural Network (CNN) treinada com uma *Triplet Loss* para mapear diretamente as imagens faciais para um espaço euclidiano compacto. O *Triplet Loss* é uma função de perda que tem como objetivo minimizar a distância entre uma imagem base e uma classificação correta, ao mesmo tempo em que maximiza a distância entre a imagem base e a erroneamente classificada. Ambas as abordagens visam capturar detalhes sutis e características discriminativas das faces, e impressionam ao conseguir uma representação mais compacta de apenas 128 bytes por face.\n\nA etapa final do reconhecimento facial envolve a classificação ou verificação da identidade. Isso pode ser feito comparando o vetor de características extraído com um banco de dados de faces conhecidas, utilizando técnicas como K‑Nearest Neighbors (KNN) ou outros métodos de classificação. A eficácia desses sistemas é geralmente avaliada em conjuntos de dados padronizados, como o Labeled Faces in the Wild (LFW), que testa o desempenho em cenários de verificação facial não restrita. O treinamento desses modelos requer grandes volumes de dados faciais rotulados, como o conjunto Social Face Classification (SFC), que contém milhões de imagens de faces. Nas próximas subseções serão abordados outros conceitos necessários ao entendimento deste trabalho.\n\n#### 2.5 Internet das Coisas (IoT)\n\nIoT é um conceito que se refere à interconexão de dispositivos físicos, objetos e sistemas por meio da Internet. Essa interconexão permite a coleta, troca e análise de dados, possibilitando a comunicação entre os dispositivos e a realização de ações automatizadas. Em outras palavras, a IoT transforma objetos comuns, permitindo que eles coletem e compartilhem informações para melhorar a eficiência, a conveniência e a tomada de decisões em diversos setores, como saúde, agricultura, indústria, transporte, entre outros. Essa rede de dispositivos conectados pode incluir desde sensores industriais e dispositivos médicos até eletrodomésticos e veículos, criando um ambiente onde a informação é coletada e utilizada para otimizar processos e resolver problemas do cotidiano. Devido à baixa capacidade de processamento e armazenamento comuns a estes dispositivos, as tarefas mais complexas a serem realizadas devem, quase sempre, migrar para outros dispositivos mais robustos por meio da técnica de *offloading*.\n\n#### 2.6 Offloading\n\nO *offloading* se refere à transferência de dados ou computação de um dispositivo móvel para a nuvem com o objetivo de otimizar a vida útil da bateria e superar as limitações de recursos do dispositivo. Esta ideia, que também é, muitas vezes, denominada *cyber foraging*, pode acontecer enviando apenas partes selecionadas de um programa para a nuvem. Mas também existe a possibilidade de migrar todo o programa completo.\n\nO *offloading* pode ser impulsionado por diferentes objetivos, dependendo das necessidades específicas da aplicação. Quando a prioridade é melhorar os tempos de processamento, a abordagem é direcionada para reduzir o tempo de execução das aplicações. Se o foco é economia de energia, o *offloading* concentra‑se na eficiência energética, buscando reduzir o consumo de energia durante o processamento. Há também situações em que a abordagem é motivada por outros fatores que não estão centrados no tempo de processamento ou na eficiência energética. Em tais casos, o *offloading* pode ser impulsionado pelo desejo de aumentar a colaboração, estender a capacidade de armazenamento ou reduzir custos financeiros. Essas considerações adicionais destacam a versatilidade desta técnica, que pode ser adaptada de acordo com uma variedade de metas e requisitos específicos.\n\nO *offloading* também pode ser aplicado para melhorar o desempenho em cenários de baixa potência, permitindo que dispositivos menos robustos, como os da IoT, deleguem tarefas intensivas de processamento para recursos mais poderosos.\n",
+        "resumo_correcoes": {
+            "total_erros": 19,
+            "acentuacao": 1,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 5,
+            "concordancia": 10,
+            "ortografia": 3
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Ortografia",
+                "descricao": "Corrigido ‘entedimento’ para ‘entendimento’, e ‘informações fundamental’ para ‘informações fundamentais’. "
+            },
+            {
+                "tipo_correcao": "Concordância Nominal",
+                "descricao": "Alterado ‘agentes inteligente’ para ‘agentes inteligentes’, ajustando a concordância nominal. "
+            },
+            {
+                "tipo_correcao": "Concordância Verbal",
+                "descricao": "Ajustado o verbo em ‘os agentes inteligentes e capazes de reagir…’. "
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Corrigido a pontuação na frase “Na Figura 1 (página 6‑0) …”, removendo vírgula desnecessária e ajustando parênteses. "
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Removidos pontos duplos após ‘original..’ para manter a norma culta. "
+            },
+            {
+                "tipo_correcao": "Concordância Nominal",
+                "descricao": "Corrigido ‘dezenas a até centenas’ para ‘dezenas ou até centenas’. "
+            },
+            {
+                "tipo_correcao": "Concordância Verbal",
+                "descricao": "Ajustado o verbo em ‘capacitadas a realizar’ para ‘capazes de realizar’. "
+            },
+            {
+                "tipo_correcao": "Concordância Nominal",
+                "descricao": "Corrigido ‘sequente’ (erro de digitação) e mantida forma correta. "
+            },
+            {
+                "tipo_correcao": "Ortografia",
+                "descricao": "Corrigido plural em ‘Convolutional Neural Networks’ para singular ‘Network’. "
+            },
+            {
+                "tipo_correcao": "Concordância Verbal",
+                "descricao": "Ajustado o verbo em ‘e impressiona’ para ‘e impressionam’, concordando com o sujeito composto. "
+            }
+        ]
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FERRAMENTA MULTIAGENTE INTEGRADA COM LLM OPEN-SOURCE PARA APOIO À CORREÇÃO DE TCCS DE ESTUDANTES DE GRADUAÇÃO",
+        "modelo_llm": "meta-llama-3.1-8b-instruct",
+        "data_revisao_utc": "2025-12-09T13:52:46.225590-03:00",
+        "tempo_de_geracao_segundos": 40.47,
+        "secao_revisada": "INTRODUÇÃO"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "",
+        "resumo_correcoes": {
+            "total_erros": 0,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 0,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": []
+    }
+}

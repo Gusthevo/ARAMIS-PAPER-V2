@@ -1,0 +1,26 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+        "modelo_llm": "meta-llama-3.1-8b-instruct",
+        "data_revisao_utc": "2025-12-05T13:15:22.548338-03:00",
+        "tempo_de_geracao_segundos": 12.21
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Rigor Metodológico",
+        "avaliacao_geral": "O texto apresenta uma abordagem metodológica adequada, mas é necessário verificar a rigorosidade científica e a transparência dos resultados obtidos.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "...",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "...",
+                "recomendacao": "..."
+            },
+            {
+                "trecho_relevante": "...",
+                "tipo_ponto": "Ponto Fraco",
+                "analise": "...",
+                "recomendacao": "..."
+            }
+        ]
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-08T16:37:15.892399-03:00",
+        "tempo_de_geracao_segundos": 31.46
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "A introdução apresenta uma estrutura lógica coerente que conduz o leitor desde a definição geral da privacidade digital, passando pelas ameaças em regimes autoritários e ataques cibernéticos até a necessidade de novas soluções. Contudo, vários pontos de transição são abruptos ou sobrecarregados, dificultando a fluidez entre ideias e parágrafos. Os problemas identificados são principalmente relacionados à falta de conectivos adequados, ao agrupamento excessivo de informações em blocos longos e à ausência de frases‑ponte que liguem explicitamente os diferentes cenários abordados.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "A relevância das VPNs se destaca em cenários nos quais a censura e a vigilância são prevalentes.",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "O parágrafo 4 pula direto da definição de VPN (parágrafos anteriores) para sua utilidade, sem preparar o leitor para essa mudança. A falta de um conectivo que indique a transição entre definição e aplicação gera uma sensação de salto.",
+                "sugestao_estrutural": "Introduza uma frase de ligação no final do parágrafo 3 ou início do 4, como: \"Além de seu papel técnico, as VPNs desempenham um papel estratégico em contextos de censura, pois…\""
+            },
+            {
+                "trecho_relevante": "Além das preocupações em cenários de regimes autoritários, as VPNs também podem estar sujeitas a falhas de segurança e vazamentos de dados por ataques de hackers.",
+                "tipo_problema": "Falta de Conectivo/Transição",
+                "analise": "O parágrafo 6 começa abruptamente com uma nova ameaça (vazamento) sem mencionar que já se discutiram riscos anteriores. Isso cria um salto entre os tipos de risco: estatal vs. cibernético.",
+                "sugestao_estrutural": "Adicione uma ponte no final do parágrafo 5, por exemplo: \"Além dessas ameaças governamentais, as VPNs enfrentam vulnerabilidades técnicas que podem resultar em vazamentos de dados.\""
+            },
+            {
+                "trecho_relevante": "Quando se trata de potenciais vazamentos de dados dos usuários, tudo depende do tipo e da quantidade de dados que um provedor de VPN decide coletar.",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "O parágrafo 8 inicia repentinamente com a discussão sobre coleta de dados depois de ter falado sobre ordens judiciais. A ligação entre os temas não está explicitada, tornando a transição confusa.",
+                "sugestao_estrutural": "Insira uma frase de conexão no final do parágrafo 7: \"Para além das exigências judiciais, outro fator crítico é o volume e tipo de dados que os provedores armazenam.\""
+            },
+            {
+                "trecho_relevante": "Os cenários descritos anteriormente evidenciam a necessidade de uma nova abordagem para os serviços de VPN…",
+                "tipo_problema": "Falta de Resumo/Transição",
+                "analise": "\"Os cenários descritos anteriormente\" faz referência ampla, mas o leitor pode ter dificuldade em relembrar todas as ameaças listadas. A falta de um resumo curtos impede que a transição para a solução proposta seja percebida como natural.",
+                "sugestao_estrutural": "Adicione uma frase resumida no final do parágrafo 8: \"Tendo considerado os riscos de vigilância, vazamentos e exigências judiciais, é evidente que…\""
+            },
+            {
+                "trecho_relevante": "O jornal canadense National Post relatou um grave vazamento de dados no Ministério de Relações Exteriores do Canadá. Um ataque de hackers comprometeu uma VPN utilizada pelos funcionários…",
+                "tipo_problema": "Sobrecarga de Informação em Parágrafo",
+                "analise": "O parágrafo 6 apresenta múltiplos incidentes (Canadá, Fox News, Fortinet) em sequência sem separação clara. Isso torna a leitura cansativa e dificulta o foco em cada caso.",
+                "sugestao_estrutural": "Divida o conteúdo em dois ou três parágrafos menores: um dedicado ao vazamento canadense, outro aos incidentes de VPNs gratuitas e terceiro à Falha na Fortinet. Isso melhora a clareza sem alterar o conteúdo."
+            },
+            {
+                "trecho_relevante": "Mesmo em Estados democráticos, um aspecto que pode ameaçar a privacidade dos usuários de VPN são ordens judiciais…",
+                "tipo_problema": "Sobrecarga de Informação e Falta de Conectivo",
+                "analise": "O parágrafo 7 mistura temas (ordens judiciais, equilíbrio entre direito fundamental e combate ao crime, motivação política) sem separar claramente cada argumento. Além disso, a transição do parágrafo anterior não é reforçada por conectivos.",
+                "sugestao_estrutural": "Separar em duas partes: primeiro discutir as ordens judiciais e seu impacto geral; depois tratar da motivação política específica. Incluir uma frase de ponte no final do parágrafo 6, como: \"Além dessas ameaças técnicas, há também riscos legais que…\""
+            },
+            {
+                "trecho_relevante": "Com o crescimento contínuo do uso de tecnologias digitais e plataformas online, as preocupações com a privacidade e o uso de dados têm se intensificado entre os usuários. A privacidade digital refere-se à proteção das informações pessoais…",
+                "tipo_problema": "Falta de Conectivo Inicial",
+                "analise": "O primeiro parágrafo termina com uma definição conceitual, enquanto o segundo começa imediatamente em exemplos cotidianos. O salto entre a abstração e a prática pode ser suavizado.",
+                "sugestao_estrutural": "Adicionar no final do primeiro parágrafo: \"Esses conceitos se manifestam de forma concreta no cotidiano dos usuários, que…\" para ligar definição a exemplos práticos."
+            },
+            {
+                "trecho_relevante": "As VPNs mascaram o Internet Protocol (IP) do usuário, cifram o tráfego de rede e implementam um processo de autenticação…",
+                "tipo_problema": "Repetição Excessiva de Termo",
+                "analise": "\"VPNs\" aparece várias vezes em sequência dentro do mesmo parágrafo, o que pode gerar redundância. Embora não seja grave, a variação lexical poderia melhorar a fluidez.",
+                "sugestao_estrutural": "Substituir algumas ocorrências por pronomes ou sinônimos: \"Essas redes mascaram…\", \"O serviço de autenticação garante…\""
+            }
+        ]
+    }
+}

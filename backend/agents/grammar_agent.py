@@ -14,7 +14,7 @@ sys.path.append(backend_dir)
 from scripts.prompt_manager import render_prompt
 
 from agno.agent import Agent
-from agno.models.google import Gemini
+#from agno.models.google import Gemini
 from agno.models.openai import OpenAIChat
 from agno.os import AgentOS
 import uvicorn
@@ -42,13 +42,13 @@ def load_tcc_text(file_path: str) -> str:
     
 #Variável de chamada dos arquivos de texto
 instructions_file = "../prompts/raw_prompts/v3/grammatical_correction_v3.txt"
-input_text_file = "../data/processed_tccs/2024_tccmgduarte.md"
+input_text_file = "../prompts/tcc_input.txt"
 texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
-    "area_conhecimento_tcc": "Redes de Computadores",
-    "secao_desejada": "FUNDAMENTAÇÃO TEÓRICA",
-    "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
+    "area_conhecimento_tcc": "SEGURANÇA DA INFORMAÇÃO",
+    "secao_desejada": "METODOLOGIA",
+    "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
@@ -64,7 +64,12 @@ print("====================================")
 grammatical_corrector_agent = Agent(
     id="grammatical_correction_agentid",
     name="Agente de Correção Gramatical do ARAMIS",
-    model=OpenAIChat(id="gpt-4o-mini"), # Definição do modelo
+    model=OpenAIChat(
+        id="gpt-oss-120b",
+        base_url = os.getenv("LMSTUDIO_BASE_URL"),
+        api_key = os.getenv("LMSTUDIO_API_KEY"),
+        ), # Definição do modelo
+    system_message_role= "user",
     markdown=True,
     instructions= system_prompt_final,
    # reasoning= True,
@@ -76,6 +81,9 @@ def run_and_save_review():
     print("\n" + "="*50)
     print(f"🚀 INICIANDO REVISÃO GRAMATICAL COM {grammatical_corrector_agent.model.id} (em background)")
     print(f"📄 Arquivo de Entrada: {input_text_file}")
+    print("Base URL:", os.getenv("LMSTUDIO_BASE_URL"))
+    print("API Key:", os.getenv("LMSTUDIO_API_KEY"))
+
     print("="*50 + "\n")
     os.makedirs(output_dir, exist_ok=True)
     try:
@@ -104,7 +112,8 @@ def run_and_save_review():
                 "titulo_tcc": dados_do_frontend.get("titulo_tcc"),
                 "modelo_llm": grammatical_corrector_agent.model.id,   # Pega o ID do modelo
                 "data_revisao_utc": datetime.now(ZoneInfo("America/Sao_Paulo")).isoformat(),
-                "tempo_de_geracao_segundos": round(duration, 2)
+                "tempo_de_geracao_segundos": round(duration, 2),
+                "secao_revisada": dados_do_frontend.get("secao_desejada"),
             },
             "resultado_da_revisao": resultado_revisao # Aninha o resultado do LLM aqui
         }

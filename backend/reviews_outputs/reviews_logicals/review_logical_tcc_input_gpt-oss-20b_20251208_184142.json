@@ -1,0 +1,38 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FERRAMENTA MULTIAGENTE INTEGRADA COM LLM OPEN-SOURCE PARA APOIO À CORREÇÃO DE TCCS DE ESTUDANTES DE GRADUAÇÃO",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-08T18:41:42.539577-03:00",
+        "tempo_de_geracao_segundos": 14.36
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "A introdução apresenta uma estrutura lógica geral coerente, mas alguns pontos de transição e de conectividade entre as ideias compromete a fluidez. Melhorar os conectivos e reestruturar breves frases pode tornar o argumento mais suave e claro.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Assim, de acordo com Carboni e Nogueira (2008), o TCC além de introduzir o aluno na pesquisa por meio de recursos metodológicos, o capacitará a resolver problemas e incentivará a prosseguir na carreira acadêmica.",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "A passagem do enunciado sobre a definição do TCC para a citação das funções atribuídas ao mesmo ocorre de forma direta, sem um elemento que conecte explicitamente o que foi apresentado anteriormente com o argumento que se segue. Isso pode criar uma sensação de salto abrupto.",
+                "sugestao_estrutural": "Adicione um pequeno intertítulo ou frase de ligação, como: 'Essas características ilustram claramente os benefícios do TCC, conforme destacado por Carboni e Nogueira (2008).' Assim, a transição fica mais natural."
+            },
+            {
+                "trecho_relevante": "Ao elaborar um texto dessa importância, é necessária a atenção contínua ao trabalho, pois, no processo de avaliação do TCC observa-se o rigor...",
+                "tipo_problema": "Falta de Conectivo",
+                "analise": "A frase tenta ligar a necessidade de atenção à prática de avaliação, mas o uso da conjunção 'pois' após uma pausa longa gera confusão e quebra o fluxo. Além disso, a expressão 'é necessária a atenção contínua ao trabalho' pode ser vista como vaga.",
+                "sugestao_estrutural": "Reescreva a frase para usar um conectivo mais claro: 'Ao elaborar um texto tão importante, exige-se uma atenção contínua, pois o processo de avaliação do TCC destaca rigor na normatização, no encadeamento lógico e na profundidade do conhecimento.'"
+            },
+            {
+                "trecho_relevante": "Diante dessas dificuldades, fica evidente a necessidade de soluções que agilizem a revisão, como sistemas de Inteligência Artificial (IA) projetados para corrigir textos conforme as particularidades do contexto acadêmico.",
+                "tipo_problema": "Transição entre Parágrafos",
+                "analise": "O salto direto da descrição das dificuldades para a proposta de IA parece abrupto; o leitor pode sentir falta de uma ponte que mostre a relação direta entre os problemas citados e a solução sugerida.",
+                "sugestao_estrutural": "Introduza um frase-pontes no início do parágrafo, como: 'Para superar esses obstáculos identificados, torna‑se evidente a necessidade de soluções tecnológicas que agilizem o processo de revisão. Entre elas, destacam-se os sistemas de Inteligência Artificial (IA) ...'"
+            },
+            {
+                "trecho_relevante": "Tais técnicas aplicadas podem ser adaptáveis à revisão de textos acadêmicos, como os TCCsvisto que em Lunsford e Lunsford (2008), os principais problemas identificados nesses documentos incluem erros de grafia (13,7% dos casos) e a ausência de vírgulas após elementos introdutórios (9,6%), entre outros.",
+                "tipo_problema": "Estrutura de Sentença",
+                "analise": "A frase contém um erro de digitação ('TCCsvisto') e uma construção que mistura duas ideias sem conectivo claro. A relação entre a adaptabilidade das técnicas e os problemas encontrados pelos autores não está bem delimitada.",
+                "sugestao_estrutural": "Divida em duas frases: 'Essas técnicas podem ser adaptáveis à revisão de textos acadêmicos, especialmente TCCs. Em Lunsford e Lunsford (2008), por exemplo, foram identificados problemas como erros de grafia (13,7 %) e a ausência de vírgulas após elementos introdutórios (9,6 %).'"
+            }
+        ]
+    }
+}

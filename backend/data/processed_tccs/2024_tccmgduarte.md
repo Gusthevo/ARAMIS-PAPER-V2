@@ -1,4 +1,4 @@
-# CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS
+# cCONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS
 
 # COUNTING AND IDENTIFICATION OF PEOPLE IN A CLASSROOM USING COMPUTER VISION AND INTERNET OF THINGS
 
@@ -7,7 +7,6 @@
 A frequência escolar é essencial para uma gestão educacional eficiente. Métodos tradicionais são menos eficazes em comparação com tecnologias que, além de poupar tempo e esforço dos professores, permitem a extração de novos conhecimentos a partir dos dados gerados. A Inteligência Artificial, com técnicas como Aprendizado de Máquina, Processamento de Linguagem Natural e Visão Computacional, passou a integrar o cotidiano das pessoas, mas tarefas complexas como essas exigem o *offloading* computacional para dispositivos mais poderosos, como na Computação em Nuvem, devido às limitações dos dispositivos de Internet das Coisas. Este trabalho adota uma abordagem de Visão Computacional para reconhecimento facial de alunos em sala de aula, visando realizar a frequência escolar de forma automatizada. A proposta envolve um sistema baseado em um *Raspberry Pi* com uma câmera que captura imagens, as quais serão processadas pelo próprio dispositivo e/ou enviadas para um dispositivo de borda com maior poder computacional. Uma vez que o conjunto de imagens ou dados característicos esteja no dispositivo de borda, ou ainda no *Raspberry Pi*, o sistema oferecerá diversos modelos de detecção e reconhecimento facial para a realização da frequência e posterior registro em um banco de dados. Neste trabalho, foram utilizados os modelos *Single Shot MultiBox Detector* e *ArcFace*, que trabalham em conjunto para detectar rostos e realizar o reconhecimento facial, respectivamente. Os experimentos foram conduzidos como uma prova de conceito e um teste de estresse computacional. Os resultados obtidos demonstram que o sistema atingiu 85% de acurácia nos reconhecimentos. O *offloading* computacional se mostrou uma opção válida, embora o *Raspberry Pi* tenha apresentado tempo médio de 4,05 segundos para a conclusão da tarefa.
 
 Palavras-chave: Reconhecimento Facial. *Offloading*. Frequência Escolar. Computação de Borda.
-
 
 #### ABSTRACT
 
@@ -103,15 +102,15 @@ Após a apresentação de exemplos de trabalhos científicos que exploram uma te
 Tabela 1 – Tabela comparativa entre as contribuições deste trabalho em relação aos outros apresentados.
 
 | Autores                | Contribuições |   |   |   |   |
-|------------------------|---------------|---|---|---|---|
-| -                      | 1             | 2 | 3 | 4 | 5 |
-| Khan et al. (2019)     | X             |   | X |   |   |
-| Khan et al. (2020)     | X             |   |   |   | X |
-| Muttaqin et al. (2020) | X             |   |   |   |   |
-| Hussain et al. (2022)  |               | X |   |   |   |
-| Este trabalho          | X             | X | X | X | X |
+| ---------------------- | --------------- | - | - | - | - |
+| -                      | 1               | 2 | 3 | 4 | 5 |
+| Khan et al. (2019)     | X               |   | X |   |   |
+| Khan et al. (2020)     | X               |   |   |   | X |
+| Muttaqin et al. (2020) | X               |   |   |   |   |
+| Hussain et al. (2022)  |                 | X |   |   |   |
+| Este trabalho          | X               | X | X | X | X |
 
-1. Chamada em sala sensível ao tempo. 
+1. Chamada em sala sensível ao tempo.
 2. Processamento ainda no *Raspberry Pi*.
 3. Reconhecimento Facial na borda.
 4. Avaliação de estresse computacional do sistema.
@@ -127,7 +126,6 @@ A arquitetura neste trabalho se dividiu em quatro etapas essenciais: Captura das
 
 O sistema pode funcionar utilizando apenas um dispositivo realizando a frequência, mas pode estar em um ambiente de borda fazendo o *offloading* dos dados para serem processados no dispositivo de borda. É apresentado um diagrama de módulos deste sistema. O anunciador\_servidor envia os dados de endereço do servidor através de um serviço *multicast* e o capturador\_de\_servidor recebe esses dados e seta o sistema com o endereço do servidor. A câmera envia a imagem ao reconhecedor ou ao grpc\_cliente que envia ao computador. O reconhecedor, tando do *Raspberry Pi* quanto do Computador, podem realizar o reconhecimento facial e enviar ao banco de dados.
 
-
 # *4.1.1 Captura das imagens*
 
 Para realizar a captura das imagens, o sistema oferece duas opções aos usuários: o uso de um módulo de câmera específico para projetos com *Raspberry Pi* ou uma câmera USB conectada ao dispositivo. Essas alternativas possibilitam a aplicação do sistema em dispositivos que não possuam um conector próprio para câmeras. Para assegurar o funcionamento adequado de ambas as opções, a etapa de captura de imagens utiliza a biblioteca *PiCamera2*†(#page-11-1) e a biblioteca *OpenCV*, muito empregada em projetos de processamento de imagens.
@@ -140,7 +138,7 @@ Devido às limitações de processamento do *Raspberry Pi*, optou-se por impleme
 
 O envio das imagens foi realizado utilizando a tecnologia Google Remote Procedure Call (gRPC), escolhida pela sua alta eficiência na transferência de dados em rede, sem comprometer a segurança. O gRPC permite uma comunicação rápida e confiável entre sistemas distribuídos, o que é crucial para o desempenho de aplicações que demandam baixa latência e alta escalabilidade. Além disso, essa tecnologia oferece suporte a múltiplas linguagens de programação e utiliza a compactação de dados, o que otimiza a transmissão e reduz o consumo de largura de banda. Nesse contexto,
 
-<sup>†</sup> Disponível em https://pypi.org/project/picamera2/
+`<sup>`†`</sup>` Disponível em https://pypi.org/project/picamera2/
 
 foi desenvolvido um serviço gRPC específico para receber os dados dos rostos recortados e transmiti-los ao dispositivo de borda, além de responder ao cliente (*Raspberry Pi*) também utilizando o mesmo método de comunicação, garantindo uma comunicação segura e eficiente ao longo do processo.
 
@@ -158,9 +156,9 @@ O reconhecimento facial pode ser realizado tanto no dispositivo de borda quanto 
 
 A biblioteca anteriormente chamada *LightFace* e depois *DeepFace* é um *framework* de análise de faces ainda em desenvolvimento, mas que conta com análises que vão desde o reconhecimento facial até a análise de expressões. No entanto, neste trabalho, será abordado apenas aspectos da biblioteca que envolvem o reconhecimento facial. *Deepface* atua dentro do *pipeline* mais utilizado de reconhecimento facial que segue as etapas de: detecção de faces; alinhamento; extração de características faciais e comparação dos vetores TAIGMAN(#page-31-4) *et al.*, 2014(#page-31-4).
 
-<sup>\*</sup> Deepface - https://pypi.org/project/deepface/
+`<sup>`\*`</sup>` Deepface - https://pypi.org/project/deepface/
 
-</span><sup>†</sup> PyPI - http://pypi.org
+`<sup>`†`</sup>` PyPI - http://pypi.org
 
 A inclusão de algoritmos de alinhamento facial na etapa de pré-processamento das imagens de entrada eleva a acurácia do modelo final de reconhecimento facial de 98,87% para 99,63%. Com isso, o autor do projeto adiciona a possibilidade de usar várias opções de modelo de detecção de face e alinhamento das faces. Alguns dos modelos desta etapa ainda são capazes de oferecer a possibilidade de "frontalizar" os rostos, voltado para situações em que uma face vista de forma lateral é transformada de forma que se pareça estar de frente para a câmera. Dentre os modelos suportados pela biblioteca na versão 0.0.92, estão: *opencv, ssd, dlib, mtcnn, fastmtcnn, retinaface, mediapipe, yolov8, yunet, centerface*. Após as etapas citadas anteriormente, será realizada a extração de características das imagens repassadas como parâmetros. Esta etapa é responsável por gerar o vetor de características de cada imagem para posterior comparação e cálculo da distância entre as faces. Para tal atividade, são utilizados alguns dos principais modelos de extração de características que despontam como os mais modernos disponíveis: *Facenet512, Human-beings, Facenet, Dlib, VGG-Face, ArcFace, GhostFaceNet, SFace, OpenFace, DeepFace, DeepID.*
 
@@ -172,27 +170,27 @@ Devido a grande quantidade de modelos disponíveis na biblioteca *Deepface*, foi
 
 O processo transcorreu utilizando um *dataset* com 98 classes contendo 12 rostos de cada classe, portanto mil cento e setenta e seis (1176) imagens no total. Das 12 imagens de cada classe, 4 foram utilizadas para teste e as outras 8 para treino. Foi criado dois vetores contendo os parâmetros de detectores e modelos (e.g. *detector* = 'yolov8', 'mtcnn', 'dlib', 'opencv', ... e *model* = 'VGG-Face', 'Facenet', 'Dlib', 'ArcFace', ...) de forma que dois laços aninhados pudesse passar por todas as possíveis combinações de detector/modelo e testá-los com o banco de dados. Essa forma funciona pois os parâmetros de detector e modelo da função "*find*" são entradas no formato de *String*.
 
-</span><sup>‡</sup> Arquivos pickle possuem extensão de arquivo .pkl e são usados em Python para serializar e desserializar objetos. A serialização converte um objeto em um formato armazenável ou transmissível, enquanto a desserialização faz o oposto, o que torna esses formatos mais fáceis de serem manipulados.
+`<sup>`‡`</sup>` Arquivos pickle possuem extensão de arquivo .pkl e são usados em Python para serializar e desserializar objetos. A serialização converte um objeto em um formato armazenável ou transmissível, enquanto a desserialização faz o oposto, o que torna esses formatos mais fáceis de serem manipulados.
 
 Cada detector e modelo passou por todas as imagens treinando e testando de forma que foram gerados cem arquivos *pickle*, dado que a biblioteca trabalha com 10 tipos de detector e 10 tipos de modelos de extração de características faciais. O experimento foi realizando utilizando o serviço de *Jupyter Notebook* hospedado que oferece acesso a recursos de computação chamado Google *Colaboratory*. No entanto, a configuração não contou com Tensor Processing Units (TPUs) ou Graphic Processing Unit (GPU)s ativadas, apenas os recursos básicos oferecidos pelo sistema. Não foi considerado no experimento o consumo de Central Processing Unit (CPU) e nem memória Random Access Memory (RAM). Os modelos com acurácia acima de 90%, ordenados a partir da acurácia média resultante:
 
 Tabela 2 – Pontuação das melhores combinações de detector e no que se refere a acurácia nos testes realizados
 
-| Detector   | Modelo   | Acurácia | Média (s) | Variância | s<br>Desvio Padrão |  |  
-|------------|----------|----------|-----------|-----------|--------------------|--|
-| yolov8     | ArcFace  | 98%      | 1.98      | 1.2130    | 1.1014             |  |  
-| mtcnn      | ArcFace  | 98%      | 2.56      | 0.2243    | 0.4736             |  |
-| retinaface | ArcFace  | 96%      | 3.33      | 1.7798    | 1.3341             |  |
-| dlib       | ArcFace  | 94%      | 2.21      | 0.3414    | 0.5843             |  |
-| yolov8     | VGG-Face | 94%      | 2.41      | 2.1592    | 1.4694             |  |
-| mtcnn      | VGG-Face | 94%      | 3.1       | 2.0673    | 1.4378             |  |
-| yolov8     | Facenet  | 93%      | 1.89      | 0.0190    | 0.1379             |  |
-| mtcnn      | Facenet  | 93%      | 2.51      | 0.1945    | 0.4410             |  |
-| retinaface | Facenet  | 92%      | 3.27      | 0.0892    | 0.2986             |  |
-| retinaface | VGG-Face | 92%      | 3.84      | 0.2202    | 0.4693             |  |
-| dlib       | Dlib     | 91%      | 2.07      | 0.3205    | 0.5661             |  |
-| ssd        | Facenet  | 90%      | 1.86      | 1.9656    | 1.9657             |  |
-| ssd        | ArcFace  | 90%      | 1.89      | 0.0147    | 0.1214             |  |
+| Detector   | Modelo   | Acurácia | Média (s) | Variância | s`<br>`Desvio Padrão |  |
+| ---------- | -------- | --------- | ---------- | ---------- | ----------------------- | - |
+| yolov8     | ArcFace  | 98%       | 1.98       | 1.2130     | 1.1014                  |  |
+| mtcnn      | ArcFace  | 98%       | 2.56       | 0.2243     | 0.4736                  |  |
+| retinaface | ArcFace  | 96%       | 3.33       | 1.7798     | 1.3341                  |  |
+| dlib       | ArcFace  | 94%       | 2.21       | 0.3414     | 0.5843                  |  |
+| yolov8     | VGG-Face | 94%       | 2.41       | 2.1592     | 1.4694                  |  |
+| mtcnn      | VGG-Face | 94%       | 3.1        | 2.0673     | 1.4378                  |  |
+| yolov8     | Facenet  | 93%       | 1.89       | 0.0190     | 0.1379                  |  |
+| mtcnn      | Facenet  | 93%       | 2.51       | 0.1945     | 0.4410                  |  |
+| retinaface | Facenet  | 92%       | 3.27       | 0.0892     | 0.2986                  |  |
+| retinaface | VGG-Face | 92%       | 3.84       | 0.2202     | 0.4693                  |  |
+| dlib       | Dlib     | 91%       | 2.07       | 0.3205     | 0.5661                  |  |
+| ssd        | Facenet  | 90%       | 1.86       | 1.9656     | 1.9657                  |  |
+| ssd        | ArcFace  | 90%       | 1.89       | 0.0147     | 0.1214                  |  |
 
 Fonte: O autor.
 
@@ -203,11 +201,11 @@ Após definir pelo menos 4 pares detector/modelo que melhor performaram no siste
 Tabela 3 – Avaliação dos pares detector/modelo com apenas 5 imagens de referência no banco
 
 | Detector | Modelo  | Acurácia (%) | Tempo Médio (s) | Variância (s) | Desvio Padrão (s) |
-|----------|---------|--------------|-----------------|---------------|-------------------|
-| mtcnn    | ArcFace | 97%          | 2.54            | 0.2497        | 0.4997            |
-| yolov8   | ArcFace | 96%          | 1.81            | 0.0181        | 0.1348            |
-| yolov8   | Facenet | 92%          | 1.85            | 0.0977        | 0.3126            |
-| mtcnn    | Facenet | 90%          | 2.62            | 0.4271        | 0.6535            |
+| -------- | ------- | ------------- | ---------------- | -------------- | ------------------ |
+| mtcnn    | ArcFace | 97%           | 2.54             | 0.2497         | 0.4997             |
+| yolov8   | ArcFace | 96%           | 1.81             | 0.0181         | 0.1348             |
+| yolov8   | Facenet | 92%           | 1.85             | 0.0977         | 0.3126             |
+| mtcnn    | Facenet | 90%           | 2.62             | 0.4271         | 0.6535             |
 
 Fonte: O autor.
 
@@ -221,7 +219,6 @@ A estrutura proposta visa facilitar a gestão de um ambiente acadêmico de forma
 - Professor: Guarda as informações dos professores. Cada professor é identificado por uma matrícula única (matricula-professor), que é a chave primária. Além disso, a tabela contém o nome, sobrenome e *e-mail* do professor, sendo que o *e-mail* deve ser único. Cada professor também está associado a um curso, identificado pelo codigo-curso, que referencia a tabela Curso.
 - Disciplina: Aqui são armazenadas as informações das disciplinas. Cada disciplina tem um código único (codigo-disciplina), que é a chave primária, além do nome, descrição e carga horária.
 - Turma: Armazena os dados das turmas criadas para os cursos. Cada turma é identificada por um código único (codigo-turma), que é a chave primária. A turma está associada a um curso, identificado pelo codigo-curso, e contém informações sobre o semestre e ano em que a turma é oferecida.
-
 - Aluno: Nesta tabela são armazenados os dados dos alunos. Cada aluno possui uma matrícula única (matricula-aluno), que é a chave primária, além do nome, sobrenome e o caminho da imagem (img-path) do aluno.
 - Aluno-Turma: Registra as matrículas dos alunos nas turmas. Cada matrícula tem um identificador único (id-matricula), que é a chave primária gerada automaticamente. A tabela também armazena a matrícula do aluno (matricula-aluno), que referencia a tabela Aluno, e o código da turma (codigo-turma), que referencia a tabela Turma, além da data da matrícula.
 - Aula: Esta tabela registra as aulas ministradas em disciplinas específicas. Cada aula é identificada por um ID único (id-aula), que é a chave primária, e está associada a uma disciplina, identificada pelo codigo-disciplina, que referencia a tabela Disciplina. A tabela também armazena a data da aula.
@@ -243,10 +240,9 @@ Para acomodar os componentes de hardware, foi desenvolvido um gabinete utilizand
 
 O gabinete foi impresso no laboratório de física do Campus e demorou catorze horas para ficar pronto. Após a impressão, foi afixados porcas nas grades do fundo para acomodar o *Raspberry Pi* e o resultado pode ser visto na Figura 7.(#page-19-0) Passagens foram deixadas para conexões com a placa. A tampa frontal do gabinete foi propositalmente feita com uma abertura maior possibilitando a instalação de novos componentes no projeto.
 
-<sup>§</sup> Disponível em https://pypi.org/project/lcd1602gpio/
+`<sup>`§`</sup>` Disponível em https://pypi.org/project/lcd1602gpio/
 
-<sup>¶</sup> Disponível em https://fritzing.org/
-
+`<sup>`¶`</sup>` Disponível em https://fritzing.org/
 
 #### *4.2.1 Preparação do sistema*
 
@@ -258,7 +254,7 @@ siões, ângulos, lugares e condições diferentes. Aos que utilizam óculos, fo
 
 O *Raspberry Pi* 4 Modelo B||, com 4GB de RAM, foi o modelo utilizado no projeto. Trata-se de um microcomputador versátil, ideal para diversas aplicações, bem como todos os outros modelos *Raspberry Pi*. São utilizados em diversos projetos desde simples microcontroladores até como computadores de pequeno porte. O modelo utilizado possui um processador *quad-core Cortex-A72* de 1.8GHz e conectividade *Wi-Fi*, *Bluetooth* e *Ethernet Gigabit*. A placa suporta até dois monitores 4K e conta com algumas portas USB para expansão e conectividade. Para seu funcionamento, exige uma fonte de alimentação estável de no mínimo 3 amperes e,
 
-<sup>||</sup> Mais informações em https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
+`<sup>`||`</sup>` Mais informações em https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
 
 ainda assim, pode apresentar limitações em tarefas que demandam alto poder de processamento gráfico.
 
@@ -282,7 +278,7 @@ Para exibir informações ao usuário, foi utilizado um *display* LCD de 16 segm
 
 O dispositivo de borda utilizado neste experimento é um computador *Notebook Avell A52 Hyb*, equipado com um processador Intel de décima-segunda geração modelo Core i5-12450H de 8 núcleos e 12 *threads*. A configuração gráfica inclui uma placa de vídeo integrada Intel UHD Graphics de décima-segunda geração. O sistema operacional instalado é o Linux Kubuntu 24.04 com *Kernel 6.8.0-41-generic (64-bit)*, baseado no Ubuntu 24.04. O dispositivo possui 24GB de memória RAM DDR4 3200 MHz e um Non-Volatile Memory Express (NVMe)
 
-<sup>\*\*</sup> http://www.raspbian.org/
+`<sup>`\*\*`</sup>` http://www.raspbian.org/
 
 A-Data de 512GB, com mais de 100GB de capacidade disponível. Devido a instabilidade da rede da universidade, foi criado uma rede com um celular *Samsung* A21s utilizando a conexão 2.4GHz por não conter um roteador disponível no momento do experimento.
 
@@ -347,14 +343,14 @@ Na Tabela 4(#page-26-0) são apresentadas as métricas extraídas do experimento
 Tabela 4 – Tabela com os resultados obtidos nos testes com cenários de 1, 5, 10, 15, 20 e 25 salas/*threads*
 
 | Salas | Média | Mediana | Variância | Q1 (s) | Q3 (s) | Desvio | Acertos | Total |
-|-------|-------|---------|-----------|--------|--------|--------|---------|-------|
-|       | (s)   | (s)     | (s)       |        |        | (s)    |         |       |
-| 1     | 1,39  | 1,31    | 0,17      | 1,23   | 1,43   | 0,41   | 84,06%  | 1500  |
-| 5     | 3,69  | 3,31    | 1,32      | 3,09   | 3,78   | 1,15   | 84,00%  | 7500  |
-| 10    | 7,95  | 7,35    | 5,24      | 6,47   | 8,75   | 2,29   | 84,00%  | 15000 |
-| 15    | 10,31 | 9,51    | 5,30      | 9,09   | 11,65  | 2,30   | 84,00%  | 22500 |
-| 20    | 28,32 | 25,26   | 146,34    | 21,46  | 27,96  | 12,10  | 84,00%  | 30000 |
-| 25    | 34,41 | 32,27   | 269,67    | 29,15  | 37,91  | 16,42  | 84,23%  | 37500 |
+| ----- | ------ | ------- | ---------- | ------ | ------ | ------ | ------- | ----- |
+|       | (s)    | (s)     | (s)        |        |        | (s)    |         |       |
+| 1     | 1,39   | 1,31    | 0,17       | 1,23   | 1,43   | 0,41   | 84,06%  | 1500  |
+| 5     | 3,69   | 3,31    | 1,32       | 3,09   | 3,78   | 1,15   | 84,00%  | 7500  |
+| 10    | 7,95   | 7,35    | 5,24       | 6,47   | 8,75   | 2,29   | 84,00%  | 15000 |
+| 15    | 10,31  | 9,51    | 5,30       | 9,09   | 11,65  | 2,30   | 84,00%  | 22500 |
+| 20    | 28,32  | 25,26   | 146,34     | 21,46  | 27,96  | 12,10  | 84,00%  | 30000 |
+| 25    | 34,41  | 32,27   | 269,67     | 29,15  | 37,91  | 16,42  | 84,23%  | 37500 |
 
 Fonte: O autor.
 
@@ -382,7 +378,6 @@ Para trabalhos futuros, sugere-se o teste utilizando uma rede dedicada ao servi�
 - 2. Investigar se é possível adaptar o sistema para identificar pessoas com acessórios como bonés, tatuagem, barba, mascaras, etc;
 - 3. Melhorar as configurações do servidor, por exemplo, aumentado o número de *workers*;
 - 4. Desenvolver estratégias para distribuir melhor o processamento de forma que parte das imagens sejam processadas no *Raspberry Pi* e outra seja enviada ao servidor. Podendo
-
 - ainda, utilizar o servidor apenas para extrair as características e realizar a comparação com as imagens do banco;
 - 5. Reproduzir o experimento com as *threads* utilizando conjuntos de *Raspberry Pi* realizando requisições ao servidor;
 - 6. Realizar os mesmos experimentos utilizando outras bibliotecas e linguagens em trechos que se mostrem críticos;
@@ -391,7 +386,7 @@ Para trabalhos futuros, sugere-se o teste utilizando uma rede dedicada ao servi�
 
 # REFERÊNCIAS
 
-- <span id="page-29-8"></span>HUSSAIN, T.; HUSSAIN, D.; HUSSAIN, I.; ALSALMAN, H.; HUSSAIN, S.; ULLAH, S. S.; AL-HADHRAMI, S. Internet of things with deep learning-based face recognition approach for authentication in control medical systems. Computational and Mathematical Methods in Medicine, v. 2022, 2022. Cited by: 12; All Open Access, Gold Open Access, Green Open Access. Disponível em: https://www.scopus.com/inward/record.uri?eid=2-s2.0-85125124694&doi=10.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85125124694&doi=10.1155%2f2022%2f5137513&partnerID=40&md5=1ea8d3e876d36bda9425d768247c3cb2) 1155%2f2022%2f5137513&partnerID=40&md5=1ea8d3e876d36bda9425d768247c3cb2.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85125124694&doi=10.1155%2f2022%2f5137513&partnerID=40&md5=1ea8d3e876d36bda9425d768247c3cb2)
-- <span id="page-30-8"></span>KHAN, M. Z.; HAROUS, S.; HASSAN, S. U.; KHAN, M. U. G.; IQBAL, R.; MUMTAZ, S. Deep unified model for face recognition based on convolution neural network and edge computing. IEEE Access, v. 7, p. 72622 – 72633, 2019. Cited by: 94; All Open Access, Gold Open Access. Disponível em: https://www.scopus.com/inward/record.uri?(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=2cffe8f2829eb43619a74dd6982d74d1) eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=2cffe8f2829eb43619a74dd6982d74d1) 2cffe8f2829eb43619a74dd6982d74d1.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=2cffe8f2829eb43619a74dd6982d74d1)
-- <span id="page-30-9"></span>KHAN, S.; AKRAM, A.; USMAN, N. Real time automatic attendance system for face recognition using face api and opencv. Wireless Personal Communications, v. 113, n. 1, p. 469 – 480, 2020. Cited by: 40. Disponível em: https://www.scopus.com/inward/record.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=820cab8f2f2b56211c2c0cb48e9cff78) uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=820cab8f2f2b56211c2c0cb48e9cff78) 820cab8f2f2b56211c2c0cb48e9cff78.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=820cab8f2f2b56211c2c0cb48e9cff78)
-- <span id="page-30-10"></span>MUTTAQIN, R.; FUADA, S.; MULYANA, E. *et al.* Attendance system using machine learning-based face detection for meeting room application. International Journal of Advanced Computer Science and Applications, Science and Information (SAI) Organization Limited, v. 11, n. 8, 2020.
+- `<span id="page-29-8">`HUSSAIN, T.; HUSSAIN, D.; HUSSAIN, I.; ALSALMAN, H.; HUSSAIN, S.; ULLAH, S. S.; AL-HADHRAMI, S. Internet of things with deep learning-based face recognition approach for authentication in control medical systems. Computational and Mathematical Methods in Medicine, v. 2022, 2022. Cited by: 12; All Open Access, Gold Open Access, Green Open Access. Disponível em: https://www.scopus.com/inward/record.uri?eid=2-s2.0-85125124694&doi=10.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85125124694&doi=10.1155%2f2022%2f5137513&partnerID=40&md5=1ea8d3e876d36bda9425d768247c3cb2) 1155%2f2022%2f5137513&partnerID=40&md5=1ea8d3e876d36bda9425d768247c3cb2.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85125124694&doi=10.1155%2f2022%2f5137513&partnerID=40&md5=1ea8d3e876d36bda9425d768247c3cb2)
+- `<span id="page-30-8">`KHAN, M. Z.; HAROUS, S.; HASSAN, S. U.; KHAN, M. U. G.; IQBAL, R.; MUMTAZ, S. Deep unified model for face recognition based on convolution neural network and edge computing. IEEE Access, v. 7, p. 72622 – 72633, 2019. Cited by: 94; All Open Access, Gold Open Access. Disponível em: https://www.scopus.com/inward/record.uri?(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=2cffe8f2829eb43619a74dd6982d74d1) eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=2cffe8f2829eb43619a74dd6982d74d1) 2cffe8f2829eb43619a74dd6982d74d1.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85067410048&doi=10.1109%2fACCESS.2019.2918275&partnerID=40&md5=2cffe8f2829eb43619a74dd6982d74d1)
+- `<span id="page-30-9">`KHAN, S.; AKRAM, A.; USMAN, N. Real time automatic attendance system for face recognition using face api and opencv. Wireless Personal Communications, v. 113, n. 1, p. 469 – 480, 2020. Cited by: 40. Disponível em: https://www.scopus.com/inward/record.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=820cab8f2f2b56211c2c0cb48e9cff78) uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=820cab8f2f2b56211c2c0cb48e9cff78) 820cab8f2f2b56211c2c0cb48e9cff78.(https://www.scopus.com/inward/record.uri?eid=2-s2.0-85083157811&doi=10.1007%2fs11277-020-07224-2&partnerID=40&md5=820cab8f2f2b56211c2c0cb48e9cff78)
+- `<span id="page-30-10">`MUTTAQIN, R.; FUADA, S.; MULYANA, E. *et al.* Attendance system using machine learning-based face detection for meeting room application. International Journal of Advanced Computer Science and Applications, Science and Information (SAI) Organization Limited, v. 11, n. 8, 2020.

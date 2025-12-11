@@ -14,7 +14,7 @@ sys.path.append(backend_dir)
 from scripts.prompt_manager import render_prompt
 
 from agno.agent import Agent
-from agno.models.google import Gemini
+#from agno.models.google import Gemini
 from agno.models.openai import OpenAIChat
 from agno.os import AgentOS
 import uvicorn
@@ -41,13 +41,13 @@ def load_tcc_text(file_path: str) -> str:
         return "Texto do TCC não fornecido."
 
 instructions_file = "../prompts/raw_prompts/v3/methodological_rigor_v3.txt"
-input_text_file = "../data/processed_tccs/2024_tccmgduarte.md"
+input_text_file = "../prompts/tcc_input.txt"
 texto_do_tcc = load_tcc_text(input_text_file)
 
 dados_do_frontend = {
-    "area_conhecimento_tcc": "Redes de Computadores",
+    "area_conhecimento_tcc": "SEGURANÇA DA INFORMAÇÃO",
     "secao_desejada": "METODOLOGIA",
-    "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
+    "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
     "nivel_rigor_modelo": "Rigoroso",
    #"informacoes_adicionais": "Não há informações adicionais",
     "texto_tcc": texto_do_tcc,
@@ -63,10 +63,15 @@ print("------------------------------------")
 methodological_rigor_agent = Agent(
     id="methodological_rigor_agentid",
     name="Agente Revisor de Rigor Metodológico do ARAMIS",
-    model=OpenAIChat(id="gpt-4o-mini"), # Definição do modelo
+    model=OpenAIChat(
+        id="gpt-oss-120b",
+        base_url = os.getenv("LMSTUDIO_BASE_URL"),
+        api_key = os.getenv("LMSTUDIO_API_KEY"),
+        ), # Definição do modelo
+    system_message_role="user",
     markdown=True,
     instructions= system_prompt_final,
-    reasoning= True,
+    #reasoning= True,
 )
 
 # --- Lógica de salvamento ---
@@ -74,6 +79,7 @@ def run_and_save_review():
     """Esta função contém a lógica de execução e salvamento."""
     print("\n" + "="*50)
     print(f"🚀 INICIANDO REVISÃO GRAMATICAL COM {methodological_rigor_agent.model.id} (em background)")
+    print(methodological_rigor_agent.model.id)
     print(f"📄 Arquivo de Entrada: {input_text_file}")
     print("="*50 + "\n")
     os.makedirs(output_dir, exist_ok=True)

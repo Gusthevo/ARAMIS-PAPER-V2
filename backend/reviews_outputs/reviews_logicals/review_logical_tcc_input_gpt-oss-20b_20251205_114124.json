@@ -1,0 +1,62 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-05T11:41:24.597832-03:00",
+        "tempo_de_geracao_segundos": 13.78
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "O capítulo apresenta uma estrutura conceitual coerente, mas há diversas lacunas nas transições entre os parágrafos que enfraquecem a fluidez do argumento. Em vários pontos, o texto salta de um tópico para outro sem sinalizar a mudança, e algumas frases deixam dúvidas sobre a relação entre ideias apresentadas nos parágrafos anteriores. A correção destas falhas estruturais ajudará a garantir que o leitor acompanhe de forma contínua o desenvolvimento dos conceitos.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Uma das principais vantagens da pesquisa de levantamento reside em sua capacidade ...",
+                "tipo_problema": "Transição abrupta entre vantagens e desafios",
+                "analise": "O parágrafo que descreve as vantagens termina com a afirmação \"Logo, o entrevistador não tem a necessidade de realizar o questionário com toda a população.\" Em seguida, o texto avança imediatamente para a importância do anonimato sem apresentar um conectivo que indique a mudança de foco. Essa falta de ponte deixa o leitor surpresa ao perceber que o argumento mudou de eficiência para segurança.",
+                "sugestao_estrutural": "Adicionar uma frase de transição no início do parágrafo seguinte, por exemplo: \"Entretanto, apesar dessas vantagens, é fundamental garantir ...\"."
+            },
+            {
+                "trecho_relevante": "\"Ao garantir o anonimato dos participantes, estes têm maior probabilidade de oferecer respostas genuínas às perguntas...\"",
+                "tipo_problema": "Conectivo insuficiente entre a premissa do anonimato e a discussão sobre segurança",
+                "analise": "A frase que segue imediatamente descreve os riscos técnicos da infraestrutura de comunicação. Não há um sinal claro de que o texto está mudando para uma análise de risco, resultando em uma transição ligeiramente abrupta.",
+                "sugestao_estrutural": "Introduzir uma breve ligação contextual, como: \"No entanto, a garantia de anonimato depende da segurança da infraestrutura de comunicação...\"."
+            },
+            {
+                "trecho_relevante": "\"Um exemplo, mais da metade dos participantes eram *bots* (robôs automatizados).\"",
+                "tipo_problema": "Fragmento isolado e sem conexão clara com o parágrafo anterior",
+                "analise": "Esta frase parece introduzir um ponto de dado concreto, mas não há referência ao fato de que foi observada essa situação em algum estudo ou contexto. Além disso, a estrutura da frase faz parecer um comentário aleatório dentro da discussão sobre autenticidade.",
+                "sugestao_estrutural": "Reunir esta informação com uma declaração anterior que mencione a necessidade de autenticação, por exemplo: \"Um dos riscos identificados em pesquisas online foi que mais da metade dos respondentes resultaram ser bots, evidenciando a importância de mecanismos robustos de autenticação.\""
+            },
+            {
+                "trecho_relevante": "\"A criptografia é o estudo de técnicas matemáticas relacionadas a aspectos de segurança da informação...\"",
+                "tipo_problema": "Transição genérica para discussão específica sobre autenticidade",
+                "analise": "O parágrafo inicial define cryptography, mas o próximo se concentra rapidamente na aplicação da chave pública para garantir autenticidade. Não há ponte que mostre ao leitor por que a definição geral é relevante para o caso de uso específico.",
+                "sugestao_estrutural": "Inserir uma frase de ligação: \"Essas propriedades gerais tornam a criptografia particularmente útil quando se busca, entre outras coisas, a autenticação de mensagens digitais.\""
+            },
+            {
+                "trecho_relevante": "\"É demonstrado como a criptografia de chave pública garante a autenticidade dos dados. Este cenário ocorre quando uma pessoa deseja assinar digitalmente...\"",
+                "tipo_problema": "Transição abrupta dentro do mesmo parágrafo entre explicação e exemplo",
+                "analise": "A frase inicial afirma que será demonstrado, porém imediatamente muda para um exemplo específico sem sinalizar a transição. Isso pode confundir o leitor sobre se está lendo mais uma definição ou um caso prático.",
+                "sugestao_estrutural": "Separar em dois parágrafos ou usar conectivo: \"Para ilustrar, considere o cenário em que uma pessoa deseja assinar digitalmente...\"."
+            },
+            {
+                "trecho_relevante": "\"Assinaturas em anel vinculáveis, do inglês Linkable Ring Signatures (LRS), é uma variante da assinatura em anel tradicional desenvolvida que permite que uma pessoa assine...\"",
+                "tipo_problema": "Falta de transição entre a definição de LRS e a explicação dos algoritmos subsequentes",
+                "analise": "\"A ideia principal da LRS, conforme, é fornecer anonimato ao signatário...\" aparece no próximo parágrafo sem indicar que se trata de um aprofundamento da mesma definição. A ausência dessa ponte dificulta a percepção de continuidade.",
+                "sugestao_estrutural": "Adicionar uma frase introdutória antes dos algoritmos: \"A seguir, apresentamos os componentes formais que compõem a LRS...\"."
+            },
+            {
+                "trecho_relevante": "\"É exemplificado o processo para verificação se duas assinaturas foram emitidas pelo mesmo signatário. Inicialmente, cada signatário gera um par de chaves...\"",
+                "tipo_problema": "Transição entre explicação dos algoritmos e a demonstração prática",
+                "analise": "\"Inicialmente\" sugere o começo de uma nova seção, mas sem indicar que se trata de uma aplicação prática. Essa mudança brusca pode interromper a leitura.",
+                "sugestao_estrutural": "Usar um conectivo como \"Para ilustrar\", antes da descrição prática."
+            },
+            {
+                "trecho_relevante": "\"A partir desses algoritmos, são apresentados três aspectos referentes à segurança do sistema: impossibilidades de falsificação, anonimato do signatário e vinculabilidade.\"",
+                "tipo_problema": "Transição entre a listagem dos algoritmos e os aspectos de segurança subsequentes",
+                "analise": "\"A partir desses algoritmos\" funciona como um ponte, mas poderia ser reforçada com uma frase que indique que o leitor agora passará para os efeitos práticos da LRS.",
+                "sugestao_estrutural": "Adicionar: \"Com base nos algoritmos descritos acima, podemos identificar três propriedades fundamentais do sistema de assinatura em anel vinculável.\""
+            }
+        ]
+    }
+}

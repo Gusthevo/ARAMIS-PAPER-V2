@@ -1,0 +1,39 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
+        "modelo_llm": "deepseek-r1-distill-qwen-14b",
+        "data_revisao_utc": "2025-12-10T13:11:02.089710-03:00",
+        "tempo_de_geracao_segundos": 21.88,
+        "secao_revisada": "METODOLOGIA"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "O ARAMIS será uma aplicação web focada em recursos de Python, visando a facilidade. As tecnologias usadas no ARAMIS se dividem em um Front-End (Streamlit) e Back-End (FastAPI). O sistema terá persistência de dados no MySQL.",
+        "resumo_correcoes": {
+            "total_erros": 8,
+            "acentuacao": 3,
+            "maiusculas_minusculas": 2,
+            "pontuacao": 2,
+            "concordancia": 1,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Acentuação",
+                "descricao": "Adicionado acento agudo em 'será', 'aplicação' e 'terá'."
+            },
+            {
+                "tipo_correcao": "Maiúsculas/Minúsculas",
+                "descricao": "Corrigido o uso de letra maiúscula em 'Python' e 'FastAPI', por serem nomes próprios de tecnologias."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Substituído o ponto final por vírgula em '...de Python, visando...' para manter o fluxo da sentença e removida vírgula desnecessária antes de 'e Back-End'."
+            },
+            {
+                "tipo_correcao": "Concordância Nominal",
+                "descricao": "Corrigida a concordância em 'tecnologias usadas' (plural)."
+            }
+        ]
+    }
+}

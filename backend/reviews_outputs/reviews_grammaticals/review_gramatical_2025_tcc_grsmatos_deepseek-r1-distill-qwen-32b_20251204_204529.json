@@ -1,0 +1,27 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "UTILIZAÇÃO DA TÉCNICA RAG PARA GERAÇÃO DE DIÁLOGOS EM RPGS",
+        "modelo_llm": "deepseek-r1-distill-qwen-32b",
+        "data_revisao_utc": "2025-12-04T20:45:29.748707-03:00",
+        "tempo_de_geracao_segundos": 83.39,
+        "secao_revisada": "ESTADO DA ARTE"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "A geração de diálogos para NPCs em RPGs digitais tem recebido atenção crescente na literatura, com diversas abordagens exploradas para aprimorar a interação entre jogadores e sistemas baseados em Inteligência Artificial. Entre essas técnicas, destacam-se a sensibilidade contextual, o *fine-tuning* de modelos e o uso de geração procedural de conteúdo PCG <sup>6</sup> com grafos de conhecimento, além do mais recente método de Geração com Recuperação de Dados (RAG).",
+        "resumo_correcoes": {
+            "total_erros": 0,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 0,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Nenhuma",
+                "descricao": "O trecho está gramaticalmente correto e segue a norma culta. Nenhuma correção foi necessária."
+            }
+        ]
+    }
+}

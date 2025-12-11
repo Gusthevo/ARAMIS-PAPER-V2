@@ -1,0 +1,27 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
+        "modelo_llm": "meta-llama-3.1-8b-instruct",
+        "data_revisao_utc": "2025-12-09T15:31:37.790033-03:00",
+        "tempo_de_geracao_segundos": 49.21,
+        "secao_revisada": "METODOLOGIA"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "...",
+        "resumo_correcoes": {
+            "total_erros": 0,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 0,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "...",
+                "descricao": "..."
+            }
+        ]
+    }
+}

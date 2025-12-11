@@ -1,0 +1,79 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-08T19:58:33.109949-03:00",
+        "tempo_de_geracao_segundos": 15.68
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Rigor Metodológico",
+        "texto_analisado": "Texto completo do TCC – seção METODOLOGIA (páginas 4 a 6)",
+        "avaliacao_geral": "A estrutura geral da metodologia segue o ciclo DSR e descreve as etapas essenciais para criar, demonstrar e avaliar um artefato de segurança. No entanto, há deficiências significativas em justificativa, detalhamento prático e fundamentação teórica que limitam a reprodutibilidade e o rigor científico do estudo.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "\"Para alcançar o referido objetivo, adotamos uma abordagem metodológica baseada em Design Science Research (DSR).\"",
+                "tipo_ponto": "Ponto Fraco (Justificativa insuficiente)",
+                "analise": "A escolha de DSR é apresentada sem contextualizar por que esse paradigma é mais adequado do que, por exemplo, pesquisa experimental ou estudo de caso. Não há referências bibliográficas que sustentem a adequação da DSR ao problema de autenticação anônima.",
+                "recomendacao": "Incluir citações de autores clássicos de DSR (Peffers et al., 2007; Hevner et al., 2004) e explicar como o ciclo de criação/validação de artefatos se alinha aos objetivos de segurança da informação."
+            },
+            {
+                "trecho_relevante": "\"Nossa arquitetura de autenticação anônima resultou em dois artefatos: um modelo e uma instanciação.\"",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A distinção entre modelo (representação abstrata) e instância (prova‑de‑conceito) está clara e corresponde aos requisitos típicos de DSR, facilitando a avaliação do artefato."
+            },
+            {
+                "trecho_relevante": "\"Realizamos um levantamento bibliográfico em busca de relatórios de segurança...\"",
+                "tipo_ponto": "Ponto Fraco (Metodologia de revisão não sistemática)",
+                "analise": "O texto descreve apenas a existência de uma revisão, mas omite detalhes cruciais como bases de dados consultadas, termos de busca, critérios de inclusão/exclusão e número de artigos analisados. Isso impede a replicação da etapa de conscientização do problema.",
+                "recomendacao": "Descrever o processo de revisão sistemática (ex.: PRISMA), listar bases de dados (PubMed, IEEE Xplore, etc.), palavras‑chave, filtros aplicados e número total de publicações selecionadas."
+            },
+            {
+                "trecho_relevante": "\"O objetivo principal deste estudo... desenvolver e avaliar uma arquitetura de autenticação anônima para serviços de VPN, utilizando tecnologias de blockchain e prova de conhecimento zero.\"",
+                "tipo_ponto": "Ponto Fraco (Objetivos não operacionalizados)",
+                "analise": "Embora a intenção seja clara, o texto não traduziu o objetivo em variáveis mensuráveis ou métricas específicas que serão avaliadas na fase 4.5.",
+                "recomendacao": "Transformar os objetivos em perguntas de pesquisa quantificáveis (ex.: “Qual é a redução percentual no custo de autenticação comparado ao modelo tradicional?”) e vincular cada pergunta à métrica correspondente."
+            },
+            {
+                "trecho_relevante": "\"O *design* da arquitetura proposta segue uma abordagem modular, integrando *blockchain*, cliente VPN e servidor VPN...\"",
+                "tipo_ponto": "Ponto Forte",
+                "analise": "A descrição do design destaca a modularidade e o uso de blockchain para pagamentos seguros, além de justificar a escolha do protocolo ZKP baseado em curvas elípticas por preservar privacidade."
+            },
+            {
+                "trecho_relevante": "\"Para testar a eficácia na prática, foi desenvolvida uma prova de conceito que incorporou nossa proposta de autenticação em uma VPN.\"",
+                "tipo_ponto": "Ponto Fraco (Detalhamento insuficiente para reprodutibilidade)",
+                "analise": "O parágrafo não menciona ferramentas específicas (frameworks, linguagens), versão da blockchain, endereço do contrato ou detalhes da infraestrutura virtual.",
+                "recomendacao": "Incluir um diagrama de implantação detalhado e especificar os ambientes de desenvolvimento (ex.: Node.js 18.x, Solidity 0.8.7, Ganache local) e as configurações da VPN (OpenVPN/WireGuard)."
+            },
+            {
+                "trecho_relevante": "\"Para representar o servidor VPN, foi utilizado um serviço de nuvem, no caso, o da Google Cloud, em uma máquina virtual localizada em outro país...\"",
+                "tipo_ponto": "Ponto Fraco (Ambiente simulado não descrito detalhadamente)",
+                "analise": "Não há especificação do tipo de VM, sistema operacional, configuração de rede ou latência medida. Isso dificulta a replicação da demonstração.",
+                "recomendacao": "Detalhar o modelo de máquina (e.g., n1-standard-4), SO (Ubuntu 22.04), localização (us-central1) e ferramentas de medição de latência (ping, traceroute)."
+            },
+            {
+                "trecho_relevante": "\"As aplicações cliente e servidor VPN implementaram a geração de arquivos de *log* para avaliar possíveis pontos de risco...\"",
+                "tipo_ponto": "Ponto Fraco (Instrumentação não especificada)",
+                "analise": "Embora seja mencionado que logs são gerados, não há descrição do formato dos logs, métricas extraídas ou ferramentas de análise (ex.: ELK stack).",
+                "recomendacao": "Descrever o esquema de log (JSON, timestamp), as métricas coletadas (tempo de resposta, taxa de erro) e a ferramenta utilizada para análise."
+            },
+            {
+                "trecho_relevante": "\"A avaliação foi composta por uma análise quantitativa, focada na medição do desempenho e dos custos da arquitetura proposta.\"",
+                "tipo_ponto": "Ponto Fraco (Métodos de avaliação não detalhados)",
+                "analise": "Não há menção a número de experimentos, replicações, métricas estatísticas (média, desvio padrão) ou comparação com baseline. Isso limita a confiabilidade dos resultados.",
+                "recomendacao": "Especificar o número de execuções por cenário, calcular médias e desvios, e comparar os resultados com uma VPN tradicional (por exemplo, OpenVPN sem blockchain) usando testes estatísticos apropriados."
+            },
+            {
+                "trecho_relevante": "\"Foram quantificados os custos das transações na *blockchain*, incluindo taxas de transação, custos de execução e implantação de contratos inteligentes...\"",
+                "tipo_ponto": "Ponto Forte (Métricas relevantes identificadas)",
+                "analise": "A escolha de métricas financeiras é pertinente ao objetivo de avaliar viabilidade econômica. Contudo, a falta de valores concretos ou referência a APIs de preço de gás enfraquece a análise.",
+                "recomendacao": "Incluir scripts que chamem a API do Etherscan para obter taxas médias e usar o preço atual da ETH em USD para converter custos."
+            },
+            {
+                "trecho_relevante": "\"Comparação do tempo de estabelecimento de conexão: o tempo de autenticação da solução proposta foi comparado com o de soluções tradicionais de VPN.\"",
+                "tipo_ponto": "Ponto Fraco (Não há dados de comparação fornecidos)",
+                "analise": "A seção afirma que haverá comparação, mas não apresenta valores ou referências a estudos anteriores. Sem referência cruzada, a claim perde credibilidade.",
+                "recomendacao": "Apresentar métricas empíricas obtidas na simulação e comparar com benchmarks conhecidos (ex.: 30 s para OpenVPN)."
+            }
+        ]
+    }
+}

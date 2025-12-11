@@ -1,0 +1,81 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "CONTAGEM E IDENTIFICAÇÃO DE PESSOAS EM SALA DE AULA ATRAVÉS DE VISÃO COMPUTACIONAL E INTERNET DAS COISAS",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-04T16:27:07.211751-03:00",
+        "tempo_de_geracao_segundos": 34.64
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Rigor Metodológico",
+        "texto_analisado": "...",
+        "avaliacao_geral": "A seção metodológica apresenta uma boa intenção de alinhamento entre objetivo e método, mas carece de detalhes cruciais em várias etapas que comprometem a reprodutibilidade e a transparência da pesquisa. A justificativa das escolhas tecnológicas é parcialmente respaldada pela literatura, porém falta citar os autores originais de alguns componentes (ex.: DeepFace, gRPC). O procedimento descrito está fragmentado entre seções 4 e 5, dificultando a compreensão do fluxo completo. Recomenda‑se organizar o método em subseções bem delimitadas que cubram: preparação dos dados, configuração da infraestrutura, pipeline de captura, pré‑processamento, detecção e reconhecimento, comunicação offload, gravação no banco e avaliação estatística.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "4.1.1 Captura das imagens",
+                "tipo_ponto": "Ponto Forte (Justificativa Parcial)",
+                "analise": "O autor explica o uso da biblioteca PiCamera2 e OpenCV, justificando a escolha como ‘muito empregada em projetos de processamento de imagens’. Entretanto, não é informado por que se optou pela detecção HaarCascade para alinhamento inicial, nem quais parâmetros (tamanho do retângulo, limiar de confiança) foram utilizados.",
+                "recomendacao": "Incluir valores numéricos das configurações da HaarCascade e justificar a escolha em relação a outros detectores disponíveis na mesma biblioteca."
+            },
+            {
+                "trecho_relevante": "4.1.2 Comunicação dos nós",
+                "tipo_ponto": "Ponto Fraco (Falta de Justificativa Detalhada)",
+                "analise": "A adoção do gRPC é mencionada apenas como ‘tecnologia Google Remote Procedure Call’, sem referência a estudos que validem sua eficiência em cenários IoT ou comparação com alternativas simples como HTTP/REST. Não há explicação de como as mensagens foram serializadas nem métricas de latência esperadas.",
+                "recomendacao": "Apresentar uma breve revisão de literatura sobre gRPC em dispositivos edge e, se possível, citar benchmarks que justifiquem a escolha frente a outras abordagens."
+            },
+            {
+                "trecho_relevante": "4.1.5 Seleção de Modelos",
+                "tipo_ponto": "Ponto Forte (Procedimento Experimental Bem‑Definido)",
+                "analise": "O autor descreve claramente o experimento de avaliação dos pares detector/módulo, incluindo número de classes, imagens de treino/validação e métricas reportadas (acurácia, tempo médio, variância). A estrutura em loops aninhados demonstra boa organização.",
+                "recomendacao": "Adicionar referências a artigos que empregam combinações similares (por exemplo, YOLOv8 + ArcFace) para reforçar a legitimidade da escolha."
+            },
+            {
+                "trecho_relevante": "4.1.5 Seleção de Modelos",
+                "tipo_ponto": "Ponto Fraco (Reproducibilidade Parcial)",
+                "analise": "Embora os parâmetros dos detectores/modelos sejam listados, não há menção das versões exatas dos pesos baixados nem como esses arquivos foram gerados (por exemplo, via pip install ou clone do repositório). Isso dificulta a reprodução exata do experimento.",
+                "recomendacao": "Incluir links para os repositórios oficiais e instruções de download/instalação, além de registrar as versões dos pesos utilizados."
+            },
+            {
+                "trecho_relevante": "4.2.8 Bibliotecas utilizadas no lado servidor",
+                "tipo_ponto": "Ponto Forte (Detalhamento de Versões)",
+                "analise": "A lista de bibliotecas com versões específicas aumenta a reprodutibilidade, permitindo que outro pesquisador reproduza o ambiente software.",
+                "recomendacao": ""
+            },
+            {
+                "trecho_relevante": "4.2.8 Bibliotecas utilizadas no lado servidor",
+                "tipo_ponto": "Ponto Fraco (Ausência de Ambiente Virtual)",
+                "analise": "Não há menção a um ambiente virtual ou arquivo requirements.txt, o que pode levar a conflitos de dependências em ambientes futuros.",
+                "recomendacao": "Criar e disponibilizar um arquivo requirements.txt ou Dockerfile contendo todas as dependências e suas versões."
+            },
+            {
+                "trecho_relevante": "5.1 Experimento em Ambiente Real",
+                "tipo_ponto": "Ponto Forte (Coleta de Dados Reais)",
+                "analise": "O experimento envolve usuários reais, o que fortalece a validade externa do sistema.",
+                "recomendacao": ""
+            },
+            {
+                "trecho_relevante": "5.1 Experimento em Ambiente Real",
+                "tipo_ponto": "Ponto Fraco (Ausência de Métricas Detalhadas)",
+                "analise": "Os resultados citam apenas acurácia e tempo médio, mas não descrevem a distribuição dos erros ou os critérios de aceitação das imagens capturadas (ex.: resolução mínima).",
+                "recomendacao": "Incluir histogramas de erro, métricas F1-score e definição clara do que constitui ‘imagem de qualidade’ para o pipeline."
+            },
+            {
+                "trecho_relevante": "5.2 Experimento com simulação de múltiplos clientes",
+                "tipo_ponto": "Ponto Forte (Escalabilidade Testada)",
+                "analise": "O uso de threads para simular salas múltiplas demonstra preocupação em testar a escalabilidade, e os resultados são apresentados de forma estruturada.",
+                "recomendacao": ""
+            },
+            {
+                "trecho_relevante": "5.2 Experimento com simulação de múltiplos clientes",
+                "tipo_ponto": "Ponto Fraco (Ambiente de Rede Não Controlado)",
+                "analise": "A rede doméstica e a ocorrência de falhas IP indicam que o ambiente não foi suficientemente controlado, o que pode ter introduzido ruído nos resultados.",
+                "recomendacao": "Repetir os testes em uma rede dedicada (por exemplo, com switch gerenciável) ou usar simulação de rede para garantir condições consistentes."
+            },
+            {
+                "trecho_relevante": "6 CONCLUSÕES E TRABALHOS FUTUROS",
+                "tipo_ponto": "Ponto Fraco (Falta de Fundamentação Teórica nas Recomendações)",
+                "analise": "As sugestões de melhorias são vagas e não citam estudos que suportem a viabilidade técnica de cada proposta.",
+                "recomendacao": "Incluir referências a pesquisas recentes sobre otimização de pipelines de reconhecimento facial em dispositivos IoT para fundamentar as recomendações."
+            }
+        ]
+    }
+}
