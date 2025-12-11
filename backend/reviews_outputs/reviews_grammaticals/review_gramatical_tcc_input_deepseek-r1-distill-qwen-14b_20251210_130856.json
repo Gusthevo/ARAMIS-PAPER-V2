@@ -1,0 +1,27 @@
+
+    "metadados_da_revisao": {
+        "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
+        "modelo_llm": "deepseek-r1-distill-qwen-14b",
+        "data_revisao_utc": "2025-12-10T13:08:56.863020-03:00",
+        "tempo_de_geracao_segundos": 37.08,
+        "secao_revisada": "METODOLOGIA"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "Este estudo é uma pesquisa de natureza aplicada cujo objetivo é desenvolver uma arquitetura de autenticação anônima para serviços de VPN. A pesquisa se enquadra no tipo descritiva com uma abordagem quantitativa para avaliar de maneira abrangente este modelo de autenticação anônima em serviço de VPN.\n\nPara alcançar o referido objetivo, adotamos uma abordagem metodológica baseada em Design Science Research (DSR). No paradigma de pesquisa DSR, artefatos são criações projetadas e desenvolvidas com o propósito de resolver problemas reais e específicos. Os artefatos podem ser classificados em *constructs*, modelos, métodos e instanciações, podendo resultar ainda em um aprimoramento de teorias. Artefatos são criações essenciais que não só resolvem problemas práticos, mas também avançam o conhecimento científico.\n\nNa perspectiva da DSR, nossa arquitetura de autenticação anônima para VPN resultou em dois artefatos: um modelo e uma instanciação, descritos a seguir.\n\n- **Modelo**: Uma representação abstrata que descreveu a estrutura, os componentes principais (*blockchain*, servidor VPN, cliente VPN), suas interações, algoritmos e protocolos. Esse modelo forneceu uma visão clara e estruturada de como a autenticação anônima poderia ser realizada utilizando esses componentes.\n- **Instanciação**: Uma implementação concreta da arquitetura proposta que demonstrou sua aplicabilidade prática e funcionalidade. Essa instância foi apresentada como uma prova de conceito para validar empiricamente a eficácia da arquitetura e demonstrar sua aplicabilidade prática em um ambiente simulado.\n\nAssim, neste estudo, seguimos um percurso metodológico de seis etapas para a execução da DSR, as quais são descritas a seguir.",
+        "resumo_correcoes": {
+            "total_erros": 0,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 0,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Nenhuma",
+                "descricao": "O trecho está gramaticalmente correto e segue a norma culta. Nenhuma correção foi necessária."
+            }
+        ]
+    }
+}
