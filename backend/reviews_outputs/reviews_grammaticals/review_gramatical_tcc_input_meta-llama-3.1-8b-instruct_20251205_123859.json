@@ -1,0 +1,27 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+        "modelo_llm": "meta-llama-3.1-8b-instruct",
+        "data_revisao_utc": "2025-12-05T12:38:59.258386-03:00",
+        "tempo_de_geracao_segundos": 26.21,
+        "secao_revisada": "PROCEDIMENTOS METODOLÓGICOS"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "... (O texto acima)",
+        "resumo_correcoes": {
+            "total_erros": 0,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 0,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Nenhuma",
+                "descricao": "O texto está bem escrito e não apresenta erros de gramática, ortografia ou pontuação."
+            }
+        ]
+    }
+}

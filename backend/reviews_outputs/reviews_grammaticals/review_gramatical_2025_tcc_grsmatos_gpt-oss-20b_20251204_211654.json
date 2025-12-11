@@ -1,0 +1,31 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "UTILIZAÇÃO DA TÉCNICA RAG PARA GERAÇÃO DE DIÁLOGOS EM RPGS",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-04T21:16:54.720325-03:00",
+        "tempo_de_geracao_segundos": 93.84,
+        "secao_revisada": "ESTADO DA ARTE"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "# 2 ESTADO DA ARTE\n\nA geração de diálogos para NPCs em RPGs digitais tem recebido atenção crescente na literatura, com diversas abordagens exploradas para aprimorar a interação entre jogadores e sistemas baseados em Inteligência Artificial. Entre essas técnicas, destacam-se a sensibilidade contextual, o *fine-tuning* de modelos e o uso de geração procedural de conteúdo PCG <sup>6</sup> com grafos de conhecimento, além do mais recente método de Geração com Recuperação de Dados (RAG).\n\nEm (CSEPREGI, 2021), foi investigado o impacto da integração de sensibilidade contextual em LLMs para a geração de diálogos. Utilizando um experimento com 21 jogadores em um ambiente de simulação de RPG integrado a um modelo GPT, o estudo concluiu que a inclusão de informações contextuais durante o jogo melhorou significativamente a fluidez e a coerência dos diálogos. Contudo, essa abordagem apresenta desafios relacionados à necessidade de fornecer fluxos constantes de dados contextuais, o que pode ser impraticável em jogos com expansões frequentes.\n\nNa sequência, (STEGEREN; MYSLIWIEC, 2021) exploraram o uso de técnicas de *fine-tuning* em LLMs, como o GPT-2, para personalizar diálogos de NPCs. Essa abordagem permitiu criar diálogos alinhados com a narrativa e objetivos específicos do jogo, enriquecendo a experiência do jogador. No entanto, o *fine-tuning* apresentou limitações importantes, como a necessidade de retreinamento frequente para acomodar expansões ou mudanças no conteúdo do jogo, tornando a técnica menos escalável em RPGs que passam por atualizações constantes.\n\n<sup>4</sup> Estudos indicam que o treinamento de um modelo como o GPT-3 pode custar entre 4 e 12 milhões de dólares. \n\n<sup>5</sup> No contexto de LLMs, um *token* é uma unidade básica de processamento do texto. Ele pode representar uma palavra, parte de uma palavra ou até mesmo um caractere, dependendo da tokenização utilizada pelo modelo. O número de *tokens* é um fator importante para a eficiência e os custos computacionais de modelos LLM, já que o modelo processa e gera texto em unidades de *tokens*.\n\n<sup>6</sup> Geração Procedural de Conteúdo (PCG) é uma técnica que utiliza algoritmos para criar automaticamente conteúdos, como mapas, personagens ou diálogos, em jogos digitais.\n\nMais recentemente, (ASHBY et al., 2023) introduziram o uso de grafos de conhecimento para PCG em diálogos de RPGs. Essa abordagem se mostrou promissora ao permitir a adaptação dinâmica dos diálogos às mudanças narrativas e de missões dentro do jogo. A validação por meio de testes com usuários demonstrou que diálogos gerados dessa forma são comparáveis em qualidade aos roteiros escritos manualmente. Entretanto, a técnica depende de grafos predefinidos e apresenta desafios de escalabilidade quando novas variáveis e elementos narrativos complexos são introduzidos, além de custos significativos para a construção e manutenção dos grafos.\n\nE a técnica de grafos de conhecimento também mostra-se relevante no trabalho mais recente, (NANANUKUL; WONGKAMJAN, 2024), que apresentou uma abordagem inovadora ao integrar o modelo do GPT-4 com sistemas baseados em grafos de conhecimento para geração de diálogos em RPGs. A estrutura desenvolvida utiliza perfis de personagens, históricos de NPCs e cenários extraídos de fontes como páginas Wiki, que são convertidos em triplas para a construção dos grafos. Apesar de sua capacidade de enriquecer a imersão do jogador por meio de diálogos mais detalhados, os testes revelaram que modelos tendem a generalizar características, resultando em diálogos excessivamente positivos mesmo quando exemplos explícitos indicam personalidades com mais nuances, como frias ou calculistas.\n\nDiferente das técnicas descritas por (CSEPREGI, 2021), (STEGEREN; MYŚ-LIWIEC, 2021), (ASHBY *et al.*, 2023) e (NANANUKUL; WONGKAMJAN, 2024), a RAG elimina a necessidade de retreinamento frequente e oferece maior flexibilidade na geração de conteúdos contextualizados. Este trabalho, portanto, contribui ao explorar a aplicação da RAG na geração de diálogos para NPCs em RPGs, focando na geração de diálogos em português, um campo ainda pouco explorado nesse contexto.",
+        "resumo_correcoes": {
+            "total_erros": 2,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 1,
+            "concordancia": 0,
+            "ortografia": 1
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Adicionado ponto final após a frase que continha o <sup>4</sup>, corrigindo a falta de pontuação."
+            },
+            {
+                "tipo_correcao": "Ortografia",
+                "descricao": "Corrigido \"Mais recentes\" para \"Mais recentemente\", adicionando o sufixo ausente e mantendo o significado correto."
+            }
+        ]
+    }
+}

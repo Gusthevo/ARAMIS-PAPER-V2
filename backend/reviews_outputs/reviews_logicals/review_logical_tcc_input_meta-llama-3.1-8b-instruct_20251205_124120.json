@@ -1,0 +1,50 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+        "modelo_llm": "meta-llama-3.1-8b-instruct",
+        "data_revisao_utc": "2025-12-05T12:41:20.411571-03:00",
+        "tempo_de_geracao_segundos": 18.9
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "O texto apresenta uma estrutura lógica clara, com uma progressão coerente entre as fases metodológicas. No entanto, há oportunidades para melhorar a fluidez e a conexão entre as ideias.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "O uso da DSR se justifica pela capacidade em orientar o desenvolvimento de artefatos tecnológicos...",
+                "tipo_problema": "Falta de Conectivo",
+                "analise": "A passagem da justificativa dos princípios da DSR para a descrição do desenho metodológico é feita apenas com uma vírgula, tornando a transição um pouco brusca e a frase longa.",
+                "sugestao_estrutural": "Inicie a descrição do desenho metodológico com um conectivo, como 'Em consonância com os princípios da DSR, o desenho metodológico foi estruturado em...'"
+            },
+            {
+                "trecho_relevante": "Durante a Conscientização do Problema, foi realizado um levantamento bibliográfico abrangente...",
+                "tipo_problema": "Transição entre Parágrafos",
+                "analise": "A mudança de foco da coleta para o pré-processamento é clara, mas falta uma frase-ponte para guiar o leitor suavemente para a próxima etapa do processo.",
+                "sugestao_estrutural": "Adicione uma frase de transição no início do segundo parágrafo, como 'Uma vez coletado, o conjunto de TCCs será submetido a uma etapa de pré-processamento para...'"
+            },
+            {
+                "trecho_relevante": "A fase de Sugestão foi concebida um *tentative design* sob a forma de um modelo arquitetural...",
+                "tipo_problema": "Falta de Conectivo",
+                "analise": "A passagem da descrição do *tentative design* para a justificativa da escolha do padrão MVC é feita apenas com uma vírgula, tornando a transição um pouco brusca e a frase longa.",
+                "sugestao_estrutural": "Inicie a justificativa da escolha do padrão MVC com um conectivo, como 'Em conformidade com o objetivo de separar claramente a lógica de negócio...'"
+            },
+            {
+                "trecho_relevante": "A fase de Desenvolvimento consistiu na implementação do modelo arquitetural...",
+                "tipo_problema": "Transição entre Parágrafos",
+                "analise": "A mudança de foco da estruturação da API para a integração dos módulos é clara, mas falta uma frase-ponte para guiar o leitor suavemente para a próxima etapa do processo.",
+                "sugestao_estrutural": "Adicione uma frase de transição no início do segundo parágrafo, como 'Uma vez estruturada a API, os módulos foram integrados...'"
+            },
+            {
+                "trecho_relevante": "A Avaliação foi estruturada em duas perspectivas analíticas complementares...",
+                "tipo_problema": "Falta de Conectivo",
+                "analise": "A passagem da descrição das perspectivas analíticas para a justificativa da escolha dos cenários é feita apenas com uma vírgula, tornando a transição um pouco brusca e a frase longa.",
+                "sugestao_estrutural": "Inicie a justificativa da escolha dos cenários com um conectivo, como 'Em conformidade com a necessidade de avaliar o comportamento e a eficácia...'"
+            },
+            {
+                "trecho_relevante": "Por fim, na Conclusão...",
+                "tipo_problema": "Transição entre Parágrafos",
+                "analise": "A mudança de foco da discussão dos principais achados e resultados para a apresentação das sugestões para trabalhos futuros é clara, mas falta uma frase-ponte para guiar o leitor suavemente para a próxima etapa.",
+                "sugestao_estrutural": "Adicione uma frase de transição no início do parágrafo final, como 'Em resumo, os principais achados e resultados obtidos ao longo deste trabalho...'"
+            }
+        ]
+    }
+}

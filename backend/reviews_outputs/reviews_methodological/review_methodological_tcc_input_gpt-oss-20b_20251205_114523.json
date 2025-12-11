@@ -1,0 +1,39 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-05T11:45:23.583743-03:00",
+        "tempo_de_geracao_segundos": 8.61
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Rigor Metodológico",
+        "texto_analisado": "Capítulo 2: Fundamentação Teórica (páginas 1‑7)",
+        "avaliacao_geral": "O trecho analisado não contém nenhuma descrição do método empregado na pesquisa. Não há justificativas, alinhamento com os objetivos nem detalhes de procedimento que permitam a replicação do estudo.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "Capítulo 2 – Fundamentação Teórica",
+                "tipo_ponto": "Ponto Fraco (Ausência de Metodologia)",
+                "analise": "A seção apresenta revisão bibliográfica sobre pesquisas de levantamento, anonimato, criptografia e assinaturas em anel vinculáveis. Contudo, não há nenhuma menção ao desenho experimental, ao tipo de estudo (qualitativo/quantitativo), à população ou amostra alvo, aos instrumentos de coleta de dados, nem à estratégia de análise.",
+                "recomendacao": "Adicionar uma seção dedicada a Metodologia que inclua:\n1. Descrição do tipo de pesquisa e justificativa.\n2. População‑alvo e critério de amostragem (probabilística/não probabilística).\n3. Instrumentos de coleta (questionário, entrevistas, logs, etc.) e sua validação.\n4. Procedimentos de coleta detalhados, incluindo etapas de consentimento informado e anonimização dos dados.\n5. Plano de análise (estatístico ou qualitativo), ferramentas utilizadas e métricas de avaliação.\n6. Medidas de confiabilidade e validade.\n7. Considerações éticas e de segurança da informação."
+            },
+            {
+                "trecho_relevante": "Seção 2.3 – Criptografia como ferramenta para garantir autenticidade de mensagens digitais",
+                "tipo_ponto": "Ponto Fraco (Justificativa Metodológica Inexistente)",
+                "analise": "Embora a seção discuta aspectos técnicos da criptografia, não há indicação de que esses conhecimentos foram aplicados no desenho do estudo. Falta conexão entre teoria e prática metodológica.",
+                "recomendacao": "Especificar como os conceitos de assinatura em anel vinculável (ou outras técnicas) serão empregados na coleta ou verificação de dados. Por exemplo, descrever se haverá geração de chaves públicas/privadas para anonimizar respostas e garantir autenticidade das mesmas."
+            },
+            {
+                "trecho_relevante": "Seção 2.4 – Assinatura em anel vinculável",
+                "tipo_ponto": "Ponto Fraco (Falta de Fundamentação Teórica Aplicada à Metodologia)",
+                "analise": "O detalhamento técnico dos algoritmos LRS é robusto, mas não há indicação de como esses algoritmos serão implementados no estudo. Não se sabe qual software será usado, quais parâmetros de segurança, ou como a vinculação das assinaturas ajudará na análise dos resultados.",
+                "recomendacao": "Incluir uma subseção que descreva a implementação prática: linguagem de programação, bibliotecas (ex.: libsodium), geração de chaves para cada participante e procedimentos de verificação. Também definir métricas de sucesso (taxa de detecção de assinaturas duplicadas)."
+            },
+            {
+                "trecho_relevante": "Capítulo 2 – geral",
+                "tipo_ponto": "Ponto Fraco (Ausência de Procedimentos Reprodutíveis)",
+                "analise": "Nenhum passo experimental, amostragem ou protocolo de análise está documentado, impossibilitando a reprodutibilidade do estudo.",
+                "recomendacao": "Para garantir rigor científico, cada etapa deve ser descrita minuciosamente: desde o escopo da pesquisa até os scripts de análise. Incluir diagramas de fluxo, pseudocódigo ou fluxogramas pode melhorar a transparência."
+            }
+        ]
+    }
+}

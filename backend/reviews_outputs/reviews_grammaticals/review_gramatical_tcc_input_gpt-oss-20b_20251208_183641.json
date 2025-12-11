@@ -1,0 +1,67 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FERRAMENTA MULTIAGENTE INTEGRADA COM LLM OPEN-SOURCE PARA APOIO À CORREÇÃO DE TCCS DE ESTUDANTES DE GRADUAÇÃO",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-08T18:36:41.604774-03:00",
+        "tempo_de_geracao_segundos": 50.43,
+        "secao_revisada": "INTRODUÇÃO"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "O Trabalho de Conclusão de Curso (TCC) constitui a etapa final do percurso acadêmico dos estudantes de graduação, sendo um requisito indispensável na maioria das universidades para a obtenção do grau de bacharel ou licenciado na respectiva área de formação. Em geral, a etapa imediatamente anterior à obtenção do título acadêmico é a elaboração do TCC que se refere à pesquisa e à redação de um documento que atenda aos critérios acadêmicos vigentes. Assim, de acordo com Carboni e Nogueira (2008), o TCC, além de introduzir o aluno na pesquisa por meio de recursos metodológicos, capacitará a resolver problemas e incentivará a prosseguir na carreira acadêmica.\n\nAo elaborar um texto dessa importância, é necessária a atenção contínua ao trabalho pois no processo de avaliação do TCC observa-se o rigor no desenvolvimento conforme as normas, o encadeamento lógico das ideias, a profundidade e a apresentação do conhecimento do tema estudado (CARBONI; NOGUEIRA, 2008).\n\nDiante disso, a revisão textual, seja pelo aluno e/ou orientador, deixou de se limitar apenas aos aspectos normativos e passou a observar aspectos como verossimilhança e encadeamento narrativo (PEREZ; BOENAVIDES, 2017). Nesse processo, o discente possui um papel fundamental na garantia da qualidade, atuando em parceria com o orientador — cuja experiência tende a facilitar a identificação de inconsistências textuais. Contudo, mesmo com o empenho conjunto, a necessidade de sucessivas revisões persiste, gerando retrabalho e consumo excessivo de tempo. Diante dessas dificuldades, fica evidente a necessidade de soluções que agilizem a revisão, como sistemas de Inteligência Artificial (IA) projetados para corrigir textos conforme as particularidades do contexto acadêmico.\n\nNo estudo de Srivarsha *et al.* (2025), argumenta-se que a correção automatizada aprimora significativamente a experiência do usuário, reduzindo erros tipográficos e linguísticos no conteúdo escrito. Para isso, são incorporados, segundo Coppin (2004), métodos para os computadores para que estes compreendam a linguagem humana, chamadas de técnicas de Processamento de Linguagem Natural (PLN).\n\nAs técnicas de PLN são combinadas com modelos de *Deep Learning*, um subconjunto da área de Machine Learning (ML), que visa permitir que modelos computacionais compostos por múltiplas camadas de processamento aprendam representações de dados com múltiplos níveis de abstração, auxiliando, inclusive, na detecção de colocações linguísticas inadequadas (LECUN *et al.*, 2015).\n\nEm um estudo anterior, Zhang e Zhang (2023) apresentaram um enfoque mais específico na precisão da tradução automática para o inglês, embora também visam a redução de erros gramaticais, empregando técnicas de análise semântica e métodos especializados de aumento de dados. Tais trabalhos, embora aplicados a domínios ligeiramente diferentes, convergem para o objetivo comum de melhorar a qualidade do texto por meio da detecção e correção automatizada de erros. Tais técnicas aplicadas podem ser adaptáveis à revisão de textos acadêmicos, como os TCCs, visto que em Lunsford e Lunsford (2008), os principais problemas identificados nesses documentos incluem erros de grafia (13,7% dos casos) e a ausência de vírgulas após elementos introdutórios (9,6%), entre outros.",
+        "resumo_correcoes": {
+            "total_erros": 11,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 1,
+            "pontuacao": 8,
+            "concordancia": 2,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Maiúsculas/Minúsculas",
+                "descricao": "Alterado 'Universidades' para 'universidades'."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Adicionado vírgula antes de 'além' na frase sobre o TCC."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Removida vírgula após 'pois' que era desnecessária."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Adicionado vírgula depois de 'metodológicos' para separar a oração subordinada."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Removido parênteses extras ao redor do nome 'Srivarsha *et al.* (2025)'."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Removidos dois pares de parênteses em torno de 'Coppin (2004)' e inserida vírgula após o ano."
+            },
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Adicionado vírgula depois de 'TCCs' para separar a oração explicativa."
+            },
+            {
+                "tipo_correcao": "Concordância",
+                "descricao": "Corrigido verbo 'vise' para 'visam', concordando com o sujeito 'a redução'."
+            },
+            {
+                "tipo_correcao": "Concordância",
+                "descricao": "Alterado 'apenas a aspectos normativos' para 'apenas aos aspectos normativos', corrigindo preposição e concordância."
+            },
+            {
+                "tipo_correcao": "Ortografia",
+                "descricao": "Não foram encontrados erros ortográficos na versão corrigida."
+            },
+            {
+                "tipo_correcao": "Acentuação",
+                "descricao": "Nenhum erro de acentuação identificado."
+            }
+        ]
+    }
+}

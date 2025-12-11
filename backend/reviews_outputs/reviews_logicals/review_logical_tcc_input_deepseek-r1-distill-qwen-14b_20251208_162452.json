@@ -1,0 +1,32 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "EQUILIBRANDO ANONIMATO E AUTENTICIDADE EM PESQUISAS DE LEVANTAMENTO: EXPLORANDO ASSINATURAS EM ANEL VINCULÁVEIS COMO SOLUÇÃO",
+        "modelo_llm": "deepseek-r1-distill-qwen-14b",
+        "data_revisao_utc": "2025-12-08T16:24:52.190148-03:00",
+        "tempo_de_geracao_segundos": 17.18
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "O texto apresenta uma estrutura lógica clara, com um fluxo que descreve a problemática atual das VPNs e propõe soluções inovadoras. No entanto, há algumas oportunidades para melhorar a fluidez e as transições entre seções.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "...no entanto, é importante destacar que essa proteção não é absoluta...",
+                "tipo_problema": "Transição Abrupta",
+                "analise": "A passagem do reconhecimento da eficácia das VPNs para a exposição de suas limitações é feita sem uma transição suave, o que pode surpreender o leitor.",
+                "sugestao_estrutural": "Considere adicionar uma frase introdutoria nessa seção, como 'No entanto, apesar de suas vantagens...'."
+            },
+            {
+                "trecho_relevante": "Quando se trata de potenciais vazamentos de dados dos usuários...",
+                "tipo_problema": "Transição entre Seções",
+                "analise": "A mudança do foco nas vulnerabilidades gerais das VPNs para a discussão específica sobre os riscos associados aos métodos de pagamento é feita sem uma transição clara.",
+                "sugestao_estrutural": "Adicione uma frase de transição, como 'Além disso, outro aspecto que merece atenção...'."
+            },
+            {
+                "trecho_relevante": "Os cenários descritos anteriormente evidenciam a necessidade de uma nova abordagem para os serviços de VPN...",
+                "tipo_problema": "Falta de Conectivo",
+                "analise": "A passagem dos problemas atuais para a solução proposta é feita sem um conectivo que estabeleça claramente o propósito da seção.",
+                "sugestao_estrutural": "Inicie a seção com uma frase como 'Diante desses desafios, surge a necessidade de...' ou 'Assim, propomos uma nova abordagem...'."
+            }
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "UTILIZAÇÃO DA TÉCNICA RAG PARA GERAÇÃO DE DIÁLOGOS EM RPGS",
+        "modelo_llm": "deepseek-r1-distill-qwen-32b",
+        "data_revisao_utc": "2025-12-04T20:37:02.436319-03:00",
+        "tempo_de_geracao_segundos": 119.5,
+        "secao_revisada": "METODOLOGIA"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "Este trabalho propõe a aplicação da técnica RAG para a geração de diálogos imersivos, nas missões do RPG *Ordem Paranormal*. A técnica RAG integra um modelo de recuperação de documentos, responsável por buscar trechos relevantes de texto utilizando *embeddings*, com um modelo gerador de diálogos, que utiliza essas informações para criar respostas fundamentadas. Além da implementação da técnica RAG, este trabalho incluiu experimentos de validação utilizando o método de *crowdsourcing*, que envolveu uma comunidade ativa de jogadores para avaliar a qualidade dos diálogos gerados. O uso do *crowdsourcing* é essencial para garantir uma avaliação diversificada e colaborativa, pois permite coletar *insights* de jogadores reais, que representam o público-alvo do RPG Ordem Paranormal. Essa abordagem é particularmente valiosa, já que o envolvimento direto de uma comunidade ativa assegura que os diálogos atendam às expectativas dos jogadores.",
+        "resumo_correcoes": {
+            "total_erros": 3,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 1,
+            "pontuacao": 2,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Pontuação",
+                "descricao": "Adicionado ponto após 'diálogos imersivos' para melhorar a fluência da frase."
+            },
+            {
+                "tipo_correcao": "Maiúsculas/Minúsculas",
+                "descricao": "Corrigido o uso de itálico e adição de 'do' em 'RPG *Ordem Paranormal*' para clareza."
+            },
+            {
+                "tipo_correcao": "Construção textual",
+                "descricao": "Alterado 'momento' para 'no momento' para corrigir a preposição."
+            }
+        ]
+    }
+}

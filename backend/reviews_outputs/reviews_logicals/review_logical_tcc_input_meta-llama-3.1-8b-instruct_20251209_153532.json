@@ -1,0 +1,32 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FORTALECENDO A PRIVACIDADE E SEGURANÇA EM VPN: EXPLORANDO BLOCKCHAIN E PROVA DE CONHECIMENTO ZERO COMO SOLUÇÃO",
+        "modelo_llm": "meta-llama-3.1-8b-instruct",
+        "data_revisao_utc": "2025-12-09T15:35:32.030695-03:00",
+        "tempo_de_geracao_segundos": 13.03
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Encadeamento Lógico",
+        "avaliacao_geral": "O texto apresenta uma estrutura geral clara, mas precisa melhorar a fluidez e a conexão lógica entre as ideias.",
+        "comentarios_detalhados": [
+            {
+                "trecho_relevante": "A seção 'METODOLOGIA' precisa de uma transição mais suave com a seção 'INTRODUÇÃO'.",
+                "tipo_problema": "Transição abrupta",
+                "analise": "A mudança de foco entre as seções é feita de forma brusca e não permite que o leitor siga facilmente.",
+                "sugestao_estrutural": "Adicione uma frase de transição para suavizar a passagem das ideias."
+            },
+            {
+                "trecho_relevante": "Alguns parágrafos são muito longos e precisam ser divididos em subparágrafos.",
+                "tipo_problema": "Falta de divisão",
+                "analise": "A clareza do texto é comprometida por frases longas que precisam ser divididas para melhorar a compreensão.",
+                "sugestao_estrutural": "Divida as frases longas em parágrafos menores."
+            },
+            {
+                "trecho_relevante": "A abordagem de Design Science Research (DSR) precisa ser explorada mais profundamente.",
+                "tipo_problema": "Falta de exploração",
+                "analise": "A justificativa da abordagem DSR é limitada e precisa ser ampliada para melhorar a argumentação.",
+                "sugestao_estrutural": "Forneça mais detalhes sobre como a abordagem de Design Science Research (DSR) se aplica ao problema específico da autenticação anônima em VPNs."
+            }
+        ]
+    }
+}

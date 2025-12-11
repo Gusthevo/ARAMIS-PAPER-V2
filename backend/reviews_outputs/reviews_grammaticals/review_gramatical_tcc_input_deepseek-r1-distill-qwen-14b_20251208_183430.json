@@ -1,0 +1,27 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FERRAMENTA MULTIAGENTE INTEGRADA COM LLM OPEN-SOURCE PARA APOIO À CORREÇÃO DE TCCS DE ESTUDANTES DE GRADUAÇÃO",
+        "modelo_llm": "deepseek-r1-distill-qwen-14b",
+        "data_revisao_utc": "2025-12-08T18:34:30.702690-03:00",
+        "tempo_de_geracao_segundos": 16.86,
+        "secao_revisada": "INTRODUÇÃO"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "O Trabalho de Conclusão de Curso (TCC) constitui a etapa final do percurso acadêmico dos estudantes de graduação, sendo um requisito indispensável na maioria das universidades para a obtenção do grau de bacharel ou licenciado na respectiva área de formação. Em geral, a etapa imediatamente anterior à obtenção do título acadêmico é a elaboração do TCC que se refere à pesquisa e à redação de um documento que atenda aos critérios acadêmicos vigentes. Assim, de acordo com Carboni e Nogueira (2008), o TCC além de introduzir o aluno na pesquisa por meio de recursos metodológicos, o capacitará a resolver problemas e incentivará a prosseguir na carreira acadêmica.",
+        "resumo_correcoes": {
+            "total_erros": 0,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 0,
+            "concordancia": 0,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Nenhuma",
+                "descricao": "O trecho está gramaticalmente correto e segue a norma culta. Nenhuma correção foi necessária."
+            }
+        ]
+    }
+}

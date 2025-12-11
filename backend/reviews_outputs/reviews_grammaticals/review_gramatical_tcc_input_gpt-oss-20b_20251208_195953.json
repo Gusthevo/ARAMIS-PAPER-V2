@@ -1,0 +1,31 @@
+{
+    "metadados_da_revisao": {
+        "titulo_tcc": "FERRAMENTA MULTIAGENTE INTEGRADA COM LLM OPEN-SOURCE PARA APOIO À CORREÇÃO DE TCCS DE ESTUDANTES DE GRADUAÇÃO",
+        "modelo_llm": "gpt-oss-20b",
+        "data_revisao_utc": "2025-12-08T19:59:53.061233-03:00",
+        "tempo_de_geracao_segundos": 16.28,
+        "secao_revisada": "INTRODUÇÃO"
+    },
+    "resultado_da_revisao": {
+        "agente_utilizado": "Agente de Correção Gramatical",
+        "texto_corrigido": "Este estudo é uma pesquisa de natureza aplicada cujo objetivo é desenvolver uma arquitetura de autenticação anônima para serviços de VPN. A pesquisa se enquadra no tipo descritivo com uma abordagem quantitativa para avaliar de maneira abrangente este modelo de autenticação anônima em serviço de VPN.\n\nPara alcançar o referido objetivo, adotamos uma abordagem metodológica baseada em Design Science Research (DSR). No paradigma de pesquisa DSR, artefatos são criações projetadas e desenvolvidas com o propósito de resolver problemas reais e específicos. Os artefatos podem ser classificados em *constructos*, modelos, métodos e instanciações, podendo resultar ainda em um aprimoramento de teorias. Artefatos são criações essenciais que não só resolvem problemas práticos, mas também avançam o conhecimento científico.\n\nNa perspectiva da DSR, nossa arquitetura de autenticação anônima para VPN resultou em dois artefatos: um modelo e uma instanciação descrita a seguir.\n\n- Modelo Uma representação abstrata que descreveu a estrutura, os componentes principais (*blockchain*, servidor VPN, cliente VPN), suas interações, algoritmos e protocolos. Esse modelo forneceu uma visão clara e estruturada de como a autenticação anônima poderia ser realizada utilizando esses componentes.\n- Instanciação Uma implementação concreta da arquitetura proposta que demonstrou sua aplicabilidade prática e funcionalidade. Essa instância foi apresentada como uma prova de conceito para validar empiricamente a eficácia da arquitetura e demonstrar sua aplicabilidade prática em um ambiente simulado.",
+        "resumo_correcoes": {
+            "total_erros": 2,
+            "acentuacao": 0,
+            "maiusculas_minusculas": 0,
+            "pontuacao": 0,
+            "concordancia": 2,
+            "ortografia": 0
+        },
+        "comentarios_detalhados": [
+            {
+                "tipo_correcao": "Concordância Nominal",
+                "descricao": "Alterado \"tipo descritiva\" para \"tipo descritivo\" para concordar com o substantivo masculino."
+            },
+            {
+                "tipo_correcao": "Concordância Nominal",
+                "descricao": "Alterado \"descritos\" para \"descrita\" pois se refere a um único artefato (instanciação)."
+            }
+        ]
+    }
+}
