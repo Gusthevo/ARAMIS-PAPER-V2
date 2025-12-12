@@ -45,7 +45,7 @@ with st.form(key="formulario"):
 
 if enviar:
     if len(selecionados) < 1:
-        st.error("É necessário selecionar ao menos um agente.")
+        st.warning("É necessário selecionar ao menos um agente.", icon="⚠️")
         st.stop()
 
     ids_selecionados = [mapa_agentes[n] for n in selecionados]
@@ -59,6 +59,8 @@ if enviar:
         "agents": ids_selecionados
     }
 
+    st.json(payload, expanded=False)
+
     with st.spinner("Análisando..."):
         resposta = api_client.analyze(payload)
 
@@ -66,5 +68,11 @@ if enviar:
         dados = resposta.json()
         st.success("Análise concluída com sucesso!")
         st.json(dados)
+    elif resposta.status_code == 500:
+        st.error("Erro no Servidor Interno", icon="🚨")
     else:
-        st.error(f"Erro: {resposta.text}")
+        try:
+            resposta = resposta.json()
+            st.warning(f"{resposta.get('detail', 'Erro desconhecido')}", icon="⚠️")
+        except:
+            st.error(f"Erro inesperado ao processar a resposta da API", icon="🚨")
