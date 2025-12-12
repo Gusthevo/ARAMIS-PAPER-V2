@@ -1,8 +1,8 @@
 import logging
 from typing import List, Dict
-from agents.gram_agent import agent_os_grammar
-from agents.logical_flow import agent_os_flow
-from agents.methodological_rigor import agent_os_rigor
+from agents.grammar_agent import agent_os_grammar
+from agents.logical_agent import agent_os_logical
+from agents.rigor_agent import agent_os_rigor
 from models.analysis_model import AnalysisRequest, AnalysisResponse
 import json
 
@@ -12,7 +12,7 @@ class AnalysisService:
     def __init__(self):
         self.agents = {
             "grammar_correction": agent_os_grammar,
-            "logical_flow": agent_os_flow,
+            "logical_flow": agent_os_logical,
             "methodological_rigor": agent_os_rigor
         }
     

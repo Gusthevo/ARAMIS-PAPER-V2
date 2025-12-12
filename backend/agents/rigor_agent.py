@@ -18,12 +18,12 @@ def clean_json_string(raw_str: str):
     return raw_str.strip()
 
 
-class GrammarCorrectionAgent:
+class RigorAgent:
 
     def __init__(self):
         self.instructions_file = os.path.join(
             os.path.dirname(__file__),
-            "../prompts/raw_prompts/v3/grammatical_correction_v3.txt"
+            "../prompts/raw_prompts/v3/methodological_rigor_v3.txt"
         )
 
         self.model = OpenAIChat(
@@ -49,8 +49,8 @@ class GrammarCorrectionAgent:
         })
 
         agent = Agent(
-            id="grammar_agent",
-            name="Agente de Correção Gramatical",
+            id="methodological_rigor_agent",
+            name="Agente Revisor de Rigor Metodológico do ARAMIS",
             model=self.model,
             system_message_role="user",
             markdown=True,
@@ -74,4 +74,4 @@ class GrammarCorrectionAgent:
 
 
 # Instância única exportada
-agent_os_grammar = GrammarCorrectionAgent()
+agent_os_rigor = RigorAgent()
