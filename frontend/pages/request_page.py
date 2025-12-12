@@ -66,8 +66,8 @@ if enviar:
 
     if resposta.status_code == 200:
         dados = resposta.json()
-        st.success("Análise concluída com sucesso!")
-        st.json(dados)
+        st.session_state["json_resultado"] = dados
+        st.switch_page("pages/result_page")
     elif resposta.status_code == 500:
         st.error("Erro no Servidor Interno", icon="🚨")
     else:
