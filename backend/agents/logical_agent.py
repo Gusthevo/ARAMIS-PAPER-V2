@@ -2,6 +2,7 @@ import os
 import json
 import re
 from datetime import datetime
+import time
 from scripts.prompt_manager import render_prompt
 from agno.agent import Agent
 from agno.models.openai import OpenAIChat
@@ -17,12 +18,12 @@ def clean_json_string(raw_str: str):
     return raw_str.strip()
 
 
-class GrammarCorrectionAgent:
+class LogicalAgent:
 
     def __init__(self):
         self.instructions_file = os.path.join(
             os.path.dirname(__file__),
-            "../prompts/raw_prompts/v3/grammatical_correction_v3.txt"
+            "../prompts/raw_prompts/v3/logical_flow_v3.txt"
         )
 
         self.model = OpenAIChat(
@@ -36,6 +37,7 @@ class GrammarCorrectionAgent:
         Método chamado pela orquestração.
         Gera o prompt final, executa o agente e retorna JSON limpinho.
         """
+        start_time = time.monotonic()
 
         # 1. Renderiza o prompt baseado nos dados do frontend
         instructions = render_prompt(self.instructions_file, {
@@ -47,8 +49,8 @@ class GrammarCorrectionAgent:
         })
 
         agent = Agent(
-            id="grammar_agent",
-            name="Agente de Correção Gramatical",
+            id="logical_flow_agent",
+            name="Agente Revisor de Encadeamento Lógico do ARAMIS",
             model=self.model,
             system_message_role="user",
             markdown=True,
@@ -62,6 +64,9 @@ class GrammarCorrectionAgent:
 
         result = json.loads(json_cleaned)
 
+        end_time = time.monotonic()
+        duration = end_time - start_time
+
         # 3. Normaliza a resposta para o formato esperado pelo orquestrador
         return {
             "corrections": result,
@@ -69,4 +74,4 @@ class GrammarCorrectionAgent:
 
 
 # Instância única exportada
-agent_os_grammar = GrammarCorrectionAgent()
+agent_os_logical = LogicalAgent()
