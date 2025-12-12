@@ -138,8 +138,8 @@ def run_and_save_review():
 
 
 # --- Servidor Agno ---
-agent_os = AgentOS(agents=[methodological_rigor_agent])
-app = agent_os.get_app()
+agent_os_rigor = AgentOS(agents=[methodological_rigor_agent])
+app = agent_os_rigor.get_app()
 
 if __name__ == "__main__":
     

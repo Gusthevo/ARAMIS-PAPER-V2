@@ -140,8 +140,8 @@ def run_and_save_review():
 
 
 # --- Servidor Agno ---
-agent_os = AgentOS(agents=[logical_flow_agent])
-app = agent_os.get_app()
+agent_os_flow = AgentOS(agents=[logical_flow_agent])
+app = agent_os_flow.get_app()
 
 if __name__ == "__main__":
     

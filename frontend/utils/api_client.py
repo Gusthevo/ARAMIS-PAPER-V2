@@ -163,5 +163,29 @@ class APIClient:
             print(f"Erro ao buscar informações: {e}")
             return None
 
+    def carregar_secoes(self):
+        r = requests.get(f"{self.base_url}/api/analysis/sections")
+        return r.json()["sections"]
+
+    def carregar_agentes(self):
+        r = requests.get(f"{self.base_url}/api/analysis/agents")
+        return r.json()["agents"]
+
+    def carregar_niveis(self):
+        r = requests.get(f"{self.base_url}/api/analysis/rigor-levels")
+        return r.json()["rigor_levels"]
+
+    def analyze(self, payload: dict):
+        try:
+            response = self.session.post(
+                f"{self.base_url}/api/analysis/analyze",
+                json=payload,
+                headers=self._get_headers()
+            )
+            return response
+        except Exception as e:
+            print(f"Erro na Analise: {e}")
+            return None
+
 # Instância global
 api_client = APIClient()

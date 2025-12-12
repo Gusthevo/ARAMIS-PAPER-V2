@@ -8,3 +8,5 @@ python-dotenv
 requests
 mysql-connector-python
 agno
+openai
+google-genai

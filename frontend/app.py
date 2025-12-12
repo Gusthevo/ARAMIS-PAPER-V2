@@ -109,11 +109,7 @@ def show_home_page():
             pass  # Sua lógica aqui
 
 def show_correction_page():
-    """Página de correção (em desenvolvimento)"""
-    st.title("📝 Correção de TCC")
-    st.markdown("---")
-    st.warning("🚧 Funcionalidade em desenvolvimento")
-    st.info("Em breve você poderá fazer a correção do seu TCC aqui!")
+    st.switch_page("pages/request_page.py")
 
 def show_results_page():
     """Página de resultados (em desenvolvimento)"""

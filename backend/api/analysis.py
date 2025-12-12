@@ -14,7 +14,7 @@ async def analyze_text(request: AnalysisRequest):
     try:
         # Validações
         if not request.text.strip():
-            raise HTTPException(status_code=400, detail="Texto vazio")
+            raise HTTPException(status_code=400, detail="Preencha o campo Texto para a analise")
         
         if len(request.text) < 25:
             raise HTTPException(status_code=400, detail="Texto muito curto (mínimo 25 caracteres)")
@@ -74,8 +74,8 @@ async def get_rigor_levels():
     """Retorna níveis de rigor disponíveis"""
     return {
         "rigor_levels": [
-            {"id": "low", "name": "Baixo", "description": "Foco em problemas críticos"},
-            {"id": "medium", "name": "Médio", "description": "Análise balanceada"},
-            {"id": "high", "name": "Alto", "description": "Análise detalhada e rigorosa"}
+            {"id": "baixo", "name": "Baixo", "description": "Foco em problemas críticos"},
+            {"id": "médio", "name": "Médio", "description": "Análise balanceada"},
+            {"id": "alto", "name": "Alto", "description": "Análise detalhada e rigorosa"}
         ]
     }
