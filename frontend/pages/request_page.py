@@ -1,13 +1,52 @@
 import streamlit as st
-from utils.api_client import api_client
+from utils.session_state import init_session_state, logout_user, login_user, is_logged_in
+from utils.api_client import api_client 
+from utils.cookie_manager import get_cookie_manager, AUTH_TOKEN_KEY
 
-
+# Configuração da página
 st.set_page_config(
     page_title="ARAMIS - Analise",
     page_icon="images/logo-aramis-cropped.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Inicializa estado da sessão
+init_session_state()
+cookies = get_cookie_manager()
+
+def attempt_login_from_cookie():
+    if st.session_state.logged_in:
+        return True
+
+    token_from_cookie = cookies.get(AUTH_TOKEN_KEY)
+    if token_from_cookie:
+        st.session_state.session_token = token_from_cookie
+        try:
+            validation_data = api_client.validate_session()
+            if validation_data and validation_data.get("valid"):
+                login_user(
+                    username=validation_data["username"],
+                    user_id=validation_data["user_id"],
+                    session_token=token_from_cookie
+                )
+                return True
+            else:
+                logout_user()
+                return False
+        except Exception as e:
+            print(f"Erro ao validar cookie: {e}")
+            logout_user()
+            return False
+    return False
+
+# 🔒 Verificação de login
+if not is_logged_in():
+    if not attempt_login_from_cookie():
+        st.switch_page("pages/login_page.py")
+    else:
+        st.rerun()
+
 
 st.title("ARAMIS - Análise")
 
@@ -26,7 +65,7 @@ mapa_niveis = {n["name"]: n["id"] for n in niveis}
 nomes_niveis = list(mapa_niveis.keys())
 
 with st.form(key="formulario"):
-    titulo = st.text_input("TCC Título", placeholder="Digite o título")
+    titulo = st.text_input("Título do TCC", placeholder="Digite o título")
 
     area = st.text_input("Área do TCC", placeholder="Digite a área de conhecimento abordada")
 
