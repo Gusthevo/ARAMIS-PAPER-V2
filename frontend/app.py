@@ -34,7 +34,7 @@ def show_main_app():
         st.subheader("Navegação")
         menu_option = st.radio(
             "Selecione uma opção:",
-            ["🏠 Início", "📝 Correção", "📊 Resultados", "👤 Meu Perfil", "ℹ️ Sobre"]
+            ["🏠 Início", "📝 Correção", "👤 Meu Perfil", "ℹ️ Sobre"]
         )
         
         st.markdown("---")
@@ -46,9 +46,7 @@ def show_main_app():
     if menu_option == "🏠 Início":
         show_home_page()
     elif menu_option == "📝 Correção":
-        show_correction_page()
-    elif menu_option == "📊 Resultados":
-        show_results_page()
+        st.switch_page("pages/request_page.py")
     elif menu_option == "👤 Meu Perfil":
         show_profile_page()
     elif menu_option == "ℹ️ Sobre":
@@ -74,27 +72,21 @@ def show_home_page():
     
     with col1:
         st.info("""
-        **📝 Correção de Texto**
-        - Análise gramatical
-        - Estrutura acadêmica  
-        - Coerência textual
+        **📝 Revisão textual do Trabalho de Conslusão de Curso**
+        - Correção Gramatical
+        - Encadeamento Lógico  
+        - Rigor Metodologico
         """)
     
     with col2:
         st.info("""
-        **🚀 Como Usar**
-        1. Selecione a seção do TCC
-        2. Escolha os agentes de análise
-        3. Cole seu texto
-        4. Receba a correção
-        """)
-    
-    with col3:
-        st.info("""
-        **📊 Resultados**
-        - Histórico de análises
-        - Estatísticas de melhorias
-        - Relatórios detalhados
+        **🚀 Como Usar - Vá à seção "request page"**
+        1. Digite o título do seu TCC
+        2. Digite a área de conhecimento do seu TCC
+        3. Selecione a seção que será analisada
+        4. Defina o rigor de revisão
+        5. Insira o texto
+        6. Escolha os agentes que deseja utilizar
         """)
     
     # Card de ação rápida
@@ -105,17 +97,8 @@ def show_home_page():
         st.write("Comece agora uma nova análise do seu TCC")
     with col2:
         if st.button("📝 Nova Correção", use_container_width=True):
+            st.switch_page("pages/request_page.py")
             # Muda para página de correção via session state
-            pass  # Sua lógica aqui
-
-def show_correction_page():
-    st.switch_page("pages/request_page.py")
-
-def show_results_page():
-    """Página de resultados (em desenvolvimento)"""
-    st.title("📊 Resultados")
-    st.markdown("---")
-    st.warning("🚧 Funcionalidade em desenvolvimento")
 
 def show_about_page():
     """Página sobre a plataforma"""
