@@ -24,7 +24,12 @@ async def analyze_text(request: AnalysisRequest):
         
         logger.info(f"Análise solicitada - Seção: {request.section}, Agentes: {request.agents}")
         
-        return await analysis_service.analyze_text(request)
+        result = await analysis_service.analyze_text(request)
+        
+        logger.info(f"Resultado da análise: {result}")
+        
+        return result
+
         
     except HTTPException:
         raise
@@ -38,10 +43,10 @@ async def get_sections():
     return {
         "sections": [
             {"id": "introducao", "name": "Introdução", "description": "Apresentação do tema e objetivos"},
-            {"id": "revisao_teorica", "name": "Revisão Teórica", "description": "Fundamentação teórica do trabalho"},
+            {"id": "fundamentacao_teorica", "name": "Fundamentação Teórica", "description": "Fundamentação teórica do trabalho"},
+            {"id": "trabalhos_relacionados", "name": "Trabalhos Relacionados", "description": "Trabalhos Relacionados do trabalho"},
             {"id": "metodologia", "name": "Metodologia", "description": "Descrição dos métodos e procedimentos"},
             {"id": "resultados", "name": "Resultados", "description": "Apresentação dos dados e achados"},
-            {"id": "discussao", "name": "Discussão", "description": "Análise e interpretação dos resultados"},
             {"id": "conclusao", "name": "Conclusão", "description": "Considerações finais e encaminhamentos"}
         ]
     }
