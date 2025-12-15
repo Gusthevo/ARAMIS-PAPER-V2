@@ -104,7 +104,6 @@ nomes_secoes = list(mapa_secoes.keys())
 mapa_niveis = {n["name"]: n["id"] for n in niveis_opt}
 nomes_niveis = list(mapa_niveis.keys())
 
-# --- Início do Formulário Visual ---
 # Usamos container em vez de st.form para permitir que o botão "Limpar" funcione interativamente
 with st.container():
     # Se você tiver a classe css-card no styles.py, o container já terá borda visualmente se configurado,

@@ -89,7 +89,7 @@ def show_login_page():
     
     # Link para recuperação de senha (futuro)
     st.markdown("---")
-    st.caption("Esqueceu sua senha? Entre em contato com o administrador.")
+    st.caption("Esqueceu sua senha? Entre em contato com o administrador do sistema.")
 
 if __name__ == "__main__":
     show_login_page()

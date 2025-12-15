@@ -48,4 +48,4 @@ def show_sidebar():
         # Botão SAIR
         if st.button("🚪 Sair", use_container_width=True):
             logout_user()
-            st.rerun()
+            return False
