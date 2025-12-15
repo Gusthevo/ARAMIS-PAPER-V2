@@ -1,5 +1,12 @@
 import streamlit as st
 import json
+from utils.sidebar import show_sidebar
+
+# -------------------------------------------------------------------------
+# 3. INTERFACE DE NAVEGAÇÃO
+# -------------------------------------------------------------------------
+show_sidebar()
+
 
 st.title("🔎 Resultados da Análise dos Agentes")
 
@@ -22,9 +29,9 @@ data = json_data
 
 st.subheader("📄 Informações Gerais")
 
-st.write(f"**ID da Análise:** {data.get('analysis_id')}")
-st.write(f"**Seção:** {data.get('section')}")
-st.write(f"**Texto Original:**")
+st.write(f"*ID da Análise:* {data.get('analysis_id')}")
+st.write(f"*Seção:* {data.get('section')}")
+st.write(f"*Texto Original:*")
 st.info(data.get("original_text"))
 
 corrections = data.get("correction", [])
@@ -63,8 +70,8 @@ for tab, agent in zip(tab_objects, tabs):
             st.subheader("📝 Comentários Detalhados")
             for c in agent.get("comentarios_detalhados", []):
                 with st.expander(f"{c['tipo_correcao']} – {c['descricao'][:50]}..."):
-                    st.write(f"**Tipo:** {c['tipo_correcao']}")
-                    st.write(f"**Descrição:** {c['descricao']}")
+                    st.write(f"*Tipo:* {c['tipo_correcao']}")
+                    st.write(f"*Descrição:* {c['descricao']}")
 
         # Agente de Encadeamento Lógico
         elif agente == "Agente de Encadeamento Lógico":
@@ -74,9 +81,9 @@ for tab, agent in zip(tab_objects, tabs):
             st.subheader("🧠 Comentários Detalhados")
             for c in agent.get("comentarios_detalhados", []):
                 with st.expander(c["trecho_relevante"][:70] + "..."):
-                    st.write(f"**Problema:** {c['tipo_problema']}")
-                    st.write(f"**Análise:** {c['analise']}")
-                    st.write(f"**Sugestão:** {c['sugestao_estrutural']}")
+                    st.write(f"*Problema:* {c['tipo_problema']}")
+                    st.write(f"*Análise:* {c['analise']}")
+                    st.write(f"*Sugestão:* {c['sugestao_estrutural']}")
 
         # Agente de Rigor Metodológico
         elif agente == "Agente de Rigor Metodológico":
@@ -89,10 +96,10 @@ for tab, agent in zip(tab_objects, tabs):
             st.subheader("📝 Comentários Detalhados")
             for c in agent.get("comentarios_detalhados", []):
                 with st.expander(c["trecho_relevante"][:70] + "..."):
-                    st.write(f"**Tipo:** {c['tipo_ponto']}")
-                    st.write(f"**Análise:** {c['analise']}")
+                    st.write(f"*Tipo:* {c['tipo_ponto']}")
+                    st.write(f"*Análise:* {c['analise']}")
                     if "recomendacao" in c:
-                        st.write(f"**Recomendação:** {c['recomendacao']}")
+                        st.write(f"*Recomendação:* {c['recomendacao']}")
 
         else:
             st.warning("Agente não reconhecido, mas exibindo dados crus:")

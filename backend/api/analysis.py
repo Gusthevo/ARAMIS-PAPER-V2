@@ -42,12 +42,14 @@ async def get_sections():
     """Retorna seções disponíveis para análise"""
     return {
         "sections": [
+            {"id": "resumo", "name": "Resumo", "description": "Resumo Geral do Trabalho"},
             {"id": "introducao", "name": "Introdução", "description": "Apresentação do tema e objetivos"},
-            {"id": "fundamentacao_teorica", "name": "Fundamentação Teórica", "description": "Fundamentação teórica do trabalho"},
+            {"id": "fundamentacao_teorica", "name": "Fundamentação Teórica/Estado da Arte", "description": "Fundamentação teórica do trabalho"},
             {"id": "trabalhos_relacionados", "name": "Trabalhos Relacionados", "description": "Trabalhos Relacionados do trabalho"},
             {"id": "metodologia", "name": "Metodologia", "description": "Descrição dos métodos e procedimentos"},
+            {"id": "proposta", "name": "Proposta", "description": "Descrição da solução proposta no trabalho"},
             {"id": "resultados", "name": "Resultados", "description": "Apresentação dos dados e achados"},
-            {"id": "conclusao", "name": "Conclusão", "description": "Considerações finais e encaminhamentos"}
+            {"id": "conclusao", "name": "Conclusão", "description": "Considerações finais e encaminhamentos futuros"}
         ]
     }
 

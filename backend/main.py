@@ -1,6 +1,16 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api import info, change_informations, auth, analysis
+import logging
+import sys
+
+# Configuração global do logger
+logging.basicConfig(
+    level=logging.INFO,  # nível mínimo que será exibido
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)]  # manda para stdout (terminal)
+)
+
 
 app = FastAPI(
     title="ARAMIS API",

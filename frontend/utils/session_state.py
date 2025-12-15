@@ -78,7 +78,9 @@ def logout_user():
     # Limpa o frontend (como você já fazia)
     st.session_state.logged_in = False
     st.session_state.username = None
-    # ... (limpa todos os campos)
+    st.switch_page("pages/login_page.py")
+
+
 
 def check_backend_status():
     """Verifica status do backend"""

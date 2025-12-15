@@ -1,0 +1,23 @@
+# .streamlit/config.toml
+
+[client]
+showSidebarNavigation = false
+
+[theme]
+# Cor principal (botões, sliders, focos) - Um azul acadêmico/tecnológico
+primaryColor = "#2563EB" 
+
+# Cor de fundo principal (cinza bem claro para suavizar a vista)
+backgroundColor = "#F8FAFC" 
+
+# Cor de fundo da sidebar e cards (branco puro para contraste)
+secondaryBackgroundColor = "#FFFFFF" 
+
+# Cor do texto
+textColor = "#1E293B" 
+
+# Fonte (sans serif é mais moderna e limpa para leitura em tela)
+font = "sans serif"
+
+[server]
+runOnSave = true
