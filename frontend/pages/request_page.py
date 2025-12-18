@@ -3,7 +3,9 @@ from utils.session_state import init_session_state, login_user, is_logged_in, lo
 from utils.api_client import api_client 
 from utils.cookie_manager import get_cookie_manager, AUTH_TOKEN_KEY
 from utils.sidebar import show_sidebar
-from utils.styles import apply_custom_style 
+from utils.styles import apply_custom_style
+import re
+
 
 # -------------------------------------------------------------------------
 # 1. CONFIGURAÇÃO DA PÁGINA
@@ -14,6 +16,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
 
 # Inicializa serviços essenciais
 init_session_state()
@@ -65,19 +68,56 @@ show_sidebar()
 # 4. FUNÇÕES AUXILIARES
 # -------------------------------------------------------------------------
 def limpar_texto():
-    """Remove quebras de linha indesejadas (comuns em PDFs) mantendo parágrafos."""
-    if "texto_input" in st.session_state and st.session_state.texto_input:
-        txt = st.session_state.texto_input
-        # 1. Preserva parágrafos reais (duplo enter vira marcador)
-        txt = txt.replace('\n\n', '{{PARAGRAFO}}')
-        # 2. Remove quebras de linha simples (quebras de PDF)
-        txt = txt.replace('\n', ' ')
-        # 3. Remove espaços duplos excessivos gerados
-        txt = ' '.join(txt.split())
-        # 4. Restaura os parágrafos
-        txt = txt.replace('{{PARAGRAFO}}', '\n\n')
-        # Atualiza o estado
-        st.session_state.texto_input = txt
+    if "texto_input" not in st.session_state:
+        return
+
+    txt = st.session_state.texto_input.strip()
+    txt = txt.replace('\r\n', '\n')
+
+    # Protege parágrafos reais
+    txt = re.sub(r'\n\s*\n+', '{{PARAGRAFO}}', txt)
+
+    # Remove hifenização de PDF
+    txt = re.sub(r'(\w)-\n(\w)', r'\1\2', txt)
+
+    linhas = txt.split('\n')
+    resultado = []
+
+    for i, linha in enumerate(linhas):
+        linha = linha.strip()
+
+        if not linha:
+            continue
+
+        if i == 0:
+            resultado.append(linha)
+            continue
+
+        anterior = resultado[-1]
+
+        # Heurísticas para NÃO juntar (novo parágrafo real)
+        nao_juntar = (
+            linha[0].isdigit() or                      # listas numeradas
+            linha.startswith(('-', '–', '—', '•')) or  # listas com marcador
+            linha.startswith(('"', '“')) or            # citações
+            (linha.isupper() and len(linha) < 60)      # títulos
+        )
+
+        # Continuidade semântica forte
+        continuidade = linha[0].islower()
+
+        if nao_juntar and not continuidade:
+            resultado.append('{{PARAGRAFO}}' + linha)
+        else:
+            resultado[-1] = anterior + ' ' + linha
+
+    txt = ' '.join(resultado)
+
+    # Limpeza final
+    txt = re.sub(r' {2,}', ' ', txt)
+    txt = txt.replace('{{PARAGRAFO}}', '\n\n')
+
+    st.session_state.texto_input = txt
 
 # -------------------------------------------------------------------------
 # 5. FORMULÁRIO PRINCIPAL
@@ -133,7 +173,7 @@ with st.container():
         st.subheader("3. O texto a ser analisado")
     with col_btn_clean:
         # Botão interativo que chama a função de limpar
-        st.button("🧹 Consertar texto", on_click=limpar_texto, help="Remove quebras de linha de PDFs mantendo os parágrafos.")
+        st.button("🧹 Consertar parágrafos", on_click=limpar_texto, help="Remove quebras de linha de PDFs mantendo os parágrafos.")
 
     # A Key conecta este campo ao st.session_state para que a função limpar_texto funcione
     texto = st.text_area(
