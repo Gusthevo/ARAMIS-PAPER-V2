@@ -119,6 +119,7 @@ def limpar_texto():
 
     st.session_state.texto_input = txt
 
+
 # -------------------------------------------------------------------------
 # 5. FORMULÁRIO PRINCIPAL
 # -------------------------------------------------------------------------
@@ -182,13 +183,22 @@ with st.container():
         placeholder="Cole aqui o texto do seu TCC...",
         key="texto_input" 
     )
+    
+        # Contador de palavras e caracteres
+    conteudo_atual = st.session_state.get("texto_input", "")
+
+    palavras = len(conteudo_atual.split())
+    caracteres = len(conteudo_atual.replace(" ", ""))
+
+    st.caption(f"🔢 {palavras} palavras • {caracteres} caracteres")
+
 
     st.markdown("<br>", unsafe_allow_html=True) # Espaçamento
     
     # Botão de Envio
     col_vazia, col_btn = st.columns([4, 1])
     with col_btn:
-        # Botão normal (não é form_submit_button pois removemos o st.form)
+        # Botão normal
         enviar = st.button("🚀 Iniciar Análise", use_container_width=True, type="primary")
 
 # -------------------------------------------------------------------------
