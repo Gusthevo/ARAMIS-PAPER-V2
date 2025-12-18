@@ -9,4 +9,4 @@ requests
 mysql-connector-python
 agno
 openai
-google-genai
+huggingface_hub
