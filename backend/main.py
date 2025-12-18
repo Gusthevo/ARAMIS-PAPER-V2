@@ -65,7 +65,7 @@ async def about():
     return {
         "platform": {
             "name": "ARAMIS",
-            "description": "Sistema Inteligente de Correção de TCCs",
+            "description": "Automated Review Agents for Methodological Improvements",
             "version": "1.0.0"
         }
     }
