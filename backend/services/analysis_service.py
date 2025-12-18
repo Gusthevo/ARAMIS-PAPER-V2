@@ -4,7 +4,6 @@ from agents.grammar_agent import agent_os_grammar
 from agents.logical_agent import agent_os_logical
 from agents.rigor_agent import agent_os_rigor
 from models.analysis_model import AnalysisRequest, AnalysisResponse
-import json
 
 logger = logging.getLogger(__name__)
 
@@ -24,7 +23,6 @@ class AnalysisService:
             "section": request.section,
             "title_tcc": request.title,
             "area_knowledge": request.area,
-            #"course_name": request.course,
             "model_rigor": request.rigor
         }
         
