@@ -1,6 +1,7 @@
 # utils/sidebar.py
 import streamlit as st
 from utils.session_state import logout_user
+import os
 
 def show_sidebar():
     """
@@ -8,7 +9,26 @@ def show_sidebar():
     Gerencia a navegação e o estado da sessão.
     """
     with st.sidebar:
-        st.title("ARAMIS")
+# 1. Pega a pasta onde este arquivo (sidebar.py) está: /seu_projeto/utils
+        dir_atual = os.path.dirname(os.path.abspath(__file__))
+        # 2. Sobe um nível e entra em images: /seu_projeto/images/logo...
+        caminho_logo = os.path.join(dir_atual, "..", "images", "logo-aramis-cropped.png")
+        
+        # 3. Exibe a imagem (com verificação de segurança)
+        if os.path.exists(caminho_logo):
+            col_esq, col_img, col_dir = st.columns([1, 2, 1])
+            with col_img:
+                st.image(caminho_logo, use_container_width=True)
+                #TÍTULO com fonte maior
+                st.markdown("""
+                <h1 style='text-align: center; margin-top: -20px; margin-bottom: 20px;'>
+                    ARAMIS
+                </h1>
+                """, unsafe_allow_html=True)
+        else:
+            # Se não achar a imagem, mostra apenas o título para não quebrar
+            st.title("ARAMIS")
+            
         st.markdown("---")
         
         # Informações do Usuário
