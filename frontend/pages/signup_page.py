@@ -26,8 +26,7 @@ CUSTOM_CSS = """
         max-width: 640px;
         margin: auto;
         margin-top: 8vh;
-        background-color: rgba(255, 255, 255, 0.6); /* leve transparência */
-        border-radius: 14px;
+
     }
 
     .register-title {

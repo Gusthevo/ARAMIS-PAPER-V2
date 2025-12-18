@@ -35,8 +35,7 @@ CUSTOM_CSS = """
         margin: auto;
         margin-top: 8vh;
         padding: 2.2rem;
-        background-color: rgba(255, 255, 255, 0.6); /* leve transparência */
-        border-radius: 14px;
+
     }
 
     .login-title {
