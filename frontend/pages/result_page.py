@@ -1,11 +1,55 @@
 import streamlit as st
 import json
 from utils.sidebar import show_sidebar
+from utils.api_client import api_client
+from utils.styles import apply_custom_style
+from utils.session_state import init_session_state, login_user, is_logged_in, logout_user
+from utils.cookie_manager import get_cookie_manager, AUTH_TOKEN_KEY
 
 # -------------------------------------------------------------------------
 # 3. INTERFACE DE NAVEGAÇÃO
 # -------------------------------------------------------------------------
+init_session_state()
 show_sidebar()
+apply_custom_style()
+
+cookies = get_cookie_manager()
+
+# -------------------------------------------------------------------------
+# 2. LÓGICA DE AUTENTICAÇÃO
+# -------------------------------------------------------------------------
+def attempt_login_from_cookie():
+    """Tenta recuperar a sessão via cookie se o usuário der F5."""
+    if st.session_state.logged_in:
+        return True
+
+    token_from_cookie = cookies.get(AUTH_TOKEN_KEY)
+    if token_from_cookie:
+        st.session_state.session_token = token_from_cookie
+        try:
+            validation_data = api_client.validate_session()
+            if validation_data and validation_data.get("valid"):
+                login_user(
+                    username=validation_data["username"],
+                    user_id=validation_data["user_id"],
+                    session_token=token_from_cookie
+                )
+                return True
+            else:
+                logout_user()
+                return False
+        except Exception as e:
+            print(f"Erro ao validar cookie: {e}")
+            logout_user()
+            return False
+    return False
+
+# Bloqueio de Segurança: Redireciona se não estiver logado
+if not is_logged_in():
+    if not attempt_login_from_cookie():
+        st.switch_page("pages/login_page.py")
+    else:
+        st.rerun()
 
 
 st.title("🔎 Resultados da Análise dos Agentes")
