@@ -18,7 +18,7 @@ def show_sidebar():
         if os.path.exists(caminho_logo):
             col_esq, col_img, col_dir = st.columns([1, 2, 1])
             with col_img:
-                st.image(caminho_logo, use_container_width=True)
+                st.image(caminho_logo, width="stretch")
                 #TÍTULO com fonte maior
                 st.markdown("""
                 <h1 style='text-align: center; margin-top: -20px; margin-bottom: 20px;'>
