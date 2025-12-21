@@ -24,14 +24,11 @@ CREATE TABLE IF NOT EXISTS documents (
 -- Tabela de correções
 CREATE TABLE IF NOT EXISTS corrections (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    document_id INT,
-    agent_name VARCHAR(100) NOT NULL,
-    issues JSON,
-    suggestions JSON,
-    confidence FLOAT,
+    user_id INT,
+    correction JSON,
     analysis_time FLOAT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (document_id) REFERENCES documents(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- Tabela de configurações dos agentes
