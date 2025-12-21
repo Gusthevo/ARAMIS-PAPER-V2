@@ -186,6 +186,17 @@ class APIClient:
         except Exception as e:
             print(f"Erro na Analise: {e}")
             return None
+        
+    def get_corrections(self, user_id: int):
+        try:
+            response = self.session.get(
+                f"{self.base_url}/api/analysis/corrections/{user_id}",
+                headers=self._get_headers()
+            )
+            return response
+        except Exception as e:
+            print(f"Erro ao buscar correções: {e}")
+            return None
 
 # Instância global
 api_client = APIClient()

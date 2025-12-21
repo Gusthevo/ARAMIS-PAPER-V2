@@ -25,6 +25,8 @@ CREATE TABLE IF NOT EXISTS documents (
 CREATE TABLE IF NOT EXISTS corrections (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
+    title VARCHAR(700) NOT NULL,
+    section VARCHAR(100),
     correction JSON,
     analysis_time FLOAT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

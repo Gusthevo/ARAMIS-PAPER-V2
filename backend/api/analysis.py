@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 import logging
+from core.connection import get_db
 from services.analysis_service import analysis_service
 from models.analysis_model import AnalysisRequest, AnalysisResponse
 
@@ -86,3 +87,35 @@ async def get_rigor_levels():
             {"id": "alto", "name": "Alto", "description": "Análise detalhada e rigorosa"}
         ]
     }
+
+@router.get("/corrections/{user_id}")
+def get_user_corrections(user_id: int):
+    connection = get_db()
+    cursor = connection.cursor(dictionary=True)
+
+    try:
+        cursor.execute(
+            """
+            SELECT 
+                *
+            FROM corrections
+            WHERE user_id = %s
+            ORDER BY created_at DESC
+            """,
+            (user_id,)
+        )
+
+        results = cursor.fetchall()
+
+        return {
+            "user_id": user_id,
+            "total": len(results),
+            "corrections": results
+        }
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+    finally:
+        cursor.close()
+        connection.close()

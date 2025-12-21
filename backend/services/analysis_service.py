@@ -52,8 +52,8 @@ class AnalysisService:
         try:
             # Insere a correção no banco de dados
             cursor.execute(
-                "INSERT INTO corrections (user_id, correction, analysis_time) VALUES (%s, %s, %s)",
-                (request.user_id, json.dumps(all_corrections),duration)
+                "INSERT INTO corrections (user_id, title, section, correction, analysis_time) VALUES (%s, %s, %s, %s, %s)",
+                (request.user_id, request.title, request.section, json.dumps(all_corrections), duration)
             )
             connection.commit()
         except Exception as e:
