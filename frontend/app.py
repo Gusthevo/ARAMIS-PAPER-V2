@@ -250,6 +250,8 @@ def show_main_app():
         show_about_page()
     elif view == "request":
         st.switch_page("pages/request_page.py")
+    elif view == "analyses":
+        st.switch_page("pages/analisis_page.py")
     else:
         show_home_page()
 

@@ -219,7 +219,10 @@ if enviar:
 
     ids_selecionados = [mapa_agentes[n] for n in selecionados]
 
+    user_id = st.session_state["user_id"]
+
     payload = {
+        "user_id": user_id,
         "title": titulo,
         "area": area,
         "section": mapa_secoes[secao],

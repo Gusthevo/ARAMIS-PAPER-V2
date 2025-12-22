@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 import json
 from utils.sidebar import show_sidebar
@@ -106,8 +107,60 @@ for tab, agent in zip(tab_objects, tabs):
             st.subheader("📌 Texto Corrigido")
             st.success(agent.get("texto_corrigido"))
 
-            st.subheader("📊 Resumo das Correções")
+            st.subheader("📊 Distribuição das Correções")
             resumo = agent.get("resumo_correcoes", {})
+
+            if resumo:
+                df_resumo = pd.DataFrame(
+                    resumo.items(),
+                    columns=["Tipo de Correção", "Quantidade"]
+                )
+
+                # Deixar nomes mais legíveis
+                df_resumo["Tipo de Correção"] = (
+                    df_resumo["Tipo de Correção"]
+                    .str.replace("_", " ")
+                    .str.title()
+                )
+
+                # Garantir que "Total Erros" fique por último
+                mask_total = df_resumo["Tipo de Correção"] == "Total Erros"
+
+                df_resumo = pd.concat([
+                    df_resumo[~mask_total],
+                    df_resumo[mask_total]
+                ])
+
+                st.dataframe(
+                    df_resumo,
+                    use_container_width=True,
+                    hide_index=True
+                )
+            else:
+                st.info("Nenhuma correção registrada.")
+            if resumo:
+                df_resumo = pd.DataFrame(
+                    resumo.items(),
+                    columns=["Tipo de Correção", "Quantidade"]
+                )
+
+                df_resumo["Tipo de Correção"] = (
+                    df_resumo["Tipo de Correção"]
+                    .str.replace("_", " ")
+                    .str.title()
+                )
+
+                st.pyplot(
+                    df_resumo.set_index("Tipo de Correção")
+                    .plot.pie(
+                        y="Quantidade",
+                        autopct="%1.0f%%",
+                        legend=False,
+                        figsize=(5, 5)
+                    ).figure
+                )
+            else:
+                st.info("Nenhuma correção registrada.")
 
             st.write(resumo)
 

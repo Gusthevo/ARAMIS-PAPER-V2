@@ -51,6 +51,10 @@ def show_sidebar():
             st.session_state["current_view"] = "request"
             st.switch_page("app.py")
 
+        if st.button("🔍 Minhas Análises", use_container_width=True):
+            st.session_state["current_view"] = "analyses"
+            st.switch_page("app.py")
+
         # Botão PERFIL
         # Define view como 'profile' e vai para o main
         if st.button("👤 Meu Perfil", use_container_width=True):

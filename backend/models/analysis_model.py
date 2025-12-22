@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from typing import Optional, List, Any
 
 class AnalysisRequest(BaseModel):
+    user_id: int
     text: str
     section: str
     title: Optional[str] = None
