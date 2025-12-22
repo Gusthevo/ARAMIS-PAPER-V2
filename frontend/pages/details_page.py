@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import json
 from utils.sidebar import show_sidebar
 
@@ -57,7 +58,37 @@ for tab, agent in zip(tabs, corrections):
             st.success(agent.get("texto_corrigido"))
 
             st.subheader("📊 Resumo das Correções")
-            st.write(agent.get("resumo_correcoes", {}))
+
+            resumo = agent.get("resumo_correcoes", {})
+
+            if resumo:
+                df_resumo = pd.DataFrame(
+                    resumo.items(),
+                    columns=["Tipo de Correção", "Quantidade"]
+                )
+
+                # Deixar nomes mais legíveis
+                df_resumo["Tipo de Correção"] = (
+                    df_resumo["Tipo de Correção"]
+                    .str.replace("_", " ")
+                    .str.title()
+                )
+
+                # Garantir que "Total Erros" fique por último
+                mask_total = df_resumo["Tipo de Correção"] == "Total Erros"
+
+                df_resumo = pd.concat([
+                    df_resumo[~mask_total],
+                    df_resumo[mask_total]
+                ])
+
+                st.dataframe(
+                    df_resumo,
+                    use_container_width=True,
+                    hide_index=True
+                )
+            else:
+                st.info("Nenhuma correção registrada.")
 
             st.subheader("📝 Comentários Detalhados")
             for c in agent.get("comentarios_detalhados", []):

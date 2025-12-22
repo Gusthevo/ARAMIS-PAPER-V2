@@ -16,16 +16,14 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Inicializa serviços essenciais
 init_session_state()
-apply_custom_style() # Aplica o CSS (cards, botões, inputs arredondados)
+apply_custom_style()
 cookies = get_cookie_manager()
 
 # -------------------------------------------------------------------------
-# 2. LÓGICA DE AUTENTICAÇÃO
+# 2. AUTENTICAÇÃO
 # -------------------------------------------------------------------------
 def attempt_login_from_cookie():
-    """Tenta recuperar a sessão via cookie se o usuário der F5."""
     if st.session_state.logged_in:
         return True
 
@@ -41,16 +39,11 @@ def attempt_login_from_cookie():
                     session_token=token_from_cookie
                 )
                 return True
-            else:
-                logout_user()
-                return False
-        except Exception as e:
-            print(f"Erro ao validar cookie: {e}")
             logout_user()
-            return False
+        except Exception:
+            logout_user()
     return False
 
-# Bloqueio de Segurança: Redireciona se não estiver logado
 if not is_logged_in():
     if not attempt_login_from_cookie():
         st.switch_page("pages/login_page.py")
@@ -58,48 +51,66 @@ if not is_logged_in():
         st.rerun()
 
 # -------------------------------------------------------------------------
-# 3. INTERFACE DE NAVEGAÇÃO
+# 3. SIDEBAR
 # -------------------------------------------------------------------------
 show_sidebar()
 
-# 🔎 busca correções
-response = api_client.get_corrections(st.session_state.user_id)
-
-if response.status_code != 200:
-    st.error("Erro ao buscar correções")
-    st.stop()
-
-data = response.json()
-corrections = data["corrections"]
-
-if not corrections:
-    st.info("Nenhuma correção encontrada")
-    st.stop()
-
-# 📊 monta dataframe completo
-df = pd.DataFrame(corrections)
-df["created_at"] = pd.to_datetime(df["created_at"])
-
-# 🧩 cabeçalho da tabela
-cols = st.columns([5, 2, 2, 1])
-cols[0].markdown("**Title**")
-cols[1].markdown("**Section**")
-cols[2].markdown("**Created at**")
-cols[3].markdown("**Visualizar**")
+# -------------------------------------------------------------------------
+# 4. HEADER
+# -------------------------------------------------------------------------
+st.markdown(
+    """
+    <div style="padding: 1rem 0;">
+        <h1 style="margin-bottom: 0.2rem;">📊 Análises Realizadas</h1>
+        <p style="color: #6b7280;">
+            Aqui estão todas as análises corrigidas associadas à sua conta.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 st.divider()
 
-# 📌 linhas — ITERA NO DF COMPLETO
+# -------------------------------------------------------------------------
+# 5. BUSCA DAS CORREÇÕES
+# -------------------------------------------------------------------------
+response = api_client.get_corrections(st.session_state.user_id)
+
+if response.status_code != 200:
+    st.error("❌ Erro ao buscar correções")
+    st.stop()
+
+corrections = response.json().get("corrections", [])
+
+if not corrections:
+    st.info("ℹ️ Nenhuma correção encontrada")
+    st.stop()
+
+df = pd.DataFrame(corrections)
+df["created_at"] = pd.to_datetime(df["created_at"]).dt.strftime("%d/%m/%Y %H:%M")
+
+# -------------------------------------------------------------------------
+# 6. LISTAGEM EM CARDS
+# -------------------------------------------------------------------------
 for _, row in df.iterrows():
-    cols = st.columns([5, 2, 2, 1])
+    with st.container():
+        st.markdown(
+            """
+            <div class="card">
+            """,
+            unsafe_allow_html=True
+        )
 
-    cols[0].write(row["title"])
-    cols[1].write(row["section"])
-    cols[2].write(row["created_at"])
+        col1, col2, col3, col4 = st.columns([5, 2, 2, 1])
 
-    # 👁 botão de detalhe
-    if cols[3].button("👁", key=f"view_{row['id']}"):
-        # 🔥 passa TODA a análise
-        st.session_state["selected_analysis"] = row.to_dict()
-        st.switch_page("pages/details_page.py")
+        col1.markdown(f"### {row['title']}")
+        col2.markdown(f"**Seção**<br>{row['section']}", unsafe_allow_html=True)
+        col3.markdown(f"**Criado em**<br>{row['created_at']}", unsafe_allow_html=True)
 
+        if col4.button("👁 Ver", key=f"view_{row['id']}"):
+            st.session_state["selected_analysis"] = row.to_dict()
+            st.switch_page("pages/details_page.py")
+
+        st.markdown("</div>", unsafe_allow_html=True)
+        st.write("")  # espaçamento entre cards
