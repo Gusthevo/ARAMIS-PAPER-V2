@@ -23,6 +23,38 @@ cookies = get_cookie_manager()
 def show_home_page():
     """Página inicial redesenhada com foco em UX e hierarquia visual"""
 
+# ---------- BANNER DE AVISO ---------- #
+# Configure esta variável conforme necessário
+SHOW_WARNING = True  # Mude para False quando não precisar mais
+WARNING_MESSAGE = "<strong>Informação Importante</strong> - Os resultados obtidos pelos agentes podem não ser perfeitos, atente-se para ver se eles fazem sentido. Lembre-se, a intenção da ferramenta não é substituir o autor e seu estilo de escrita, mas ser um revisor aliado para aprimorar a escrita do TCC."
+
+if SHOW_WARNING:
+    st.markdown(f"""
+    <div style="
+        background: linear-gradient(90deg, #FFF3CD 0%, #FFEAA7 100%);
+        border: 1px solid #FFC107;
+        color: #856404;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+    ">
+        <span style="font-size: 1.2rem; margin-right: 10px;">⚠️</span>
+        <div style="flex-grow: 1;">{WARNING_MESSAGE}</div>
+        <button onclick="this.parentElement.style.display='none'" 
+                style="
+                    background: none;
+                    border: none;
+                    color: #856404;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    padding: 0 5px;
+                "
+    </div>
+    """, unsafe_allow_html=True)
+
     # ---------- HERO ---------- #
     st.markdown(
         f"""
@@ -108,10 +140,11 @@ def show_home_page():
     st.markdown("<br><br>", unsafe_allow_html=True)
 
     # ---------- DICAS ---------- #
-    with st.expander("ℹ️ Boas práticas para melhores resultados"):
+    with st.expander("ℹ️ Orientações para obter melhores resultados"):
         st.markdown(
             """
             - **Recomendamos o envio de uma seção por vez** (Introdução, Metodologia, Resultados).
+            - No agente de **Rigor Metodológico**, recomendamos inserir a seção de Metodologia, pois é onde se concentra a maior parte das etapas metodológicas de um TCC.
             - **Escolha corretamente a área do conhecimento para reposta mais precisa**.
             - Utilize **Rigor Alto** para versões finais do trabalho.
             - Temos a funcionalidade de **conserto automático de parágrafos**, mas confirme se na caixa de texto estão corretamente separados
