@@ -1,9 +1,7 @@
 import logging
 import time
 from typing import List, Dict
-from agents.grammar_agent import agent_os_grammar
-from agents.logical_agent import agent_os_logical
-from agents.rigor_agent import agent_os_rigor
+from agents.iclr_agent import agent_os_iclr
 from core.connection import get_db
 from models.analysis_model import AnalysisRequest, AnalysisResponse
 
@@ -12,9 +10,7 @@ logger = logging.getLogger(__name__)
 class AnalysisService:
     def __init__(self):
         self.agents = {
-            "grammar_correction": agent_os_grammar,
-            "logical_flow": agent_os_logical,
-            "methodological_rigor": agent_os_rigor
+            "paper_correction": agent_os_iclr
         }
     
     async def analyze_text(self, request: AnalysisRequest) -> AnalysisResponse:
@@ -23,16 +19,15 @@ class AnalysisService:
         
         # Contexto com todas as informações do usuário
         context = {
-            "section": request.section,
-            "title_tcc": request.title,
+            #"section": request.section,
+            "title_paper": request.title,
             "area_knowledge": request.area,
-            "model_rigor": request.rigor
+            #"model_rigor": request.rigor
         }
         
         # Coleta resultados dos agentes selecionados
         all_corrections = []
         
-        # ✅ CORREÇÃO: Usar request.agents (lista de strings) em vez de criar dict
         for agent_name in request.agents:
             if agent_name in self.agents:
                 agent = self.agents[agent_name]
@@ -55,7 +50,7 @@ class AnalysisService:
             )
             connection.commit()
         except Exception as e:
-            logger.error(f"Erro ao salvar correção no banco de dados: {e}")
+            logger.error(f"Erros saving correction in database: {e}")
         finally:
             cursor.close()
             connection.close()

@@ -14,8 +14,8 @@ logging.basicConfig(
 
 app = FastAPI(
     title="ARAMIS API",
-    description="Sistema inteligente de correção de TCCs com múltiplos agentes especializados",
-    version="1.0.0"
+    description="Smart System for Paper Correction With A Specialized Agent",
+    version="2.0.0"
 )
 
 # 🔥 CONFIGURAÇÃO CORS COMPLETA PARA CONTAINERS DIFERENTES
@@ -41,8 +41,8 @@ app.include_router(analysis.router, prefix="/api/analysis")
 @app.get("/")
 async def root():
     return {
-        "message": "ARAMIS API - Sistema de Correção de TCCs",
-        "version": "1.0.0", 
+        "message": "ARAMIS API - Paper Correction System",
+        "version": "2.0.0", 
         "endpoints": {
             "documentation": "/docs",
             "about": "/about",
@@ -66,7 +66,7 @@ async def about():
         "platform": {
             "name": "ARAMIS",
             "description": "Automated Review Agents for Methodological Improvements",
-            "version": "1.0.0"
+            "version": "2.0.0"
         }
     }
 

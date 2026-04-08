@@ -8,6 +8,8 @@ from core.sessions import get_session
 
 
 router = APIRouter()
+password_pattern = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$'
+email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
 
 @router.post("/register")
 async def register_user(request: Request):  
@@ -20,15 +22,15 @@ async def register_user(request: Request):
     if " " in username:
         raise HTTPException(status_code=400, detail= "O username não deve conter espaços.")
     
-    if not all([username, email, password]):
+    elif not all([username, email, password]):
         raise HTTPException(status_code=400, detail="Todos os dados devem estar obrigatoriamente preenchidos")
     
-    if not "@" in email or ".co" not in email:
-        raise HTTPException(status_code=400, detail="Email inválido.")
-    
+    elif not re.fullmatch(email_pattern, email):
+        raise HTTPException(status_code=400, detail="Email inválido, tente novamente.")
 
-    if not re.match(r'^(?=.*[A-Z])(?=.*[\W_]).{8,}$', password):
-        raise HTTPException(status_code=400, detail="A senha deve ter no mínimo 8 caracteres, uma letra maiúscula e um símbolo especial.")
+    else:
+        if not re.fullmatch(password_pattern, password):
+            raise HTTPException(status_code=400, detail="A senha deve ter no mínimo 8 caracteres, uma letra maiúscula e um símbolo especial.")
     
     connection = get_db() 
     cursor = connection.cursor(dictionary=True)
