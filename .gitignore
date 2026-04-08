@@ -1,6 +1,11 @@
 env
 .env
 venv
+.venv
 lib
 __pycache__/
 *.pyc
+data/open_review_datasets
+data/open_review_datasets_improved
+data/processed_tccs
+data/raw_tccs
