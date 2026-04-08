@@ -1,3 +1,4 @@
+import time
 import streamlit as st
 from utils.api_client import api_client
 from utils.session_state import check_backend_status
@@ -143,33 +144,30 @@ def show_register_page():
                 use_container_width=True
             )
 
-        # Validações
-        if register_button:
-            if not all([username, email, password, confirm_password]):
-                st.error("⚠️ Preencha todos os campos obrigatórios")
-            elif password != confirm_password:
-                st.error("⚠️ As senhas não coincidem")
-            elif len(password) < 6:
-                st.error("⚠️ A senha deve ter pelo menos 6 caracteres")
-            elif not accept_terms:
-                st.error("⚠️ Confirme as informações antes de prosseguir")
-            else:
-                with st.spinner("Criando sua conta..."):
-                    response = api_client.register(username, email, password)
+    # Validações
+    if register_button:
+        if not all([username, email, password, confirm_password]):
+            st.error("⚠️ Preencha todos os campos obrigatórios")
+        elif password != confirm_password:
+            st.error("⚠️ As senhas não coincidem")
+        elif len(password) < 6:
+            st.error("⚠️ A senha deve ter pelo menos 6 caracteres")
+        elif not accept_terms:
+            st.error("⚠️ Confirme as informações antes de prosseguir")
+        else:
+            with st.spinner("Criando sua conta..."):
+                result = api_client.register(username, email, password)
 
-                    if response and response.status_code == 200:
-                        st.success("✅ Conta criada com sucesso! Faça login.")
-                        st.switch_page("pages/login_page.py")
-                    else:
-                        error_msg = "Erro de conexão, tente novamente"
-                        if response:
-                            error_msg = response.json().get(
-                                "detail", "Erro ao criar conta"
-                            )
-                        st.error(f"❌ {error_msg}")
+                if "error" in result:
+                    st.error(f"❌ {result['error']}")
+                else:
+                    st.success("✅ Conta criada com sucesso! Faça login.")
+                    time.sleep(3)
+                    st.switch_page("pages/login_page.py")
 
-        if back_button:
-            st.switch_page("pages/login_page.py")
+    if back_button:
+        st.switch_page("pages/login_page.py")
+
 
     # Rodapé
     st.markdown(

@@ -48,10 +48,22 @@ class APIClient:
                 timeout=10,
                 headers=self._get_headers()
             )
-            return response
+
+            try:
+                data = response.json()
+            except Exception:
+                data = {}
+
+            if response.status_code == 200:
+                return data  # sucesso, retorna o JSON do backend
+            else:
+                # erro, retorna dict padronizado com a mensagem
+                return {"error": data.get("detail", f"Erro {response.status_code}")}
+
         except Exception as e:
             print(f"Erro no registro: {e}")
-            return None
+            return {"error": str(e)}
+
     
     def login(self, username: str, password: str):
         """Faz login"""
