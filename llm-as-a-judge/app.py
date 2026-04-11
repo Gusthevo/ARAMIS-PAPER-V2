@@ -119,53 +119,128 @@ tab_arena, tab_ranking = st.tabs(["⚔️ Batalha às Cegas", "🏆 Ranking Glob
 with tab_arena:
     st.markdown("### 📥 Importar Dataset de Revisões")
     
-    # Campo para upload do CSV gerado pelo seu extrator
-    uploaded_file = st.file_uploader("Faça o upload do CSV com os artigos e revisões", type=["csv"])
+    uploaded_file = st.file_uploader("Faça o upload do seu CSV", type=["csv"])
     
     if uploaded_file is not None:
         df_papers = pd.read_csv(uploaded_file)
         
-        # Cria um selectbox para escolher qual artigo avaliar
-        titulos = df_papers['paper_title'].tolist()
+        # Agora usamos 'title' em vez de 'paper_title' conforme o seu CSV
+        titulos = df_papers['title'].dropna().unique().tolist()
         artigo_selecionado = st.selectbox("Selecione o Artigo para Iniciar a Batalha:", titulos)
         
-        # Pega a linha do artigo selecionado
-        linha_artigo = df_papers[df_papers['paper_title'] == artigo_selecionado].iloc[0]
+        linha_artigo = df_papers[df_papers['title'] == artigo_selecionado].iloc[0]
         
         with st.expander("⚙️ Configuração do Desafiante (LLM)", expanded=not st.session_state.responses):
-            st.info(f"**Artigo Selecionado:** {linha_artigo['paper_title']}")
+            st.info(f"**Artigo Selecionado:** {linha_artigo['title']}")
             
             modelo_desafiante = st.selectbox("Escolha o Modelo de Teste", AVAILABLE_MODELS, index=0)
             
             if st.button("Gerar 5ª Revisão e Iniciar Batalha", type="primary"):
-                with st.spinner("O LLM está lendo o artigo e gerando a revisão..."):
+                with st.spinner(f"O {modelo_desafiante} está lendo o artigo e gerando a revisão..."):
                     
-                    # 1. Carrega o prompt e substitui as variáveis
+                    # 1. Carrega e preenche o prompt com as colunas corretas do CSV
                     template = carregar_prompt_externo("prompt_revisao_tcc.txt")
-                    prompt_pronto = template.replace("{paper_title}", linha_artigo['paper_title'])
-                    prompt_pronto = prompt_pronto.replace("{paper_text}", linha_artigo['paper_text'])
+                    prompt_pronto = template.replace("{paper_title}", str(linha_artigo['title']))
+                    prompt_pronto = prompt_pronto.replace("{paper_text}", str(linha_artigo['paper_text']))
                     
                     # 2. Gera a revisão do LLM
                     revisao_llm = generate_response(modelo_desafiante, prompt_pronto)
                     
-                    # 3. Agrupa todas as revisões e identifica a origem secreta
+                    # Função auxiliar para remontar as revisões humanas despedaçadas nas colunas
+                    def montar_revisao_humana(linha, num_revisor):
+                        # Se não houver nota, assumimos que aquele revisor não existe/faltou
+                        if pd.isna(linha[f'review_{num_revisor}_rating']):
+                            return "Este revisor não avaliou o artigo."
+                            
+                        return f"""
+### Summary
+{linha[f'review_{num_revisor}_summary']}
+
+### Strengths
+{linha[f'review_{num_revisor}_strengths']}
+
+### Weaknesses
+{linha[f'review_{num_revisor}_weaknesses']}
+
+---
+**Scores Atribuídos:**
+* **Rating:** {linha[f'review_{num_revisor}_rating']}
+* **Confidence:** {linha[f'review_{num_revisor}_confidence']}
+* **Soundness:** {linha[f'review_{num_revisor}_soundness']}
+* **Presentation:** {linha[f'review_{num_revisor}_presentation']}
+* **Contribution:** {linha[f'review_{num_revisor}_contribution']}
+"""
+                    
+                    # 3. Agrupa as revisões (Remontando os humanos e inserindo o LLM)
                     opcoes = [
-                        {"identidade": "Humano 1", "texto": linha_artigo['review_1']},
-                        {"identidade": "Humano 2", "texto": linha_artigo['review_2']},
-                        {"identidade": "Humano 3", "texto": linha_artigo['review_3']},
-                        {"identidade": "Humano 4", "texto": linha_artigo['review_4']},
+                        {"identidade": "Humano 1", "texto": montar_revisao_humana(linha_artigo, 1)},
+                        {"identidade": "Humano 2", "texto": montar_revisao_humana(linha_artigo, 2)},
+                        {"identidade": "Humano 3", "texto": montar_revisao_humana(linha_artigo, 3)},
+                        {"identidade": "Humano 4", "texto": montar_revisao_humana(linha_artigo, 4)},
                         {"identidade": f"LLM ({modelo_desafiante})", "texto": revisao_llm}
                     ]
                     
-                    # 4. Embaralha para o teste cego
+                    # Filtra caso algum artigo tenha menos de 4 revisores humanos
+                    opcoes = [opt for opt in opcoes if "Este revisor não avaliou" not in opt["texto"]]
+                    
                     random.shuffle(opcoes)
                     
-                    # Salva no estado
                     st.session_state.responses = opcoes
-                    st.session_state.current_prompt = linha_artigo['paper_title']
+                    st.session_state.current_prompt = linha_artigo['title']
                     st.session_state.revealed = False
                     st.session_state.winner_display = None
                     st.rerun()
+
+    # ==========================================
+    # ÁREA DE JULGAMENTO (O TESTE DE TURING)
+    # ==========================================
+    if st.session_state.responses:
+        st.divider()
+        st.markdown(f"### Avaliando as Revisões para: *{st.session_state.current_prompt}*")
+        
+        # Cria as abas dinamicamente (baseado em quantas opções válidas restaram)
+        nomes_abas = [f"Revisor {i+1}" for i in range(len(st.session_state.responses))]
+        abas = st.tabs(nomes_abas)
+        
+        for i, aba in enumerate(abas):
+            with aba:
+                st.markdown(f"**Análise do Revisor {i+1}**")
+                st.write(st.session_state.responses[i]["texto"])
+
+        st.divider()
+
+        if not st.session_state.revealed:
+            st.markdown("### 🏆 Qual revisor fez o melhor trabalho?")
+            
+            # Botões de voto responsivos ao número de revisores
+            colunas_voto = st.columns(len(st.session_state.responses))
+            for i, col in enumerate(colunas_voto):
+                with col:
+                    if st.button(f"Votar no {i+1}", use_container_width=True, key=f"btn_rev_{i}"):
+                        vencedor_real = st.session_state.responses[i]["identidade"]
+                        save_battle(st.session_state.current_prompt, "Vários Humanos", modelo_desafiante, winner=vencedor_real)
+                        
+                        st.session_state.winner_display = f"Revisor {i+1} (Identidade: {vencedor_real})"
+                        st.session_state.revealed = True
+                        st.rerun()
+
+        if st.session_state.revealed:
+            st.success(f"## 🎉 Veredito Salvo! Você escolheu o: **{st.session_state.winner_display}**")
+            
+            st.markdown("### 🕵️ Identidades Reveladas:")
+            for i in range(len(st.session_state.responses)):
+                identidade = st.session_state.responses[i]['identidade']
+                icone = "🤖" if "LLM" in identidade else "🧑‍🏫"
+                if f"Revisor {i+1}" in st.session_state.winner_display:
+                    st.markdown(f"- **Revisor {i+1}: {icone} {identidade} (VENCEDOR 🏆)**")
+                else:
+                    st.markdown(f"- Revisor {i+1}: {icone} {identidade}")
+            
+            if st.button("🔄 Avaliar Outro Artigo"):
+                st.session_state.responses = None
+                st.session_state.revealed = False
+                st.session_state.winner_display = None
+                st.rerun()
 
     # ==========================================
     # ÁREA DE JULGAMENTO (O TESTE DE TURING)
